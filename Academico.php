@@ -5235,14 +5235,14 @@ class Academico extends MX_Controller
 							$estado='';
 							if($num_componentes==$num_componentes_calificados and $asistencia>=0 and $nota_retos!=''){
 								$nota_final=$nota_etapa+$nota_retos*$componente[1]/10;
-								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 								$notamin=$v_notamin['VALOR'];
-								$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+								$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 								$notamax=$v_notamax['VALOR'];
 								$min_componente_examen=5;
 								$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 								$notamax_asis=$v_notamax_asis['VALOR'];
-								$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+								$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 								$notamin_asis=$v_notamin_asis['VALOR'];
 								$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 								$nota_pierde=$v_nota_pierde['VALOR'];
@@ -5915,14 +5915,14 @@ class Academico extends MX_Controller
 						$estado='';
 						if($num_componentes==$num_componentes_calificados and $asistencia>=0 and $nota!=''){
 							$nota_final=$nota_etapa+$nota*$componente[3]/10;
-							$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+							$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 							$notamin=$v_notamin['VALOR'];
-							$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+							$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 							$notamax=$v_notamax['VALOR'];
 							$min_componente_examen=5;
 							$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 							$notamax_asis=$v_notamax_asis['VALOR'];
-							$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+							$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 							$notamin_asis=$v_notamin_asis['VALOR'];
 							$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 							$nota_pierde=$v_nota_pierde['VALOR'];
@@ -6171,14 +6171,14 @@ class Academico extends MX_Controller
 						$estado='';
 						if($num_componentes==$num_componentes_calificados and $asistencia>=0 and $nota!=''){
 							$nota_final=$nota_etapa+$nota*$componente[2]/10;
-							$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+							$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 							$notamin=$v_notamin['VALOR'];
-							$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+							$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 							$notamax=$v_notamax['VALOR'];
 							$min_componente_examen=5;
 							$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 							$notamax_asis=$v_notamax_asis['VALOR'];
-							$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+							$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 							$notamin_asis=$v_notamin_asis['VALOR'];
 							$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 							$nota_pierde=$v_nota_pierde['VALOR'];
@@ -6410,14 +6410,14 @@ class Academico extends MX_Controller
 							}
 							$asistencia=$nota;
 							if($num_componentes==$num_componentes_calificados and $asistencia>=0){
-								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 								$notamin=$v_notamin['VALOR'];
-								$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+								$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 								$notamax=$v_notamax['VALOR'];
 								$min_componente_examen=5;
 								$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 								$notamax_asis=$v_notamax_asis['VALOR'];
-								$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+								$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 								$notamin_asis=$v_notamin_asis['VALOR'];
 								$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 								$nota_pierde=$v_nota_pierde['VALOR'];
@@ -6694,14 +6694,14 @@ class Academico extends MX_Controller
 					$estado='';
 					if($num_componentes==$num_componentes_calificados and $asistencia>=0 and $nota_retos!=''){
 						$nota_final=$nota_etapa+$nota_retos*$componente[1]/10;
-						$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+						$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 						$notamin=$v_notamin['VALOR'];
-						$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+						$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 						$notamax=$v_notamax['VALOR'];
 						$min_componente_examen=5;
 						$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 						$notamax_asis=$v_notamax_asis['VALOR'];
-						$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+						$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 						$notamin_asis=$v_notamin_asis['VALOR'];
 						$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 						$nota_pierde=$v_nota_pierde['VALOR'];
@@ -9230,7 +9230,7 @@ class Academico extends MX_Controller
 							$op['ETAPA']=0;
 							$promedio_final=$this->academico_model->get_calificaciones($op);
 							if(count($promedio_final)>0){
-								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 								$notamin=$v_notamin['VALOR'];
 								$calificacion_final=round(($promedio_final[0]['CALIFICACION']+$nota)/2,2);
 								if($calificacion_final>=$notamin or $calificacion_final>=6.5){
@@ -9421,14 +9421,14 @@ class Academico extends MX_Controller
 	{
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>-1));
 		$id_periodo=$this->academico_model->get_periodo_activado();
-		$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+		$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 		$notamin=$v_notamin['VALOR'];
-		$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+		$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 		$notamax=$v_notamax['VALOR'];
 		$min_componente_examen=5;
 		$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 		$notamax_asis=$v_notamax_asis['VALOR'];
-		$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+		$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 		$notamin_asis=$v_notamin_asis['VALOR'];
 		$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 		$nota_pierde=$v_nota_pierde['VALOR'];
@@ -13006,14 +13006,14 @@ class Academico extends MX_Controller
 		}
 		$asistencia=$nota;
 		if($num_componentes==$num_componentes_calificados and $asistencia>=0){
-			$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
+			$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota_minima'));
 			$notamin=$v_notamin['VALOR'];
-			$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota m�xima'));
+			$v_notamax=$this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 			$notamax=$v_notamax['VALOR'];
 			$min_componente_examen=5;
 			$v_notamax_asis=$this->academico_model->getparametro('Asistencia');
 			$notamax_asis=$v_notamax_asis['VALOR'];
-			$v_notamin_asis=$this->academico_model->getparametro('Asistencia minima');
+			$v_notamin_asis=$this->academico_model->getparametro('Asistencia_minima');
 			$notamin_asis=$v_notamin_asis['VALOR'];
 			$v_nota_pierde=$this->academico_model->getparametro('Nota pierde');
 			$nota_pierde=$v_nota_pierde['VALOR'];
@@ -16440,13 +16440,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					// $v_notamin=$this->academico_model->getparametro('Nota m�nima');
 					//$notamin    = $v_notamin['VALOR'];
 					$notamin    = 7;
-					$v_notamax  = $this->academico_model->getparametro(utf8_encode('Nota máxima'));
+					$v_notamax  = $this->academico_model->getparametro(utf8_encode('Nota_maxima'));
 					// $v_notamax=$this->academico_model->getparametro('Nota m�xima');
 					//$notamax    = $v_notamax['VALOR'];
 					$notamax    = 10;
 					$v_notamax_asis = $this->academico_model->getparametro('Asistencia');
 					$notamax_asis   = $v_notamax_asis['VALOR'];
-					$v_notamin_asis = $this->academico_model->getparametro('Asistencia minima');
+					$v_notamin_asis = $this->academico_model->getparametro('Asistencia_minima');
 					$notamin_asis   = $v_notamin_asis['VALOR'];
 					$v_nota_pierde  = $this->academico_model->getparametro('Nota pierde');
 					$nota_pierde    = $v_nota_pierde['VALOR'];
@@ -16529,7 +16529,25 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$idPersona=$ecm['ID_PERSONA'];
 			$pla=$this->academico_model->getPlanificaciones($ecm['ID_GRUPO'],$ecm['ID_CARRERA_MATERIA'],$ecm['ID_PERIODO_ACADEMICO']);
 			if(count($pla)>0){
-				if($pla[count($pla)-1]['ID_PLANTILLA']==$id_plantilla){//si es ultima plantilla
+				
+				$datac=array();
+				$datac['ID_PERIODO_ACADEMICO']          = $ecm['ID_PERIODO_ACADEMICO'];
+				$datac['ID_ESTUDIANTE_CARRERA_MATERIA'] = $id_estudiante_carrera_materia;
+				if($etapa>0){
+					$datac['ID_TIPO_CALIFICACION'] = 1;//componente
+					$datac['ID_COMPONENTE']        = $idComponente;
+				}else{
+					$datac['ID_TIPO_CALIFICACION'] = 5;//supletorio
+				}
+				$datac['ETAPA']                    = $etapa;
+				//revisar si ya existe el registro de calificacion componente
+				$calificacion_existe      = $this->academico_model->buscar_calificacion($datac);
+				$actualiza_calificacion=0;
+				if(isset($calificacion_existe[0]['CALIFICACION']) and $calificacion_existe[0]['CALIFICACION']!=NULL and $calificacion_existe[0]['CALIFICACION']!=''){
+					$actualiza_calificacion=1;
+				}
+				
+				if($pla[count($pla)-1]['ID_PLANTILLA']==$id_plantilla or $actualiza_calificacion==1){//si es ultima plantilla o actualiza calificacion
 					$calificacion_promedio_componente=null;
 					if($idComponente==1){//retos y proyectos
 						$existe_calificacion_proyecto=0;
@@ -21340,9 +21358,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$idsm.=trim($idm,'+').'+';
 						}
 						$ids_materias_validadas=explode('+',trim($idsm,'+'));
+						$ids_materias_extracurricular_validadas=array();
 						foreach($materias_carrera as $materia){
 							if(in_array($materia['ID_CARRERA_MATERIA'],$ids_materias_validadas)){//filtrar materias validadas
-							}else{
+								if($materia['NIVEL_MATERIA']==6){
+									$ids_materias_extracurricular_validadas[]=$materia['ID_CARRERA_MATERIA'];
+								}
+							}elseif($materia['NIVEL_MATERIA']<6){
 								$data['MATERIAS_ASIGNADAS'][$materia['ID_CARRERA_MATERIA']]=$materia['ID_CARRERA_MATERIA'];
 								$data['DOCENTES_ASIGNADOS'][$materia['ID_CARRERA_MATERIA']]=0;
 								if(isset($docente_materia_planificado[$materia['ID_CARRERA_MATERIA']])){
@@ -21429,14 +21451,37 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							foreach($materias_validadas as $idm=>$mv){
 								$validadas=explode('+',trim($idm,'+'));
 								foreach($validadas as $v){
-									$ids_materias_validadas[$v]=$v;
-									$notas_materias_validadas[$v]=$mv;
+									if(!in_array($v,$ids_materias_extracurricular_validadas)){//filtrar materias extracurriculares validadas
+										$ids_materias_validadas[$v]=$v;
+										$notas_materias_validadas[$v]=$mv;
+									}
 								}
 							}
 							$data['MATERIAS_CONVALIDADAS']=$ids_materias_validadas;
 							$data['NOTAS_CONV']=$notas_materias_validadas;
 							$data['ID_CLIENTE'] = $id_cliente;
 							$respuesta = $this->academico_model->homologarConvalidar($data);
+							
+							//procesar materias extracurriculares
+							if(count($ids_materias_extracurricular_validadas)>0){
+								foreach($ids_materias_extracurricular_validadas as $idme){
+									$datm['ID_CARRERA_MATERIA']=$idme;
+									$datm['ID_PERSONA']=$id_persona;
+									$datm['ID_PERIODO_ACADEMICO']=$idPeriodo;
+									$materia=$this->academico_model->obtener_datos_materia($idme);
+									$datm['NIVEL_MATERIA']=$materia['NIVEL_MATERIA'];
+									$datm['CREDITOS_MATERIA']=$materia['CREDITOS_MATERIA'];
+									$datm['ID_CARRERA']=$materia['ID_CARRERA'];
+									$id_ecm=$this->academico_model->crear_estudiante_carrera_materia($datm);
+									$datc['ID_USUARIO']=0;
+									$datc['ID_PERIODO_ACADEMICO']=$idPeriodo;
+									$datc['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_ecm;
+									$datc['ID_TIPO_CALIFICACION']=6;
+									$datc['FECHA_HORA']=date('Y-m-d H:i:s');
+									$datc['ESTADO_CALIFICACION']=1;
+									$this->academico_model->crearCalificacion($datc);
+								}
+							}
 						}
 
 						////Proceso Practicas/////////////////////////////////
@@ -21932,7 +21977,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$this->load->module('admin/usuario');
 		$id_periodo = $this->academico_model->get_periodo_activado();
 		$id_carrera=null;
-		$id_nivel=null;
+		$id_nivel=1;
 		$grupo=null;
 		//$grupo = trim($this->input->post('grupo'));
 		$id_persona=null;
@@ -21963,10 +22008,10 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 
 			//if($estado_matricula[$k]==-1){//en mora
 				$idPersona=$this->academico_model->get_id_persona($id[$k]);
-				$validaciones=$this->academico_model->get_estudianteCarreraMateria(array('ID_PERSONA'=>$idPersona,'ID_CARRERA'=>$id_carrera[$k],'FUE_CONVALIDADA'=>1));
+				//$validaciones=$this->academico_model->get_estudianteCarreraMateria(array('ID_PERSONA'=>$idPersona,'ID_CARRERA'=>$id_carrera[$k],'FUE_CONVALIDADA'=>1));
 				//$homologaciones=$this->academico_model->get_estudianteCarreraMateria(array('ID_PERSONA'=>$idPersona,'ID_CARRERA'=>$id_carrera[$k],'FUE_HOMOLOGADA'=>1));
 				//if($validaciones==NULL and $homologaciones==NULL and $becas[$k]=='' and $porpagar>0){//si no es validacion / homologacion / sin beca
-				if($validaciones==NULL and $porpagar>0){//si no es validacion
+				//if($validaciones==NULL and $porpagar>0){//si no es validacion
 					$persona=$this->academico_model->get_datos_persona($idPersona);
 					if($op==1){//bloqueo examenes
 						$usuario=$this->usuarios_model->obtener_datos_usuario_por_persona($idPersona);
@@ -22049,6 +22094,49 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$this->academico_model->crearLogInscripcionVlc($dat);*/
 						}
 						$avisos.='<tr><td>'.$i.'</td><td>'.$persona['CEDULA'].'</td><td>'.$alumno[$k]. '</td><td>'.$persona['CELULAR'].' / '.$celular.'</td><td>'.$res['msg'].'</td></tr>';
+					}elseif($op==3){//aviso inicio matriculas
+						$i=$i+1;
+						//Enviar Aviso
+						$msg = "*ESTIMADO ESTUDIANTE DEMING*\n\n";
+						$msg.= "El Instituto te informa la apertura del periodo de matrículas para el semestre Mayo 2023 - Octubre 2023.\n\n";
+						$msg.= "Puede realizar su matrícula en Línea en el sistema académico ó en Secretaría Académica.\n\n";
+						$msg.= "#DemingEsCalidad\n\n";
+						$msg.= "\n";
+						$msg.= "Mensaje creado por Bi-Academos by Binary IT: Este mensaje es automático *no responder o llamar a este número* \n";
+						$res['msg']='';
+						$email='';
+						$celular='';
+						if($_SERVER['SERVER_NAME']=="localhost" or $_SERVER['SERVER_NAME']=="[::1]"){
+							$email="gmales@binary.ec";
+							$celular='+5930990436142';
+						}else{
+							if(isset($persona['CORREO_INSTITUCIONAL']) and $persona['CORREO_INSTITUCIONAL']!=NULL and $persona['CORREO_INSTITUCIONAL']!=''){
+								$email=$persona['CORREO_INSTITUCIONAL'];
+							}
+							if(isset($persona['CELULAR']) and $persona['CELULAR']!=NULL and $persona['CELULAR']!='' and $persona['CELULAR']!='00-0000-0000'){
+								$celular='+593'.str_replace('-','',$persona['CELULAR']);
+							}
+						}
+						$asunto = "Notificación Deming";
+						if($email!=NULL and $email!=''){
+							//$this->academico->enviarMailTeam($email,$asunto,$msg);
+						}
+						if($celular!=NULL and $celular!=''){
+							$r=$this->academico_model->get_log_vlc(array('CEDULA'=>$persona['CEDULA']));
+							if($i==1){
+								if($r==NULL){
+									$res=$this->usuario->enviarWhatsapp($celular,$msg);
+								}else{
+									$res['msg']='Ya enviado';
+								}
+							}
+							//guardar log vlc
+							/*$dat['CEDULA']=$persona['CEDULA'];
+							$dat['RESULTADO']=$res['msg'];
+							$dat['FECHA']=date('Y-m-d H:i:s');
+							$this->academico_model->crearLogInscripcionVlc($dat);*/
+						}
+						$avisos.='<tr><td>'.$i.'</td><td>'.$persona['CEDULA'].'</td><td>'.$alumno[$k]. '</td><td>'.$persona['CELULAR'].' / '.$celular.'</td><td>'.$res['msg'].'</td></tr>';
 					}else{
 
 						$i=$i+1;
@@ -22095,13 +22183,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 						$avisos.='<tr><td>'.$i.'</td><td>'.$persona['CEDULA'].'</td><td>'.$alumno[$k]. '</td><td>'.$persona['CELULAR'].' / '.$celular.'</td><td>'.$res['msg'].'</td></tr>';
 					}
-				}
+				//}
 			//}
 		}
 		$avisos.='</table>';
 		//aviso administrador
 		//$this->enviarMailTeam('cvasquez@binary.ec','Bloqueo Masivo Financiero',$avisos,array(),true);
-		$this->enviarMailTeam('gmales@binary.ec','aviso descuento',$avisos,array(),true);
+		//$this->enviarMailTeam('gmales@binary.ec','aviso descuento',$avisos,array(),true);
 		echo $avisos;
 	}
 

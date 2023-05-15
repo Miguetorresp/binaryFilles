@@ -7239,8 +7239,9 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
-	public function get_materias_estudianteAll($id_estudiante_carrera_materia, $id_planificacion = 0)
-	{
+
+	public function get_materias_estudianteAll($id_estudiante_carrera_materia,$id_planificacion=0)
+  {
 		$sql ="SELECT m.NOMBRE as MATERIA, n.NIVEL, n.ID_NIVEL, c.NOMBRE as CARRERA, c.ID_CARRERA, n1.NIVEL as NIVEL_ESTUDIANTE, cli.NRO_DOCUMENTO as CEDULA_ESTUDIANTE, g.NOMBRE as GRUPO, g.ID_GRUPO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, CONCAT_WS(' ',p1.APELLIDO_PATERNO, p1.APELLIDO_MATERNO, p1.PRIMER_NOMBRE, p1.SEGUNDO_NOMBRE) as DOCENTE, p1.CORREO_INSTITUCIONAL as CORREO_INSTITUCIONAL_DOCENTE, p1.FOTOGRAFIA as DOCENTE_FOTOGRAFIA, p1.GENERO AS GENERO_DOCENTE,cli1.NRO_DOCUMENTO as CEDULA_DOCENTE, pla.FECHA_TUTORIA1, pla.FECHA_TUTORIA2, pla.FECHA_TUTORIA3, pla.FECHA_TUTORIA4, pla.FECHA_EXAMEN, pla.FECHA_SUPLETORIO, pla.FECHAS_TUTORIA, pla.FECHA_CIERRE, pla.ID_PLANIFICACION, ecm.ID_CARRERA_MATERIA, ecm.ID_VLC, ecm.ASISTENCIA_JUSTIFICADA";
 		$sql .=" FROM acad_estudiante_carrera_materia ecm";
 		$sql .=" join acad_materia m on m.ID_MATERIA=ecm.ID_CARRERA_MATERIA";
@@ -7259,6 +7260,7 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 		$sql .=" WHERE ecm.ID_ESTUDIANTE_CARRERA_MATERIA=".$id_estudiante_carrera_materia;
 		if($id_planificacion>0){
 			$sql .=" AND pla.ID_PLANIFICACION=".$id_planificacion;
+
 		}
 		$query = $this->db->query($sql);
 		$ds    = $query->row_array(); 
