@@ -7230,7 +7230,7 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
-	public function get_materias_estudianteAll($id_estudiante_carrera_materia)
+	public function get_materias_estudianteAll($id_estudiante_carrera_materia,$id_planificacion=0)
 	{
 		$sql ="SELECT m.NOMBRE as MATERIA, n.NIVEL, c.NOMBRE as CARRERA, n1.NIVEL as NIVEL_ESTUDIANTE, cli.NRO_DOCUMENTO as CEDULA_ESTUDIANTE, g.NOMBRE as GRUPO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, CONCAT_WS(' ',p1.APELLIDO_PATERNO, p1.APELLIDO_MATERNO, p1.PRIMER_NOMBRE, p1.SEGUNDO_NOMBRE) as DOCENTE, cli1.NRO_DOCUMENTO as CEDULA_DOCENTE, pla.FECHA_TUTORIA1, pla.FECHA_TUTORIA2, pla.FECHA_TUTORIA3, pla.FECHA_TUTORIA4, pla.FECHA_EXAMEN, pla.FECHA_SUPLETORIO, pla.FECHAS_TUTORIA, pla.FECHA_CIERRE, ecm.ID_CARRERA_MATERIA, ecm.ID_VLC";
 		$sql .=" FROM acad_estudiante_carrera_materia ecm";
@@ -7241,13 +7241,16 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 		$sql .=" join tab_clientes cli on cli.ID_CLIENTE=cn.ID_CLIENTE";
 		$sql .=" left join acad_grupo g on g.ID_GRUPO=ecm.ID_GRUPO";
 		$sql .=" join tab_personas p on p.ID_PERSONA=ecm.ID_PERSONA";
-		$sql .=" left join tab_personas p1 on p1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
-		$sql .=" left join tab_clientes_naturales cn1 on cn1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
-		$sql .=" left join tab_clientes cli1 on cli1.ID_CLIENTE=cn1.ID_CLIENTE";
 		$sql .=" left join acad_matricula mat on mat.ID_PERSONA=ecm.ID_PERSONA and mat.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
 		$sql .=" left join acad_nivel n1 on n1.ID_NIVEL=mat.ID_NIVEL";
 		$sql .=" left join acad_planificacion pla on pla.ID_GRUPO=ecm.ID_GRUPO and pla.ID_CARRERA_MATERIA=ecm.ID_CARRERA_MATERIA and pla.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
+		$sql .=" left join tab_personas p1 on p1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
+		$sql .=" left join tab_clientes_naturales cn1 on cn1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
+		$sql .=" left join tab_clientes cli1 on cli1.ID_CLIENTE=cn1.ID_CLIENTE";
 		$sql .=" WHERE ecm.ID_ESTUDIANTE_CARRERA_MATERIA=".$id_estudiante_carrera_materia;
+		if($id_planificacion>0){
+			$sql .=" and pla.ID_PLANIFICACION=".$id_planificacion;
+		}
 		$query = $this->db->query($sql);
 		$ds    = $query->row_array(); 
 		return $ds;
