@@ -954,7 +954,7 @@ class Academico_model extends CI_Model
 		}
 		$sql = "select m.NUMERO,m.ID_PERSONA,m.ID_CARRERA, m.ID_NIVEL, m.ID_PERIODO_ACADEMICO, m.ID_RUBRO_OPCIONAL, m.ID_MODALIDAD, m.ESTADO, m.ID_MENCION, m.ID_MATRICULA,m.ID_BECA, m.ARCHIVO_PAGO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO) as APELLIDOS, c.NOMBRE as CARRERA, ";
 		$sql .= "CONCAT_WS(' ',p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as NOMBRES, cli.NRO_DOCUMENTO, ";
-		$sql .= "p.EST_COLEGIO_GRADUACION, p.EST_TITULO_BACHILLER, m.OBSERVACIONES, m.OPCION_PAGO, m.FECHA, CONCAT_WS(' / ',pa.FECHA_INICIO, pa.FECHA_FIN) as PERIODO, g.NOMBRE as GRUPO, n.NIVEL, p.ID_GRUPO, p.CORREO_INSTITUCIONAL ";
+		$sql .= "p.EST_COLEGIO_GRADUACION, p.EST_TITULO_BACHILLER, m.OBSERVACIONES, m.OPCION_PAGO, m.FECHA, CONCAT_WS(' / ',pa.FECHA_INICIO, pa.FECHA_FIN) as PERIODO, g.NOMBRE as GRUPO, n.NIVEL, p.ID_GRUPO, p.CORREO_INSTITUCIONAL, p.GENERO, p.FOTOGRAFIA ";
 		$sql .= " from tab_personas p ";
 		$sql .= " inner join tab_clientes_naturales cn on p.ID_PERSONA = cn.ID_PERSONA ";
 		$sql .= " inner join tab_clientes cli on cli.ID_CLIENTE = cn.ID_CLIENTE ";
@@ -2811,6 +2811,13 @@ $this->load->model('facturacion/servicios_model');
 							acad_materia.ID_MATERIA,
 							pla.ID_PERSONA as ID_PERSONA_DOCENTE,
 							pla.ID_PLANTILLA,
+							pla.FECHA_TUTORIA1,
+							pla.FECHA_TUTORIA2,
+							pla.FECHA_TUTORIA3,
+							pla.FECHA_TUTORIA4,
+							pla.FECHAS_TUTORIA,
+							pla.FECHA_CIERRE,
+							pla.ID_PLANIFICACION,
 							acad_grupo.NOMBRE as GRUPO,
 							acad_carrera.NOMBRE as CARRERA,
 							acad_nivel.NIVEL as NIVEL,
@@ -2840,7 +2847,7 @@ $this->load->model('facturacion/servicios_model');
 		}else{//si es para calificar
 			$this->db->group_by(array("acad_grupo.NOMBRE","acad_materia.NOMBRE","pla.ID_PLANTILLA"));
 		}
-		$this->db->order_by("GRUPO","ASC");
+		$this->db->order_by("pla.FECHA_TUTORIA1","ASC");
 		
 		$query = $this->db->get();
 		$ds = $query->result_array(); 
@@ -6583,8 +6590,10 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 			$this->db->where('ecm.FUE_HOMOLOGADA', 0);
 			$this->db->where('ecm.FUE_HISTORIAL', 0);
 		}
-		$this->db->order_by('ecm.ID_CARRERA_MATERIA');
-		$query = $this->db->get();
+
+        $this->db->order_by('ecm.ID_CARRERA_MATERIA');
+
+        $query = $this->db->get();
 		$ds = $query->result_array();
 		return $ds;
 	}
@@ -7230,9 +7239,9 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
-	public function get_materias_estudianteAll($id_estudiante_carrera_materia)
+	public function get_materias_estudianteAll($id_estudiante_carrera_materia, $id_planificacion = 0)
 	{
-		$sql ="SELECT m.NOMBRE as MATERIA, n.NIVEL, c.NOMBRE as CARRERA, n1.NIVEL as NIVEL_ESTUDIANTE, cli.NRO_DOCUMENTO as CEDULA_ESTUDIANTE, g.NOMBRE as GRUPO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, CONCAT_WS(' ',p1.APELLIDO_PATERNO, p1.APELLIDO_MATERNO, p1.PRIMER_NOMBRE, p1.SEGUNDO_NOMBRE) as DOCENTE, cli1.NRO_DOCUMENTO as CEDULA_DOCENTE, pla.FECHA_TUTORIA1, pla.FECHA_TUTORIA2, pla.FECHA_TUTORIA3, pla.FECHA_TUTORIA4, pla.FECHA_EXAMEN, pla.FECHA_SUPLETORIO, pla.FECHAS_TUTORIA, pla.FECHA_CIERRE, ecm.ID_CARRERA_MATERIA, ecm.ID_VLC";
+		$sql ="SELECT m.NOMBRE as MATERIA, n.NIVEL, n.ID_NIVEL, c.NOMBRE as CARRERA, c.ID_CARRERA, n1.NIVEL as NIVEL_ESTUDIANTE, cli.NRO_DOCUMENTO as CEDULA_ESTUDIANTE, g.NOMBRE as GRUPO, g.ID_GRUPO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, CONCAT_WS(' ',p1.APELLIDO_PATERNO, p1.APELLIDO_MATERNO, p1.PRIMER_NOMBRE, p1.SEGUNDO_NOMBRE) as DOCENTE, p1.CORREO_INSTITUCIONAL as CORREO_INSTITUCIONAL_DOCENTE, p1.FOTOGRAFIA as DOCENTE_FOTOGRAFIA, p1.GENERO AS GENERO_DOCENTE,cli1.NRO_DOCUMENTO as CEDULA_DOCENTE, pla.FECHA_TUTORIA1, pla.FECHA_TUTORIA2, pla.FECHA_TUTORIA3, pla.FECHA_TUTORIA4, pla.FECHA_EXAMEN, pla.FECHA_SUPLETORIO, pla.FECHAS_TUTORIA, pla.FECHA_CIERRE, pla.ID_PLANIFICACION, ecm.ID_CARRERA_MATERIA, ecm.ID_VLC, ecm.ASISTENCIA_JUSTIFICADA";
 		$sql .=" FROM acad_estudiante_carrera_materia ecm";
 		$sql .=" join acad_materia m on m.ID_MATERIA=ecm.ID_CARRERA_MATERIA";
 		$sql .=" join acad_nivel n on n.ID_NIVEL=ecm.NIVEL_MATERIA";
@@ -7241,13 +7250,16 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 		$sql .=" join tab_clientes cli on cli.ID_CLIENTE=cn.ID_CLIENTE";
 		$sql .=" left join acad_grupo g on g.ID_GRUPO=ecm.ID_GRUPO";
 		$sql .=" join tab_personas p on p.ID_PERSONA=ecm.ID_PERSONA";
-		$sql .=" left join tab_personas p1 on p1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
-		$sql .=" left join tab_clientes_naturales cn1 on cn1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
-		$sql .=" left join tab_clientes cli1 on cli1.ID_CLIENTE=cn1.ID_CLIENTE";
 		$sql .=" left join acad_matricula mat on mat.ID_PERSONA=ecm.ID_PERSONA and mat.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
 		$sql .=" left join acad_nivel n1 on n1.ID_NIVEL=mat.ID_NIVEL";
 		$sql .=" left join acad_planificacion pla on pla.ID_GRUPO=ecm.ID_GRUPO and pla.ID_CARRERA_MATERIA=ecm.ID_CARRERA_MATERIA and pla.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
+		$sql .=" left join tab_personas p1 on p1.ID_PERSONA=pla.ID_PERSONA";
+		$sql .=" left join tab_clientes_naturales cn1 on cn1.ID_PERSONA=pla.ID_PERSONA";
+		$sql .=" left join tab_clientes cli1 on cli1.ID_CLIENTE=cn1.ID_CLIENTE";
 		$sql .=" WHERE ecm.ID_ESTUDIANTE_CARRERA_MATERIA=".$id_estudiante_carrera_materia;
+		if($id_planificacion>0){
+			$sql .=" AND pla.ID_PLANIFICACION=".$id_planificacion;
+		}
 		$query = $this->db->query($sql);
 		$ds    = $query->row_array(); 
 		return $ds;
@@ -7842,6 +7854,9 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 		}
 		if(isset($data['ID_PERSONA']) and $data['ID_PERSONA']!=NULL and $data['ID_PERSONA']!=''){
 			$this->db->where('ecm.ID_PERSONA',$data['ID_PERSONA']);
+		}
+        if(isset($data['ID_ESTUDIANTE_CARRERA_MATERIA']) and $data['ID_ESTUDIANTE_CARRERA_MATERIA']!=NULL and $data['ID_ESTUDIANTE_CARRERA_MATERIA']!=''){
+			$this->db->where('ecm.ID_ESTUDIANTE_CARRERA_MATERIA',$data['ID_ESTUDIANTE_CARRERA_MATERIA']);
 		}
 		if(isset($data['estado']) and $data['estado']!=NULL and $data['estado']!=''){
 			if($data['estado']==1){
@@ -9148,7 +9163,7 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 			$sql.=" and ID_PROYECTO_CONTENIDO=".$idProyectoContenido;
 		}
 		$query = $this->db->query($sql);
-		$ds = $query->result_array(); 
+		$ds = $query->result_array();
 		return $ds;
 	}
 	
@@ -10218,5 +10233,167 @@ p.est_colegio_graduacion AS COLEGIO,p.est_ano_graduacion as GRADUACION, pai.PAIS
 		$this->db->insert('acad_estudiante_carrera_materia', $datos);
 		return $this->db->insert_id();
 	}
-	
+
+    public function get_docente($id_persona)
+    {
+        $sql = "select CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO) as APELLIDOS, ";
+        $sql .= "CONCAT_WS(' ',p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as NOMBRES, ";
+        $sql .= "DOC_TITULO_PROF as TITULO, p.ID_PERSONA, c.NRO_DOCUMENTO, ";
+        $sql .= "DOC_INSTITUCION as INST, p.GENERO, p.FOTOGRAFIA ";
+        $sql .= " from tab_personas p inner join tab_clientes_naturales cn on p.ID_PERSONA = cn.ID_PERSONA ";
+        $sql .= " inner join tab_clientes c on c.ID_CLIENTE = cn.ID_CLIENTE ";
+        $sql .= " inner join tab_ocupaciones o on o.ID_OCUPACION = p.OCUPACION where p.OCUPACION=2 and cn.ID_PERSONA=".$id_persona;
+        $query = $this->db->query($sql);
+        $ds = $query->row_array();
+        return $ds;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    public function getDocenteMateria($id_carrera_materia, $id_persona_docente)
+    {
+        $id_periodo=$this->get_periodo_activado();
+        $sql=" select CONCAT_WS(' ',p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE,p.APELLIDO_PATERNO, p.APELLIDO_MATERNO) as DOCENTE, p.CORREO_INSTITUCIONAL, p.FOTOGRAFIA, p.GENERO , dcm.ID_PERSONA,dcm.ID_DOCENTE_CARRERA_MATERIA, c.NRO_DOCUMENTO, u.ESTADO";
+        $sql.=" from acad_docente_carrera_materia dcm";
+        $sql.=" join tab_personas p on p.ID_PERSONA=dcm.ID_PERSONA";
+        $sql.=" join tab_clientes_naturales cn on cn.ID_PERSONA=dcm.ID_PERSONA";
+        $sql.=" join tab_clientes c on c.ID_CLIENTE=cn.ID_CLIENTE";
+        $sql.=" left join admin_usuarios u on u.ID_PERSONA=dcm.ID_PERSONA";
+        $sql.=" where dcm.ID_CARRERA_MATERIA=".$id_carrera_materia;
+        $sql.=" and dcm.ID_PERIODO_ACADEMICO=".$id_periodo;
+        $sql.=" and p.ID_PERSONA=".$id_persona_docente;
+        $sql.=" group by DOCENTE";
+        $query = $this->db->query($sql);
+        $ds = $query->result_array();
+        return $ds;
+    }
+
+    public function buscar_materia_calificar($id_planificacion, $tipo=0){
+        $id_periodo=$this->get_periodo_activado();
+            $periodo= $this->get_periodo_activado();
+        $this->db->select(' acad_grupo.ID_GRUPO,
+							acad_materia.ID_MATERIA,
+							pla.*,
+							acad_grupo.NOMBRE as GRUPO,
+							acad_carrera.NOMBRE as CARRERA,
+							acad_carrera_materia.NIVEL_MATERIA,
+							acad_carrera.ID_CARRERA,
+							acad_nivel.NIVEL as NIVEL,
+							acad_materia.NOMBRE as MATERIA');
+        $this->db->from('acad_planificacion pla');
+        $this->db->join('acad_carrera_materia', 'acad_carrera_materia.ID_CARRERA_MATERIA = pla.ID_CARRERA_MATERIA');
+        $this->db->join('acad_grupo', 'acad_grupo.ID_GRUPO = pla.ID_GRUPO');
+        $this->db->join('acad_carrera', 'acad_carrera.ID_CARRERA = acad_carrera_materia.ID_CARRERA');
+        $this->db->join('acad_nivel', 'acad_nivel.ID_NIVEL = acad_carrera_materia.NIVEL_MATERIA');
+        $this->db->join('acad_materia', 'acad_materia.ID_MATERIA = acad_carrera_materia.ID_MATERIA');
+//        if($id_carrera!=NULL){
+//            $this->db->where('acad_carrera_materia.ID_CARRERA',$id_carrera );
+//        }
+//        if($id_materia!=NULL){
+//            $this->db->where('acad_carrera_materia.ID_MATERIA',$id_materia );
+//        }
+//        if($id_nivel!=NULL){
+//            $this->db->where('acad_carrera_materia.NIVEL_MATERIA',$id_nivel );
+//        }
+//        if($id_persona!=NULL){
+//            $this->db->where('pla.ID_PERSONA',$id_persona );
+//        }
+        $this->db->where('pla.ID_PERIODO_ACADEMICO',$periodo );
+        $this->db->where('pla.ID_PLANIFICACION',$id_planificacion );
+
+        if($tipo==1){//si es para reporte calificacion
+            $this->db->group_by(array("acad_grupo.ID_GRUPO","pla.ID_CARRERA_MATERIA"));
+        }else{//si es para calificar
+            $this->db->group_by(array("acad_grupo.NOMBRE","acad_materia.NOMBRE","pla.ID_PLANTILLA"));
+        }
+        $this->db->order_by("GRUPO","ASC");
+
+        $query = $this->db->get();
+        $ds = $query->result_array();
+        return $ds;
+    }
+
+    /////////////// MATERIAL APOYO /////////////////
+    public function crear_material_apoyo($datos){
+        $this->db->insert('acad_material_apoyo', $datos);
+        return $this->db->insert_id();
+    }
+
+    //////////////////////////////////////////////////////
+    public function get_material_apoyo($data){
+        $this->db->select('*');
+        $this->db->from('acad_material_apoyo m');
+        $this->db->join('acad_planificacion p', 'p.ID_PLANIFICACION = m.ID_PLANIFICACION');
+
+        if(isset($data['ID_MATERIAL_APOYO']) and $data['ID_MATERIAL_APOYO']!=''){
+            $this->db->where('m.ID_MATERIAL_APOYO',$data['ID_MATERIAL_APOYO']);
+        }
+        if(isset($data['ID_PLANIFICACION']) and $data['ID_PLANIFICACION']!=''){
+            $this->db->where('m.ID_PLANIFICACION',$data['ID_PLANIFICACION']);
+        }
+        if(isset($data['ID_PERIODO_ACADEMICO']) and $data['ID_PERIODO_ACADEMICO']!=''){
+            $this->db->where('p.ID_PERIODO_ACADEMICO',$data['ID_PERIODO_ACADEMICO']);
+        }
+        if(isset($data['ID_CARRERA_MATERIA']) and $data['ID_CARRERA_MATERIA']!=''){
+            $this->db->where('p.ID_CARRERA_MATERIA',$data['ID_CARRERA_MATERIA']);
+        }
+        $query = $this->db->get();
+        $ds = $query->result_array();
+        return $ds;
+    }
+
+    //////////////////////////////////////////////////////
+    public function eliminar_material_apoyo($id_material_apoyo){
+        $this->db->where('ID_MATERIAL_APOYO', $id_material_apoyo);
+        $this->db->delete('acad_material_apoyo');
+    }
+
+    public function get_plantilla_materia($data = array()){
+        $this->db->select('p.*');
+        $this->db->from('acad_planificacion pla');
+        $this->db->join('acad_materia_contenido c', 'c.ID_MATERIA = pla.ID_CARRERA_MATERIA');
+        $this->db->join('acad_contenidos con', 'con.ID_CONTENIDO = c.ID_CONTENIDO');
+        $this->db->join('acad_plantillas p', 'p.ID_PLANTILLA = con.ID_PLANTILLA');
+
+        if(isset($data['ID_PLANIFICACION']) and $data['ID_PLANIFICACION']!='' and $data['ID_PLANIFICACION']!=null){
+            $this->db->where('pla.ID_PLANIFICACION',$data['ID_PLANIFICACION']);
+        }
+        if(isset($data['ID_PLANTILLA']) and $data['ID_PLANTILLA']!='' and $data['ID_PLANTILLA']!=null){
+            $this->db->where('p.ID_PLANTILLA',$data['ID_PLANTILLA']);
+        }
+
+//        $this->db->where('pla.ID_PLANIFICACION',$id_planificacion);
+        $query = $this->db->get();
+        $ds = $query->result_array();
+        return $ds;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    public function get_materias_estudiante_all($id_persona, $id_carrera, $id_periodo)
+    {
+        $sql ="SELECT m.NOMBRE as MATERIA, n.NIVEL, n.ID_NIVEL, c.NOMBRE as CARRERA, c.ID_CARRERA, n1.NIVEL as NIVEL_ESTUDIANTE, cli.NRO_DOCUMENTO as CEDULA_ESTUDIANTE, g.NOMBRE as GRUPO, g.ID_GRUPO, CONCAT_WS(' ',p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, CONCAT_WS(' ',p1.APELLIDO_PATERNO, p1.APELLIDO_MATERNO, p1.PRIMER_NOMBRE, p1.SEGUNDO_NOMBRE) as DOCENTE, p1.CORREO_INSTITUCIONAL as CORREO_INSTITUCIONAL_DOCENTE, p1.FOTOGRAFIA as DOCENTE_FOTOGRAFIA, p1.GENERO AS GENERO_DOCENTE,cli1.NRO_DOCUMENTO as CEDULA_DOCENTE, pla.FECHA_TUTORIA1, pla.FECHA_TUTORIA2, pla.FECHA_TUTORIA3, pla.FECHA_TUTORIA4, pla.FECHA_EXAMEN, pla.FECHA_SUPLETORIO, pla.FECHAS_TUTORIA, pla.FECHA_CIERRE, pla.ID_PLANIFICACION, pla.ID_PLANTILLA, ecm.ID_CARRERA_MATERIA, ecm.ID_VLC, ecm.ASISTENCIA_JUSTIFICADA, ecm.ID_ESTUDIANTE_CARRERA_MATERIA";
+        $sql .=" FROM acad_estudiante_carrera_materia ecm";
+        $sql .=" join acad_materia m on m.ID_MATERIA=ecm.ID_CARRERA_MATERIA";
+        $sql .=" join acad_nivel n on n.ID_NIVEL=ecm.NIVEL_MATERIA";
+        $sql .=" join acad_carrera c on c.ID_CARRERA=ecm.ID_CARRERA";
+        $sql .=" join tab_clientes_naturales cn on cn.ID_PERSONA=ecm.ID_PERSONA";
+        $sql .=" join tab_clientes cli on cli.ID_CLIENTE=cn.ID_CLIENTE";
+        $sql .=" left join acad_grupo g on g.ID_GRUPO=ecm.ID_GRUPO";
+        $sql .=" join tab_personas p on p.ID_PERSONA=ecm.ID_PERSONA";
+        $sql .=" left join tab_personas p1 on p1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
+        $sql .=" left join tab_clientes_naturales cn1 on cn1.ID_PERSONA=ecm.ID_PERSONA_DOCENTE";
+        $sql .=" left join tab_clientes cli1 on cli1.ID_CLIENTE=cn1.ID_CLIENTE";
+        $sql .=" left join acad_matricula mat on mat.ID_PERSONA=ecm.ID_PERSONA and mat.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
+        $sql .=" left join acad_nivel n1 on n1.ID_NIVEL=mat.ID_NIVEL";
+        $sql .=" left join acad_planificacion pla on pla.ID_GRUPO=ecm.ID_GRUPO and pla.ID_CARRERA_MATERIA=ecm.ID_CARRERA_MATERIA and pla.ID_PERIODO_ACADEMICO=ecm.ID_PERIODO_ACADEMICO";
+        $sql .=" left join acad_plantillas plan on plan.ID_PLANTILLA=pla.ID_PLANTILLA ";
+//        $sql .=" WHERE ecm.ID_ESTUDIANTE_CARRERA_MATERIA=".$id_estudiante_carrera_materia;
+        $sql .=" WHERE p.ID_PERSONA=".$id_persona;
+        $sql .=" AND c.ID_CARRERA=".$id_carrera;
+        $sql .=" AND ecm.ID_PERIODO_ACADEMICO=".$id_periodo;
+        $sql .=" ORDER BY FECHA_TUTORIA1 ASC";
+
+        $query = $this->db->query($sql);
+        $ds    = $query->result_array();
+        return $ds;
+    }
 }

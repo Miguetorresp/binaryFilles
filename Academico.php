@@ -24,14 +24,14 @@ class Academico extends MX_Controller
 			//$this->url_copia = "http://binaryecuador.com/Deming2/index.php/academico/academico/";
 		 //$this->url_copia = "http://binary.ec/ACADEMOS/Deming2/index.php/academico/academico/";
 	}
-	
+
 	public function buscar_para_inscribir()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -41,14 +41,14 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function reporteDocentesPorMaterias()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -58,7 +58,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function reporteAlumnoAula()
 	{
@@ -67,7 +67,7 @@ class Academico extends MX_Controller
 			$usuario=$this->session->userdata('loggeado');
 			$datos=array();
 			$datos['carreras'] = $this->academico_model->get_carreras();
-			$datos['niveles'] = $this->academico_model->get_niveles();    
+			$datos['niveles'] = $this->academico_model->get_niveles();
 			$datos['periodos'] = $this->academico_model->getPeriodos();
 			$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 			$vector_us=null;
@@ -78,7 +78,7 @@ class Academico extends MX_Controller
 					$grupos[]=$g['GRUPO'];
 				}
 			}else{
-				$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+				$grupos=$this->academico_model->buscarGruposEst($vector_us);
 				$grupos = explode("-", $grupos);
 			}
 			$datos['grupos'] = $grupos;
@@ -92,8 +92,8 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function reporteCuotaNivel()
 	{
 		$id_usuario=$this->session->userdata('loggeado')['ID_USUARIO'];
@@ -112,7 +112,7 @@ class Academico extends MX_Controller
 					$grupos[]=$g['GRUPO'];
 				}
 			}else{
-				$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+				$grupos=$this->academico_model->buscarGruposEst($vector_us);
 				$grupos = explode("-", $grupos);
 			}
 			$datos['grupos'] = $grupos;
@@ -126,8 +126,8 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function reportePagosNivel()
 	{
 		if($this->session->userdata('loggeado')){
@@ -143,15 +143,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscar_doc_materia()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -167,9 +167,9 @@ class Academico extends MX_Controller
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -179,14 +179,14 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscar_para_matricular()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
 			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
@@ -197,8 +197,8 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function load()
 	{
 		if($this->session->userdata('loggeado')){
@@ -207,15 +207,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function configurar() 
+
+	public function configurar()
 	{
 		if($this->session->userdata('loggeado')){
 			$data=array();
 			$opdion_pago=$this->academico_model->get_opciones_pago(1);
 			//$data['activado_periodo_calificaciones']= $this->academico_model->perido_calificaciones_activo();
-			$data['opdion_pago']= $opdion_pago['DESCRIPCION']; 
+			$data['opdion_pago']= $opdion_pago['DESCRIPCION'];
 			//revisar etapas activadas para calificacion
 			$etapas=$this->academico_model->get_etapas_calificar();
 			$etapas_periodo=$this->academico_model->get_carrera_modalidad_configuradas();
@@ -241,7 +241,7 @@ class Academico extends MX_Controller
 				}
 				$etapas=$this->academico_model->get_etapas_calificar();
 			}
-			$data['etapas']= $etapas; 
+			$data['etapas']= $etapas;
 			$data['mensaje_aprueba']=$this->academico_model->get_mensaje_aprueba();
 			$data['mensaje_pierde']=$this->academico_model->get_mensaje_pierde();
 			$data['mensaje_supletorio']=$this->academico_model->get_mensaje_supletorio();
@@ -270,8 +270,8 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function activarPeriodo()
 	{
 		if($this->session->userdata('loggeado')){
@@ -282,14 +282,14 @@ class Academico extends MX_Controller
 				$ch  = curl_init();
 
 				$url = $this->url_copia . 'activarPeriodo/';
-				
+
 
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$data_copia['idusuario'] = $idusuario;
 				$data_copia['id'] = $id;
 
 				$elements                = $data_copia;
-				curl_setopt($ch, CURLOPT_POST,true); 
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -308,7 +308,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_periodo_activado()
 	{
@@ -319,9 +319,9 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearGrupoCarrera() 
+
+	public function crearGrupoCarrera()
 	{
 		if($this->session->userdata('loggeado')){
 			$nombreGrupo = trim($this->input->post('nombreGrupo'));
@@ -331,87 +331,87 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarGruposCarrera() 
+
+	public function buscarGruposCarrera()
 	{
 		if($this->session->userdata('loggeado')){
 			$grupos = $this->academico_model->buscarGruposCarrera();
-			echo json_encode($grupos);        
+			echo json_encode($grupos);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearTipoCarrera() 
+
+	public function crearTipoCarrera()
 	{
 		if($this->session->userdata('loggeado')){
 			$tipo = trim($this->input->post('tipo'));
 			$creado = $this->academico_model->crearTipoCarrera($tipo);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarTiposCarrera() 
+
+	public function buscarTiposCarrera()
 	{
 		if($this->session->userdata('loggeado')){
 			$tipos = $this->academico_model->buscarTiposCarrera();
-			echo json_encode($tipos);        
+			echo json_encode($tipos);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearModalidad() 
+
+	public function crearModalidad()
 	{
 		if($this->session->userdata('loggeado')){
 			$modalidad = trim($this->input->post('modalidad'));
 			$creado = $this->academico_model->crearModalidad($modalidad);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarModalidadesEstudio() 
+
+	public function buscarModalidadesEstudio()
 	{
 		if($this->session->userdata('loggeado')){
 			$modalidades = $this->academico_model->buscarModalidadesEstudio();
-			echo json_encode($modalidades);        
+			echo json_encode($modalidades);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearSistemaEstudio() 
+
+	public function crearSistemaEstudio()
 	{
 		if($this->session->userdata('loggeado')){
 			$sistema = trim($this->input->post('sistema'));
 			$creado = $this->academico_model->crearSistemaEstudio($sistema);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarSistemasEstudio() 
+
+	public function buscarSistemasEstudio()
 	{
 		if($this->session->userdata('loggeado')){
 			$sistemas = $this->academico_model->buscarSistemasEstudio();
-			echo json_encode($sistemas);        
+			echo json_encode($sistemas);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function crearSede(){
 		if($this->session->userdata('loggeado')) {
@@ -424,8 +424,8 @@ class Academico extends MX_Controller
 
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$elements['sede'] = $sede;
-				
-				curl_setopt($ch, CURLOPT_POST,true); 
+
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("user" => $elements)));
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -439,14 +439,14 @@ class Academico extends MX_Controller
 
 
 			$creado = $this->academico_model->crearSede($sede);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarSedes() 
+
+	public function buscarSedes()
 	{
 		if($this->session->userdata('loggeado')){
 			$todo_sede = trim($this->input->post('todo_sede'));
@@ -455,35 +455,35 @@ class Academico extends MX_Controller
 			}else{
 				$sedes = $this->academico_model->buscarSedes();
 			}
-			echo json_encode($sedes);        
+			echo json_encode($sedes);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearArea() 
+
+	public function crearArea()
 	{
 		if($this->session->userdata('loggeado')){
 			$area = trim($this->input->post('area'));
 			$creado = $this->academico_model->crearArea($area);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarAreas() 
+
+	public function buscarAreas()
 	{
 		if($this->session->userdata('loggeado')){
 			$areas = $this->academico_model->buscarAreas();
-			echo json_encode($areas);        
+			echo json_encode($areas);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function crearPeriodo(){
 		if($this->session->userdata('loggeado')){
@@ -497,8 +497,8 @@ class Academico extends MX_Controller
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$elements['fecha_inicio'] = $fecha_inicio;
 				$elements['fecha_fin'] = $fecha_fin;
-				
-				curl_setopt($ch, CURLOPT_POST,true); 
+
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("user" => $elements)));
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -521,14 +521,14 @@ class Academico extends MX_Controller
 				}
 				$creado=true;
 			}
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarPeriodos($general=null) 
+
+	public function buscarPeriodos($general=null)
 	{
 		if($this->session->userdata('loggeado')){
 			if($general==1){
@@ -536,12 +536,12 @@ class Academico extends MX_Controller
 			}else{
 				$periodos = $this->academico_model->buscarPeriodos();
 			}
-			echo json_encode($periodos);        
+			echo json_encode($periodos);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function crearGruposEst(){
 		if($this->session->userdata('loggeado')){
@@ -556,8 +556,8 @@ class Academico extends MX_Controller
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$elements['nombre'] = $nombre;
 				$elements['sede'] = $sede;
-				
-				curl_setopt($ch, CURLOPT_POST,true); 
+
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("user" => $elements)));
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -569,27 +569,27 @@ class Academico extends MX_Controller
 			/////////////////////////////////////////////////////////////////////////
 
 			$creado = $this->academico_model->crearGruposEst($nombre,$sede);
-			echo json_encode($creado);        
+			echo json_encode($creado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function buscarGruposEst() 
+
+	public function buscarGruposEst()
 	{
 		if($this->session->userdata('loggeado')){
 			//$grupos = $this->academico_model->buscarGruposEst();
 			$grupos = $this->academico_model->buscar_grupos_estudiantes();
-			echo json_encode($grupos);        
+			echo json_encode($grupos);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//**********************************************
 	// CREAR CARRERA
-	public function procesarCarrera($idCarrera = null) 
+	public function procesarCarrera($idCarrera = null)
 	{
 		if($this->session->userdata('loggeado')){
 			$carrera = array();
@@ -597,21 +597,21 @@ class Academico extends MX_Controller
 				$carrera = $this->academico_model->obtener_datos_carrera($idCarrera);
 				if($carrera == NULL){
 					show_404();
-				} 
+				}
 			}
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
-			$this->form_validation->set_rules('formulario_carrera[NOMBRE]', 'nombre', 'required');            
+			$this->form_validation->set_rules('formulario_carrera[NOMBRE]', 'nombre', 'required');
 			$data = $this->input->post('formulario_carrera');
 			$data['ID_CARRERA']=$idCarrera;
 			$data['menciones']=$this->input->post('menciones');
 
 			if($this->form_validation->run() == FALSE){
-			   
-			}else{  
+
+			}else{
 				$this->academico_model->crearActualizarCarrera($data);
-				$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE); 
+				$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE);
 				if($idCarrera == NULL){
 					redirect('index/index', 'refresh');
 				}else{
@@ -622,13 +622,13 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function crearCarrera($id_carrera=null) 
+
+	public function crearCarrera($id_carrera=null)
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			$carrera = array();
 			$mencion=array();
@@ -643,16 +643,16 @@ class Academico extends MX_Controller
 				foreach($carrera_mencion as $cm){
 					$mencion[]=$cm['ID_MENCION'];
 				}
-			} 
+			}
 			$carrera['carrera_mencion'] = $mencion;
-			$carrera['niveles'] = $this->academico_model->get_niveles(); 
-			$carrera['grupos_de_carrera'] = $this->academico_model->get_grupos_carrera(); 
-			$carrera['tipos_de_carrera'] = $this->academico_model->get_tipos_carrera(); 
-			$carrera['areas_de_estudio'] = $this->academico_model->get_areas_estudio(); 
-			$carrera['sedes'] = $this->academico_model->get_sedes(); 
-			$carrera['sistemas_de_estudio'] = $this->academico_model->get_sistemas_estudio(); 
+			$carrera['niveles'] = $this->academico_model->get_niveles();
+			$carrera['grupos_de_carrera'] = $this->academico_model->get_grupos_carrera();
+			$carrera['tipos_de_carrera'] = $this->academico_model->get_tipos_carrera();
+			$carrera['areas_de_estudio'] = $this->academico_model->get_areas_estudio();
+			$carrera['sedes'] = $this->academico_model->get_sedes();
+			$carrera['sistemas_de_estudio'] = $this->academico_model->get_sistemas_estudio();
 			$carrera['modalidades'] = $this->academico_model->get_modalidades();
-			$carrera['menciones'] = $this->academico_model->get_menciones(); 
+			$carrera['menciones'] = $this->academico_model->get_menciones();
 			$this->load->model('titulacion/titulacion_model');
 			$carrera['examenes'] = $this->titulacion_model->buscar_examen();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
@@ -664,7 +664,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function editarCarrera()
 	{
@@ -673,12 +673,12 @@ class Academico extends MX_Controller
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
 			$this->load->view('editarCarrera');
-			$this->load->view('templates/footer');        
+			$this->load->view('templates/footer');
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscarCarrera()
 	{
@@ -691,14 +691,14 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	//**********************************************  
+
+	//**********************************************
 	// CREAR MATERIA
-	public function crearMateria($id_carrera_materia=NULL,$msj=NULL) 
+	public function crearMateria($id_carrera_materia=NULL,$msj=NULL)
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			$materia = array();
 			if($id_carrera_materia === NULL){
@@ -725,8 +725,8 @@ class Academico extends MX_Controller
 				if($materia == NULL){
 					show_404();
 				}
-			} 
-			$materia['niveles'] = $this->academico_model->get_niveles(); 
+			}
+			$materia['niveles'] = $this->academico_model->get_niveles();
 			$materia['carreras'] = $this->academico_model->get_carreras();
 			$materia['unidades'] = $this->academico_model->get_unidad_organizacional();
 			$materia['plantillas'] = $this->academico_model->buscar_plantillas();
@@ -740,9 +740,9 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function procesarMateria($id_carrera_materia = null) 
+
+	public function procesarMateria($id_carrera_materia = null)
 	{
 		if($this->session->userdata('loggeado')){
 			$materia = array();
@@ -750,21 +750,21 @@ class Academico extends MX_Controller
 				$materia = $this->academico_model->obtener_datos_materia($id_carrera_materia);
 				if($materia == NULL){
 					show_404();
-				} 
+				}
 			}
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
-			$this->form_validation->set_rules('formulario_materia[NOMBRE]', 'nombre', 'required');            
+			$this->form_validation->set_rules('formulario_materia[NOMBRE]', 'nombre', 'required');
 			$data = $this->input->post('formulario_materia');
 			$data['ID_MATERIA']=$id_carrera_materia;
 			if($this->form_validation->run() == FALSE){
-			   
+
 			}else{
 				$ids_plantillas=$data['IDS_PLANTILLA'];
 				$data['IDS_PLANTILLA']=implode('+',$data['IDS_PLANTILLA']);
 				$id_carrera_materia=$this->academico_model->crearActualizarMateria($data);
-				
+
 				//vincular contenido si existe en periodo actual
 				if(isset($ids_plantillas)){
 					$idPeriodo=$this->academico_model->get_periodo_activado();
@@ -780,15 +780,15 @@ class Academico extends MX_Controller
 						}
 					}
 				}
-				
+
 				if(isset($data['PRE'])){//si seleccion� prerequisitos, los mando a crear
 					$data_prerequisitos = array();
-					$data_prerequisitos = $data['PRE'];    
-					$this->academico_model->guardar_prerequisitos($id_carrera_materia, $data_prerequisitos);          
+					$data_prerequisitos = $data['PRE'];
+					$this->academico_model->guardar_prerequisitos($id_carrera_materia, $data_prerequisitos);
 				}else //si NO seleccion� prerequisitos, mando vacio para que borre todos los que tenga
-					$this->academico_model->guardar_prerequisitos($id_carrera_materia, array());   
-				
-				$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE); 
+					$this->academico_model->guardar_prerequisitos($id_carrera_materia, array());
+
+				$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE);
 				if($id_carrera_materia == NULL){
 					redirect('index/index', 'refresh');
 				}else{
@@ -799,7 +799,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function editarMateria()
 	{
@@ -809,12 +809,12 @@ class Academico extends MX_Controller
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
 			$this->load->view('editarMateria', $materia);
-			$this->load->view('templates/footer');        
+			$this->load->view('templates/footer');
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscarMateria()
 	{
@@ -828,13 +828,13 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	//********************************************** 
-	// CREAR INSCRIPCION 
-	public function inscripcion($id_cliente=null) 
+	//**********************************************
+	// CREAR INSCRIPCION
+	public function inscripcion($id_cliente=null)
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			if($id_cliente != NULL){
 				$inscripcion = $this->academico_model->obtener_datos_inscripcion($id_cliente);
@@ -854,15 +854,15 @@ class Academico extends MX_Controller
 			}else{
 				show_404();
 			}
-			$datos_estudiante_inscripcion = $this->academico_model->get_datos_inscripcion($id_cliente); 
-			$inscripcion['APELLIDOS'] = $datos_estudiante_inscripcion['APELLIDOS']; 
-			$inscripcion['NOMBRES'] = $datos_estudiante_inscripcion['NOMBRES']; 
-			$inscripcion['COLEGIO'] = $datos_estudiante_inscripcion['EST_COLEGIO_GRADUACION']; 
-			$inscripcion['TITULO'] = $datos_estudiante_inscripcion['EST_TITULO_BACHILLER']; 
-			$inscripcion['ID_CLIENTE'] = $id_cliente; 
-			$inscripcion['carreras'] = $this->academico_model->get_carreras(); 
+			$datos_estudiante_inscripcion = $this->academico_model->get_datos_inscripcion($id_cliente);
+			$inscripcion['APELLIDOS'] = $datos_estudiante_inscripcion['APELLIDOS'];
+			$inscripcion['NOMBRES'] = $datos_estudiante_inscripcion['NOMBRES'];
+			$inscripcion['COLEGIO'] = $datos_estudiante_inscripcion['EST_COLEGIO_GRADUACION'];
+			$inscripcion['TITULO'] = $datos_estudiante_inscripcion['EST_TITULO_BACHILLER'];
+			$inscripcion['ID_CLIENTE'] = $id_cliente;
+			$inscripcion['carreras'] = $this->academico_model->get_carreras();
 			$inscripcion['modalidades'] = $this->academico_model->get_modalidades();
-			$inscripcion['niveles'] = $this->academico_model->get_niveles(); 
+			$inscripcion['niveles'] = $this->academico_model->get_niveles();
 			$inscripcion['periodos'] = $this->academico_model->get_periodos_academicos();
 			$inscripcion['plan_pago'] = $seleccionado_plan_pago;
 			$inscripcion['persona'] = $dato_persona;
@@ -875,18 +875,18 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function procesarInscripcion($id_cliente=null,$id_inscripcion=null) 
+
+	public function procesarInscripcion($id_cliente=null,$id_inscripcion=null)
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			if($id_cliente == NULL){
 				show_404();
 			}
-			$this->form_validation->set_rules('formulario_inscripcion[NOMBRES]', 'nombre', 'required');            
+			$this->form_validation->set_rules('formulario_inscripcion[NOMBRES]', 'nombre', 'required');
 			$data = $this->input->post('formulario_inscripcion');
 			$data_copia = $data;
 			$data['ID_CLIENTE']=$id_cliente;
@@ -900,7 +900,7 @@ class Academico extends MX_Controller
 					if (isset($id_inscripcion) && $id_inscripcion!= 0 && $id_inscripcion!= "") {
 						$url = $this->url_copia . 'procesarInscripcion/'.$id_cliente."/".$id_inscripcion;
 					}else{
-						$url = $this->url_copia . 'procesarInscripcion/'.$id_cliente;	
+						$url = $this->url_copia . 'procesarInscripcion/'.$id_cliente;
 					}
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$elements['formulario_inscripcion'] = $data_copia;
@@ -908,7 +908,7 @@ class Academico extends MX_Controller
 					$elements['documento2'] = $this->input->post('documento2');
 					$elements['documento3'] = $this->input->post('documento3');
 					$elements['documento4'] = $this->input->post('documento4');
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("formulario_personas" => $elements['formulario_inscripcion'], "documento1"=>$elements['documento1'], "documento2" => $elements['documento2'], "documento3" => $elements['documento3'], "documento4"=>$elements['documento4'])));
@@ -926,7 +926,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscarEstudiantes()
 	{
@@ -957,16 +957,16 @@ class Academico extends MX_Controller
 	}
 	//*****************************************************************
 	//CREAR MATRICULA
-	public function procesarMatricula($id_cliente=null,$id_matricula=null) 
-	{ 
+	public function procesarMatricula($id_cliente=null,$id_matricula=null)
+	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			if($id_cliente == NULL){
 				show_404();
 			}
-			$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');            
+			$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');
 			$data = $this->input->post('formulario_matricula');
 			$data_copia = $data;
 			$data['ID_CLIENTE']=$id_cliente;
@@ -979,14 +979,14 @@ class Academico extends MX_Controller
 					if (isset($id_matricula) && $id_matricula != 0 && $id_matricula != null ) {
 						$url = $this->url_copia . 'procesarMatricula/'.$id_cliente.'/'.$id_matricula;
 					}else{
-						$url = $this->url_copia . 'procesarMatricula/'.$id_cliente;	
+						$url = $this->url_copia . 'procesarMatricula/'.$id_cliente;
 					}
-					
+
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$data_copia['activado'] = $this->academico_model->get_periodo_activado();
 					$elements = $data_copia;
-					
-					curl_setopt($ch, CURLOPT_POST,true); 
+
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -1029,7 +1029,7 @@ class Academico extends MX_Controller
 					$beca=$dat_beca[0];*/
 				}
 				$respuesta = $this->academico_model->crearActualizarMatricula($data);
-				
+
 				$plan=$this->academico_model->seleccionado_plan_de_pago($data['ID_CLIENTE'],$data['ID_CARRERA'],$data['ID_PERIODO_ACADEMICO']);
 				//sin tiene plan de p�go genero el plan personalizado de Deming
 				if($plan==0){
@@ -1078,7 +1078,7 @@ class Academico extends MX_Controller
 							$pos_rubro = strpos($rubros_aplica, '+'.$rubro['ID_RUBRO'].'+');
 							if($pos_rubro!==false){//si a este rubro se aplica el descuento beca
 								$descuento_beca=round($valor_cuota_regular*$beca['PORCENTAJE']/100,2);
-							}   
+							}
 						}*/
 						//datos matrcula
 						$mat=$this->academico_model->buscar_matricula(array('ID_CLIENTE'=>$data['ID_CLIENTE'],'ID_CARRERA'=>$data['ID_CARRERA'],'ID_PERIODO_ACADEMICO'=>$data['ID_PERIODO_ACADEMICO']));
@@ -1087,13 +1087,13 @@ class Academico extends MX_Controller
 						$this->automatica_model->elimiar_cuotas($id_cliente_rubro);
 						$this->automatica_model->generar_nuevas_cuotas($id_cliente_rubro, $plan_pago,$valor_primera_cuota,$valor_cuota_regular, $valor_recargo_generacion,$id_cliente,$descuento_pronta_matricula,$descuento_beca,$id_matricula,$data['ID_PERIODO_ACADEMICO']);
 					}//fin foreach($rubros_matricula as $rubro){
-					
+
 					//colocar beca si es el caso
 					if(isset($datos['ES_BECADO']) and $datos['ES_BECADO']==1){
 						$this->actualizacionMatriculaBeca($id_cliente,$datos['ID_TIPO_BECA'],$data['ID_PERIODO_ACADEMICO']);
 					}
 				}//fin de if($plan==0)
-				
+
 				//eviar datos a VLC
 				/*$ids_materias_estudiante=$respuesta['ids_materias_estudiante'];
 				foreach($ids_materias_estudiante as $id_ecm){
@@ -1101,7 +1101,7 @@ class Academico extends MX_Controller
 				}*/
 				//$this->sendMatriculaVlc($id_cliente,'activo');
 				unset($respuesta['ids_materias_estudiante']);
-				
+
 				echo json_encode($respuesta);
 			}
 		}else{
@@ -1114,7 +1114,7 @@ class Academico extends MX_Controller
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			$id_periodo_activado = $this->academico_model->get_periodo_activado();
 			if($id_matricula==null or $id_matricula==0){
@@ -1141,7 +1141,7 @@ class Academico extends MX_Controller
 					$ins['ID_CARRERA']=$ultima_matricula['ID_CARRERA'];
 					$id_periodo_activado = $this->academico_model->get_periodo_matricula();
 					//$num_materias_perdidas=$this->academico_model->num_materias_perdidas($ultima_matricula['ID_PERSONA'],$ultima_matricula['ID_PERIODO_ACADEMICO']);
-					//verificar si estudiante aprobo nivel					
+					//verificar si estudiante aprobo nivel
 					$materias=$this->academico_model->get_materias_estudiante($ultima_matricula['ID_PERSONA'],0,1,$ultima_matricula['ID_PERIODO_ACADEMICO'],$ultima_matricula['ID_CARRERA']);//todas las materias del alumno hasta el periodo de consulta
 					$pensum_nivel=$this->academico_model->getMateriasPorCarreraNivel($ultima_matricula['ID_CARRERA'],$ultima_matricula['ID_NIVEL']);
 					$todo_nivel=0;
@@ -1167,7 +1167,7 @@ class Academico extends MX_Controller
 						$aprobo_nivel=1;
 					}
 					$ins['ID_NIVEL']=$ultima_matricula['ID_NIVEL'];
-					//if($id_periodo_activado>$ultima_matricula['ID_PERIODO_ACADEMICO'] and $num_materias_perdidas<=2){	
+					//if($id_periodo_activado>$ultima_matricula['ID_PERIODO_ACADEMICO'] and $num_materias_perdidas<=2){
 					if($aprobo_nivel==1){
 						$ins['ID_NIVEL']=$ultima_matricula['ID_NIVEL']+1;//siguiente nivel para matricular
 					}
@@ -1177,26 +1177,26 @@ class Academico extends MX_Controller
 						if(isset($materias_estudiante[$m['ID_CARRERA_MATERIA']])){
 							$materias_estudiante[$m['ID_CARRERA_MATERIA']]+=1;
 						}else{
-							$materias_estudiante[$m['ID_CARRERA_MATERIA']]=1; 
+							$materias_estudiante[$m['ID_CARRERA_MATERIA']]=1;
 						}
 					}
 				}
 			}
-			$datos_estudiante_matricula = $this->academico_model->get_datos_matricula($id_cliente); 
-			$matricula['APELLIDOS'] = $datos_estudiante_matricula['APELLIDOS']; 
-			$matricula['NOMBRES'] = $datos_estudiante_matricula['NOMBRES']; 
-			$matricula['COLEGIO'] = $datos_estudiante_matricula['EST_COLEGIO_GRADUACION']; 
+			$datos_estudiante_matricula = $this->academico_model->get_datos_matricula($id_cliente);
+			$matricula['APELLIDOS'] = $datos_estudiante_matricula['APELLIDOS'];
+			$matricula['NOMBRES'] = $datos_estudiante_matricula['NOMBRES'];
+			$matricula['COLEGIO'] = $datos_estudiante_matricula['EST_COLEGIO_GRADUACION'];
 			$matricula['TITULO'] = $datos_estudiante_matricula['EST_TITULO_BACHILLER'];
 			$matricula['USUARIO'] = $datos_estudiante_matricula['USUARIO'];
 			$matricula['NRO_DOCUMENTO'] = $datos_estudiante_matricula['NRO_DOCUMENTO'];
 			//$matricula['ESTADO'] = $datos_estudiante_matricula['ESTADO'];
-			$matricula['ID_CLIENTE'] = $id_cliente; 
+			$matricula['ID_CLIENTE'] = $id_cliente;
 			$ids_carrera=array();
 			//solo primer nivel tendra listado completo de carreras para cambiar de carrera
 			if(isset($matricula['ID_NIVEL']) && $matricula['ID_NIVEL'] > 1){
-				$id_carrera=$matricula['ID_CARRERA']; 
+				$id_carrera=$matricula['ID_CARRERA'];
 			}elseif(isset($ins['ID_NIVEL']) && $ins['ID_NIVEL'] > 1){
-				$id_carrera=$ins['ID_CARRERA']; 
+				$id_carrera=$ins['ID_CARRERA'];
 			}else{
 				//$id_carrera=NULL;
 				$ins['ID_NIVEL']=1;
@@ -1226,7 +1226,7 @@ class Academico extends MX_Controller
 			}
 			$matricula['carreras'] = $this->academico_model->get_carreras($id_carrera,$ids_carrera);
 			$matricula['modalidades'] = $this->academico_model->get_modalidades();
-			$matricula['niveles'] = $this->academico_model->get_niveles(); 
+			$matricula['niveles'] = $this->academico_model->get_niveles();
 			$matricula['periodos'] = $this->academico_model->get_periodos_academicos($id_periodo_activado);
 			$matricula['rubro_opcional'] = $this->rubros_model->buscar_rubros(array('ID_TIPO_RUBRO'=>7));//rubros tipo semestre extra
 			$matricula['ins'] = $ins;
@@ -1269,7 +1269,7 @@ class Academico extends MX_Controller
 				}
 				$matricula['matricula_rubro_adicional']=$matricula_rubro_adicional;
 				//codigo para definir los descuentos
-				for($i=0; $i<count($rautomaticos_asociados); $i++) { 
+				for($i=0; $i<count($rautomaticos_asociados); $i++) {
 					foreach($rautomaticos_asociados[$i]['cuotas'] as $cuota){
 						if(isset($pronta_matricula[$cuota['CUOTA']])){
 							$pronta_matricula[$cuota['CUOTA']]+=$cuota['DESCUENTO_PRONTA_MATRICULA'];
@@ -1303,26 +1303,26 @@ class Academico extends MX_Controller
 	}
 
 	//************************************************************************************
-	public function convalidar_homologar($id_cliente=null,$id_matricula=null) 
+	public function convalidar_homologar($id_cliente=null,$id_matricula=null)
 	{
-		if($this->session->userdata('loggeado')){       
+		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			if($id_cliente == NULL){
 				show_404();
 			}else{
 				$matricula = $this->academico_model->obtener_datos_matricula($id_cliente,$id_matricula);
 			}
-			$datos_estudiante = $this->academico_model->get_datos_cliente($id_cliente); 
+			$datos_estudiante = $this->academico_model->get_datos_cliente($id_cliente);
 			$materias_a_convalidar= $this->academico_model->getMateriasPorCarrera(null);
 			$matricula['materias_a_convalidar'] = $materias_a_convalidar;
 			$matricula['materias_a_homologar'] = $materias_a_convalidar;
-			$matricula['APELLIDOS'] = $datos_estudiante['APELLIDOS']; 
-			$matricula['NOMBRES'] = $datos_estudiante['NOMBRES']; 
-			$matricula['carreras'] = $this->academico_model->get_carreras($matricula['ID_CARRERA']); 
+			$matricula['APELLIDOS'] = $datos_estudiante['APELLIDOS'];
+			$matricula['NOMBRES'] = $datos_estudiante['NOMBRES'];
+			$matricula['carreras'] = $this->academico_model->get_carreras($matricula['ID_CARRERA']);
 			$matricula['modalidades'] = $this->academico_model->get_modalidades();
-			$matricula['niveles'] = $this->academico_model->get_niveles(); 
+			$matricula['niveles'] = $this->academico_model->get_niveles();
 			$matricula['periodos'] = $this->academico_model->get_periodos_academicos();
 			$matricula['ID_CLIENTE'] = $id_cliente;
 			$matricula['MATRICULA'] = $matricula;
@@ -1336,10 +1336,10 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function procesarConvalidarHomologar($id_cliente=null) 
-	{ 
+
+	public function procesarConvalidarHomologar($id_cliente=null)
+	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
 			$this->load->library('form_validation');
@@ -1359,11 +1359,11 @@ class Academico extends MX_Controller
 					if (isset($id_cliente) && $id_cliente!= 0 && $id_cliente!= "") {
 						$url = $this->url_copia . 'procesarConvalidarHomologar/'.$id_cliente;
 					}else{
-						$url = $this->url_copia . 'procesarConvalidarHomologar/';	
+						$url = $this->url_copia . 'procesarConvalidarHomologar/';
 					}
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$elements['formulario_matricula'] = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($elements['formulario_matricula']));
@@ -1384,7 +1384,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//************************************************************************************
 	public function buscarEstudiantesMatriculados()
 	{
@@ -1395,7 +1395,7 @@ class Academico extends MX_Controller
 			$data['sn'] = trim($this->input->post('sn'));
 			$data['nd'] = trim($this->input->post('nd'));
 			$data['id_carrera']=trim($this->input->post('id_carrera'));
-			$data['id_nivel']=trim($this->input->post('id_nivel'));			
+			$data['id_nivel']=trim($this->input->post('id_nivel'));
 			$data['estado'] = trim($this->input->post('estado'));
 			//$datos = $this->academico_model->buscarEstudiantesMatriculados($ap, $am, $pn, $sn, $id_carrera, $id_nivel, $id_modalidad, $fi, $ff);
 			$datos = $this->academico_model->buscarEstudiantesMatriculados($data);
@@ -1415,7 +1415,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_materias_asignadas()
 	{
@@ -1430,7 +1430,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_materias_conv()
 	{
@@ -1442,7 +1442,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_materias_homo()
 	{
@@ -1454,7 +1454,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_grupo_asignado()
 	{
@@ -1469,7 +1469,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//******************************************************************
 	public function get_ultimo_numero_matricula()
 	{
@@ -1480,7 +1480,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//************************************************************************************
 	public function buscarDocenteMateria()
 	{
@@ -1497,23 +1497,23 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function AsociarDocenteMateria($id_persona=null) 
+
+	public function AsociarDocenteMateria($id_persona=null)
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
-			$this->form_validation->CI =& $this;           
-			$datos_docente = $this->academico_model->get_datos_docente($id_persona); 
-			$doc['APELLIDOS'] = $datos_docente['APELLIDOS']; 
-			$doc['NOMBRES'] = $datos_docente['NOMBRES']; 
-			$doc['TITULO'] = $datos_docente['TITULO']; 
-			$doc['INSTITUCION'] = $datos_docente['INST']; 
-			$doc['carreras'] = $this->academico_model->get_carreras(); 
+			$this->load->library('form_validation');
+			$this->form_validation->CI =& $this;
+			$datos_docente = $this->academico_model->get_datos_docente($id_persona);
+			$doc['APELLIDOS'] = $datos_docente['APELLIDOS'];
+			$doc['NOMBRES'] = $datos_docente['NOMBRES'];
+			$doc['TITULO'] = $datos_docente['TITULO'];
+			$doc['INSTITUCION'] = $datos_docente['INST'];
+			$doc['carreras'] = $this->academico_model->get_carreras();
 			$doc['ID_PERSONA'] = $id_persona;
 			$doc['modalidades'] = $this->academico_model->get_modalidades();
-			$doc['niveles'] = $this->academico_model->get_niveles(); 
+			$doc['niveles'] = $this->academico_model->get_niveles();
 			$doc['periodos'] = $this->academico_model->get_periodos_academicos();
 			$materias = $this->academico_model->getMateriasPorCarrera(null/*$ins['ID_CARRERA']*/);
 			$doc['materias'] = $materias;
@@ -1526,39 +1526,39 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function procesarConfiguracionCalificaciones()
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			$data = $this->input->post('formulario_matricula');
 			$this->academico_model->crearActualizarConfiguracionCalificaciones($data);
-			$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE); 
-			redirect('index/index', 'refresh');               
+			$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE);
+			redirect('index/index', 'refresh');
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
 
-	public function procesarDocenteMateria($id_persona) 
-	{ 
+
+	public function procesarDocenteMateria($id_persona)
+	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			if($id_persona == NULL){
 				show_404();
-			}            
-			$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');       
+			}
+			$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');
 			$data = $this->input->post('formulario_matricula');
 			$data_copia = $data;
 			$data['ID_PERSONA']=$id_persona;
 			if ($this->form_validation->run() == FALSE){
-				
+
 			}else{
 				$data_copia['MATERIAS_ELIMINAR'] = $this->academico_model->crearActualizarDocenteMateria($data);
 				///////////////////////////////////PROCESAMIENTO DE COPIA//////////////////////////////////////
@@ -1567,8 +1567,8 @@ class Academico extends MX_Controller
 					$url = $this->url_copia . 'procesarDocenteMateria/'.$id_persona;
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$elements = $data_copia;
-					
-					curl_setopt($ch, CURLOPT_POST,true); 
+
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -1580,14 +1580,14 @@ class Academico extends MX_Controller
 					curl_close($ch);
 				/////////////////////////////////////////////////////////////////////////
 				print_r($resultado);
-				//$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE); 
+				//$this->session->set_flashdata('mostrarMensajeConfirmacion', TRUE);
 				//redirect('index/index', 'refresh');
 			}
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function get_materias_asignadas_al_docente()
 	{
@@ -1601,11 +1601,11 @@ class Academico extends MX_Controller
 	}
 
 
-	public function enviarCorreoElectronico($correo,$user,$pass) 
+	public function enviarCorreoElectronico($correo,$user,$pass)
 	{
 		//cargamos la libreria email de ci
 		$this->load->library("email"); //ubicada en system...
- 
+
 		//configuracion para gmail
 		/*$configGmail = array(
 							'protocol' => 'smtp',
@@ -1617,17 +1617,17 @@ class Academico extends MX_Controller
 							'charset' => 'utf-8',
 							'newline' => "\r\n"
 		);    */
- 
+
 		//cargamos la configuraci�n para enviar con gmail
 		//$this->email->initialize($configGmail);
- 
+
 		$this->email->from('no-reply@binary.ec');
 		$this->email->to($correo);
 		$this->email->subject('Notificaci�n de registro en sistema Bi-Academos');
 		$this->email->message('Usted ha sido registrado en el sistema Bi-Academos, puede ingresar usando el usuario: '.$user.' y la clave: '.$pass);
 		//$this->email->send();
 	}
-	
+
 
 	public function reporte_docentes_por_materia()
 	{
@@ -1638,7 +1638,7 @@ class Academico extends MX_Controller
 		$datos = $this->academico_model->reporte_docentes_por_materia($id_carrera, $id_modalidad,$pn,$ap);
 		echo json_encode($datos);
 	}
-	
+
 
 	public function reporte_carrera_nivel()
 	{
@@ -1646,26 +1646,26 @@ class Academico extends MX_Controller
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($id_usuario,18)){
 			$usuario=$this->session->userdata('loggeado');
 			$id_carrera = trim($this->input->post('id_carrera'));
-			$id_nivel = trim($this->input->post('id_nivel'));  
-			$id_periodo_academico = trim($this->input->post('id_periodo_academico'));  
+			$id_nivel = trim($this->input->post('id_nivel'));
+			$id_periodo_academico = trim($this->input->post('id_periodo_academico'));
 			$grupo = trim($this->input->post('grupo'));
 			$idUsuarioAcademico=null;
 			if($usuario['ID_PERFIL']==12){//filtrar grupos para coordinadores
 				$idUsuarioAcademico=$usuario['ID_USUARIO'];
-			}			
+			}
 			$datos = $this->academico_model->listaAlumnos($id_carrera, $id_nivel,$id_periodo_academico,$grupo,null,null,array(),$idUsuarioAcademico);
 			echo json_encode($datos);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function reporte_cuota_nivel()
 	{
 		$id_usuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		$id_carrera = trim($this->input->post('id_carrera'));
-		$id_nivel = trim($this->input->post('id_nivel')); 
+		$id_nivel = trim($this->input->post('id_nivel'));
 		$id_periodo = trim($this->input->post('id_periodo'));
 		$grupo = trim($this->input->post('grupo'));
 		$id_persona=null;
@@ -1676,9 +1676,9 @@ class Academico extends MX_Controller
 		$idUsuarioAcademico=null;
 		if($usuario['ID_PERFIL']==12){//filtrar grupos para coordinadores
 			$idUsuarioAcademico=$usuario['ID_USUARIO'];
-		}		
+		}
 		$bidimensional= $this->academico_model->listaAlumnosCuotas($id_carrera, $id_nivel, $id_periodo,$grupo,$id_persona,$idUsuarioAcademico);
-		
+
 		//establecer fechas pagos mensual
 		$parametro=$this->academico_model->getparametro('DIA_PAGO_CUOTA');
 		$dia_mes_pago=$parametro['VALOR'];
@@ -1709,7 +1709,7 @@ class Academico extends MX_Controller
 						'grupo'=>$bidimensional[8],
 						'id_carrera'=>$bidimensional[9],
 						'fechas_pago'=>$fechas_pago
-                        );           
+                        );
 		/*$arreglo=array('alumno'=>$bidimensional[0],
 						'cuotas'=>$bidimensional[1],
 						'estado_matricula'=>$bidimensional[2],
@@ -1719,32 +1719,32 @@ class Academico extends MX_Controller
 						//print_r($bidimensional[1]);
 		echo json_encode($arreglo);
 	}
-	
-	
+
+
 	public function reporte_pagos_nivel()
 	{
 		$id_carrera = trim($this->input->post('id_carrera'));
-		$id_nivel = trim($this->input->post('id_nivel'));   
-		$bidimensional= $this->academico_model->listaAlumnosPagos($id_carrera, $id_nivel);        
+		$id_nivel = trim($this->input->post('id_nivel'));
+		$bidimensional= $this->academico_model->listaAlumnosPagos($id_carrera, $id_nivel);
 		$arreglo=array('alumno'=>$bidimensional[0],
 						'cuotas'=>$bidimensional[1]
 						);
 		echo json_encode($arreglo);
 	}
-	
-	
+
+
 	public function configurarSistemaCalificacion()
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->helper('form');
-			$this->load->library('form_validation');       
+			$this->load->library('form_validation');
 			$this->form_validation->CI =& $this;
 			$datos=array();
-			$datos['componentes'] = $this->academico_model->get_componentes(); 
-			//$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
-			$datos['carreras_configuradas'] = $this->academico_model->get_carrera_modalidad_configuradas(); 
+			$datos['componentes'] = $this->academico_model->get_componentes();
+			//$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
+			$datos['carreras_configuradas'] = $this->academico_model->get_carrera_modalidad_configuradas();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -1752,9 +1752,9 @@ class Academico extends MX_Controller
 			$this->load->view('templates/footer');
 		}else{
 			redirect('admin/login', 'refresh');
-		}        
+		}
 	}
-	
+
 
 	public function crearComponente()
 	{
@@ -1763,38 +1763,38 @@ class Academico extends MX_Controller
 		$id = $this->academico_model->crearComponente($nombre, $valor);
 		echo json_encode($id);
 	}
-	
+
 
 	public function get_componentes()
 	{
 		$datos = $this->academico_model->get_componentes();
-		echo json_encode($datos);  
+		echo json_encode($datos);
 	}
-	
+
 
 	public function eliminarComponente()
 	{
 		$id = trim($this->input->post('id'));
 		$datos = $this->academico_model->eliminarComponente($id);
-		echo json_encode(true);  
+		echo json_encode(true);
 	}
-	
+
 
 	public function updateValorComponente()
-	{   
+	{
 		$id = trim($this->input->post('id'));
 		$valor = trim($this->input->post('valor'));
 		$this->academico_model->updateValorComponente($id, $valor);
 	}
-	
+
 	//******************************************************************
 	public function busqueda_docente_para_calificar()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -1804,14 +1804,14 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function docente_materias_calificar($id_persona)
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
 			//$materias = $this->academico_model->get_materias_del_docente_para_calificar($id_persona);
-			$materias = $this->academico_model->buscar_grupos_calificar(NULL, NULL, NULL,$id_persona);			
+			$materias = $this->academico_model->buscar_grupos_calificar(NULL, NULL, NULL,$id_persona);
 			foreach($materias as $key=>$materia){
 				if($this->academico_model->verificar_si_tiene_estudiantes($materia)==0){
 					//unset($materias[$key]);
@@ -1819,7 +1819,7 @@ class Academico extends MX_Controller
 			}
 			//$datos['materias'] = $materias;
 			$datos['grupos'] = $materias;
-			$datos['id_persona'] =  $id_persona;	
+			$datos['id_persona'] =  $id_persona;
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$perfil=$this->perfil_model->get_perfil($idusuario);
@@ -1850,9 +1850,9 @@ class Academico extends MX_Controller
 				redirect('academico/academico/docente_materias_calificar_consolidado/'.$id_persona, 'refresh');
 			}else{
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['modalidades'] = $this->academico_model->get_modalidades();
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -1895,7 +1895,7 @@ class Academico extends MX_Controller
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona); 
+			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -1932,8 +1932,8 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function docente_materias_calificar_reporte()
 	{
 		if($this->session->userdata('loggeado')){
@@ -1956,7 +1956,7 @@ class Academico extends MX_Controller
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona); 
+			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$perfil=$this->perfil_model->get_perfil($idusuario);
@@ -1964,13 +1964,13 @@ class Academico extends MX_Controller
 				$this->load->view('templates/header_conexion');
 			}elseif($perfil!=4){
 				$this->load->view('templates/header',$datos1);
-			}		
+			}
 			$this->load->view('docente_grupos_calificar',$datos);
 			if(isset($this->session->userdata('loggeado')['EXTERNO'])){
 				$this->load->view('templates/footer_conexion');
 			}elseif($perfil!=4){
 				$this->load->view('templates/footer');
-			}			
+			}
 		}else{
 			redirect('admin/login', 'refresh');
 		}
@@ -1981,7 +1981,7 @@ class Academico extends MX_Controller
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona); 
+			$datos['grupos'] = $this->academico_model->buscar_grupos_calificar($id_carrera, $id_materia, $id_nivel,$id_persona);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
@@ -2002,9 +2002,9 @@ class Academico extends MX_Controller
 			if(isset($ids[1])){
 				$id_plantilla=$ids[1];
 			}
-			$datos= $this->academico_model->buscar_grupo_de_estdiantes_calificar($id_grupo, $id_materia,$id_persona_docente); 
+			$datos= $this->academico_model->buscar_grupo_de_estdiantes_calificar($id_grupo, $id_materia,$id_persona_docente);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
-			//$datos['activado_periodo_calificaciones']=$this->academico_model->perido_calificaciones_activo();         
+			//$datos['activado_periodo_calificaciones']=$this->academico_model->perido_calificaciones_activo();
 			$etapas=$this->academico_model->get_etapas_calificar();
 			$estado_etapa=array();
 			foreach($etapas as $etapa){
@@ -2012,7 +2012,7 @@ class Academico extends MX_Controller
 				if($this->academico_model->verificar_usuario_funcionalidad($idusuario,69)){
 					$estado_etapa[$etapa['ETAPA']]=1;//siempre activo si tiene permiso asignado
 				}
-			}			
+			}
 			$periodo= $this->academico_model->get_periodo_activado();
 			//$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$id_grupo,'ID_MATERIA'=>$id_materia,'ID_PERIODO_ACADEMICO'=>$periodo,'ID_PLANTILLA'=>));
 			$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$id_grupo,'ID_MATERIA'=>$id_materia,'ID_PERIODO_ACADEMICO'=>$periodo,'ID_PLANTILLA'=>$id_plantilla));
@@ -2063,14 +2063,14 @@ class Academico extends MX_Controller
 			$datos['total_horas']=$total_horas;
 			$datos['valor_horas']=sprintf("%01.2f",$valor_horas);
 			$datos['fechasClase']=$fechasClase;
-			$datos['calificacion_cerrada']=$calificacion_cerrada;			
+			$datos['calificacion_cerrada']=$calificacion_cerrada;
 			$datos['estado_etapa']=$estado_etapa;
 			$datos['id_grupo']=$id_grupo;
 			$datos['id_materia']=$id_materia;
 			$datos['id_plantilla']=$id_plantilla;
 			$this->load->model('admin/usuarios_model');
 			$datos['perfil'] = $this->usuarios_model->get_perfil_usuario($idusuario);
-			//var_dump($datos['estudiantes'][0]);           
+			//var_dump($datos['estudiantes'][0]);
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			//$this->load->view('templates/header_conexion');
 			//$this->load->view('templates/header',$datos1);
@@ -2088,7 +2088,7 @@ class Academico extends MX_Controller
 		if($this->session->userdata('loggeado')){
 			$datos= $this->academico_model->buscar_grupo_de_estdiantes_calificar($id_grupo, $id_materia,$id_persona_docente,1);
 			$datos['activado_periodo_calificaciones']=$this->academico_model->perido_calificaciones_activo();
-			
+
 			$total_horas=0;
 			$valor_horas=0;
 			$fechasClase='';
@@ -2133,7 +2133,7 @@ class Academico extends MX_Controller
 			$datos['total_horas']=$total_horas;
 			$datos['valor_horas']=sprintf("%01.2f",$valor_horas);
 			$datos['fechasClaseTutorias']=$fechasClase;
-			
+
 			//var_dump($datos['estudiantes'][0]);
 			$datos['id_grupo'] = $id_grupo;
 			$datos['id_materia'] = $id_materia;
@@ -2149,12 +2149,12 @@ class Academico extends MX_Controller
 		}
 	}
 
-	
+
 
 	public function ListaDeAlumnosPorAula($id_carrera, $id_nivel, $id_grupo)
 	{
 		if($this->session->userdata('loggeado')){
-			$datos['alumnos']= $this->academico_model->listaAlumnosAula($id_carrera, $id_nivel, $id_grupo); 
+			$datos['alumnos']= $this->academico_model->listaAlumnosAula($id_carrera, $id_nivel, $id_grupo);
 			$datos['activado_periodo_calificaciones']=$this->academico_model->perido_calificaciones_activo();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
@@ -2165,12 +2165,12 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function Re($id_carrera, $id_nivel, $id_grupo)
 	{
 		if($this->session->userdata('loggeado')){
-			$datos['alumnos']= $this->academico_model->listaAlumnosAula($id_carrera, $id_nivel, $id_grupo); 
+			$datos['alumnos']= $this->academico_model->listaAlumnosAula($id_carrera, $id_nivel, $id_grupo);
 			$datos['activado_periodo_calificaciones']=$this->academico_model->perido_calificaciones_activo();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
@@ -2181,7 +2181,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function calificar_componentes()
 	{
@@ -2203,15 +2203,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function buscarparametro()
 	{
 		$pm=$this->input->post('nparametro');
 		$datos=$this->academico_model->getparametro($pm);
 		echo json_encode($datos);
 	}
-	
+
 
 	public function buscarNotaMinima()
 	{
@@ -2220,7 +2220,7 @@ class Academico extends MX_Controller
 		echo json_encode($datos);
 	}
 
-	
+
 	public function updatePromediototal()
 	{
 		if($this->session->userdata('loggeado')){
@@ -2272,8 +2272,8 @@ class Academico extends MX_Controller
 				$data_copia['activado']           = $this->academico_model->get_periodo_activado();
 				$data_copia['data_log']              = $this->session->userdata()['loggeado']["ID_USUARIO"];
 				$elements = $data_copia;
-				
-				curl_setopt($ch, CURLOPT_POST,true); 
+
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -2298,28 +2298,28 @@ class Academico extends MX_Controller
 				//codigo arancel supletorio
 				$this->load->module('facturacion/facturacion');
 				$this->facturacion->crearArancelSupletorioEstudiante($estudiante_carrera_meteria);
-				
+
 			}elseif($estado>0 and ($supletorio=='' or $supletorio==NULL)){
 				$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_meteria);
 				if($supletorio_vlc!=NULL){
 					//$this->sendSupletorioVlc($estudiante_carrera_meteria,'borrar');
 					$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_meteria);
 				}
-				
+
 			}
 			//codigo arancel remedial
 			if($estado == 2){
 				$this->load->module('facturacion/facturacion');
 				$this->facturacion->crearArancelRemedialEstudiante($estudiante_carrera_meteria);
 			}
-			
+
 			 echo json_encode(true);
 			//echo json_encode($resultado);
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function buscarEstudiantesInscritos()
 	{
@@ -2330,7 +2330,7 @@ class Academico extends MX_Controller
 			$sn = trim($this->input->post('tb_sn'));
 			$id_carrera = trim($this->input->post('s_carrera'));
 			$id_modalidad = trim($this->input->post('s_modalida'));
-			$periodo = trim($this->input->post('s_period'));        
+			$periodo = trim($this->input->post('s_period'));
 			$datos = $this->academico_model->buscarEstudiantesInscritos($ap, $am, $pn, $sn, $id_carrera,  $id_modalidad, $periodo);
 			echo json_encode($datos);
 		}else{
@@ -2354,7 +2354,7 @@ class Academico extends MX_Controller
 			}
 		}
 	}
-  
+
 
 	public function inscritosVista()
 	{
@@ -2366,7 +2366,7 @@ class Academico extends MX_Controller
 			$data['id_carrera'] = trim($this->input->post('s_carrera'));
 			$data['id_modalidad'] = trim($this->input->post('s_modalida'));
 			$data['id_periodo'] = trim($this->input->post('s_period'));
-			$datos=$this->academico_model->buscarEstudiantesInscritosAll($data);          
+			$datos=$this->academico_model->buscarEstudiantesInscritosAll($data);
 			//var_dump($datos['estudiantes'][0]);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
@@ -2377,15 +2377,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function busquedaInscritos()
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$datos['periodos']=$this->academico_model->getPeriodos();
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$datos1=$this->perfil_model->cabecera($idusuario);
@@ -2404,21 +2404,21 @@ class Academico extends MX_Controller
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($id_usuario,47)){
 			$usuario=$this->session->userdata('loggeado');
 			$datos=array();
-			$datos['niveles'] = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+			$datos['niveles'] = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['modalidades'] = $this->academico_model->get_modalidades();
 			$datos['periodos'] = $this->academico_model->getPeriodos();
 			$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 			$grupos=array();
 			$vector_us=null;
 			if($usuario['ID_PERFIL']==12){//filtrar grupos para coordinadores
-				
+
 				$gruposc=$this->usuarios_model->grupos_usuario_academico(array('ID_USUARIO_ACADEMICO'=>$id_usuario));
 				foreach($gruposc as $g){
 					$grupos[]=$g['GRUPO'];
 				}
 			}else{
-				$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+				$grupos=$this->academico_model->buscarGruposEst($vector_us);
 				$grupos = explode("-", $grupos);
 			}
 			$datos['grupos'] = $grupos;
@@ -2457,15 +2457,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	public function alumnos_calificaciones($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico)
 	{
 		if($this->session->userdata('loggeado')){
 			$datos=array();
 			$datos= $this->academico_model->buscar_estdiante_calificado($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico);
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
-			$datos1=$this->perfil_model->cabecera($idusuario);            
+			$datos1=$this->perfil_model->cabecera($idusuario);
 			$datos['id_personas']=trim($this->input->post('id_personas'),'+');
 			$datos['id_grupos']=trim($this->input->post('id_grupos'),'+');
 			$datos['id_carreras']= trim($this->input->post('id_carreras'),'+');
@@ -2476,7 +2476,7 @@ class Academico extends MX_Controller
 			$datos['id_persona']=$id_persona;
 			$datos['id_nivel']=$id_nivel;
 			$datos['id_carrera']=$id_carrera;
-			$datos['id_periodo_academico']=$id_periodo_academico;			
+			$datos['id_periodo_academico']=$id_periodo_academico;
 			$etapas=$this->academico_model->get_etapas_calificar();
 			$estado_etapa=array();
 			foreach($etapas as $etapa){
@@ -2488,7 +2488,7 @@ class Academico extends MX_Controller
 			$datos['estado_etapa']=$estado_etapa;
 			$datos['mensaje_aprueba']=$this->academico_model->get_mensaje_aprueba();
 			$datos['mensaje_pierde']=$this->academico_model->get_mensaje_pierde();
-			$datos['mensaje_supletorio']=$this->academico_model->get_mensaje_supletorio();			
+			$datos['mensaje_supletorio']=$this->academico_model->get_mensaje_supletorio();
 			if(!isset($vista)){
 				$this->load->view('templates/header',$datos1);
 			}
@@ -2500,7 +2500,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 
 	public function certificado_calificaciones_alumno($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico)
 	{
@@ -2519,7 +2519,7 @@ class Academico extends MX_Controller
 			$datos['id_persona']           = $id_persona;
 			$datos['id_nivel']             = $id_nivel;
 			$datos['id_carrera']           = $id_carrera;
-			$datos['id_periodo_academico'] = $id_periodo_academico;		
+			$datos['id_periodo_academico'] = $id_periodo_academico;
 			if(!isset($vista)){
 				$this->load->view('templates/header',$datos1);
 			}
@@ -2543,7 +2543,7 @@ class Academico extends MX_Controller
 			$datos['id_persona']           = $id_persona;
 			$datos['id_nivel']             = $id_nivel;
 			$datos['id_carrera']           = $id_carrera;
-			$datos['id_periodo_academico'] = $id_periodo_academico;	
+			$datos['id_periodo_academico'] = $id_periodo_academico;
 			/****************************CREAR DOCUMENTO ACADEMICO***********************************/
 				$consultarCodigo   = true;
 				$prefijoDocumento  = $this->academico_model->buscarTipoDocumento(array('ID_TIPO_DOCUMENTO'=>3));
@@ -2571,10 +2571,10 @@ class Academico extends MX_Controller
 					//crear
 					$dataCertificado['ID_DOCUMENTO_ACADEMICO']    = $this->academico_model->crearDocumentoAcademico($dataCertificado);
 				// }
-				
+
 				$datos['certificado'] = $dataCertificado;
-				
-			/****************************************************************************************/		
+
+			/****************************************************************************************/
 			if(!isset($vista)){
 				// $this->load->view('templates/header',$datos1);
 			}
@@ -2594,7 +2594,7 @@ class Academico extends MX_Controller
 			$datos     = array();
 			$datos     = $this->academico_model->buscar_certificado_estudiante_detallado($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo);
 			$idusuario = $this->session->userdata('loggeado')['ID_USUARIO'];
-			$datos1    = $this->perfil_model->cabecera($idusuario);			
+			$datos1    = $this->perfil_model->cabecera($idusuario);
 			$datos['id_personas'] = trim($this->input->post('id_personas'),'+');
 			$datos['id_grupos']   = trim($this->input->post('id_grupos'),'+');
 			$datos['id_carreras']            = trim($this->input->post('id_carreras'),'+');
@@ -2606,7 +2606,7 @@ class Academico extends MX_Controller
 			$datos['id_nivel']    = $id_nivel;
 			$datos['id_carrera']  = $id_carrera;
 			$datos['id_periodo']  = $id_periodo;
-			
+
 			if(!isset($vista)){
 				$this->load->view('templates/header',$datos1);
 			}
@@ -2624,7 +2624,7 @@ class Academico extends MX_Controller
 			$datos     = array();
 			$datos     = $this->academico_model->buscar_certificado_estudiante_detallado($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo);
 			$idusuario = $this->session->userdata('loggeado')['ID_USUARIO'];
-			$datos1    = $this->perfil_model->cabecera($idusuario);			
+			$datos1    = $this->perfil_model->cabecera($idusuario);
 			$datos['id_personas'] = trim($this->input->post('id_personas'),'+');
 			$datos['id_grupos']   = trim($this->input->post('id_grupos'),'+');
 			$vista                = $this->input->post('vista');
@@ -2701,9 +2701,9 @@ class Academico extends MX_Controller
 		{
 			if($this->session->userdata('loggeado')){
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['periodos'] = $this->academico_model->getPeriodos();		
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['periodos'] = $this->academico_model->getPeriodos();
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -2714,7 +2714,7 @@ class Academico extends MX_Controller
 			}
 		}
 
-		
+
 		public function anular_matricula($id_matricula=null)
 		{
 			if($this->session->userdata('loggeado')){
@@ -2725,14 +2725,14 @@ class Academico extends MX_Controller
 					if (isset($id_matricula) && $id_matricula != 0 && $id_matricula != null ) {
 						$url = $this->url_copia . 'anular_matricula/'.$id_matricula;
 					}else{
-						$url = $this->url_copia . 'anular_matricula/';	
+						$url = $this->url_copia . 'anular_matricula/';
 					}
 
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$data_copia['idusuario'] = $idusuario;
 
 					$elements                = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -2744,7 +2744,7 @@ class Academico extends MX_Controller
 					$error     = curl_error($ch);
 					curl_close($ch);
 				/////////////////////////////////////////////////////////////////////////
-				
+
 				$dato=$this->academico_model->anular_matricula($id_matricula,$idusuario);
 				if($dato=='ANULADO'){
 					//enviar actualizacion matricula vlc
@@ -2770,22 +2770,22 @@ class Academico extends MX_Controller
 					</script>
 					';
 					echo $dato1;
-				} 
-				// echo $resultado;           
+				}
+				// echo $resultado;
 			}else{
 				//redirect('admin/login', 'refresh');
 				echo "Sesion Terminada";
 			}
-		}	
+		}
 
 
 		public function buscar_para_retirar_estudiante()
 		{
 			if($this->session->userdata('loggeado')){
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				//$datos['periodos'] = $this->academico_model->getPeriodos();			
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				//$datos['periodos'] = $this->academico_model->getPeriodos();
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -2807,14 +2807,14 @@ class Academico extends MX_Controller
 					if (isset($id_matricula) && $id_matricula != 0 && $id_matricula != null ) {
 						$url = $this->url_copia . 'retirar_estudiante/'.$id_matricula.'/'.$nota_asistencia;
 					}else{
-						$url = $this->url_copia . 'retirar_estudiante/'.null.'/'.$nota_asistencia;	
+						$url = $this->url_copia . 'retirar_estudiante/'.null.'/'.$nota_asistencia;
 					}
 
 					curl_setopt($ch, CURLOPT_URL, $url);
 					$data_copia['idusuario'] = $idusuario;
 
 					$elements                = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -2854,14 +2854,14 @@ class Academico extends MX_Controller
 									params.life = "3000";
 									$.notific8(text, params);
 					</script>
-					';				
+					';
 					echo $dato1;
-				}         
+				}
 			}else{
 				//redirect('admin/login', 'refresh');
 				echo "Sesion Terminada";
 			}
-		}	
+		}
 
 
 		public function buscarEstudiantesParaMatricular()
@@ -2872,7 +2872,7 @@ class Academico extends MX_Controller
 				$am = trim($this->input->post('am'));
 				$pn = trim($this->input->post('pn'));
 				$sn = trim($this->input->post('sn'));
-				$nd = trim($this->input->post('nd'));			
+				$nd = trim($this->input->post('nd'));
 				$para_cambio_carrera = trim($this->input->post('para_cambio'));
 				/*$id_carrera = trim($this->input->post('id_carrera'));
 				$id_modalidad = trim($this->input->post('id_modalidad'));
@@ -2899,7 +2899,7 @@ class Academico extends MX_Controller
 					if($this->academico_model->verificar_usuario_funcionalidad($idusuario,83)){
 						$datos[0]['borrar']=1;
 					}
-				}			
+				}
 				if($para_cambio_carrera==1){//filtrar los registros que no tienen matricula anterior
 					foreach($datos as $key=>$dato){
 						$ultima_matricula=$this->academico_model->datos_ultima_matricula_estudiante($dato['ID_CLIENTE']);
@@ -2915,25 +2915,25 @@ class Academico extends MX_Controller
 							$datos[$key]['cambiado']=1;
 						}*/
 					}
-				}			
+				}
 				echo json_encode($datos);
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
-		
+
+
 		public function calificacion_alumno($id_periodo_academico=null,$id_carrera=null)
 		{
 			if($this->session->userdata('loggeado')){
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$id_persona=$this->academico_model->getpersona($idusuario);
-				
-				
+
+
 				if($id_periodo_academico==null){
 					$id_periodo_academico=$this->academico_model->get_periodo_activado();
 				}
-				
+
 				$matriculas = $this->academico_model->buscar_matricula(array('ID_PERSONA'=>$id_persona,'ID_PERIODO_ACADEMICO'=>$id_periodo_academico));
 				$carreras=array();
 				$id_grupo=null;
@@ -2976,11 +2976,11 @@ class Academico extends MX_Controller
 				if($id_carrera==null){
 					$id_carrera=$this->academico_model->obtener_idcarrera_estudiante($id_persona,$id_periodo_academico);
 				}
-				
+
 				if($id_carrera==''){
 					$id_carrera=0;
 				}
-				
+
 				$datos=array();
 				$etapas=$this->academico_model->get_etapas_calificar();
 				$estado_etapa=array();
@@ -3009,9 +3009,9 @@ class Academico extends MX_Controller
 					}
 				}
 				$datos['periodos'] = $vector_periodos;
-				$datos['ID_PERIODO_ACADEMICO'] = $id_periodo_academico;		
-				$datos['ID_CARRERA'] = $id_carrera;	
-				$datos['carreras'] = $carreras;	
+				$datos['ID_PERIODO_ACADEMICO'] = $id_periodo_academico;
+				$datos['ID_CARRERA'] = $id_carrera;
+				$datos['carreras'] = $carreras;
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
 				$this->load->view('calificaciones_estudiante',$datos);
@@ -3020,9 +3020,9 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}//fin alumno_calificacion()
-	  
+
 		////////////////////////////////////////////////////////////////////////////////////////////////
-		public function gestionBeca() 
+		public function gestionBeca()
 		{
 			if($this->session->userdata('loggeado')){
 				$idbeca=$this->input->post('idbeca');
@@ -3050,9 +3050,9 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		//////////////////////////////////////////////////////////////////////////////////////////////////
-		public function buscarBecas() 
+		public function buscarBecas()
 		{
 			if($this->session->userdata('loggeado')){
 				$data['NOMBRE']=$this->input->post('nombre');
@@ -3076,7 +3076,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		///////////////////////////////////////////////////////////////////////////////////////////////////
 		public function actualizaEstadoBeca($idBeca=null,$estado=null)
 		{
@@ -3086,7 +3086,7 @@ class Academico extends MX_Controller
 					$this->academico_model->actualizarBeca($data,$idBeca);
 					$data['ID_BECA']=$idBeca;
 					$beca = $this->academico_model->buscar_beca($data);
-					if($estado==0){  
+					if($estado==0){
 						 echo '<input class="btn btn-info btn-sm" value="Editar" onclick="gestionBeca(\''.$beca[0]['TIPO_BECA'].'\',\''.$beca[0]['PORCENTAJE'].'\',\''.$beca[0]['RUBROS_APLICA'].'\',\''.$idBeca.'\')" type="button"><input class="btn btn-danger btn-sm" style="margin-left:5px" value="Desactivar" onclick="estado_beca(\''.$idBeca.'\',\'1\')" type="button">';
 					 }else{
 						 echo '<input class="btn btn-info btn-sm" value="Editar" onclick="gestionBeca(\''.$beca[0]['TIPO_BECA'].'\',\''.$beca[0]['PORCENTAJE'].'\',\''.$beca[0]['RUBROS_APLICA'].'\',\''.$idBeca.'\')" type="button"><input class="btn btn-warning btn-sm" style="margin-left:5px;width:80px" value="Activar" onclick="estado_beca(\''.$idBeca.'\',\'0\')" type="button">';
@@ -3096,15 +3096,15 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		public function buscar_para_historial_calificaciones()
 		{
 			if($this->session->userdata('loggeado')){
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['modalidades'] = $this->academico_model->get_modalidades();           
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['modalidades'] = $this->academico_model->get_modalidades();
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -3113,37 +3113,37 @@ class Academico extends MX_Controller
 			}else{
 				redirect('admin/login', 'refresh');
 			}
-		}	
-		
+		}
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		public function historialCalificaciones($id_cliente=null,$id_matricula=null) 
+		public function historialCalificaciones($id_cliente=null,$id_matricula=null)
 		{
 			if($this->session->userdata('loggeado')){
 				$this->load->helper('form');
-				$this->load->library('form_validation');       
+				$this->load->library('form_validation');
 				$this->form_validation->CI =& $this;
 				if($id_cliente == NULL){
 					show_404();
 				}else{
 					$matricula = $this->academico_model->obtener_datos_matricula($id_cliente,$id_matricula);
 				}
-				$datos_estudiante = $this->academico_model->get_datos_cliente($id_cliente); 
+				$datos_estudiante = $this->academico_model->get_datos_cliente($id_cliente);
 				$materias_a_historial = $this->academico_model->getMateriasParaHistorial($matricula['ID_CARRERA'],$matricula['ID_PERSONA']);
-				
+
 				foreach ($materias_a_historial as $key => $materia) {
 					$materias_a_historial[$key]['docentes'] = $this->academico_model->getDocentesMateria($materia);
 				}
 				$matricula['materias_a_historial'] = $materias_a_historial;
-				$matricula['APELLIDOS'] = $datos_estudiante['APELLIDOS']; 
-				$matricula['NOMBRES']   = $datos_estudiante['NOMBRES']; 
-				$matricula['carreras']  = $this->academico_model->get_carreras(); 
+				$matricula['APELLIDOS'] = $datos_estudiante['APELLIDOS'];
+				$matricula['NOMBRES']   = $datos_estudiante['NOMBRES'];
+				$matricula['carreras']  = $this->academico_model->get_carreras();
 				$matricula['modalidades'] = $this->academico_model->get_modalidades();
-				$matricula['niveles'] = $this->academico_model->get_niveles(); 
+				$matricula['niveles'] = $this->academico_model->get_niveles();
 				//$matricula['periodos'] = $this->academico_model->get_periodos_academicos();
 				$matricula['periodos'] = $this->academico_model->getPeriodos();
-				
+
 				$matricula['ID_CLIENTE'] = $id_cliente;
-				$matricula['MATRICULA'] = $matricula;			
+				$matricula['MATRICULA'] = $matricula;
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -3153,23 +3153,23 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		public function procesarHistorialCalificaciones($id_cliente=null) 
-		{ 
+		public function procesarHistorialCalificaciones($id_cliente=null)
+		{
 			if($this->session->userdata('loggeado')){
 				$this->load->helper('form');
-				$this->load->library('form_validation');       
+				$this->load->library('form_validation');
 				$this->form_validation->CI =& $this;
 				if($id_cliente == NULL){
 					show_404();
-				}            
-				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');            
+				}
+				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');
 				$data = $this->input->post('formulario_matricula'); //todo: corregir en la vista, poner formular convalidar homologar
 				$data['ID_CLIENTE']=$id_cliente;
 				if($this->form_validation->run() == FALSE){
 
-				}else{  
+				}else{
 					$respuesta=$this->academico_model->historialCalificaciones($data);
 					echo $respuesta;
 				}
@@ -3177,7 +3177,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function get_materias_historial()
 		{
@@ -3189,7 +3189,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		///////////////////////////////////////////////////////////////////////////////////////////////////
 		public function matriculadosVista()
 		{
@@ -3208,7 +3208,7 @@ class Academico extends MX_Controller
 						foreach($usuario_sedes as $us){
 							$vector_us[]=$us['ID_SEDE'];
 						}
-						$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+						$grupos=$this->academico_model->buscarGruposEst($vector_us);
 						$grupos = explode("-", $grupos);
 						$vector_grupos=array();
 						foreach($grupos as $g){
@@ -3220,7 +3220,7 @@ class Academico extends MX_Controller
 							}
 						}
 					}*/
-					
+
 					$vector_grupos=array();
 					$usuario_grupos=$this->usuarios_model->buscar_usuario_grupos(array('ID_USUARIO'=>$id_usuario));
 					if($usuario_grupos!=NULL){
@@ -3261,12 +3261,12 @@ class Academico extends MX_Controller
 					$this->load->view('inscritosVista',$datos);
 					//$this->load->view('inscritosVistaCodificado',$datos);
 					$this->load->view('templates/footer');
-				}            
+				}
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////
 		public function matriculadosReporte($id_carrera,$id_nivel,$id_periodo_academico,$idgrupo,$tipo)
 		{
@@ -3285,7 +3285,7 @@ class Academico extends MX_Controller
 						foreach($usuario_sedes as $us){
 							$vector_us[]=$us['ID_SEDE'];
 						}
-						$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+						$grupos=$this->academico_model->buscarGruposEst($vector_us);
 						$grupos = explode("-", $grupos);
 						$vector_grupos=array();
 						foreach($grupos as $g){
@@ -3297,7 +3297,7 @@ class Academico extends MX_Controller
 							}
 						}
 					}*/
-					
+
 					$vector_grupos=array();
 					$usuario_grupos=$this->usuarios_model->buscar_usuario_grupos(array('ID_USUARIO'=>$id_usuario));
 					if($usuario_grupos!=NULL){
@@ -3316,12 +3316,12 @@ class Academico extends MX_Controller
 				$datos['titulo']='MATRICULADOS';
 				 $this->load->view('inscritosReporte',$datos);
 				   $this->load->view('templates/footer');*/
-				$this->load->view('reporte_matriculados_excel',$datos);  
+				$this->load->view('reporte_matriculados_excel',$datos);
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function get_materias_periodos()
 		{
@@ -3341,7 +3341,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function get_materias_prerequisito_sin_aprobar()
 		{
@@ -3354,7 +3354,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function get_num_alumnos_materias_asignadas_al_docente()
 		{
@@ -3382,7 +3382,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function getDocentesDeMateria()
 		{
@@ -3394,7 +3394,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function reasignarDocente()
 		{
@@ -3415,7 +3415,7 @@ class Academico extends MX_Controller
 					$data_copia['id_usu']           = $this->session->userdata('loggeado')['ID_USUARIO'];
 
 					$elements                         = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -3437,14 +3437,14 @@ class Academico extends MX_Controller
 						//$this->sendMateriaVlc($row['ID_ESTUDIANTE_CARRERA_MATERIA'],'actualizar');
 					}
 				}
-				
+
 				echo json_encode($datos);
 				// echo json_encode($resultado);
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function importar_estudiantes()
 		{
@@ -3463,15 +3463,15 @@ class Academico extends MX_Controller
 							$objReader = new PHPExcel_Reader_Excel2007();
 							$objPHPExcel = $objReader->load(FCPATH."/assets/librerias/images/". $name);
 							$objFecha = new PHPExcel_Shared_Date();
-							// Asignar hoja de excel activa 
+							// Asignar hoja de excel activa
 							$objPHPExcel->setActiveSheetIndex(0);
-							// Llenamos el arreglo con los datos  del archivo xlsx  
+							// Llenamos el arreglo con los datos  del archivo xlsx
 							$objWorksheet = $objPHPExcel->setActiveSheetIndex(0);
 							//Se obtiene el n?mero m?ximo de filas
 							$num_reg = $objWorksheet->getHighestRow();
 
 							$num_regExistentes = 0;
-							//Llenar detalle action items   
+							//Llenar detalle action items
 							for($i = 1; $i <= $num_reg; $i++){
 								$nombre=trim($objPHPExcel->getActiveSheet()->getCell('A' . $i)->getCalculatedValue());
 								$n=explode(' ',$nombre);
@@ -3528,7 +3528,7 @@ class Academico extends MX_Controller
 								$d['EST_TITULO_BACHILLER']=trim($objPHPExcel->getActiveSheet()->getCell('R' . $i)->getCalculatedValue());
 								//$d['FECHA_CREACION']=date('Y-m-d H:i:s');
 								//$this->db->insert('tab_personas', $d);
-								//$id_persona=$this->db->insert_id();								
+								//$id_persona=$this->db->insert_id();
 								$cliente = array();
 								$cliente['TIPO_DOCUMENTO']=trim($objPHPExcel->getActiveSheet()->getCell('F' . $i)->getCalculatedValue());
 								$cliente['NRO_DOCUMENTO']=trim($objPHPExcel->getActiveSheet()->getCell('G' . $i)->getCalculatedValue());
@@ -3564,20 +3564,20 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		//*****************************************************************
 		//Actualizar  MATRICULA Academico
-		public function procesarMatriculaAcademico($id_cliente=null,$id_matricula=null) 
-		{ 
+		public function procesarMatriculaAcademico($id_cliente=null,$id_matricula=null)
+		{
 			$idUsuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idUsuario,64)){
 				$this->load->helper('form');
-				$this->load->library('form_validation');       
+				$this->load->library('form_validation');
 				$this->form_validation->CI =& $this;
 				if($id_cliente == NULL){
 					show_404();
-				}           
-				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');                      
+				}
+				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');
 				$data = $this->input->post('formulario_matricula');
 				$data_copia = $data;
 				$data['ID_CLIENTE']=$id_cliente;
@@ -3586,20 +3586,20 @@ class Academico extends MX_Controller
 
 				}else{
 
-					
+
 					///////////////////////////////////PROCESAMIENTO DE COPIA//////////////////////////////////////
 						$ch  = curl_init();
 						if (isset($id_matricula) && $id_matricula != 0 && $id_matricula != null ) {
 							$url = $this->url_copia . 'procesarMatriculaAcademico/'.$id_cliente.'/'.$id_matricula;
 						}else{
-							$url = $this->url_copia . 'procesarMatriculaAcademico/'.$id_cliente;	
+							$url = $this->url_copia . 'procesarMatriculaAcademico/'.$id_cliente;
 						}
 						// $url = $this->url_copia . 'procesarMatriculaAcademico/'.$id_cliente;
 						curl_setopt($ch, CURLOPT_URL, $url);
 						$data_copia['activado']           = $this->academico_model->get_periodo_activado();
 						$elements = $data_copia;
-						
-						curl_setopt($ch, CURLOPT_POST,true); 
+
+						curl_setopt($ch, CURLOPT_POST,true);
 						// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 						// curl_setopt($ch, CURLOPT_HEADER, false);
 						// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -3627,7 +3627,7 @@ class Academico extends MX_Controller
 					foreach($ids_materias_estudiante_borra as $id_ecm){
 						$this->sendMateriaVlc($id_ecm,'borrar');
 					}*/
-					
+
 					echo $respuesta['resultado'];
 
 						// $data['resultado'] = $resultado;
@@ -3637,20 +3637,20 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		//*****************************************************************
 		//Actualizar  MATRICULA Financiero
-		public function procesarMatriculaFinanciero($id_cliente=null,$id_matricula=null) 
-		{ 
+		public function procesarMatriculaFinanciero($id_cliente=null,$id_matricula=null)
+		{
 			$idUsuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idUsuario,65)){
 				$this->load->helper('form');
-				$this->load->library('form_validation');       
+				$this->load->library('form_validation');
 				$this->form_validation->CI =& $this;
 				if($id_cliente == NULL){
 					show_404();
-				}            
-				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');                        
+				}
+				$this->form_validation->set_rules('formulario_matricula[NOMBRES]', 'nombre', 'required');
 				$data = $this->input->post('formulario_matricula');
 				$data['ID_CLIENTE']=$id_cliente;
 				$data['ID_MATRICULA']=$id_matricula;
@@ -3658,7 +3658,7 @@ class Academico extends MX_Controller
 
 				}else{
 					$this->load->model('automatica/automatica_model');
-					$this->load->model('clientes/clientes_model');	
+					$this->load->model('clientes/clientes_model');
 					$rubro_recargo = $this->input->post('rubro_recargo');
 					//datos para obtener porcentaje de beca por cada rubro y cuota
 					$cliente=$this->clientes_model->obtener_datos_cliente_natural($id_cliente);
@@ -3675,17 +3675,17 @@ class Academico extends MX_Controller
 							}
 						}
 					}
-					for($i=0; $i<count($rautomaticos_asociados); $i++){ 
+					for($i=0; $i<count($rautomaticos_asociados); $i++){
 						foreach($rautomaticos_asociados[$i]['cuotas'] as $cuota){
 							if(isset($beca[$cuota['CUOTA']]) and $beca[$cuota['CUOTA']]>0){
 								$pb=round($cuota['DESCUENTO_BECA']*100/$beca[$cuota['CUOTA']],2);
 								$porcentaje_beca[$cuota['CUOTA']][$rautomaticos_asociados[$i]['ID_RUBRO']]=$pb;
 							}
 						}
-					}			  
+					}
 					for($i=1;$i<=6; $i++){
 						$beca_total[$i]=$this->input->post('beca_'.$i);
-					}				
+					}
 					//actualizar tabla cuotas generales
 					$id_cg = $this->input->post('id_cuotas_generales');
 					$id_cuotas_generales=explode('+',$id_cg);
@@ -3758,12 +3758,12 @@ class Academico extends MX_Controller
 								$data_cr[$cuota_rubro_prioridad['ID_CLIENTE_RUBRO']]['VALOR_RECARGO_GENERACION']=$rubro_recargo;
 							}
 						}
-					}				
+					}
 					//actualizar tabla fac_clientes_rubros
 					foreach($data_cr as $key=>$cr){
 						$cr['PRECIO_X_NRO_ITEMS']=$cr['PRECIO_UNITARIO_RUBRO'];
 						$this->automatica_model->actualizar_cliente_rubro($key,$cr);
-					}				
+					}
 					echo 'Tabla Actualizada';
 					//print_r($_POST);
 				}
@@ -3771,7 +3771,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function imprimirExpediente($id_cliente,$id_carrera=null,$id_periodo=null)
 		{
@@ -3789,7 +3789,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-	
+
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public function imprimirDocumento($documento,$id_cliente,$id_carrera=null,$id_periodo=null)
 	{
@@ -3847,7 +3847,7 @@ class Academico extends MX_Controller
 					$dataCertificado['NOMBRE_ARCHIVO_PDF']        = $certificado['NOMBRE_ARCHIVO_PDF'];
 				}*/
 				$data['certificado'] = $dataCertificado;
-				
+
 				$this->load->view('certificado_matricula',$data);
 			}elseif($documento=='anexo'){
 				$opdion_pago=$this->academico_model->get_opciones_pago(1);
@@ -3869,7 +3869,7 @@ class Academico extends MX_Controller
 		}
 		return $key;
 	}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function guardar_opciones_pago()
 		{
@@ -3882,22 +3882,22 @@ class Academico extends MX_Controller
 				}else{
 					$this->academico_model->actualizar_opciones_pago($data,1);
 					$respuesta='Registro Actualizado';
-				}	
+				}
 				echo $respuesta;
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		///////////////////////////////////////////////////
 		public function buscar_para_cambio()
 		{
 			$idUsuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idUsuario,68)){
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['periodos'] = $this->academico_model->getPeriodos();			
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['periodos'] = $this->academico_model->getPeriodos();
 				$datos1=$this->perfil_model->cabecera($idUsuario);
 				$this->load->view('templates/header',$datos1);
 				$this->load->view('busqueda_para_cambio_carrera',$datos);
@@ -3906,7 +3906,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function cambio_carrera($id_cliente,$id_matricula)
 		{
@@ -3924,7 +3924,7 @@ class Academico extends MX_Controller
 					$data_copia['nueva_carrera']     = $this->input->post('nueva_carrera');
 
 					$elements                        = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -3940,9 +3940,9 @@ class Academico extends MX_Controller
 
 				if($matricula==NULL){
 					$matricula=$this->academico_model->datos_ultima_matricula_estudiante($id_cliente);
-					$datos_estudiante_matricula = $this->academico_model->get_datos_matricula($id_cliente); 
-					$matricula['APELLIDOS'] = $datos_estudiante_matricula['APELLIDOS']; 
-					$matricula['NOMBRES'] = $datos_estudiante_matricula['NOMBRES']; 
+					$datos_estudiante_matricula = $this->academico_model->get_datos_matricula($id_cliente);
+					$matricula['APELLIDOS'] = $datos_estudiante_matricula['APELLIDOS'];
+					$matricula['NOMBRES'] = $datos_estudiante_matricula['NOMBRES'];
 				}
 				$dat=array();
 				$dat['ID_PERSONA']=$matricula['ID_PERSONA'];
@@ -3952,7 +3952,7 @@ class Academico extends MX_Controller
 				if(count($cambiados)>0){
 					$matricula['ID_CARRERA']=$cambiados[count($cambiados)-1]['ID_CARRERA_NUEVO'];//colocar ultima id_carrera si ya tiene otros cambios de carrera
 				}
-				$matricula['ID_CLIENTE'] = $id_cliente;			
+				$matricula['ID_CLIENTE'] = $id_cliente;
 				$id_nueva_carrera=$this->input->post('nueva_carrera');
 				if($id_nueva_carrera>0){//procesar el cambio de carrera
 					$data_cambio['ID_PERSONA']=$matricula['ID_PERSONA'];
@@ -3968,16 +3968,16 @@ class Academico extends MX_Controller
 					//enviar actualizacion matricula vlc
 					//$this->sendMatriculaVlc($id_cliente,'borrado');
 					$materias=$this->academico_model->get_materias_estudiante($matricula['ID_PERSONA'],$id_periodo_actual,null,null,$matricula['ID_CARRERA']);
-					
+
 					foreach($materias as $m){
 						//$this->sendMateriaVlc($m['ID_ESTUDIANTE_CARRERA_MATERIA'],'borrar');
 					}
-					
+
 					$result=$this->academico_model->cambioCarrera($id_cliente,$matricula['ID_CARRERA'],$id_periodo_actual);
 					$carrera=$this->academico_model->get_carreras($id_nueva_carrera);
 					$resp�esta=$carrera[0]['NOMBRE'].'<br>';
-					$resp�esta.="<strong>Fecha</strong><br>".date('Y-m-d');				
-					echo $resp�esta.'<br><br>'.$result;				
+					$resp�esta.="<strong>Fecha</strong><br>".date('Y-m-d');
+					echo $resp�esta.'<br><br>'.$result;
 				}else{
 					$carreras_matriculados=$this->academico_model->buscar_matricula(array('ID_CLIENTE'=>$id_cliente));
 					$ids_carrera = array();
@@ -4000,8 +4000,8 @@ class Academico extends MX_Controller
 				//redirect('admin/login', 'refresh');
 				echo "Sesion Terminada";
 			}
-		}	
-		
+		}
+
 		////////////////////////////////////////////////////////////////////////////
 		public function certificado_cambio_carrera($id_cambio_carrera)
 		{
@@ -4014,8 +4014,8 @@ class Academico extends MX_Controller
 				$cambiado=array();
 				if(count($cambiados)>0){
 					$cambiado=$cambiados[0];
-					$datos= $this->academico_model->buscar_certificado_estudiante_detallado($cambiado['ID_PERSONA'],null,null,$cambiado['ID_CARRERA_ANTERIOR']); 
-				}			
+					$datos= $this->academico_model->buscar_certificado_estudiante_detallado($cambiado['ID_PERSONA'],null,null,$cambiado['ID_CARRERA_ANTERIOR']);
+				}
 				$datos['carreras'] = $this->academico_model->get_carreras(NULL);
 				$datos['cambiado']=$cambiado;
 				$this->load->view('certificado_cambio_carrera',$datos);
@@ -4024,28 +4024,28 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////
-		public function activarPeriodoIndividual() 
+		public function activarPeriodoIndividual()
 		{
 			if($this->session->userdata('loggeado')){
 				$id_periodo = trim($this->input->post('id'));
 				$this->session->set_userdata('id_periodo', $id_periodo);
-				echo json_encode('cambiado');        
+				echo json_encode('cambiado');
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////
-		public function estadoMateria() 
+		public function estadoMateria()
 		{
 			if($this->session->userdata('loggeado')){
 				$estado=array(false,true);
 				$id_carrera_materia = trim($this->input->post('id'));
 				$data['ESTADO'] = $estado[trim($this->input->post('estado'))];
 				$this->academico_model->actualizaMateria($id_carrera_materia,$data);
-				//echo json_encode('cambiado');   
+				//echo json_encode('cambiado');
 				$respuesta='<input class="btn btn-success btn-sm" type="button" value="Editar" onclick="editar('.$id_carrera_materia.')">';
 				if($data['ESTADO']==0){
 					$respuesta.='<input class="btn btn-primary btn-sm" type="button" value="Activar" onclick="estado_materia(\''.$id_carrera_materia.'\',\'1\')" style="margin-left:5px">';
@@ -4053,25 +4053,25 @@ class Academico extends MX_Controller
 				if($data['ESTADO']==1){
 					$respuesta.='<input class="btn btn-danger btn-sm" type="button" value="Desactivar" onclick="estado_materia(\''.$id_carrera_materia.'\',\'0\')" style="margin-left:5px">';
 				}
-				echo $respuesta;     
+				echo $respuesta;
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////
 		public function buscar_silabos_tareas()
 		{
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,71)){
 				$this->load->model('admin/usuarios_model');
-				$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);		
+				$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);
 				if(!$this->input->is_ajax_request()){
 					$datos=array();
-					$datos['niveles'] = $this->academico_model->get_niveles(); 
-					$datos['carreras'] = $this->academico_model->get_carreras(); 
-					$datos['periodos'] = $this->academico_model->getPeriodos(); 
-					$datos['perfil'] = $perfil; 
+					$datos['niveles'] = $this->academico_model->get_niveles();
+					$datos['carreras'] = $this->academico_model->get_carreras();
+					$datos['periodos'] = $this->academico_model->getPeriodos();
+					$datos['perfil'] = $perfil;
 					$datos1=$this->perfil_model->cabecera($idusuario);
 					$this->load->view('templates/header',$datos1);
 					$this->load->view('busqueda_calificaciones_alumnos',$datos);
@@ -4084,10 +4084,10 @@ class Academico extends MX_Controller
 					$data['ID_PERIODO_ACADEMICO'] = trim($this->input->post('id_periodo'));
 					$data['ID_CARRERA'] = trim($this->input->post('id_carrera'));
 					$data['ID_NIVEL'] = trim($this->input->post('id_nivel'));
-					$datos['perfil'] = $perfil;				
+					$datos['perfil'] = $perfil;
 					if($perfil==4){//vista docentes
 						$data['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
-					}				
+					}
 					if($perfil==5){//vista estudiante
 						$periodo = $this->academico_model->get_periodo_activado();
 						$id_persona_estudiante = $this->session->userdata('loggeado')['ID_PERSONA'];
@@ -4113,7 +4113,7 @@ class Academico extends MX_Controller
 								unset($silabos_tareas[$key]);
 							}
 						}
-					}				
+					}
 					///agregar numero de tareas
 					foreach($silabos_tareas as $key=>$silabo_tarea){
 						$silabos_tareas[$key]['num_tareas']=$this->academico_model->num_tareas_estudiantes($silabo_tarea['ID_DOCENTE_CARRERA_MATERIA'],$silabo_tarea['ID_GRUPO']);
@@ -4125,7 +4125,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function procesarSilaboTarea()
 		{
@@ -4147,13 +4147,13 @@ class Academico extends MX_Controller
 						$ingreso_archivo=$dato_archivo['error'];
 						//$ingreso_archivo="Fallo ingreso de archivo";
 					}
-				}			
+				}
 				if($nombre_archivo!=''){
 					 if($documento==0){//silabo
 						 $data['SILABO'] = $nombre_archivo;
 					 }
 					 if($documento==1){//tarea
-						 $data['TAREA'] = $nombre_archivo;					 
+						 $data['TAREA'] = $nombre_archivo;
 						 //enviar correo de aviso
 						 $data_silabo['ID_DOCENTE_CARRERA_MATERIA']=$id_docente_carrera_materia;
 						 $data_silabo['ID_GRUPO']=$id_grupo;
@@ -4171,7 +4171,7 @@ class Academico extends MX_Controller
 									 $msg.= "DOCENTE:   ".$silabo_tarea[0]['DOCENTE']."\n";
 									 $msg.= "CARRERA:   ".$silabo_tarea[0]['CARRERA']."\n";
 									 $msg.= "MATERIA:   ".$silabo_tarea[0]['MATERIA']."\n";
-									 $msg.= "GRUPO:   ".$silabo_tarea[0]['GRUPO']."\n";							
+									 $msg.= "GRUPO:   ".$silabo_tarea[0]['GRUPO']."\n";
 									 $msg.= "HORA:     ".date("h:i:s a ")."\n";
 									 $msg.= "FECHA:    ".date("D, d M Y")."\n";
 									 $msg.= " Mensaje creado por Sistema Acad�mico \n";
@@ -4211,7 +4211,7 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function cargar_archivo($iname,$peso=0,$carpeta='')
 		{
@@ -4234,7 +4234,7 @@ class Academico extends MX_Controller
 			$config['file_name']= $name;
 			$dato_imagen['nombre']=$name;
 			$this->load->library('upload', $config);
-			
+
 			if(!$this->upload->do_upload($iname)){
 				$error = $this->upload->display_errors();
 				$dato_imagen['error']=$error;
@@ -4244,9 +4244,9 @@ class Academico extends MX_Controller
 			}
 			return $dato_imagen;
 		}
-			
+
 		////////////////////////////////////////////////////////////////////////////////////////////////
-		public function gestionTareas($id_docente_carrera_materia,$id_grupo) 
+		public function gestionTareas($id_docente_carrera_materia,$id_grupo)
 		{
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,71)){
@@ -4258,13 +4258,13 @@ class Academico extends MX_Controller
 					$data['ID_GRUPO'] = trim($this->input->post('id_grupo'));
 					$data['TITULO'] = trim($this->input->post('titulo'));
 					$data['DESCRIPCION'] = trim($this->input->post('texto'));
-					$data['FECHA_LIMITE'] = trim($this->input->post('fecha_limite'));				
+					$data['FECHA_LIMITE'] = trim($this->input->post('fecha_limite'));
 					$num_archivos=trim($this->input->post('nroArchivos'));
 					$tipo_archivos='';
 					for($i=1; $i<=$num_archivos; $i++){
 						$tipo_archivos.=$this->input->post('tipo_archivo_'.$i).'+';
 					}
-					$data['TIPO_ARCHIVOS_RESPUESTA'] = trim($tipo_archivos,'+');				
+					$data['TIPO_ARCHIVOS_RESPUESTA'] = trim($tipo_archivos,'+');
 					//carga de archivo
 					$archivo= $_FILES['archivo']['name'];
 					$ingreso_archivo='';
@@ -4328,7 +4328,7 @@ class Academico extends MX_Controller
 					$data['cabecera_tarea']=$this->academico_model->get_docente_carrera_materia_grupo($id_docente_carrera_materia,$id_grupo);
 					$datat['ID_DOCENTE_CARRERA_MATERIA']=$id_docente_carrera_materia;
 					$datat['ID_GRUPO']=$id_grupo;
-					$tareas=$this->academico_model->buscar_tareas($datat);			  
+					$tareas=$this->academico_model->buscar_tareas($datat);
 					if($perfil==5){
 						///agregar datos de respuesta
 						foreach($tareas as $key=>$tarea){
@@ -4357,9 +4357,9 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////////////////////////
-		public function respuestaTarea() 
+		public function respuestaTarea()
 		{
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,71)){
@@ -4369,7 +4369,7 @@ class Academico extends MX_Controller
 				$listado = trim($this->input->post('listado'));
 				if($id_tarea!='' and $listado==''){
 					$data['ID_TAREA'] = $id_tarea;
-					$data['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];				
+					$data['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
 					//carga de archivo
 					$tareas=$this->academico_model->buscar_tareas(array('ID_TAREA'=>$id_tarea));
 					$tarea=$tareas[0];
@@ -4387,7 +4387,7 @@ class Academico extends MX_Controller
 									$dato_archivo=$this->cargar_archivo('archivo'.$i,5000);
 								}else{
 									$dato_archivo=$this->cargar_archivo('archivo'.$i);
-								}							
+								}
 								if($dato_archivo['error']==''){
 									$nombre_archivo.=$dato_archivo['file_name'].'+';
 									$archivo_temp[$i]=$dato_archivo['file_name'];
@@ -4416,7 +4416,7 @@ class Academico extends MX_Controller
 							$mensaje='Fallo Ingreso :'.$ingreso_archivo;
 						}
 					 }*/
-					 
+
 					 //verificar que no exista ya registrado una respuesta del estudiante
 					 $data_respuesta['ID_TAREA']=$id_tarea;
 					 $data_respuesta['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
@@ -4485,27 +4485,27 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////
 		public function buscar_guias_academicas()
 		{
 			$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,78)){
 				$this->load->model('admin/usuarios_model');
-				$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);			
+				$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);
 				if(!$this->input->is_ajax_request()){
 					$datos=array();
-					$datos['niveles'] = $this->academico_model->get_niveles(); 
-					$datos['carreras'] = $this->academico_model->get_carreras(); 
-					$datos['periodos'] = $this->academico_model->getPeriodos(); 
-					$datos['perfil'] = $perfil; 
+					$datos['niveles'] = $this->academico_model->get_niveles();
+					$datos['carreras'] = $this->academico_model->get_carreras();
+					$datos['periodos'] = $this->academico_model->getPeriodos();
+					$datos['perfil'] = $perfil;
 					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 					$datos1=$this->perfil_model->cabecera($idusuario);
 					$this->load->view('templates/header',$datos1);
 					$this->load->view('buscar_guias_academicas',$datos);
 					$this->load->view('templates/footer');
 				}else{
-					$datos['perfil'] = $perfil;				
+					$datos['perfil'] = $perfil;
 					$guias_academicas=array();
 					if($perfil==5){//vista estudiante
 						$id_periodo = $this->academico_model->get_periodo_activado();
@@ -4539,7 +4539,7 @@ class Academico extends MX_Controller
 						$id_periodo = trim($this->input->post('id_periodo'));
 						$data['ID_CARRERA'] = trim($this->input->post('id_carrera'));
 						$data['ID_NIVEL'] = trim($this->input->post('id_nivel'));
-					}				
+					}
 					$materias_carreras = $this->academico_model->listado_carrera_materia($data);
 					$periodos = $this->academico_model->getPeriodos($id_periodo);
 					$i=0;
@@ -4551,7 +4551,7 @@ class Academico extends MX_Controller
 							$guias_academicas[$i]['GUIA']=$this->academico_model->buscar_guia_academica($periodo['ID_PERIODO_ACADEMICO'],$materia_carrera['ID_CARRERA_MATERIA']);
 							$i++;
 						}
-					}				
+					}
 					$datos['guias_academicas']=$guias_academicas;
 					$this->load->view('resultadoGuiasAcademicas',$datos);
 				}
@@ -4559,7 +4559,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function procesarGuiaAcademica()
 		{
@@ -4606,7 +4606,7 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function borrarArchivo()
 		{
@@ -4635,7 +4635,7 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function guardaCalificacionTarea()
 		{
@@ -4657,7 +4657,7 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		public function calificacionesPromedioTareas()
 		{
@@ -4699,7 +4699,7 @@ class Academico extends MX_Controller
 				echo "Sesion Terminada";
 			}
 		}
-		
+
 		////////////////////////////////////////////////////////////////////
 		public function calificacionGeneral()
 		{
@@ -4707,15 +4707,15 @@ class Academico extends MX_Controller
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,79)){
 				$this->load->model('admin/usuarios_model');
 				$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);
-			
+
 				$usuario=$this->session->userdata('loggeado');
 				if(!$this->input->is_ajax_request()){
 					$datos=array();
 					$datos['carreras'] = $this->academico_model->get_carreras();
-					$datos['niveles'] = $this->academico_model->get_niveles();    
+					$datos['niveles'] = $this->academico_model->get_niveles();
 					$datos['periodos'] = $this->academico_model->getPeriodos();
 					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
-					
+
 					$vector_us=null;
 					$grupos=array();
 					if($usuario['ID_PERFIL']==12){//filtrar grupos para coordinadores
@@ -4724,10 +4724,10 @@ class Academico extends MX_Controller
 							$grupos[]=$g['GRUPO'];
 						}
 					}else{
-						$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+						$grupos=$this->academico_model->buscarGruposEst($vector_us);
 						$grupos = explode("-", $grupos);
 					}
-					
+
 					$datos['grupos'] = $grupos;
 					$datos1=$this->perfil_model->cabecera($idusuario);
 					$this->load->view('templates/header',$datos1);
@@ -4735,14 +4735,14 @@ class Academico extends MX_Controller
 					$this->load->view('templates/footer');
 				}else{
 					$id_carrera = trim($this->input->post('id_carrera'));
-					$id_nivel = trim($this->input->post('id_nivel'));  
-					$id_periodo_academico = trim($this->input->post('id_periodo_academico'));  
-					$estado = trim($this->input->post('estado')); 		
+					$id_nivel = trim($this->input->post('id_nivel'));
+					$id_periodo_academico = trim($this->input->post('id_periodo_academico'));
+					$estado = trim($this->input->post('estado'));
 					$grupo=trim($this->input->post('grupo'));
 					$idUsuarioAcademico=null;
 					if($usuario['ID_PERFIL']==12){//filtrar grupos para coordinadores
 						$idUsuarioAcademico=$usuario['ID_USUARIO'];
-					}			
+					}
 					$datos = $this->academico_model->listaAlumnos($id_carrera, $id_nivel,$id_periodo_academico,$grupo,null,null,array(),$idUsuarioAcademico);
 					$nota_minima=$this->academico_model->getparametro('Nota pierde');
 					$nota_minima1=$this->academico_model->getparametro('Asistencia minima');
@@ -4759,15 +4759,15 @@ class Academico extends MX_Controller
 								$dat_grupo=$this->academico_model->get_grupo($materia['ID_GRUPO']);
 								$dat_sede=$this->academico_model->get_sede($dat_grupo['ID_SEDE']);
 								$dat_materia=$this->academico_model->obtener_datos_materia($materia['ID_CARRERA_MATERIA']);
-								$dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']); 
+								$dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']);
 								$dn['ID_ESTUDIANTE_CARRERA_MATERIA']=$materia['ID_ESTUDIANTE_CARRERA_MATERIA'];
 								$dn['ID_TIPO_CALIFICACION']=6;
-								$dat_nota=$this->academico_model->get_calificaciones($dn); 
-								
+								$dat_nota=$this->academico_model->get_calificaciones($dn);
+
 								$dn1['ID_ESTUDIANTE_CARRERA_MATERIA']=$materia['ID_ESTUDIANTE_CARRERA_MATERIA'];
 								$dn1['ID_TIPO_CALIFICACION']=4;
 								$dn1['ETAPA']=0;
-								$dat_nota1=$this->academico_model->get_calificaciones($dn1);							
+								$dat_nota1=$this->academico_model->get_calificaciones($dn1);
 								$calificacion='';
 								$asistencia='';
 								if(count($dat_nota)>0 and $dat_nota[0]['CALIFICACION']!=''){
@@ -4776,8 +4776,8 @@ class Academico extends MX_Controller
 								if(count($dat_nota1)>0){
 									$asistencia=$dat_nota1[0]['CALIFICACION'];
 								}
-								$estado_mat='SIN NOTA';	
-								$estado_c=-1;							
+								$estado_mat='SIN NOTA';
+								$estado_c=-1;
 								if(count($dat_nota)<=0 or count($dat_nota1)<=0){
 									$estado_mat='SIN NOTA'; $estado_c=-1;
 								}elseif($dat_nota[0]['ESTADO_CALIFICACION']==0 and $dat_nota[0]['CALIFICACION']!=''){
@@ -4813,7 +4813,7 @@ class Academico extends MX_Controller
 										}
 										$taller=number_format($nc['CALIFICACION']*$base_componente/10,2);
 									}
-									
+
 									if($nc['ID_COMPONENTE']==3 and $nc['ID_TIPO_CALIFICACION']==1 and $nc['CALIFICACION']!=''){
 										if($materia['ASISTENCIA_JUSTIFICADA']==1){
 											$base_componente=6;
@@ -4857,20 +4857,20 @@ class Academico extends MX_Controller
 								}
 							}
 						}
-					}		
+					}
 					echo json_encode($estudiantes);
 				}
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		////exporta archivo a excel
-		public function archivoExcel() 
+		public function archivoExcel()
 		{
 			$this->load->view('archivo_excel');
 		}
-		
+
 		////////////////////////////////////////////////////////////////////////////
 		/***WEBSERVICES DEMING******************************************************/
 		public function ws($cedula=NULL)
@@ -4880,7 +4880,7 @@ class Academico extends MX_Controller
 			if($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1'){
 				$id_periodo_academico = $this->academico_model->get_periodo_activado();
 				//$opcion = 1;
-				$resXML='';			
+				$resXML='';
 				/*OPCION:1
 				Listado de Alumnos, los cuales estar�n inscritos en los distintos Grupos o Secciones
 				***************************************************************************************/
@@ -4896,7 +4896,7 @@ class Academico extends MX_Controller
 						$resXML.='</alumno>';
 					}
 					$resXML.='</alumnos>';
-				}			
+				}
 				/*OPCION:2
 				Listado de Profesores, los cuales estar�n asignados a los distintos Grupos o Secciones, y ser�n ellos, los encargados de evaluar los contenidos de cada Alumno.
 				***************************************************************************************/
@@ -4912,7 +4912,7 @@ class Academico extends MX_Controller
 								</profesor>';
 					}
 					$resXML.='</profesores>';
-				}			
+				}
 				/*OPCION:3
 				Listado de Materias, las cuales ser�n asignadas a los diferentes Grupos o Secciones de Alumnos.
 				***************************************************************************************/
@@ -4927,7 +4927,7 @@ class Academico extends MX_Controller
 								</materia>';
 					}
 					$resXML.='</materias>';
-				}			
+				}
 				/*OPCION:4
 				Listado de Alumnos inscritos en los diferentes Grupos o Secciones, con sus respectivos profesores.
 				***************************************************************************************/
@@ -4942,7 +4942,7 @@ class Academico extends MX_Controller
 							$materias=$this->academico_model->get_materias_estudiante($dato['ID_PERSONA'],$dato['ID_PERIODO_ACADEMICO']);
 							foreach($materias as $materia){
 								  $dat_materia=$this->academico_model->obtener_datos_materia($materia['ID_CARRERA_MATERIA']);
-								  $dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']); 
+								  $dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']);
 								  $resXML.='<grupo>
 											  <id>'.$materia['ID_ESTUDIANTE_CARRERA_MATERIA'].'</id>
 											  <alumno_cedula>'.$dato['CEDULA'].'</alumno_cedula>
@@ -4952,9 +4952,9 @@ class Academico extends MX_Controller
 							}
 						}
 					}
-					
+
 					$resXML.='</grupos>';
-				}			
+				}
 				if($cedula!=NULL){
 					$resXML.='<?xml version="1.0" encoding="iso-8859-1"?>';
 					$resXML.='<estudiante>';
@@ -4978,8 +4978,8 @@ class Academico extends MX_Controller
 						$materias=$this->academico_model->get_materias_estudiante($alumno[0]['ID_PERSONA'],$alumno[0]['ID_PERIODO_ACADEMICO']);
 						foreach($materias as $materia){
 							$dat_materia=$this->academico_model->obtener_datos_materia($materia['ID_CARRERA_MATERIA']);
-							$dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']); 
-							$dat_grupo=$this->academico_model->get_grupo($materia['ID_GRUPO']); 
+							$dat_docente=$this->academico_model->get_datos_persona($materia['ID_PERSONA_DOCENTE']);
+							$dat_grupo=$this->academico_model->get_grupo($materia['ID_GRUPO']);
 							$resXML.='<seccion>';
 							$resXML.='<id>'.$dat_grupo['NOMBRE'].'</id>';
 							$resXML.='<materia_id>'.$dat_materia['ID_MATERIA'].'</materia_id>';
@@ -5009,14 +5009,14 @@ class Academico extends MX_Controller
 					$resXML.='</data>';
 					$resXML.='</estudiante>';
 					$xml = simplexml_load_string($resXML);
-					$resXML = json_encode($xml);			
+					$resXML = json_encode($xml);
 				}
 				echo $resXML;
 			}else{
 				echo "Acceso Denegado ".$ip.$opcion ;
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		public function guardar_mensaje_estudiante()
 		{
@@ -5025,13 +5025,13 @@ class Academico extends MX_Controller
 				$data['mensaje_pierde'] = trim($this->input->post('texto_pierde'));
 				$data['mensaje_supletorio'] = trim($this->input->post('texto_supletorio'));
 				$this->academico_model->actualizar_mensaje_estudiante($data);
-				$respuesta='Registro Actualizado';			
+				$respuesta='Registro Actualizado';
 				echo $respuesta;
 			}else{
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		//////////////////////////////////////////////////////////////////////////////
 		//interfaz que muestra la interfaz de ingreso y consulta de calificaciones en sistema externo para profesor y estudiantes
 		public function calificacion($cedula=null)
@@ -5088,7 +5088,7 @@ class Academico extends MX_Controller
 						}
 					}
 					//obtener_datos_matricula($id_cliente)
-					$datos= $this->academico_model->buscar_estdiante_calificado($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico);				
+					$datos= $this->academico_model->buscar_estdiante_calificado($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico);
 					$datos['estado_etapa']=$estado_etapa;
 					$datos['mensaje_aprueba']=$this->academico_model->get_mensaje_aprueba();
 					$datos['mensaje_pierde']=$this->academico_model->get_mensaje_pierde();
@@ -5101,7 +5101,7 @@ class Academico extends MX_Controller
 				echo 'Usuario no existe';
 			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////
 		//funcion que guarda la nota de componente retos y proyectos enviada desde un sistema externo
 		public function promedio_retos_proyectos()
@@ -5116,13 +5116,13 @@ class Academico extends MX_Controller
 			$cedula_docente = trim($this->input->post('cedula_docente'));
 			$res='';
 			$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-			
+
 			//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 			//{
 				//$id_periodo_academico = $this->academico_model->get_periodo_activado();
 				$id_periodo_academico = 11;
 				$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
-				$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);			
+				$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
 				$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 				$vector_materias=explode('+',$id_materias);
 				$estudiante_carrera_materia = 0;
@@ -5162,7 +5162,7 @@ class Academico extends MX_Controller
 					$data_copia['id_periodo_academico']       = $id_periodo_academico;
 					$data_copia['calificacion']               = $nota_retos;
 					$elements                                 = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					// curl_setopt($ch, CURLOPT_HEADER, false);
 					// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -5192,7 +5192,7 @@ class Academico extends MX_Controller
 						$calificacion_cerrada=1;
 					}
 				}*/
-				if($nota_retos!='' and $nota_retos>=0 and $nota_retos<=10){	
+				if($nota_retos!='' and $nota_retos>=0 and $nota_retos<=10){
 					if($calificacion_cerrada==0){
 						if($homologado==0 and $convalidado==0 and $historial==0){
 							$etapa=1;
@@ -5285,7 +5285,7 @@ class Academico extends MX_Controller
 								$estado=-1;
 								$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_final,$estado,$id_periodo_academico);
 							}
-							
+
 							/////enviar supletorio a VLC//////////
 							if($estado==0){
 								$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -5302,7 +5302,7 @@ class Academico extends MX_Controller
 									$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 								}
 							}
-							
+
 							$etapas=1;
 							if($estudiante_carrera_materia>0){
 								if($num_componentes==$num_componentes_calificados and $nota_retos!=''){
@@ -5324,7 +5324,7 @@ class Academico extends MX_Controller
 				}else{
 					$res= 'Error:Calificacion Incorrecta';
 				}
-				
+
 				if(count($materias)<=0){
 					$res='Estudiante No Matriculado';
 				}elseif($id_docente!=NULL){
@@ -5350,7 +5350,7 @@ class Academico extends MX_Controller
 					http_response_code(422);
 				}
 				echo $res;
-				
+
 				/*$head = "From: info@binary.ec \r\n";
 				$msg = "------------------------------------------ \n";
 				$msg.= "Id materia:   ".$id_materia."\n";
@@ -5360,12 +5360,12 @@ class Academico extends MX_Controller
 				$msg.= "FECHA:    ".date("D, d M Y")."\n";
 				$msg.= " Mensaje creado por Bi-Academos \n";
 				@mail('hgranda@binary.ec',"datos vlc",$msg, $head);*/
-				
+
 			//}else{
-			//	echo 'Acceso Denegado'; 
+			//	echo 'Acceso Denegado';
 			//}
 		}
-		
+
 		///////////////////////////////////////////////////
 		/*public function justificaAsistencia()
 		{
@@ -5373,15 +5373,15 @@ class Academico extends MX_Controller
 			if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,80)){
 				$id_estudiante_carrera_materia = trim($this->input->post('id_estudiante_carrera_materia'));
 				if($id_estudiante_carrera_materia!=NULL and $id_estudiante_carrera_materia>0){
-					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia); 
+					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia);
 					echo '<input type="button" class="btn btn-info btn-xs" value="Justificado" style="color:#000000" disabled>';
 				}else{
 					$datos=array();
-					$datos['niveles'] = $this->academico_model->get_niveles(); 
-					$datos['carreras'] = $this->academico_model->get_carreras(); 
-					$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+					$datos['niveles'] = $this->academico_model->get_niveles();
+					$datos['carreras'] = $this->academico_model->get_carreras();
+					$datos['modalidades'] = $this->academico_model->get_modalidades();
 					$datos['periodos'] = $this->academico_model->getPeriodos();
-					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();	
+					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 					$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 					$datos1=$this->perfil_model->cabecera($idusuario);
 					$this->load->view('templates/header',$datos1);
@@ -5392,7 +5392,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}*/
-		
+
 		///////////////////////////////////////////////////
 		public function justificaAsistencia()
 		{
@@ -5421,15 +5421,15 @@ class Academico extends MX_Controller
 					$datos = $this->academico_model->buscar_alumno_materia($d);
 					echo json_encode($datos);
 				}elseif($id_estudiante_carrera_materia!=NULL and $id_estudiante_carrera_materia>0){
-					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia); 
+					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia);
 					echo '<input type="button" class="btn btn-info btn-xs" value="Justificado" style="color:#000000" disabled>';
 				}else{
 					$datos=array();
-					$datos['niveles'] = $this->academico_model->get_niveles(); 
-					$datos['carreras'] = $this->academico_model->get_carreras(); 
-					$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+					$datos['niveles'] = $this->academico_model->get_niveles();
+					$datos['carreras'] = $this->academico_model->get_carreras();
+					$datos['modalidades'] = $this->academico_model->get_modalidades();
 					$datos['periodos'] = $this->academico_model->getPeriodos();
-					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();	
+					$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 					$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 					$justificar=0;
 					if($this->academico_model->verificar_usuario_funcionalidad($idusuario,96)){
@@ -5449,7 +5449,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-		
+
 		//////////////////////////////////////////////////////////////////
 		public function justificaAsistenciaMaterias($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico)
 		{
@@ -5468,7 +5468,7 @@ class Academico extends MX_Controller
 				redirect('admin/login', 'refresh');
 			}
 		}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function pases_nivel_alumno()
 	{
@@ -5483,11 +5483,11 @@ class Academico extends MX_Controller
 				$id_nivel   = $dat[2];
 				$id_carrera = $dat[3];
 				$id_periodo_academico    = $dat[4];
-				$datos[$k] = $this->academico_model->buscar_certificado_estudiante($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico); 
+				$datos[$k] = $this->academico_model->buscar_certificado_estudiante($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico);
 				$datos[$k]['id_persona'] = $dat[0];
 				$datos[$k]['id_nivel']   = $dat[2];
 				$datos[$k]['id_carrera'] = $dat[3];
-				$datos[$k]['id_periodo_academico'] = $dat[4];				
+				$datos[$k]['id_periodo_academico'] = $dat[4];
 				//verificar si estudiante aprobo pensum carrera
 				$materias  = $this->academico_model->get_materias_estudiante($id_persona,0,1,$id_periodo_academico);//todas las materias del alumno hasta el periodo de consulta
 				$pensum_nivel = $this->academico_model->getMateriasPorCarreraNivel($id_carrera,$id_nivel);
@@ -5502,7 +5502,7 @@ class Academico extends MX_Controller
 							if(isset($estado[0]) and $estado[0]['ESTADO_CALIFICACION']==1){
 								$aprobo=1;
 							}
-						}						
+						}
 						if($pn['ID_CARRERA_MATERIA']==$m['ID_CARRERA_MATERIA'] and $aprobo==1){
 							$todo_nivel=$todo_nivel+1;
 						}
@@ -5544,19 +5544,19 @@ class Academico extends MX_Controller
 					$ID_DOCUMENTO_ACADEMICO    = $this->academico_model->crearDocumentoAcademico($dataCertificado);
 				/////////////////////////////////////////////////
 				$datos[$k]['cert_paseNivel'] = $dataCertificado;
-			}            
+			}
 			$this->load->view('pases_nivel_alumnos',array('datos'=>$datos));
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function calificar_estudiantes()
 	{
 		if($this->session->userdata('loggeado')){
 			$this->load->module('facturacion/facturacion');
-			
+
 			$estudiantes_carrera_materia = trim($this->input->post('estudiantes_carrera_materia'),',');
 			$etapa  = trim($this->input->post('etapa'));
 			//$cadena_componente  = trim($this->input->post('cadena_componente'),'+');
@@ -5583,7 +5583,7 @@ class Academico extends MX_Controller
 				$url = $this->url_copia . 'calificar_estudiantes/';
 
 				curl_setopt($ch, CURLOPT_URL, $url);
-				
+
 				foreach ($estudiantes as $index => $estudiante_carrera_meteria) {
 					$datos_EstudianteCarreraMateria     = $this->academico_model->buscarEstudianteCarreraMateria($estudiante_carrera_meteria);
 					$carrera_materia_copia .= $datos_EstudianteCarreraMateria['ID_CARRERA_MATERIA'].",";
@@ -5599,12 +5599,12 @@ class Academico extends MX_Controller
 				$data_copia['cadena_valor']          = $this->input->post('cadena_valor');
 				$data_copia['cadena_promedio']       = $this->input->post('cadena_promedio');
 				$data_copia['etapas']                = trim($this->input->post('etapas'));
-				
+
 				$data_copia['data_log']              = $this->session->userdata()['loggeado']["ID_USUARIO"];
 				$data_copia['periodo_activo']        = $this->academico_model->get_periodo_activado();
 				$elements = $data_copia;
-				
-				curl_setopt($ch, CURLOPT_POST,true); 
+
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -5616,17 +5616,17 @@ class Academico extends MX_Controller
 				$error     = curl_error($ch);
 				curl_close($ch);
 			/////////////////////////////////////////////////////////////////////////
-			
+
 			foreach($estudiantes as $k=>$estudiante_carrera_meteria){
 				if(isset($componentes[$k])){
 					$componentes[$k] = trim($componentes[$k],'&');
 					$valores[$k]     = trim($valores[$k],'&');
 					if(isset($componentes[$k]) and $componentes[$k]!=''){
 						$this->academico_model->calificar_componentes($estudiante_carrera_meteria, $etapa,$componentes[$k],$valores[$k],$promedios[$k],$etapas);
-						
+
 					}
 				}
-			}			
+			}
 			echo json_encode(true);
 
 
@@ -5640,7 +5640,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	public function periodosCalificacion()
 	{
@@ -5692,7 +5692,7 @@ class Academico extends MX_Controller
 			}
 			//$datos['materias'] = $materias;
 			$datos['grupos'] = array_merge($materias,$materias_adicionales);
-			$datos['id_persona'] =  0;			
+			$datos['id_persona'] =  0;
 			$datos1=$this->perfil_model->cabecera($idusuario);
 			$this->load->view('templates/header',$datos1);
 			$this->load->view('periodosCalificacion',$datos);
@@ -5701,7 +5701,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	public function guardaFechaCierre()
 	{
@@ -5716,7 +5716,7 @@ class Academico extends MX_Controller
 			//$data['MATERIA']= trim($this->input->post('materia'));
 			$data['FECHA_APLAZADO']= trim($this->input->post('fecha'));
 			$data['MOTIVO']= trim($this->input->post('motivo'));
-			$data['ID_PERIODO_ACADEMICO']= $this->academico_model->get_periodo_activado();			
+			$data['ID_PERIODO_ACADEMICO']= $this->academico_model->get_periodo_activado();
 			$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$data['ID_GRUPO'],'ID_MATERIA'=>$data['ID_MATERIA'],'ID_PERIODO_ACADEMICO'=>$data['ID_PERIODO_ACADEMICO'],'ID_PLANTILLA'=>$data['ID_PLANTILLA']));
 			if(count($fechaCierre)<=0){
 				$this->academico_model->crear_fecha_cierre($data);
@@ -5724,13 +5724,13 @@ class Academico extends MX_Controller
 			}else{
 				$this->academico_model->actualizar_fecha_cierre($data,$fechaCierre['ID_CIERRE_CALIFICACION']);
 				$resultado='Fecha Actualizada';
-			}			
+			}
 			echo $resultado;
 		}else{
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////
 	public function bloquearMateria()
 	{
@@ -5747,11 +5747,11 @@ class Academico extends MX_Controller
 				}
 			}else{
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['modalidades'] = $this->academico_model->get_modalidades(); 
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['modalidades'] = $this->academico_model->get_modalidades();
 				$datos['periodos'] = $this->academico_model->getPeriodos();
-				$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();	
+				$datos['ID_PERIODO_ACADEMICO'] = $this->academico_model->get_periodo_activado();
 				$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
@@ -5762,7 +5762,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function bloqueoMateriasEstudiante($id_persona,$id_grupo,$id_nivel,$id_carrera,$id_periodo_academico)
 	{
@@ -5781,7 +5781,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	//funcion que guarda la nota de componente examen enviada desde un sistema externo
 	public function promedio_examen()
@@ -5802,7 +5802,7 @@ class Academico extends MX_Controller
 			$id_periodo_academico = 11;
 			$usuario=$this->usuarios_model->verificar_usuario_cedula($cedula);
 			$materias=$this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
-			
+
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia=0;
@@ -5947,7 +5947,7 @@ class Academico extends MX_Controller
 								$estado=2;
 							}
 							//$this->academico_model->updatePromediototal($estudiante_carrera_materia,$nota_etapa,$nota_etapa,$asistencia,$estado);
-							
+
 							if($supletorio!=''){
 								$nota_final=round(($nota_final+$supletorio)/2,2);
 								if($nota_final>=$notamin){
@@ -5957,7 +5957,7 @@ class Academico extends MX_Controller
 								}
 							}
 							$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_final,$estado,$id_periodo_academico);
-							
+
 						}else{
 							$nota_final='';
 							if($asistencia<0){
@@ -5967,7 +5967,7 @@ class Academico extends MX_Controller
 							$estado=-1;
 							$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_final,$estado,$id_periodo_academico);
 						}
-						
+
 						/////enviar supletorio a VLC//////////
 						if($estado==0){
 							$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -5984,7 +5984,7 @@ class Academico extends MX_Controller
 								$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 							}
 						}
-						
+
 						$etapas=1;
 						if($estudiante_carrera_materia>0){
 							if($num_componentes==$num_componentes_calificados and $nota!=''){
@@ -6031,12 +6031,12 @@ class Academico extends MX_Controller
 				http_response_code(422);
 			}
 			echo $res;
-			
+
 		//}else{
-		//	echo 'Acceso Denegado'; 
+		//	echo 'Acceso Denegado';
 		//}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	//funcion que guarda la nota de componente taller enviada desde un sistema externo
 	public function promedio_taller()
@@ -6051,14 +6051,14 @@ class Academico extends MX_Controller
 		$cedula_docente = trim($this->input->post('cedula_docente'));
 		$res='';
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 		//{
 			//$id_periodo_academico = $this->academico_model->get_periodo_activado();
 			$id_periodo_academico = 11;
 			$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
 			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
-			
+
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia = 0;
@@ -6088,7 +6088,7 @@ class Academico extends MX_Controller
 			///////////////////////////////////PROCESAMIENTO DE COPIA//////////////////////////////////////
 				$ch  = curl_init();
 				$url = $this->url_copia . 'promedio_taller/';
-				curl_setopt($ch, CURLOPT_URL, $url);								
+				curl_setopt($ch, CURLOPT_URL, $url);
 				// $data_copia['estudiante_carrera_materia'] = $estudiante_carrera_materia;
 				$data_copia['id_grupo']                   = $id_grupo;
 				$data_copia['id_carrera_materia']         = $id_carrera_materia;
@@ -6096,8 +6096,8 @@ class Academico extends MX_Controller
 				$data_copia['id_persona']                 = $usuario['ID_PERSONA'];
 				$data_copia['id_periodo_academico']       = $id_periodo_academico;
 				$data_copia['calificacion']               = $nota;
-				$elements                                 = $data_copia;				
-				curl_setopt($ch, CURLOPT_POST,true); 
+				$elements                                 = $data_copia;
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -6127,7 +6127,7 @@ class Academico extends MX_Controller
 					$calificacion_cerrada=1;
 				}
 			}*/
-			
+
 			if($nota!='' and $nota>=0 and $nota<=10){
 				if($calificacion_cerrada==0){
 					if($homologado==0 and $convalidado==0 and $historial==0){
@@ -6221,7 +6221,7 @@ class Academico extends MX_Controller
 							$estado=-1;
 							$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_final,$estado,$id_periodo_academico);
 						}
-						
+
 						/////enviar supletorio a VLC//////////
 						if($estado==0){
 							$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -6238,7 +6238,7 @@ class Academico extends MX_Controller
 								$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 							}
 						}
-						
+
 						$etapas=1;
 						if($estudiante_carrera_materia>0){
 							if($num_componentes==$num_componentes_calificados and $nota!=''){
@@ -6285,12 +6285,12 @@ class Academico extends MX_Controller
 				http_response_code(422);
 			}
 			echo $res;
-			
+
 		//}else{
-		//	echo 'Acceso Denegado'; 
+		//	echo 'Acceso Denegado';
 		//}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	//funcion que guarda la nota de asistencia enviada desde un sistema externo
 	public function promedio_asistencia()
@@ -6305,14 +6305,14 @@ class Academico extends MX_Controller
 		$cedula_docente = trim($this->input->post('cedula_docente'));
 		$res='';
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 		//{
 			//$id_periodo_academico = $this->academico_model->get_periodo_activado();
 			$id_periodo_academico = 11;
 			$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
 			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
-			
+
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia = 0;
@@ -6351,7 +6351,7 @@ class Academico extends MX_Controller
 				$data_copia['id_periodo_academico']       = $id_periodo_academico;
 				$data_copia['calificacion']               = $nota;
 				$elements                                 = $data_copia;
-				curl_setopt($ch, CURLOPT_POST,true); 
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -6381,7 +6381,7 @@ class Academico extends MX_Controller
 					$calificacion_cerrada=1;
 				}
 			}*/
-			if($nota!='' and $nota>=0 and $nota<=100){		
+			if($nota!='' and $nota>=0 and $nota<=100){
 				if($calificacion_cerrada==0){
 					if($homologado==0 and $convalidado==0 and $historial==0){
 						if($asistencia_justificada<=0){
@@ -6408,7 +6408,7 @@ class Academico extends MX_Controller
 									$componente_examen=$nc['CALIFICACION'];
 								}
 							}
-							$asistencia=$nota;	
+							$asistencia=$nota;
 							if($num_componentes==$num_componentes_calificados and $asistencia>=0){
 								$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
 								$notamin=$v_notamin['VALOR'];
@@ -6452,7 +6452,7 @@ class Academico extends MX_Controller
 							}
 							if($estudiante_carrera_materia>0){
 								$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_etapa,$estado,$id_periodo_academico);
-								
+
 								/////enviar supletorio a VLC//////////
 								if($estado==0){
 									$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -6469,7 +6469,7 @@ class Academico extends MX_Controller
 										$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 									}
 								}
-								
+
 								$res= 'Registro Realizado';
 							}else{
 								$res= 'Error:Materia No Existe';
@@ -6486,7 +6486,7 @@ class Academico extends MX_Controller
 			}else{
 				$res= 'Error:Calificacion Incorrecta';
 			}
-			
+
 			if(count($materias)<=0){
 				$res='Error:Estudiante No Matriculado';
 			}elseif($id_docente!=NULL){
@@ -6514,10 +6514,10 @@ class Academico extends MX_Controller
 			echo $res;
 			//echo $res.'-'.$doc_docente['NRO_DOCUMENTO'].'-'.$cedula_docente;
 		//}else{
-		//	echo 'Acceso Denegado'; 
+		//	echo 'Acceso Denegado';
 		//}
 	}
-	
+
 	//////////////////////////////////////////////////////
 	public function borrar_matricula($id_matricula=null,$idCliente)
     {
@@ -6532,7 +6532,7 @@ class Academico extends MX_Controller
 				$num_calificaciones+=count($calificaciones);
 			}
 			//Verificar si no tiene pagos realizados
-			$abono=$this->academico_model->get_abono_matricula_actual($idCliente,$matricula['ID_PERIODO_ACADEMICO'],$id_matricula);		
+			$abono=$this->academico_model->get_abono_matricula_actual($idCliente,$matricula['ID_PERIODO_ACADEMICO'],$id_matricula);
 			//Proceso Borrar
 			if($num_calificaciones<=0 and $abono==0){
 				//enviar actualizacion matricula vlc
@@ -6546,7 +6546,7 @@ class Academico extends MX_Controller
 				if($matricula['ARCHIVO_PAGO']!=NULL and $matricula['ARCHIVO_PAGO']!=''){
 					//unlink(FCPATH.'archivos/'.$matricula['ARCHIVO_PAGO']);
 				}
-				
+
 				$this->academico_model->borrar_matricula($id_matricula,$idCliente);
 				$respuesta='<span class="text-primary">BORRADO</span>';
 			}else{
@@ -6557,14 +6557,14 @@ class Academico extends MX_Controller
             //redirect('admin/login', 'refresh');
 			echo "Sesion Terminada";
         }
-    }	
-	
+    }
+
 	//////////////////////////////////////////////////////
 	public function verificarDocumento(){
 		// $this->load->view('verificarDocumento',$datos);
 		$this->load->view('verificarDocumento');
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	//funcion que guarda las calificaciones de un estudiante enviadas desde un sistema externo
 	public function calificaciones_estudiante()
@@ -6582,12 +6582,12 @@ class Academico extends MX_Controller
 		$nota_asistencia = trim($this->input->post('student_assist_score'));
 		$res='';
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 		//{
 			$id_periodo_academico = $this->academico_model->get_periodo_activado();
 			$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
-			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);			
+			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia = 0;
@@ -6629,7 +6629,7 @@ class Academico extends MX_Controller
 				$data_copia['nota_examen']                = $nota_examen;
 				$data_copia['nota_asistencia']            = $nota_asistencia;
 				$elements                                 = $data_copia;
-				curl_setopt($ch, CURLOPT_POST,true); 
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -6654,7 +6654,7 @@ class Academico extends MX_Controller
 				if($datetime1<$datetime2){
 					$calificacion_cerrada=1;
 				}
-			}			
+			}
 			if($calificacion_cerrada==0){
 				if($homologado==0 and $convalidado==0 and $historial==0){
 					$etapa=1;
@@ -6744,7 +6744,7 @@ class Academico extends MX_Controller
 						$estado=-1;
 						$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_final,$estado);
 					}
-					
+
 					/////enviar supletorio a VLC//////////
 					if($estado==0){
 						$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -6761,7 +6761,7 @@ class Academico extends MX_Controller
 							$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 						}
 					}
-					
+
 					$etapas=1;
 					if($estudiante_carrera_materia>0){
 						if($num_componentes==$num_componentes_calificados and $nota_retos!=''){
@@ -6780,7 +6780,7 @@ class Academico extends MX_Controller
 			}else{
 				$res= 'Error:Periodo Cerrado';
 			}
-			
+
 			if(count($materias)<=0){
 				$res='Estudiante No Matriculado';
 			}elseif($id_docente!=NULL){
@@ -6806,7 +6806,7 @@ class Academico extends MX_Controller
 			echo $res;
 		//}
 	}
-	
+
 	/* /////////////////////////////////////////////////////////////////////////
 	//funcion que guarda las calificaciones de un estudiante enviadas desde un sistema externo
 	public function calificaciones_estudiante()
@@ -6824,12 +6824,12 @@ class Academico extends MX_Controller
 		$nota_asistencia = trim($this->input->post('student_assist_score'));
 		$res='';
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 		//{
 			$id_periodo_academico = $this->academico_model->get_periodo_activado();
 			$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
-			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);			
+			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia = 0;
@@ -6871,7 +6871,7 @@ class Academico extends MX_Controller
 				$data_copia['nota_examen']                = $nota_examen;
 				$data_copia['nota_asistencia']            = $nota_asistencia;
 				$elements                                 = $data_copia;
-				curl_setopt($ch, CURLOPT_POST,true); 
+				curl_setopt($ch, CURLOPT_POST,true);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 				// curl_setopt($ch, CURLOPT_HEADER, false);
 				// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -6896,7 +6896,7 @@ class Academico extends MX_Controller
 				if($datetime1<$datetime2){
 					$calificacion_cerrada=1;
 				}
-			}			
+			}
 			if($calificacion_cerrada==0){
 				if($homologado==0 and $convalidado==0 and $historial==0){
 					if($asistencia_justificada==1){
@@ -6907,7 +6907,7 @@ class Academico extends MX_Controller
 					}
 					//guardar asistencia
 					if($nota_asistencia!='' and $nota_asistencia!=NULL){
-						$asistencia=$nota_asistencia;	
+						$asistencia=$nota_asistencia;
 						$nota_etapa='';
 						$estado='';
 						$supletorio=$this->academico_model->get_supletorio_materia($estudiante_carrera_materia);
@@ -7012,7 +7012,7 @@ class Academico extends MX_Controller
 			}else{
 				$res= 'Error:Periodo Cerrado';
 			}
-			
+
 			if(count($materias)<=0){
 				$res='Estudiante No Matriculado';
 			}elseif($id_docente!=NULL){
@@ -7038,20 +7038,20 @@ class Academico extends MX_Controller
 			echo $res;
 		//}
 	} */
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function logVlc()
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,84)){
 			$this->load->model('admin/usuarios_model');
-			$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);			
+			$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);
 			if(!$this->input->is_ajax_request()){
 				$datos=array();
 				$datos['carreras'] = $this->academico_model->get_carreras();
-				$datos['niveles'] = $this->academico_model->get_niveles();    
+				$datos['niveles'] = $this->academico_model->get_niveles();
 				$datos['periodos'] = $this->academico_model->getPeriodos();
-				$grupos=$this->academico_model->buscarGruposEst(); 
+				$grupos=$this->academico_model->buscarGruposEst();
 				$grupos = explode(" - ", $grupos);
 				$datos['grupos'] = $grupos;
 				$datos1=$this->perfil_model->cabecera($idusuario);
@@ -7060,10 +7060,10 @@ class Academico extends MX_Controller
 				$this->load->view('templates/footer');
 			}else{
 				$nro_documento = trim($this->input->post('nroDocumento'));
-				$fechai = trim($this->input->post('fechai'));  
-				$fechaf = trim($this->input->post('fechaf'));  
+				$fechai = trim($this->input->post('fechai'));
+				$fechaf = trim($this->input->post('fechaf'));
 				$estado = trim($this->input->post('estado'));
-				$carrera = trim($this->input->post('carrera'));	
+				$carrera = trim($this->input->post('carrera'));
 				$nivel = trim($this->input->post('nivel'));
 				$grupo = trim($this->input->post('grupo'));
 				$logs=$this->academico_model->buscar_vlog(array('CEDULA_ESTUDIANTE'=>$nro_documento,'FECHAI'=>$fechai,'FECHAF'=>$fechaf));
@@ -7097,7 +7097,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function planificacion()
 	{
@@ -7108,7 +7108,7 @@ class Academico extends MX_Controller
 			if(!$this->input->is_ajax_request()){
 				$datos=array();
 				$datos['carreras'] = $this->academico_model->get_carreras();
-				$datos['niveles'] = $this->academico_model->get_niveles();    
+				$datos['niveles'] = $this->academico_model->get_niveles();
 				$datos['periodos'] = $this->academico_model->getPeriodos();
 				$datos['grupos']=$this->academico_model->buscar_grupos_estudiantes();
 				$datos['sedes'] = $this->academico_model->buscar_sedes();
@@ -7154,7 +7154,7 @@ class Academico extends MX_Controller
 								if($plantilla!=NULL){
 									$materias_pla[$kmp]['NOMBRE']=$mp['NOMBRE'].'<br><span style="color:#337ab7; font-size:11px">'.$plantilla['PLANTILLA'].'</span>';
 								}
-							}							
+							}
 						}
 						if(count($materias_carrera)>0){
 							foreach($materias_carrera as $km=>$m){
@@ -7207,12 +7207,12 @@ class Academico extends MX_Controller
 									$data_copia['cedula'] = $docente['NRO_DOCUMENTO'];
 									$data_copia['fechas'] = trim($fechas_externo,'+');
 									$elements                = $data_copia;
-									curl_setopt($ch, CURLOPT_POST,true); 
+									curl_setopt($ch, CURLOPT_POST,true);
 									curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 									curl_setopt($ch, CURLOPT_HEADER, false);
 									curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 									curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
-									
+
 									$resultado = curl_exec($ch);
 									$error     = curl_error($ch);
 									curl_close($ch);
@@ -7256,7 +7256,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function gestionPlanificacion()
 	{
@@ -7359,13 +7359,13 @@ class Academico extends MX_Controller
 						$datc['ID_PLANTILLA']= $id_plantilla;
 						$datc['MATERIA']= '';
 						$datc['FECHA_CIERRE']= $fecha_cierre_calificacion;
-						$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;			
+						$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;
 						$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$id_grupo,'ID_MATERIA'=>$id_materia,'ID_PERIODO_ACADEMICO'=>$id_periodo_academico,'ID_PLANTILLA'=>$id_plantilla));
 						if(count($fechaCierre)<=0){
 							$id_fecha_cierre=$this->academico_model->crear_fecha_cierre($datc);
 						}else{
 							$this->academico_model->actualizar_fecha_cierre($datc,$fechaCierre['ID_CIERRE_CALIFICACION']);
-						}			
+						}
 					}else{
 						$dat['FECHA_CIERRE']='0000-00-00';
 					}
@@ -7395,7 +7395,7 @@ class Academico extends MX_Controller
 					if(isset($valores[$k]) and $valores[$k]!=''){
 						$dat['TOTAL_VALOR']=$valores[$k];
 					}
-					
+
 					//$this->academico_model->borraPlanificacion($id_grupo,$k);
 					$actualizados=0;
 					if($id_planificacion[$k]==0){
@@ -7444,7 +7444,7 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function getPlanificacion()
 	{
@@ -7459,7 +7459,7 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	/*public function sendMatriculaVlc($idCliente,$estado)
 	{
@@ -7488,7 +7488,7 @@ class Academico extends MX_Controller
 			$ch  = curl_init();
 			$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_POST,true); 
+			curl_setopt($ch, CURLOPT_POST,true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('matricula'=>$estudiante)));
 			curl_setopt($ch, CURLOPT_HEADER, false);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
@@ -7511,7 +7511,7 @@ class Academico extends MX_Controller
 		}
 	}
 	*/
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function sendMateriaVlc($idEstudianteCarreraMateria,$opcion,$automatico=null)
 	{
@@ -7578,7 +7578,7 @@ class Academico extends MX_Controller
 				//$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 				$url = $this->url_vlc.'/'.$dat_materia['ID_VLC'];
 				curl_setopt($ch, CURLOPT_URL, $url);
-				//curl_setopt($ch, CURLOPT_POST,true); 
+				//curl_setopt($ch, CURLOPT_POST,true);
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sendMateria));
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -7595,7 +7595,7 @@ class Academico extends MX_Controller
 				//$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 				$url = $this->url_vlc.'/'.$dat_materia['ID_VLC'];
 				curl_setopt($ch, CURLOPT_URL, $url);
-				//curl_setopt($ch, CURLOPT_POST,true); 
+				//curl_setopt($ch, CURLOPT_POST,true);
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sendMateria));
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -7612,7 +7612,7 @@ class Academico extends MX_Controller
 				//$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 				$url = $this->url_vlc.'/'.$dat_materia['ID_VLC'];
 				curl_setopt($ch, CURLOPT_URL, $url);
-				//curl_setopt($ch, CURLOPT_POST,true); 
+				//curl_setopt($ch, CURLOPT_POST,true);
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sendMateria));
 				curl_setopt($ch, CURLOPT_HEADER, false);
@@ -7635,7 +7635,7 @@ class Academico extends MX_Controller
 			//echo 'Acceso Denegado';
 		}
 	}
-	
+
 	public function recibeMatriculaVlc()
 	{
 		$data = json_decode(file_get_contents('php://input'), true);
@@ -7658,7 +7658,7 @@ class Academico extends MX_Controller
 		}*/
 		echo 'recibido desde '.$ip.$data;
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function sendPlanificacionVlc($id_carrera,$id_nivel,$id_grupo)
 	{
@@ -7686,12 +7686,12 @@ class Academico extends MX_Controller
 			$plan['id_periodo']=$matricula['ID_PERIODO_ACADEMICO'];
 			$plan['periodo']=$matricula['PERIODO'];
 			$plan['materias']=$sendMaterias;
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			$matricula=$this->academico_model->obtener_datos_matricula($idCliente);
 			$materias=$this->academico_model->get_materias_estudiante($matricula['ID_PERSONA'],$matricula['ID_PERIODO_ACADEMICO']);
 			$sendMaterias=array();
@@ -7715,7 +7715,7 @@ class Academico extends MX_Controller
 			$ch  = curl_init();
 			$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_POST,true); 
+			curl_setopt($ch, CURLOPT_POST,true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('matricula'=>$estudiante)));
 			curl_setopt($ch, CURLOPT_HEADER, false);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
@@ -7737,9 +7737,9 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
-	public function matriculaEstudiante() 
+	public function matriculaEstudiante()
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,86)){
@@ -7892,7 +7892,7 @@ class Academico extends MX_Controller
 					$matricula['matricula'] =$matricula;
 					$matricula['aprobo_nivel']=$aprobo_nivel;
 					$matricula['pago_pendiente']=$pago_pendiente;
-					$matricula['materias'] =$materias;	
+					$matricula['materias'] =$materias;
 					$matriculas[0]=$matricula;
 				}else{//revisar si esta inscrito
 					/*$inscripcion = $this->academico_model->obtener_datos_inscripcion($id_cliente);
@@ -7916,15 +7916,15 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
-	public function procesarMatriculaEstudiante($id_persona=null,$grupo=null) 
+	public function procesarMatriculaEstudiante($id_persona=null,$grupo=null)
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and ($this->academico_model->verificar_usuario_funcionalidad($idusuario,86) or $id_persona!=null)){
 			if($id_persona==null){
 				$id_persona=$this->session->userdata('loggeado')['ID_PERSONA'];
-			}			
+			}
 			//$id_periodo_activado = $this->academico_model->get_periodo_activado();
 			$id_periodo_activado = $this->academico_model->get_periodo_matricula();
 			$id_cliente=$this->academico_model->get_id_cliente($id_persona);
@@ -7952,7 +7952,7 @@ class Academico extends MX_Controller
 				//notifico al mail
 				//$this->enviarCorreoElectronico($dir_correo_e, $usuario_generado, $pass );
 				//////////
-				
+
 				$ultima_matricula=$this->academico_model->datos_ultima_matricula_estudiante($id_cliente);
 				if(isset($ultima_matricula['ID_CARRERA']) and $ultima_matricula['ID_CARRERA']>0){//si existe datos de ultima matricula
 					$matricula = $this->academico_model->obtener_datos_matricula($id_cliente,$ultima_matricula['ID_MATRICULA'],$ultima_matricula['ID_PERIODO_ACADEMICO']);
@@ -7993,13 +7993,13 @@ class Academico extends MX_Controller
 					foreach($aprobadas as $aprobada){
 						$vector_aprobadas[]=$aprobada['ID_CARRERA_MATERIA'];
 					}
-					
+
 					//$materias  = $this->academico_model->buscarPlanificaciones(array('ID_CARRERA'=>$matricula['ID_CARRERA'],'ID_NIVEL'=>$id_siguiente_nivel,'ID_GRUPO'=>$id_nuevo_grupo,'ID_PERIODO_ACADEMICO'=>$id_periodo_activado));
 					$materias  = $this->academico_model->getMateriasPorCarreraNivel($matricula['ID_CARRERA'], $id_siguiente_nivel);
 					foreach($materias as $materia){
 						if(in_array($materia['ID_CARRERA_MATERIA'],$vector_convalidadas) or in_array($materia['ID_CARRERA_MATERIA'],$vector_homologadas) or in_array($materia['ID_CARRERA_MATERIA'],$vector_historiales) or in_array($materia['ID_CARRERA_MATERIA'],$vector_aprobadas)){//filtrar materias convalidadas,homologadas,historiales y aprobadas
 						}else{
-							
+
 							$id_docente=0;
 							if($id_nuevo_grupo>0){
 								$planificacion  = $this->academico_model->getPlanificacion($id_nuevo_grupo,$materia['ID_CARRERA_MATERIA'],$id_periodo_activado);
@@ -8007,7 +8007,7 @@ class Academico extends MX_Controller
 									$id_docente=$planificacion['ID_PERSONA'];
 								}
 							}
-							
+
 							$data['MATERIAS_ASIGNADAS'][$materia['ID_CARRERA_MATERIA']]=$materia['ID_CARRERA_MATERIA'];
 							$data['DOCENTES_ASIGNADOS'][$materia['ID_CARRERA_MATERIA']]=$id_docente;
 							$data['GRUPO'][$materia['ID_CARRERA_MATERIA']]=$matricula['GRUPO'];
@@ -8074,7 +8074,7 @@ class Academico extends MX_Controller
 						$respuesta=array('resultado'=>'Error en proceso','numero'=>'');
 					}
 				}
-				
+
 				if(isset($respuesta['numero']) and $respuesta['numero']!=''){
 					$plan=$this->academico_model->seleccionado_plan_de_pago($data['ID_CLIENTE'],$data['ID_CARRERA'],$data['ID_PERIODO_ACADEMICO']);
 					//si no tiene plan de pago genero el plan personalizado de Deming
@@ -8125,7 +8125,7 @@ class Academico extends MX_Controller
 								$pos_rubro = strpos($rubros_aplica, '+'.$rubro['ID_RUBRO'].'+');
 								if($pos_rubro!==false){//si a este rubro se aplica el descuento beca
 									$descuento_beca=round($valor_cuota_regular*$beca['PORCENTAJE']/100,2);
-								}   
+								}
 							}*/
 							//datos matrcula
 							$mat=$this->academico_model->buscar_matricula(array('ID_CLIENTE'=>$data['ID_CLIENTE'],'ID_CARRERA'=>$data['ID_CARRERA'],'ID_PERIODO_ACADEMICO'=>$data['ID_PERIODO_ACADEMICO']));
@@ -8134,7 +8134,7 @@ class Academico extends MX_Controller
 							$this->automatica_model->elimiar_cuotas($id_cliente_rubro);
 							$this->automatica_model->generar_nuevas_cuotas($id_cliente_rubro, $plan_pago,$valor_primera_cuota,$valor_cuota_regular, $valor_recargo_generacion,$id_cliente,$descuento_pronta_matricula,$descuento_beca,$id_matricula,$data['ID_PERIODO_ACADEMICO']);
 						}//fin foreach($rubros_matricula as $rubro){
-							
+
 						//generar pago estudiante
 						if(isset($id_matricula) and $id_matricula>0){
 							$pago['ID_USUARIO']=$idusuario;
@@ -8169,7 +8169,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function reportePlanificacion()
 	{
@@ -8181,7 +8181,7 @@ class Academico extends MX_Controller
 			if(!$this->input->is_ajax_request()){
 				$datos=array();
 				$datos['carreras'] = $this->academico_model->get_carreras();
-				$datos['niveles'] = $this->academico_model->get_niveles();    
+				$datos['niveles'] = $this->academico_model->get_niveles();
 				$datos['periodos'] = $this->academico_model->getPeriodos();
 				$grupos=$this->academico_model->buscar_grupos_estudiantes();
 				$datos['sedes'] = $this->academico_model->buscar_sedes();
@@ -8240,8 +8240,8 @@ class Academico extends MX_Controller
 					foreach($gruposc as $g){
 						$vector_grupos[]=$g['GRUPO'];
 					}
-					
-					
+
+
 					foreach($materias as $dat){
 						if(in_array($dat['GRUPO'],$vector_grupos)){
 							$datos_temp[]=$dat;
@@ -8256,8 +8256,8 @@ class Academico extends MX_Controller
 					}else{
 						$id_p=$this->academico_model->get_periodo_activado();
 					}
-					
-					$dat_periodo=$this->academico_model->getPeriodos($id_p); 
+
+					$dat_periodo=$this->academico_model->getPeriodos($id_p);
 					$ch  = curl_init();
 					//curl_setopt($ch, CURLOPT_URL, 'http://localhost/ligen/index.php/cursos/cursos/planificacion_ligen');
 					curl_setopt($ch, CURLOPT_URL, 'https://ligenconsulting.com/biacademos/index.php/cursos/cursos/planificacion_ligen');
@@ -8273,7 +8273,7 @@ class Academico extends MX_Controller
 						$data_copia['fecha_hasta'] = $dat_periodo[0]['FECHA_FIN'];
 					}
 					$elements                = $data_copia;
-					curl_setopt($ch, CURLOPT_POST,true); 
+					curl_setopt($ch, CURLOPT_POST,true);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 					curl_setopt($ch, CURLOPT_HEADER, false);
 					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -8301,7 +8301,7 @@ class Academico extends MX_Controller
 						}
 					}
 				}
-				
+
 				/*foreach($materias as $k=>$materia){
 					$planificacion = $this->academico_model->getPlanificacion($id_grupo,$materia['ID_CARRERA_MATERIA']);
 					if($planificacion!=NULL){
@@ -8373,11 +8373,11 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//*****************************************************************
     //Actualizar datos financierosde matricula de acuerdo a cambio en beca
-    public function actualizacionMatriculaBeca($id_cliente=null,$id_beca=null, $id_periodo=null) 
-    { 
+    public function actualizacionMatriculaBeca($id_cliente=null,$id_beca=null, $id_periodo=null)
+    {
         $idUsuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado')){
 			$matricula = $this->academico_model->obtener_datos_matricula($id_cliente,null,$id_periodo);
@@ -8440,7 +8440,7 @@ class Academico extends MX_Controller
 						$cuotas_actualizadas+=1;
 					}
 				}
-				
+
 				if($id_beca!=$matricula['ID_BECA'] and $cuotas_actualizadas>0){
 				//if($id_beca>0 and $cuotas_actualizadas>0){
 					$this->academico_model->actualizarMatricula(array('ID_BECA'=>$id_beca),$matricula['ID_MATRICULA']);
@@ -8501,7 +8501,7 @@ class Academico extends MX_Controller
 						}
 					}
 				}
-				
+
 				//actualizar tabla fac_clientes_rubros
 				foreach($data_cr as $key=>$cr){
 					$cr['PRECIO_X_NRO_ITEMS']=$cr['PRECIO_UNITARIO_RUBRO'];
@@ -8514,7 +8514,7 @@ class Academico extends MX_Controller
             redirect('admin/login', 'refresh');
         }
     }
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function verifica_envio_vlc()
 	{
@@ -8542,7 +8542,7 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	/////retorna respuesta a Ligen/////////////////////////////////////
 	public function verifica_docente_ocupado()
@@ -8553,13 +8553,13 @@ class Academico extends MX_Controller
 		$estado= $this->academico_model->verificaDocenteOcupadoExterno($nro_documento,$fecha);
 		echo $estado;
 	}
-	
+
 	public function redirect(){
 		$ch  = curl_init();
 		curl_setopt($ch, CURLOPT_URL, 'http://localhost/Deming/index.php/admin/login/login_automatico/');
 		$data_copia['cedula'] = '1713544326';
 		$elements                = $data_copia;
-		curl_setopt($ch, CURLOPT_POST,true); 
+		curl_setopt($ch, CURLOPT_POST,true);
 		// curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 		// curl_setopt($ch, CURLOPT_HEADER, false);
 		// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array($elements)));
@@ -8573,8 +8573,8 @@ class Academico extends MX_Controller
 		curl_close($ch);
 		echo $resultado;
 	}
-	
-	
+
+
 	public function imprimirCalificacionAsistencia($id_grupo,$id_materia,$id_persona_docente,$tipo)
 	{
 		if($this->session->userdata('loggeado')){
@@ -8601,7 +8601,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function copiarPlanificacion()
 	{
@@ -8720,13 +8720,13 @@ class Academico extends MX_Controller
 							$datc['ID_MATERIA']= $k_idm;
 							$datc['MATERIA']= '';
 							$datc['FECHA_CIERRE']= $fecha_cierre_calificacion;
-							$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;			
+							$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;
 							$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$id_grupo,'ID_MATERIA'=>$k_idm,'ID_PERIODO_ACADEMICO'=>$id_periodo_academico));
 							if(count($fechaCierre)<=0){
 								$this->academico_model->crear_fecha_cierre($datc);
 							}else{
 								$this->academico_model->actualizar_fecha_cierre($datc,$fechaCierre['ID_CIERRE_CALIFICACION']);
-							}			
+							}
 						}else{
 							$dat['FECHA_CIERRE']='0000-00-00';
 						}
@@ -8756,7 +8756,7 @@ class Academico extends MX_Controller
 						if(isset($valores[$k]) and $valores[$k]!=''){
 							$dat['TOTAL_VALOR']=$valores[$k];
 						}
-						
+
 						$planificacion=$this->academico_model->getPlanificacion($id_grupo,$k_idm,$id_periodo_academico);
 						$actualizados=0;
 						if($planificacion==NULL){
@@ -8790,16 +8790,16 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
-	
-	public function inscripcion_estudiante1() 
+
+
+	public function inscripcion_estudiante1()
 	{
 		echo json_encode(array('estado'=>'error'));
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////
 	/////creacion, inscripcion y pre-matricula de un estuciante desde VLC/////////
-	public function inscripcion_estudiante() 
+	public function inscripcion_estudiante()
 	{
 		$JSONData = file_get_contents("php://input");
 		$estudiante = json_decode($JSONData,true);
@@ -8878,7 +8878,7 @@ class Academico extends MX_Controller
 				}
 				//$data['ID_ESTADO_CIVIL']= $estudiante['id_estado_civil'];
 				$data['ID_ESTADO_CIVIL']= $estado_civil;
-				$data['TIPO_SANGRE']= $estudiante['tipo_sangre']; 
+				$data['TIPO_SANGRE']= $estudiante['tipo_sangre'];
 				$data['GENERO']= $estudiante['genero'];
 				$data['ID_GRUPO_CULTURAL']= $estudiante['id_grupo_cultural'];
 				$data['NRO_DOCUMENTO_MILITAR']= '';
@@ -8996,33 +8996,33 @@ class Academico extends MX_Controller
 				$data['ID_CONTACTO_LABORAL']['DIRECCION_CALLE_SECUNDARIA2']= '';
 				$data['ID_CONTACTO_LABORAL']['DIRECCION_REFERENCIA']= '';
 				$data['ID_CONTACTO_LABORAL']['DESCRIPCION']= '';
-				$data['REFERENCIA_FAMILIAR']['ID_PERSONA_FAMILIAR']= ''; 
+				$data['REFERENCIA_FAMILIAR']['ID_PERSONA_FAMILIAR']= '';
 				$data['REFERENCIA_FAMILIAR']['NOMBRES']= $estudiante['referencia']['familiar_nombre'];
 				$data['REFERENCIA_FAMILIAR']['EMPRESA']= $estudiante['referencia']['familiar_empresa'];
 				$data['REFERENCIA_FAMILIAR']['CARGO_OCUPACION']= $estudiante['referencia']['familiar_cargo_ocupacion'];
 				$data['REFERENCIA_FAMILIAR']['TELEFONO']= $estudiante['referencia']['familiar_telefono'];
-				$data['REFERENCIA_LABORAL']['ID_PERSONA_FAMILIAR']= ''; 
+				$data['REFERENCIA_LABORAL']['ID_PERSONA_FAMILIAR']= '';
 				$data['REFERENCIA_LABORAL']['NOMBRES']= $estudiante['referencia']['laboral_nombres'];
 				$data['REFERENCIA_LABORAL']['EMPRESA']= $estudiante['referencia']['laboral_empresa'];
 				$data['REFERENCIA_LABORAL']['CARGO_OCUPACION']= $estudiante['referencia']['laboral_cargo_ocupacion'];
 				$data['REFERENCIA_LABORAL']['TELEFONO']= $estudiante['referencia']['laboral_telefono'];
-				$data['PADRE']['ID_PERSONA_FAMILIAR']=''; 
+				$data['PADRE']['ID_PERSONA_FAMILIAR']='';
 				$data['PADRE']['APELLIDO_PATERNO']= '';
 				$data['PADRE']['APELLIDO_MATERNO']= '';
 				$data['PADRE']['NOMBRES']= $estudiante['familia']['padre_nombre'];
 				$data['PADRE']['CARGO_OCUPACION']= $estudiante['familia']['padre_cargo_ocupacion'];
-				$data['MADRE']['ID_PERSONA_FAMILIAR']= ''; 
+				$data['MADRE']['ID_PERSONA_FAMILIAR']= '';
 				$data['MADRE']['APELLIDO_PATERNO']= '';
 				$data['MADRE']['APELLIDO_MATERNO']= '';
 				$data['MADRE']['NOMBRES']= $estudiante['familia']['madre_nombre'];
 				$data['MADRE']['CARGO_OCUPACION']= $estudiante['familia']['madre_cargo_ocupacion'];
-				$data['CONYUGE']['ID_PERSONA_FAMILIAR']= ''; 
+				$data['CONYUGE']['ID_PERSONA_FAMILIAR']= '';
 				$data['CONYUGE']['APELLIDO_PATERNO']= '';
 				$data['CONYUGE']['APELLIDO_MATERNO']= '';
 				$data['CONYUGE']['NOMBRES']= $estudiante['familia']['conyuge_nombre'];
 				$data['CONYUGE']['CARGO_OCUPACION']= $estudiante['familia']['conyuge_cargo_ocupacion'];
 				$data['FINANCIERO']['NRO_HIJOS']= $estudiante['familia']['numero_hijos'];
-				$data['FINANCIERO']['ID_PERSONA_FINANCIERO']= ''; 
+				$data['FINANCIERO']['ID_PERSONA_FINANCIERO']= '';
 				$data['FINANCIERO']['DEPENDIENTE_PADRES']= $estudiante['economia']['dependiente_padres'];
 				$data['FINANCIERO']['AUTO']= $estudiante['economia']['auto'];
 				$data['FINANCIERO']['CASA']= $estudiante['economia']['casa'];
@@ -9039,7 +9039,7 @@ class Academico extends MX_Controller
 				$data['TIPO_DISCAPACIDAD']= $tip_dis;
 				$data['PORCENTAJE_DICAPACIDAD']= $estudiante['discapacidad']['porcentaje'];
 				$data['DESCRIPCION_DISCAPACIDAD']= $estudiante['discapacidad']['descripcion'];
-			
+
 				/* TRABAJO CON LOS CHECKS */
 				if (!isset($data['ES_BECADO'])) {
 					$data['ES_BECADO'] = 0;
@@ -9064,12 +9064,12 @@ class Academico extends MX_Controller
 				$cliente['NRO_DOCUMENTO']=$data['NRO_DOCUMENTO'];
 				$cliente['ID_TIPO_CONTRIBUYENTE']=$data['ID_TIPO_CONTRIBUYENTE'];
 				$cliente['ES_CONTRIBUYENTE_ESPECIAL']=$data['ES_CONTRIBUYENTE_ESPECIAL'];
-			   
+
 				unset($data['TIPO_DOCUMENTO']);
 				unset($data['NRO_DOCUMENTO']);
 				unset($data['ID_TIPO_CONTRIBUYENTE']);
 				unset($data['ES_CONTRIBUYENTE_ESPECIAL']);
-			   
+
 				/*--------------------- TRABAJO CON LOS datos familiares adicionales ---------------------*/
 				$referenciaFamiliar = $data['REFERENCIA_FAMILIAR'];
 				unset($data['REFERENCIA_FAMILIAR']);
@@ -9081,12 +9081,12 @@ class Academico extends MX_Controller
 				unset($data['MADRE']);
 				$conyuge = $data['CONYUGE'];
 				unset($data['CONYUGE']);
-				
+
 				/*--------------------- TRABAJO CON LOS datos financieros adicionales ---------------------*/
 				$financiero = $data['FINANCIERO'];
 				unset($data['FINANCIERO']);
 				/*-------------------------------------------------------------------------------------------------*/
-			   
+
 				/* SE CONVIERTE A NULL TODOS LOS CAMPOS QUE VENGAN DEL FORMULARIO CON CADENA VACIA DE VALOR */
 				foreach ($contactoLaboral as $key => $value) {
 					if ($value === '') {
@@ -9165,7 +9165,7 @@ class Academico extends MX_Controller
 		//echo json_encode($datos);
 		echo json_encode($respuesta);
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	//funcion que guarda la nota de supletorio enviada desde un sistema externo VLC
 	public function promedio_supletorio()
@@ -9180,14 +9180,14 @@ class Academico extends MX_Controller
 		$cedula_docente = trim($this->input->post('cedula_docente'));
 		$res='';
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		//if ($ip=='158.69.60.207' or $ip=='186.71.53.194' or $ip=='::1' or $ip=='200.58.110.26')
 		//{
 			//$id_periodo_academico = $this->academico_model->get_periodo_activado();
 			$id_periodo_academico = 11;
 			$usuario              = $this->usuarios_model->verificar_usuario_cedula($cedula);
 			$materias             = $this->academico_model->get_materias_estudiante($usuario['ID_PERSONA'],$id_periodo_academico);
-			
+
 			$id_materias=$this->academico_model->get_materias_conversion($id_materia);
 			$vector_materias=explode('+',$id_materias);
 			$estudiante_carrera_materia = 0;
@@ -9252,7 +9252,7 @@ class Academico extends MX_Controller
 						}
 					}else{
 						$res='Error:Materia fue HCH';
-					}		
+					}
 				}else{
 					$res= 'Error:Materia No Existe';
 				}
@@ -9274,12 +9274,12 @@ class Academico extends MX_Controller
 			$dat['TIPO']='Supletorio';
 			$this->academico_model->crearLogVlc($dat);
 			echo $res;
-			
+
 		//}else{
-		//	echo 'Acceso Denegado'; 
+		//	echo 'Acceso Denegado';
 		//}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function calcularFechasCierre()
 	{
@@ -9300,20 +9300,20 @@ class Academico extends MX_Controller
 					$datc['ID_MATERIA']= $mp['ID_CARRERA_MATERIA'];
 					$datc['MATERIA']= '';
 					$datc['FECHA_CIERRE']= $fecha_cierre_calificacion;
-					$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;			
+					$datc['ID_PERIODO_ACADEMICO']= $id_periodo_academico;
 					$fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$mp['ID_GRUPO'],'ID_MATERIA'=>$mp['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$id_periodo_academico));
 					if(count($fechaCierre)<=0){
 						$this->academico_model->crear_fecha_cierre($datc);
 					}else{
 						$this->academico_model->actualizar_fecha_cierre($datc,$fechaCierre['ID_CIERRE_CALIFICACION']);
 					}
-					$i++;			
+					$i++;
 				}
 			}
 			echo 'Fechas Realizadas: '.$i;
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	public function guardarInforme()
 	{
@@ -9376,13 +9376,13 @@ class Academico extends MX_Controller
 				foreach($ids_sb as $ids){
 					$this->academico_model->borrarInformeSubtema($ids);
 				}
-			}		
+			}
 			echo 'Registro Realizado';
 		}else{
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	public function getInforme($tipo=null)
 	{
@@ -9414,7 +9414,7 @@ class Academico extends MX_Controller
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	//////calificar a cero en componente taller(id:2) y asistencia
 	public function calculaCalificacionCierre()
@@ -9508,7 +9508,7 @@ class Academico extends MX_Controller
 									$supletorio='';
 								}
 								$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_etapa,$estado,$em['ID_PERIODO_ACADEMICO']);
-								
+
 								/////enviar supletorio a VLC//////////
 								if($estado==0){
 									$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -9526,7 +9526,7 @@ class Academico extends MX_Controller
 									}
 								}
 							}
-							
+
 						}else{
 							$nota_etapa='';
 						}
@@ -9553,7 +9553,7 @@ class Academico extends MX_Controller
 									$componente_examen=$nc['CALIFICACION'];
 								}
 							}
-							$asistencia=$nota;	
+							$asistencia=$nota;
 							if($num_componentes==$num_componentes_calificados and $asistencia>=0){
 								$estado='';
 								//calcular estado materia
@@ -9585,7 +9585,7 @@ class Academico extends MX_Controller
 								$supletorio='';
 							}
 							$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_etapa,$estado,$em['ID_PERIODO_ACADEMICO']);
-							
+
 							/////enviar supletorio a VLC//////////
 							if($estado==0){
 								$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -9602,7 +9602,7 @@ class Academico extends MX_Controller
 									$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 								}
 							}
-							
+
 							$nota_asistencia_registrado++;
 						}
 					}
@@ -9611,23 +9611,23 @@ class Academico extends MX_Controller
 		}
 		echo 'Componente Taller Registrados: '.$nota_taller_registrado.'  Componente Asistencia Registrado: '.$nota_asistencia_registrado;
 	}
-	
+
 	public function reporteAlumnosPromedio(){
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,94)){
-			
+
 			$datos=array();
-			$datos['niveles']  = $this->academico_model->get_niveles(); 
-			$datos['carreras'] = $this->academico_model->get_carreras(); 
-			$datos['periodos'] = $this->academico_model->getPeriodos(); 
-			//$datos['perfil'] = $perfil; 
+			$datos['niveles']  = $this->academico_model->get_niveles();
+			$datos['carreras'] = $this->academico_model->get_carreras();
+			$datos['periodos'] = $this->academico_model->getPeriodos();
+			//$datos['perfil'] = $perfil;
 			$datos1=$this->perfil_model->cabecera($idusuario);
 
 			$this->load->view('templates/header',$datos1);
 			$this->load->view('buscar_alumnos_promedio',$datos);
 			$this->load->view('templates/footer');
-				
-			
+
+
 		}else{
 			redirect('admin/login', 'refresh');
 		}
@@ -9645,8 +9645,8 @@ class Academico extends MX_Controller
 			$alumnos = array();
 			$datos = $this->academico_model->buscarAlumnoMateria($data);
 			if ($datos!=false) {
-				
-			
+
+
 				foreach ($datos as $key => $alumno) {
 					$num_materias_matricula=0;
 					$tota_notas=0;
@@ -9655,10 +9655,10 @@ class Academico extends MX_Controller
 						if ($est['FUE_HOMOLOGADA']==1) {
 							$tota_notas+=$est['NOTA_HOMOLOGACION'];
 						}elseif ($est['FUE_CONVALIDADA']==1) {
-							
+
 							$tota_notas+=$est['NOTA_CONVALIDACION'];
 						}elseif ($est['FUE_HISTORIAL']==1) {
-							
+
 							$tota_notas+=$est['NOTA_HISTORIAL'];
 						}else{
 						   $tota_notas+=$est['FINAL'];
@@ -9666,8 +9666,8 @@ class Academico extends MX_Controller
 						$num_materias_matricula=$num_materias_matricula+1;
 					}
 					if ($num_materias_matricula>0) {
-						
-					
+
+
 						$datos[$key]['promedio'] = number_format(floatval($tota_notas)/$num_materias_matricula,2);
 					}else{
 						$datos[$key]['promedio'] =0;
@@ -9681,7 +9681,7 @@ class Academico extends MX_Controller
 					if ($datos[$key]['promedio'] >= $promedioBase){
 						array_push($alumnos, $datos[$key]);
 					}
-					
+
 				}
 			}
 			echo json_encode($alumnos);
@@ -9690,7 +9690,7 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////
 	public function prueba_inscripcion_vlc()
 	{
@@ -9782,7 +9782,7 @@ class Academico extends MX_Controller
 		curl_close($ch);
 		echo $resultado.'-'.$error;
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function materiasEstudiante($id_persona, $id_carrera=null)
 	{
@@ -9796,7 +9796,7 @@ class Academico extends MX_Controller
 					$justificacion=$this->academico_model->get_justificacion($materia['ID_ESTUDIANTE_CARRERA_MATERIA']);
 					if($justificacion==NULL){
 						$dm=$this->academico_model->obtener_datos_materia($materia['ID_CARRERA_MATERIA']);
-						
+
 						$planificacion=$this->academico_model->getPlanificacion($materia['ID_GRUPO'],$materia['ID_CARRERA_MATERIA'],$materia['ID_PERIODO_ACADEMICO']);
 						$periodo_tutoria=$planificacion['FECHA_TUTORIA1'];
 						$fecha_fin='';
@@ -9810,7 +9810,7 @@ class Academico extends MX_Controller
 						if($fecha_fin!=''){
 							$periodo_tutoria.=' / '.$fecha_fin;
 						}
-						
+
 						$materias_asistencia[]=array('id_ecm'=>$materia['ID_ESTUDIANTE_CARRERA_MATERIA'],'materia'=>$dm['NOMBRE'],'tutoria'=>$periodo_tutoria);
 					}
 				}
@@ -9820,9 +9820,9 @@ class Academico extends MX_Controller
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	public function procesarJustificacionAsistencia() 
+	public function procesarJustificacionAsistencia()
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,80)){
@@ -9859,7 +9859,7 @@ class Academico extends MX_Controller
 						$data['ESTADO']=1;
 						$data['FECHA_RESPUESTA']=date('Y-m-d H:i:s');
 						$data['ID_USUARIO_PROCESA']=$this->session->userdata('loggeado')['ID_USUARIO'];
-						$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia); 
+						$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia);
 						$this->notaAsistencia(100,$id_estudiante_carrera_materia,1);
 					}
 					$this->academico_model->crearJustificacionAsistencia($data);
@@ -9881,7 +9881,7 @@ class Academico extends MX_Controller
 				$this->academico_model->actualizarJustificacionAsistencia($data,$id_justificacion);
 				//crear registro de asistencia
 				if($estado==1){
-					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia); 
+					$this->academico_model->actualizar_acad_estudiante_carrera_materia(array('ASISTENCIA_JUSTIFICADA'=>1),$id_estudiante_carrera_materia);
 					$this->notaAsistencia(100,$id_estudiante_carrera_materia,1);
 				}
 				$respuesta['respuesta']=1;
@@ -9928,15 +9928,15 @@ class Academico extends MX_Controller
 			echo 'Sesi�n Terminada';
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	public function getJustificacionAsistencia() 
+	public function getJustificacionAsistencia()
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,80)){
 			$id_estudiante_carrera_materia = trim($this->input->post('id_estudiante_carrera_materia'));
 			$justificacion = $justificacion=$this->academico_model->get_justificacion($id_estudiante_carrera_materia);
-			
+
 			$ecm=$this->academico_model->get_estudiante_carrera_materia($id_estudiante_carrera_materia);
 			$planificacion=$this->academico_model->getPlanificacion($ecm['ID_GRUPO'],$ecm['ID_CARRERA_MATERIA'],$ecm['ID_PERIODO_ACADEMICO']);
 			$justificacion['PERIODO']=$planificacion['FECHA_TUTORIA1'];
@@ -9951,15 +9951,15 @@ class Academico extends MX_Controller
 			if($fecha_fin!=''){
 				$justificacion['PERIODO'].=' / '.$fecha_fin;
 			}
-			
+
 			echo json_encode($justificacion);
 		}else{
 			echo 'Sesi�n Terminada';
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	public function matriculaNroDocumento($nroDocumento) 
+	public function matriculaNroDocumento($nroDocumento)
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado')){
@@ -9975,9 +9975,9 @@ class Academico extends MX_Controller
 			echo 'Sesi�n Terminada';
 		}
 	}
-	
+
 	//Codigo para corregir calificaciones rechazadas a VLC por error en cierre periodo calificacion
-	public function correccionCierrePeriodo() 
+	public function correccionCierrePeriodo()
 	{
 		$query = $this->db->query("select * from tab_log_vlc where ESTADO='Error:Periodo Cerrado'");
 		$total=0;
@@ -9997,7 +9997,7 @@ class Academico extends MX_Controller
 			$elements['cedula']=$row['CEDULA_ESTUDIANTE'];
 			$elements['cedula_docente']=$row['CEDULA_DOCENTE'];
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_POST,true);  
+			curl_setopt($ch, CURLOPT_POST,true);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $elements);
 			curl_setopt($ch, CURLOPT_HEADER, false);
 			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
@@ -10011,9 +10011,9 @@ class Academico extends MX_Controller
 	   	}
 		echo 'REENVIADOS:'.$total;
 	}
-	
+
 	//Codigo para generar reportes para el Ceaaces
-	public function reporteCeaaces($op=0,$p=null) 
+	public function reporteCeaaces($op=0,$p=null)
 	{
 		if($op==1){
 			$nombre='EST01';
@@ -10031,7 +10031,7 @@ class Academico extends MX_Controller
 			$this->db->where_in('m.ID_PERIODO_ACADEMICO',array(6,7));
 			$this->db->order_by("APELLIDO_PATERNO","asc");
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$discapacidades=array('AUDITIVA','FISICA','INTELECTUAL','LENGUAJE','PSICOL�GICA','VISUAL','SUSTITUTO','NINGUNA');
 			$etnias=array('INDIGENA','BLANCO','MESTIZO','MULATO','AFROECUATORIANO','MONTUBIO','OTRO');
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
@@ -10110,7 +10110,7 @@ class Academico extends MX_Controller
 			$this->db->where('m.ESTADO','0');//filtrar matriculas normales
 			$this->db->where_in('m.ID_PERIODO_ACADEMICO',array(6,7));
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$tabla='<table>';
 			$tabla.='<tr>';
 			$tabla.='<td>IDENTIFICACION</td>';
@@ -10208,7 +10208,7 @@ class Academico extends MX_Controller
 				if($ds5!=NULL){
 					$quinto='5';
 				}
-				
+
 				$tabla.='<tr>';
 				$tabla.='<td style="mso-number-format:\'@\';">'.$v['CEDULA'].'</td>';
 				$tabla.='<td style="mso-number-format:\'@\';">'.$v['CODIGO'].'</td>';
@@ -10233,7 +10233,7 @@ class Academico extends MX_Controller
 			$this->db->where('m.ESTADO','0');//filtrar matriculas anuladas
 			$this->db->where('m.ID_PERIODO_ACADEMICO',$p);
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$tabla='<table>';
 			$tabla.='<tr>';
 			$tabla.='<td>IDENTIFICACION</td>';
@@ -10279,9 +10279,9 @@ class Academico extends MX_Controller
 		//echo utf8_encode($tabla);
 		echo utf8_decode($tabla);
 	}
-	
+
 	//Codigo para generar reportes para el sniese
-	public function reporteSniese($op=0,$p=null) 
+	public function reporteSniese($op=0,$p=null)
 	{
 		if($op==1){
 			$nombre='Docentes';
@@ -10306,8 +10306,8 @@ class Academico extends MX_Controller
 				}
 			}
 			//echo 'BORRADOS: '.$b;
-			
-			
+
+
 			$this->db->distinct();
 			$this->db->select('p.PLATAFORMA,p.ID_PERSONA,p.FECHA_TUTORIA1, p.FECHA_TUTORIA2, p.FECHA_TUTORIA3, p.FECHA_TUTORIA4, p.FECHAS_TUTORIA, m.NOMBRE as MATERIA, CONCAT_WS(" ", per.PRIMER_NOMBRE, per.SEGUNDO_NOMBRE) as NOMBRES, CONCAT_WS(" ", per.APELLIDO_PATERNO, per.APELLIDO_MATERNO) as APELLIDOS, pa.FECHA_INICIO, pa.FECHA_FIN, c.NRO_DOCUMENTO',false);
 			$this->db->from('acad_planificacion p');
@@ -10330,7 +10330,7 @@ class Academico extends MX_Controller
 			$this->db->order_by('MATERIA');
 			$query = $this->db->get();
 			$ds = $query->result_array();
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			//indice 0 para domingo hasta 6 para s�bado
@@ -10421,8 +10421,8 @@ class Academico extends MX_Controller
 				}
 			}
 			//echo 'BORRADOS: '.$b;
-			
-			
+
+
 			$this->db->distinct();
 			$this->db->select('p.PLATAFORMA,p.ID_PERSONA,p.FECHA_TUTORIA1, p.FECHA_TUTORIA2, p.FECHA_TUTORIA3, p.FECHA_TUTORIA4, p.FECHAS_TUTORIA, m.NOMBRE as MATERIA, CONCAT_WS(" ", per.PRIMER_NOMBRE, per.SEGUNDO_NOMBRE) as NOMBRES, CONCAT_WS(" ", per.APELLIDO_PATERNO, per.APELLIDO_MATERNO) as APELLIDOS, pa.FECHA_INICIO, pa.FECHA_FIN, c.NRO_DOCUMENTO, g.NOMBRE as GRUPO, car.NOMBRE as CARRERA',false);
 			$this->db->from('acad_planificacion p');
@@ -10446,7 +10446,7 @@ class Academico extends MX_Controller
 			$this->db->order_by('GRUPO');
 			$query = $this->db->get();
 			$ds = $query->result_array();
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			//indice 0 para domingo hasta 6 para s�bado
@@ -10526,15 +10526,15 @@ class Academico extends MX_Controller
 		echo utf8_decode($tabla);
 		//echo $tabla;
 	}
-	
+
 	//Codigo para generar reportes especiales solicitados
-	public function reporteEspecial($op=0,$p=null) 
+	public function reporteEspecial($op=0,$p=null)
 	{
 		if($op==1){
 			$nombre='DocentesMateria';
 			$periodos=$this->academico_model->getPeriodos($p);
 			$periodo=$periodos[0];
-			
+
 			$this->db->select('dcm.*, CONCAT_WS(" ", p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE, p.APELLIDO_PATERNO, p.APELLIDO_MATERNO) as DOCENTE, c.NOMBRE as CARRERA, m.NOMBRE as MATERIA, m.ID_MATERIA, n.NIVEL, n.ID_NIVEL, cli.NRO_DOCUMENTO',false);
 			$this->db->from('acad_docente_carrera_materia dcm');
 			$this->db->join('acad_carrera_materia cm', 'cm.ID_CARRERA_MATERIA = dcm.ID_CARRERA_MATERIA');
@@ -10546,12 +10546,12 @@ class Academico extends MX_Controller
 			$this->db->join('acad_nivel n', 'n.ID_NIVEL = cm.NIVEL_MATERIA');
 			$this->db->where('dcm.ID_PERIODO_ACADEMICO', $p);
 			$this->db->order_by("DOCENTE", "asc");
-			$this->db->order_by("CARRERA", "asc"); 
+			$this->db->order_by("CARRERA", "asc");
 			$this->db->order_by("n.ID_NIVEL", "asc");
 			$this->db->order_by("MATERIA", "asc");
 			$query = $this->db->get();
 			$ds = $query->result_array();
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$tabla='<table>';
@@ -10588,7 +10588,7 @@ class Academico extends MX_Controller
 					$i++;
 				}
 			}
-			
+
 			$tabla.='<table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre.".xls");
@@ -10649,7 +10649,7 @@ class Academico extends MX_Controller
 				$tabla.='<td>'.$v['PRECIO'].'</td>';
 				$tabla.='</tr>';
 			}
-			
+
 			$tabla.='<table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre.".xls");
@@ -10675,12 +10675,12 @@ class Academico extends MX_Controller
 			$this->db->join('acad_grupo g', 'g.ID_GRUPO = pla.ID_GRUPO');
 			$this->db->where('pla.ID_PERIODO_ACADEMICO', $p);
 			$this->db->order_by("DOCENTE", "asc");
-			$this->db->order_by("CARRERA", "asc"); 
+			$this->db->order_by("CARRERA", "asc");
 			$this->db->order_by("n.ID_NIVEL", "asc");
 			$this->db->order_by("MATERIA", "asc");
 			$query = $this->db->get();
 			$ds = $query->result_array();
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$tabla='<table>';
@@ -10745,7 +10745,7 @@ class Academico extends MX_Controller
 			$this->db->where('pla.ID_PERIODO_ACADEMICO', $p);
 			$this->db->group_by("GRUPO,MATERIA");
 			$this->db->order_by("DOCENTE", "asc");
-			$this->db->order_by("CARRERA", "asc"); 
+			$this->db->order_by("CARRERA", "asc");
 			$this->db->order_by("n.ID_NIVEL", "asc");
 			$this->db->order_by("MATERIA", "asc");
 			$query = $this->db->get();
@@ -10798,12 +10798,12 @@ class Academico extends MX_Controller
 			//echo $tabla;
 			echo utf8_decode($tabla);
 		}
-		
+
 		if($op==6){//archivo team docentes
 			$nombre='docentes_deming.csv';
 			$periodos=$this->academico_model->getPeriodos($p);
 			$periodo=$periodos[0];
-			
+
 			$this->db->select('dcm.*, CONCAT_WS(" ", p.APELLIDO_PATERNO, p.APELLIDO_MATERNO,p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as DOCENTE, CONCAT_WS(" ",p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as NOMBRES, CONCAT_WS(" ", p.APELLIDO_PATERNO, p.APELLIDO_MATERNO) as APELLIDOS, c.NOMBRE as CARRERA, m.NOMBRE as MATERIA, m.ID_MATERIA, n.NIVEL, n.ID_NIVEL, cli.NRO_DOCUMENTO, p.CORREO_INSTITUCIONAL',false);
 			$this->db->from('acad_docente_carrera_materia dcm');
 			$this->db->join('acad_carrera_materia cm', 'cm.ID_CARRERA_MATERIA = dcm.ID_CARRERA_MATERIA');
@@ -10832,18 +10832,18 @@ class Academico extends MX_Controller
 			}
 			//print_r($datos);
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			echo utf8_decode($archivo); 
+			echo utf8_decode($archivo);
 			exit();
 		}
-		
+
 		if($op==7){//archivo docentes sin completar calificaciones
 			$nombre='docentes_incompleto.xls';
 			$tabla='<table><tr><td>DOCENTE</td><td>MATERIA</td><td>GRUPO</td></tr>';
@@ -10968,10 +10968,10 @@ class Academico extends MX_Controller
 			$this->db->join('tab_clientes cli', 'cli.ID_CLIENTE =cn.ID_CLIENTE ');
 			$this->db->join('tab_contactos cnt', 'cnt.ID_CLIENTE=cli.ID_CLIENTE ');
 			$this->db->join('tab_cantones can', 'can.ID_CANTON=cnt.ID_CANTON ');
-			$this->db->where_in('p.OCUPACION',array(1,2)); 
-			$this->db->where('p.ESTADO',1); 
-			$this->db->where('cnt.ESTADO',1 ); 
-			$this->db->where('cnt.ID_TIPO_CONTACTO',2 ); 
+			$this->db->where_in('p.OCUPACION',array(1,2));
+			$this->db->where('p.ESTADO',1);
+			$this->db->where('cnt.ESTADO',1 );
+			$this->db->where('cnt.ID_TIPO_CONTACTO',2 );
 			$this->db->order_by("NOMBRE_COMPLETO","asc");
 			$query = $this->db->get();
 			$ds = $query->result_array();
@@ -10987,25 +10987,25 @@ class Academico extends MX_Controller
 				$CUENTACONTABLE = "Tecno. Administracion de Sistemas de Calidad ER";
 			 	if ($ds1 != null) {
 					if ($ds1['ID_CARRERA'] == 10 or $ds1['ID_CARRERA'] == 11) {
-						$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales ER";	
+						$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales ER";
 					}
 					if ($ds1['ID_CARRERA'] == 1 or $ds1['ID_CARRERA'] == 2 or $ds1['ID_CARRERA'] == 3 ) {
 						$CUENTACONTABLE = "Tecno. Administracion de Sistemas de Calidad ER";
 					}
 					if ($ds1['ID_CARRERA'] == 12) {
-						$CUENTACONTABLE = "Tecno. Logistica y Transporte ER";	
+						$CUENTACONTABLE = "Tecno. Logistica y Transporte ER";
 					}
 					if ($ds1['ID_CARRERA'] == 4 or $ds1['ID_CARRERA'] == 5 or $ds1['ID_CARRERA'] == 6) {
-						$CUENTACONTABLE = "Tecno. en Marketing ER";	
+						$CUENTACONTABLE = "Tecno. en Marketing ER";
 					}
 					if ($ds1['ID_CARRERA'] == 8) {
-						$CUENTACONTABLE = "Tecni. Superior en Marketing ER";	
+						$CUENTACONTABLE = "Tecni. Superior en Marketing ER";
 					}
 					if ($ds1['ID_CARRERA'] == 7) {
-						$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas ER";	
+						$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas ER";
 					}
 					if ($ds1['ID_CARRERA'] == 13) {
-						$CUENTACONTABLE = "Tecni. Superior en Ventas ER";	
+						$CUENTACONTABLE = "Tecni. Superior en Ventas ER";
 					}
 					// Verficiar si es estudiante homologado
 					$this->db->select("ID_CARRERA");
@@ -11017,27 +11017,27 @@ class Academico extends MX_Controller
 					$ds2 = $query2->row_array();
 					if ($ds2 != null) {
 						if ($ds2['ID_CARRERA'] == 10 or $ds2['ID_CARRERA'] == 11) {
-							$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales EH";	
+							$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales EH";
 						}
 						if ($ds2['ID_CARRERA'] == 1 or $ds2['ID_CARRERA'] == 2 or $ds2['ID_CARRERA'] == 3 ) {
 							$CUENTACONTABLE = "Tecno. Administracion de Sistemas de Calidad EH";
 						}
 						if ($ds2['ID_CARRERA'] == 12) {
-							$CUENTACONTABLE = "Tecno. Logistica y Transporte EH";	
+							$CUENTACONTABLE = "Tecno. Logistica y Transporte EH";
 						}
 						if ($ds2['ID_CARRERA'] == 4 or $ds2['ID_CARRERA'] == 5 or $ds2['ID_CARRERA'] == 6) {
-							$CUENTACONTABLE = "Tecno. en Marketing EH";	
+							$CUENTACONTABLE = "Tecno. en Marketing EH";
 						}
 						if ($ds2['ID_CARRERA'] == 8) {
-							$CUENTACONTABLE = "Tecni. Superior en Marketing EH";	
+							$CUENTACONTABLE = "Tecni. Superior en Marketing EH";
 						}
 						if ($ds2['ID_CARRERA'] == 7) {
-							$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas EH";	
+							$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas EH";
 						}
 						if ($ds2['ID_CARRERA'] == 13) {
-							$CUENTACONTABLE = "Tecni. Superior en Ventas EH";	
+							$CUENTACONTABLE = "Tecni. Superior en Ventas EH";
 						}
-					
+
 					}
 					// Verficiar si es Estudiantes Validacion de Conocimientos
 					$this->db->select("ID_CARRERA");
@@ -11049,32 +11049,32 @@ class Academico extends MX_Controller
 					$ds3 = $query3->row_array();
 					if ($ds3 != null) {
 						if ($ds3['ID_CARRERA'] == 10 or $ds3['ID_CARRERA'] == 11) {
-							$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales EVC";	
+							$CUENTACONTABLE = "Tecno. Seguridad y Prevencion de Riesgos Laborales EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 1 or $ds3['ID_CARRERA'] == 2 or $ds3['ID_CARRERA'] == 3 ) {
 							$CUENTACONTABLE = "Tecno. Administracion de Sistemas de Calidad EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 12) {
-							$CUENTACONTABLE = "Tecno. Logistica y Transporte EVC";	
+							$CUENTACONTABLE = "Tecno. Logistica y Transporte EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 4 or $ds3['ID_CARRERA'] == 5 or $ds3['ID_CARRERA'] == 6) {
-							$CUENTACONTABLE = "Tecno. en Marketing EVC";	
+							$CUENTACONTABLE = "Tecno. en Marketing EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 8) {
-							$CUENTACONTABLE = "Tecni. Superior en Marketing EVC";	
+							$CUENTACONTABLE = "Tecni. Superior en Marketing EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 7) {
-							$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas EVC";	
+							$CUENTACONTABLE = "Tecni. Superior en Administracion de Empresas EVC";
 						}
 						if ($ds3['ID_CARRERA'] == 13) {
-							$CUENTACONTABLE = "Tecni. Superior en Ventas EVC";	
+							$CUENTACONTABLE = "Tecni. Superior en Ventas EVC";
 						}
-					
+
 					}
-				}	
+				}
 				$CUENTACONTABLE_PROVEEDOR = "";
 				if($r['OCUPACION']==2){
-					$CUENTACONTABLE = "";	
+					$CUENTACONTABLE = "";
 					$CUENTACONTABLE_PROVEEDOR = "Cuentas por Pagar Docentes";
 				}
 				$tabla.='<tr>';
@@ -11121,7 +11121,7 @@ class Academico extends MX_Controller
 			//echo $tabla;
 			echo utf8_decode($tabla);
 		}
-		
+
 		if($op==9){//archivo estudiantes CACES
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -11159,7 +11159,7 @@ class Academico extends MX_Controller
 			//$this->db->where('m.ID_PERIODO_ACADEMICO',$p);
 			$this->db->order_by("APELLIDO_PATERNO","asc");
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$discapacidades[1]='INTELECTUAL';
 			$discapacidades[2]='FISICA MOTORA';
 			$discapacidades[3]='VISUAL';
@@ -11241,7 +11241,7 @@ class Academico extends MX_Controller
 			$archivo.='<td>POLITICA_CUOTA';
 			$archivo.='</tr>';
 			foreach($ds as $k=>$v){
-				
+
 				//consultar sede
 				/*$query1 = $this->db->query("select SEDE from acad_sede where ID_SEDE in (select ID_SEDE from acad_grupo where ID_GRUPO in (select ID_GRUPO from acad_matricula where ID_PERSONA=".$v['ID_PERSONA']." and ID_CARRERA=".$v['ID_CARRERA']." and ESTADO in (0,2)))");
 			  	$ds1 = $query1->row_array();
@@ -11250,12 +11250,12 @@ class Academico extends MX_Controller
 			  	}else{
 				  	$sede=$ds1['SEDE'];
 			  	}*/
-				
+
 				$sede='DISTRITO METROPOLITANO DE QUITO';
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$sede='QUITO';
 				}
-				
+
 				if($v['TIPO_DOCUMENTO']=='C'){
 					$v['TIPO_DOCUMENTO']='CEDULA';
 				}else{
@@ -11303,7 +11303,7 @@ class Academico extends MX_Controller
 				if($v['PAIS_REC']!='ECUADOR' or $v['CANTON_REC']==NULL or $v['CANTON_REC']==''){
 					$v['CANTON_REC']='NO APLICA';
 				}
-				
+
 				$fecha_inicio='';
 				$fecha_convalida='';
 				$this->db->select("p.FECHA_INICIO");
@@ -11363,7 +11363,7 @@ class Academico extends MX_Controller
 				if($v['CELULAR']!=NULL and $v['CELULAR']!=''){
 					$v['CELULAR']=sprintf("%'.010d",str_replace('-','',$v['CELULAR']));
 				}
-				
+
 				if($v['TIPO_COLEGIO']==NULL or $v['TIPO_COLEGIO']==''){
 					$v['TIPO_COLEGIO']='NO REGISTRA';
 				}
@@ -11436,7 +11436,7 @@ class Academico extends MX_Controller
 				$fila.='<td>'.'NINGUNA'.'</td>';
 				$archivo.=$fila.'</tr>';
 			}
-			
+
 			$archivo.='</table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre);
@@ -11445,21 +11445,21 @@ class Academico extends MX_Controller
 			//echo utf8_encode($tabla);
 			//echo $tabla;
 			echo utf8_decode($archivo);
-			
+
 			/*header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			//echo utf8_decode($archivo); 
-			echo $archivo; 
+			//echo utf8_decode($archivo);
+			echo $archivo;
 			exit();*/
 		}
-		
+
 		if($op==10){//archivo estudiantes por periodo CACES
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -11482,7 +11482,7 @@ class Academico extends MX_Controller
 			//$this->db->where_in('m.ID_PERIODO_ACADEMICO',array(11,12));
 			$this->db->where('m.ID_PERIODO_ACADEMICO',$p);
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$ciudad_carrera=array('540413A01-L-1701','540416A01-L-1701','550725E01-L-1701','551022D-L-01','551041B-L-01');
 			$nivel[1]='1RO';
 			$nivel[2]='2DO';
@@ -11542,7 +11542,7 @@ class Academico extends MX_Controller
 			  	}else{
 				  	$credito+=$ds2['credito_aprobado'];
 			  	}
-				
+
 				//sumatoria de creditos en el periodo de consulta
 			  	$query3 = $this->db->query("select sum(CREDITOS_MATERIA) as credito_aprobado from acad_estudiante_carrera_materia where ID_PERSONA=".$v['ID_PERSONA']." and ID_CARRERA=".$v['ID_CARRERA']." and ID_ESTUDIANTE_CARRERA_MATERIA in (select ID_ESTUDIANTE_CARRERA_MATERIA from acad_calificacion where ID_TIPO_CALIFICACION=6 and ESTADO_CALIFICACION=1) and ID_PERIODO_ACADEMICO=".$p);
 			  	$ds3 = $query3->row_array();
@@ -11557,7 +11557,7 @@ class Academico extends MX_Controller
 			  	}else{
 				  	$creditoPeriodo+=$ds4['credito_aprobado'];
 			  	}
-				
+
 				//sumatoria de materias arrastre en el periodo de consulta
 				$segunda=0;
 				$tercera=0;
@@ -11608,7 +11608,7 @@ class Academico extends MX_Controller
 								if(isset($estado[0]) and $estado[0]['ESTADO_CALIFICACION']==1){
 									$aprobo=1;
 								}
-							}						
+							}
 							if($pn['ID_CARRERA_MATERIA']==$m['ID_CARRERA_MATERIA'] and $aprobo==1){
 								$todo_nivel=$todo_nivel+1;
 							}
@@ -11624,7 +11624,7 @@ class Academico extends MX_Controller
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$ciudad_c='QUITO';
 				}
-				
+
 				$fila='2249;';
 				$fila.=$v['CODIGO'].';';
 				//$fila.=$v['SEDE'].';';
@@ -11654,20 +11654,20 @@ class Academico extends MX_Controller
 				$archivo.=$fila.PHP_EOL;
 			}
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			//echo utf8_decode($archivo); 
-			echo $archivo; 
+			//echo utf8_decode($archivo);
+			echo $archivo;
 			exit();
 			//echo $tabla;
 		}
-		
+
 		if($op==101){//archivo estudiantes por periodo CACES calculado periodo 1718
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -11691,7 +11691,7 @@ class Academico extends MX_Controller
 			$this->db->where('m.ID_PERIODO_ACADEMICO',$p);
 			$this->db->where('m.ID_NIVEL>',2);
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$ciudad_carrera=array('540413A01-L-1701','540416A01-L-1701','550725E01-L-1701','551022D-L-01','551041B-L-01');
 			$nivel[1]='1RO';
 			$nivel[2]='2DO';
@@ -11699,21 +11699,21 @@ class Academico extends MX_Controller
 			$nivel[4]='4TO';
 			$nivel[5]='5TO';
 			$nivel[6]='6TO';
-			
+
 			$niveltexto[1]='PRIMERO';
 			$niveltexto[2]='SEGUNDO';
 			$niveltexto[3]='TERCERO';
 			$niveltexto[4]='CUARTO';
 			$niveltexto[5]='QUINTO';
 			$niveltexto[6]='SEXTO';
-			
+
 			//sumatoria de creditos carreras por nivel
 			$query1 = $this->db->query("SELECT ID_CARRERA,NIVEL_MATERIA,SUM(CREDITOS_MATERIA) as CREDITOS_NIVEL FROM `acad_carrera_materia` WHERE ESTADO=1 GROUP BY ID_CARRERA,NIVEL_MATERIA");
 			$ds1 = $query1->result_array();
 			foreach($ds1 as $nc){
 				$creditos_carrera_nivel[$nc['ID_CARRERA']][$nc['NIVEL_MATERIA']]=$nc['CREDITOS_NIVEL'];
 			}
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$archivo='CODIGO_IES;';
@@ -11780,11 +11780,11 @@ class Academico extends MX_Controller
 						$creditoPeriodo=$credito;
 					}
 				}
-				
+
 				//sumatoria de materias arrastre en el periodo de consulta
 				$segunda=0;
 				$tercera=0;
-			
+
 				$ingreso='NO REGISTRA';
 				if($v['SUELDO_PROMEDIO']>0 and $v['SUELDO_PROMEDIO']<=400){
 					$ingreso='RANGO1';
@@ -11819,7 +11819,7 @@ class Academico extends MX_Controller
 								if(isset($estado[0]) and $estado[0]['ESTADO_CALIFICACION']==1){
 									$aprobo=1;
 								}
-							}						
+							}
 							if($pn['ID_CARRERA_MATERIA']==$m['ID_CARRERA_MATERIA'] and $aprobo==1){
 								$todo_nivel=$todo_nivel+1;
 							}
@@ -11835,7 +11835,7 @@ class Academico extends MX_Controller
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$ciudad_c='QUITO';
 				}
-				
+
 				$fila='2249;';
 				$fila.=$v['CODIGO'].';';
 				//$fila.=$v['SEDE'].';';
@@ -11865,20 +11865,20 @@ class Academico extends MX_Controller
 				$archivo.=$fila.PHP_EOL;
 			}
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			//echo utf8_decode($archivo); 
-			echo $archivo; 
+			//echo utf8_decode($archivo);
+			echo $archivo;
 			exit();
 			//echo $tabla;
 		}
-		
+
 		if($op==11){//archivo estudiantes practicas pre-profesionales CACES
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -11900,7 +11900,7 @@ class Academico extends MX_Controller
 			//$this->db->where('pv.ID_PERIODO_ACADEMICO',$p);
 			$this->db->where('pv.TIPO',1);//tipo practicas preprofesionales
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$ciudad_carrera=array('540413A01-L-1701','540416A01-L-1701','550725E01-L-1701','551022D-L-01','551041B-L-01');
@@ -11960,12 +11960,12 @@ class Academico extends MX_Controller
 						$campoEspecifico='2-7A';
 					}
 			  	}
-				
+
 				$ciudad_c='DISTRITO METROPOLITANO DE QUITO';
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$ciudad_c='QUITO';
 				}
-				
+
 				/*$fila='2249;';
 				$fila.=$v['CODIGO'].';';
 				//$fila.=$sede.';';
@@ -11996,7 +11996,7 @@ class Academico extends MX_Controller
 				$archivo.='<td>1706895552</td>';
 				$archivo.='</tr>';
 			}
-			
+
 			$archivo.='</table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre);
@@ -12006,19 +12006,19 @@ class Academico extends MX_Controller
 			//echo $tabla;
 			echo utf8_decode($archivo);
 			/*header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			//echo utf8_decode($archivo); 
-			echo $archivo; 
+			//echo utf8_decode($archivo);
+			echo $archivo;
 			exit();*/
 		}
-		
+
 		if($op==12){//archivo estudiantes graduados CACES
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -12047,7 +12047,7 @@ class Academico extends MX_Controller
 			$this->db->where('g.CALIFICACION_GRADO>=',7);
 			$this->db->order_by("APELLIDO_PATERNO","asc");
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$discapacidades[1]='INTELECTUAL';
 			$discapacidades[2]='FISICA MOTORA';
 			$discapacidades[3]='VISUAL';
@@ -12117,7 +12117,7 @@ class Academico extends MX_Controller
 				if($v['APELLIDO_MATERNO']==NULL or $v['APELLIDO_MATERNO']==''){
 					$v['APELLIDO_MATERNO']='';
 				}
-				
+
 				$fecha_inicio='';
 				$fecha_convalida='';
 				$this->db->select("p.FECHA_INICIO");
@@ -12185,19 +12185,19 @@ class Academico extends MX_Controller
 				}else{
 					$f_temp[0]=$ds4['FECHA'];
 				}
-				
+
 				$f=explode('-',$f_temp[0]);
 				$fecha_grado=$f[2].'/'.$f[1].'/'.$f[0];
 				$tipo='EXAMEN COMPLEXIVO';
 				if($v['TIPO_EXAMEN']==2){
 					$tipo='TRABAJO TITULACION';
 				}
-				
+
 				$ciudad_c='DISTRITO METROPOLITANO DE QUITO';
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$ciudad_c='QUITO';
 				}
-				
+
 				$fila='2249;';
 				$fila.=$v['CODIGO'].';';
 				//$fila.=$sede.';';
@@ -12224,20 +12224,20 @@ class Academico extends MX_Controller
 				//$archivo.=$fila.PHP_EOL;
 			}
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			echo utf8_decode($archivo); 
-			//echo $archivo; 
+			echo utf8_decode($archivo);
+			//echo $archivo;
 			exit();
 			//echo $tabla;
 		}
-		
+
 		if($op==13){//archivo estudiantes becas CACES
 			if($p==null){
 				$p=$this->academico_model->get_periodo_activado();
@@ -12264,7 +12264,7 @@ class Academico extends MX_Controller
 			$this->db->where('p.ID_TIPO_BECA>',0);//filtrar estudiantes con beca
 			$this->db->order_by("CEDULA","asc");
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$ciudad_carrera=array('540413A01-L-1701','540416A01-L-1701','550725E01-L-1701','551022D-L-01','551041B-L-01');
@@ -12299,7 +12299,7 @@ class Academico extends MX_Controller
 				}else{
 					$v['TIPO_DOCUMENTO']='PASAPORTE';
 				}
-				
+
 				$fecha_inicio='';
 				$this->db->select("p.FECHA_INICIO");
 				$this->db->from('acad_matricula m');
@@ -12380,7 +12380,7 @@ class Academico extends MX_Controller
 					}
 					//consultar valor beca
 					$query1 = $this->db->query("select SUM(DESCUENTO_BECA) as beca_total from fac_clientes_rubros_cuota where ID_CLIENTE_RUBRO in (select ID_CLIENTE_RUBRO from fac_clientes_rubros where ID_RUBRO in (16,17,19) and ID_CLIENTE=".$v['ID_CLIENTE']." and ID_CARRERA=".$v['ID_CARRERA'].")");
-					
+
 					$ds1 = $query1->row_array();
 					if($ds1!=NULL){
 						$valor_beca=round($ds1['beca_total'],2);
@@ -12392,12 +12392,12 @@ class Academico extends MX_Controller
 					$fi=explode('/',$fecha_inicio);
 					$anio=$fi[2];
 				}
-				
+
 				$ciudad_c='DISTRITO METROPOLITANO DE QUITO';
 				if(in_array($v['CODIGO'],$ciudad_carrera)){
 					$ciudad_c='QUITO';
 				}
-				
+
 				$fila='2249;';
 				$fila.=$v['CODIGO'].';';
 				$fila.=$ciudad_c.';';
@@ -12417,25 +12417,25 @@ class Academico extends MX_Controller
 				$archivo.=$fila.PHP_EOL;
 			}
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename='.$nombre); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename='.$nombre);
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			//echo utf8_decode($archivo); 
-			echo $archivo; 
+			//echo utf8_decode($archivo);
+			echo $archivo;
 			exit();
 			//echo $tabla;
 		}
-		
+
 		if($op==14){//estudiantes con referido matriculados por primera vez
 			$nombre='Estudiantes_Referidos';
 			$periodos=$this->academico_model->getPeriodos($p);
 			$periodo=$periodos[0];
-			
+
 			$this->db->select('cli.NRO_DOCUMENTO, CONCAT_WS(" ",p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as ESTUDIANTE, c.NOMBRE as CARRERA, g.NOMBRE as GRUPO, s.SEDE, n.NIVEL, p.REFERIDO, m.ESTADO, m.ID_PERIODO_ACADEMICO, m.ID_PERSONA',false);
 			$this->db->from('acad_matricula m');
 			$this->db->join('tab_personas p', 'p.ID_PERSONA = m.ID_PERSONA');
@@ -12450,7 +12450,7 @@ class Academico extends MX_Controller
 			$this->db->order_by("ESTUDIANTE", "asc");
 			$query = $this->db->get();
 			$ds = $query->result_array();
-			
+
 			$filtro=array('�','�','�','�','�','�','�','�','�','�','�','�');
 			$filtro1=array('a','A','e','E','i','I','o','O','u','U','n','N');
 			$tabla='<table>';
@@ -12494,7 +12494,7 @@ class Academico extends MX_Controller
 					$i++;
 				}
 			}
-			
+
 			$tabla.='<table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre.".xls");
@@ -12504,7 +12504,7 @@ class Academico extends MX_Controller
 			echo utf8_decode($tabla);
 			//echo $tabla;
 		}
-		
+
 		if($op==15){//archivo estudiantes creados en el sistema
 			$nombre='Estudiantes_Deming_'.date('Y_m_d').'.xls';
 			$this->db->select("DISTINCT(cli.NRO_DOCUMENTO) as CEDULA, CONCAT_WS(' ',p.PRIMER_NOMBRE, p.SEGUNDO_NOMBRE) as NOMBRES, p.APELLIDO_PATERNO, p.APELLIDO_MATERNO, cli.TIPO_DOCUMENTO, p.FECHA_NACIMIENTO, p.GENERO, td.DISCAPACIDAD,p.TIPO_DISCAPACIDAD, p.PORCENTAJE_DICAPACIDAD, p.CARNET_CONADIS, cont.CORREO_ELECTRONICO, tgc.GRUPO_CULTURAL AS ETNIA, pai_n.PAIS as PAIS_NAC, CONCAT_WS(' ',cont.DIRECCION_CALLE_PRINCIPAL,cont.DIRECCION_NUMERO,cont.DIRECCION_CALLE_SECUNDARIA1) as DIRECCION, p.CORREO_INSTITUCIONAL, pai_r.PAIS as PAIS_REC, pro_r.PROVINCIA as PROVINCIA_REC, can_r.CANTON as CANTON_REC, cont.CELULAR, pf.NUM_MIEMBROS_FAMILIA, tc.TIPO_COLEGIO, p.ID_GRUPO_CULTURAL, p.ID_PERSONA",false);
@@ -12524,7 +12524,7 @@ class Academico extends MX_Controller
 			$this->db->where('p.OCUPACION',1);
 			$this->db->order_by("APELLIDO_PATERNO","asc");
 			$query= $this->db->get();
-			$ds= $query->result_array(); 
+			$ds= $query->result_array();
 			$discapacidades[1]='INTELECTUAL';
 			$discapacidades[2]='FISICA MOTORA';
 			$discapacidades[3]='VISUAL';
@@ -12616,7 +12616,7 @@ class Academico extends MX_Controller
 				if($v['CELULAR']!=NULL and $v['CELULAR']!=''){
 					$v['CELULAR']=sprintf("%'.010d",str_replace('-','',$v['CELULAR']));
 				}
-				
+
 				if($v['TIPO_COLEGIO']==NULL or $v['TIPO_COLEGIO']==''){
 					$v['TIPO_COLEGIO']='NO REGISTRA';
 				}
@@ -12643,7 +12643,7 @@ class Academico extends MX_Controller
 				$fila.='<td>'.$v['TIPO_COLEGIO'].'</td>';
 				$archivo.=$fila.'</tr>';
 			}
-			
+
 			$archivo.='</table>';
 			header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre);
@@ -12653,13 +12653,13 @@ class Academico extends MX_Controller
 			//echo $tabla;
 			echo utf8_decode($archivo);
 		}
-		
+
 		//reporte estudiantes con valores incorrectos en tabla amortizacion
 		if($op==16){
 			$nombre='Estudiantes_Valores_Incorrectos';
 			$id_usuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 			$id_carrera = null;
-			$id_nivel = null; 
+			$id_nivel = null;
 			$id_periodo = $p;
 			$grupo = null;
 			$id_persona=null;
@@ -12743,12 +12743,12 @@ class Academico extends MX_Controller
 			//echo utf8_encode($tabla);
 			echo utf8_decode($tabla);
 		}
-		
+
 		if($op==17){//estudiantes pendiente supletorio con bloqueo financiero masivo
 			$nombre='Estudiantes_supletorio';
 			$periodos=$this->academico_model->getPeriodos($p);
 			$periodo=$periodos[0];
-			
+
 			$clases_examenes=array();
 			$dat=array();
 			$estado_examen='-1';//pendiente
@@ -12804,7 +12804,7 @@ class Academico extends MX_Controller
 						$clases_examenes[$k]['FECHA_APLAZADO'].=' a '.$ff_aplazo->format('H:i');
 					}
 				}
-				
+
 				//verificar que este en supletorio
 				$dats['ID_ESTUDIANTE_CARRERA_MATERIA']=$ce['ID_ESTUDIANTE_CARRERA_MATERIA'];
 				$dats['ID_TIPO_CALIFICACION']=6;
@@ -12821,7 +12821,7 @@ class Academico extends MX_Controller
 						}
 					}
 				}
-				
+
 			}
 			$estados[0]='Inactivo';
 			$estados[1]='Activo';
@@ -12862,7 +12862,7 @@ class Academico extends MX_Controller
 					$i++;
 				}
 			}
-			
+
 			$tabla.='<table>';
 			/*header("Content-Type: application/vnd.ms-excel");
 			header("Content-Disposition: filename=".$nombre.".xls");
@@ -12872,14 +12872,14 @@ class Academico extends MX_Controller
 			echo utf8_decode($tabla);
 			//echo $tabla;
 		}
-		
+
 		//estudiantes de primer nivel de un periodo y estado de matricula del siguiente periodo
 		if($op==18){
 			$nombre='Estudiantes';
 			$estados=array('Activo','Anulado','Retirado','Pre Matricula');
 			$id_carrera = null;
-			$id_nivel = 1;  
-			$id_periodo_academico = 16;  
+			$id_nivel = 1;
+			$id_periodo_academico = 16;
 			$grupo = null;
 			$idUsuarioAcademico=null;
 			$datos = $this->academico_model->listaAlumnos($id_carrera, $id_nivel,$id_periodo_academico,$grupo,null,null,array(),$idUsuarioAcademico);
@@ -12924,9 +12924,9 @@ class Academico extends MX_Controller
 			//echo $tabla;
 		}
 	}
-	
+
 	//Codigo para actualizar tablaAmortizacion segun valor pagado en facturas
-	public function arregloTablaAmortizacion($idCliente,$idPeriodo,$valor,$idCarrera=0,$tipo=0) 
+	public function arregloTablaAmortizacion($idCliente,$idPeriodo,$valor,$idCarrera=0,$tipo=0)
 	{
 		if($idCliente>0 and $idPeriodo>0 and $valor>0){
 			if($idCarrera>0){
@@ -12953,9 +12953,9 @@ class Academico extends MX_Controller
 			echo "0";
 		}
 	}
-	
+
 	//Codigo para colocar o corregir idgrupo en registros de matricula que no posean ese dato
-	public function actualizarGrupoMatriculas() 
+	public function actualizarGrupoMatriculas()
 	{
 		$this->db->select("*");
 		$this->db->from('acad_matricula');
@@ -12974,9 +12974,9 @@ class Academico extends MX_Controller
 		}
 		echo 'Actualizados:'.$actualizados.' de:'.count($ds);
 	}
-	
+
 	///////////////////////////////////////////////
-	public function notaAsistencia($nota,$estudiante_carrera_materia,$asistencia_justificada) 
+	public function notaAsistencia($nota,$estudiante_carrera_materia,$asistencia_justificada)
 	{
 		$componentes=$this->academico_model->get_componentes();
 		foreach($componentes as $v){
@@ -13004,7 +13004,7 @@ class Academico extends MX_Controller
 				$componente_examen=$nc['CALIFICACION'];
 			}
 		}
-		$asistencia=$nota;	
+		$asistencia=$nota;
 		if($num_componentes==$num_componentes_calificados and $asistencia>=0){
 			$v_notamin=$this->academico_model->getparametro(utf8_encode('Nota m�nima'));
 			$notamin=$v_notamin['VALOR'];
@@ -13035,14 +13035,14 @@ class Academico extends MX_Controller
 				}else{
 					$estado=2;
 				}
-				
+
 			}elseif($nota_etapa<$nota_pierde){
 				$estado=2;
 			}
-			
+
 			//recalculo promedios etapas
 			$this->academico_model->calificar_componentes($estudiante_carrera_materia, 1,'','', $nota_etapa,1);
-			
+
 			$supletorio=$this->academico_model->get_supletorio_materia($estudiante_carrera_materia);
 			if($supletorio<0){
 				$supletorio='';
@@ -13061,7 +13061,7 @@ class Academico extends MX_Controller
 		}
 		if($estudiante_carrera_materia>0){
 			$this->academico_model->updateAsistenciaSupletorioNotaFinal($estudiante_carrera_materia,$asistencia,$supletorio,$nota_etapa,$estado);
-			
+
 			/////enviar supletorio a VLC//////////
 			if($estado==0){
 				$supletorio_vlc=$this->academico_model->get_estudiante_supletorio($estudiante_carrera_materia);
@@ -13078,15 +13078,15 @@ class Academico extends MX_Controller
 					$this->academico_model->borrar_estudiante_supletorio($estudiante_carrera_materia);
 				}
 			}
-			
+
 			$res= 'Registro Realizado';
 		}else{
 			$res= 'Error:Materia No Existe';
 		}
 	}
-	
+
 	///////////////////////////////////////////////
-	public function correccionAsistencia() 
+	public function correccionAsistencia()
 	{
 		$this->db->select("*");
 		$this->db->from('acad_asistencia_justificacion');
@@ -13100,14 +13100,14 @@ class Academico extends MX_Controller
 		}
 		echo 'Actualizados:'.$actualizados.' de:'.count($ds);
 	}
-	
+
 	//////////////////////////////funcion especial/////////////////
-	public function recalculoSupletorio() 
+	public function recalculoSupletorio()
 	{
 		$id_periodo_academico = $this->academico_model->get_periodo_activado();
 		$sql ="SELECT ID_ESTUDIANTE_CARRERA_MATERIA FROM acad_calificacion WHERE ID_PERIODO_ACADEMICO=".$id_periodo_academico." and ID_TIPO_CALIFICACION=6 and ESTADO_CALIFICACION=2 and CALIFICACION>=6.5 and CALIFICACION<7 and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from acad_calificacion where ID_TIPO_CALIFICACION=5 and ID_PERIODO_ACADEMICO=".$id_periodo_academico." and CALIFICACION IS NOT NULL and CALIFICACION!='') and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from acad_calificacion where ID_TIPO_CALIFICACION=4 and ID_PERIODO_ACADEMICO=".$id_periodo_academico." and CALIFICACION IS NOT NULL and CALIFICACION>=75)";
         $query = $this->db->query($sql);
-        $ds = $query->result_array(); 
+        $ds = $query->result_array();
 		$ids='';
 		foreach($ds as $k=>$v){
 			$ids.=$v['ID_ESTUDIANTE_CARRERA_MATERIA'].', ';
@@ -13124,7 +13124,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
         $this->db->query($sql);
 		echo 'Actualizados: '.$this->db->affected_rows();
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function sendSupletorioVlc($idEstudianteCarreraMateria,$opcion,$automatico=null)
 	{
@@ -13159,7 +13159,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 			}
-			
+
 			if($opcion=='borrar'){
 				$supletorio=$this->academico_model->get_estudiante_supletorio($idEstudianteCarreraMateria);
 				if($supletorio!=NULL){
@@ -13167,7 +13167,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					//$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 					$url = $this->url_vlc_supletorio_eliminar.'?id='.$supletorio['ID_SUPLETORIO_VLC'];
 					curl_setopt($ch, CURLOPT_URL, $url);
-					//curl_setopt($ch, CURLOPT_POST,true); 
+					//curl_setopt($ch, CURLOPT_POST,true);
 					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 					//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sendSupletorio));
 					curl_setopt($ch, CURLOPT_HEADER, false);
@@ -13192,7 +13192,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			//echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function sendRemedialVlc($idEstudianteCarreraMateria,$opcion,$automatico=null)
 	{
@@ -13229,14 +13229,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 			}
-			
+
 			if($opcion=='borrar'){
 				if($supletorio!=NULL){
 					$ch  = curl_init();
 					//$url = 'http://localhost/Deming/index.php/academico/academico/recibeMatriculaVlc';
 					$url = $this->url_vlc_remedial_eliminar.'?id='.$supletorio['ID_REMEDIAL_VLC'];
 					curl_setopt($ch, CURLOPT_URL, $url);
-					//curl_setopt($ch, CURLOPT_POST,true); 
+					//curl_setopt($ch, CURLOPT_POST,true);
 					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 					//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sendRemedial));
 					curl_setopt($ch, CURLOPT_HEADER, false);
@@ -13261,7 +13261,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			//echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function plantillaContenidos()
 	{
@@ -13277,7 +13277,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	public function buscarPlantillas()
 	{
@@ -13380,7 +13380,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function gestionPlantilla()
 	{
@@ -13388,10 +13388,32 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,100)){
 			$idPlantilla   = $this->input->post('idPlantilla');
 			$data['PLANTILLA'] = $this->input->post('plantilla');
+            //Cargar Archivo
+            $archivo='';
+            if(isset($_FILES['archivo_img'])){
+                $archivo= $_FILES['archivo_img']['name'];
+            }
+            $ingreso_archivo = '';
+            if($archivo!=''){
+                $dato_archivo=$this->cargar_archivo('archivo_img',1000,'plantillas/imagenes');
+                if($dato_archivo['error']==''){
+                    $data['IMAGEN']=$dato_archivo['file_name'];
+                }else{
+                    $ingreso_archivo=$dato_archivo['error'];
+                }
+            }
 			if($idPlantilla == 0){
 				$data['ID_USUARIO'] = $idusuario;
 				$idPlantilla   = $this->academico_model->crearPlantilla($data);
 			}else{
+                if($archivo!='' and $ingreso_archivo==''){
+                    $plantilla = $this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$idPlantilla));
+                    if(count($plantilla)>0){
+                        if ($plantilla[0]['IMAGEN'] != null and $plantilla[0]['IMAGEN'] != ''){
+                            unlink(FCPATH.'/archivos/plantillas/imagenes/'.$plantilla[0]['IMAGEN']);
+                        }
+                    }
+                }
 				$this->academico_model->actualizarPlantilla($data,$idPlantilla);
 			}
 			echo 'Registro Realizado';
@@ -13399,7 +13421,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////
 	public function getPreguntasRespuestas($idPlantilla)
 	{
@@ -13427,7 +13449,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function gestionExamen()
 	{
@@ -13544,7 +13566,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function gestionPlantillaRetos($idPlantilla)
 	{
@@ -13616,7 +13638,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////
 	public function getPreguntasRespuestasRetos($idReto)
 	{
@@ -13636,7 +13658,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function gestionRetosPreguntas($idPlantilla)
 	{
@@ -13697,7 +13719,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$opcion_respuesta="+";
 					if(isset($v_pregunta['respuesta'])){
 						$v_opcion_respuesta=$v_pregunta['respuesta'];
-						
+
 					}
 					if($v_pregunta['idpregunta']>0){
 						$id_pregunta=$v_pregunta['idpregunta'];
@@ -13776,7 +13798,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////
 	public function eliminarRetoProyecto($idRetoProyecto)
 	{
@@ -13790,14 +13812,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$opcionesRespuesta_reto = $this->academico_model->getOpcionesRespuestaRetos(array("ID_PREGUNTA_RETO"=>$pregunta['ID_PREGUNTA_RETO']));
 					foreach($opcionesRespuesta_reto as $opcionRespuesta){
 						if(isset($opcionRespuesta['IMAGEN']) && $opcionRespuesta['IMAGEN']!=""){
-							if(file_exists(FCPATH.'archivos/plantillas/retos/'.$opcionRespuesta['IMAGEN'])){ 
+							if(file_exists(FCPATH.'archivos/plantillas/retos/'.$opcionRespuesta['IMAGEN'])){
 								unlink(FCPATH.'archivos/plantillas/retos/'.$opcionRespuesta['IMAGEN']);
 							}
 						}
 						$this->academico_model->borrarOpcionRespuestaReto($opcionRespuesta['ID_OPCION_RESPUESTA_RETO']);
 					}
 					if(isset($pregunta['IMAGEN']) && $pregunta['IMAGEN']!=""){
-						if(file_exists(FCPATH.'archivos/plantillas/retos/'.$pregunta['IMAGEN'])){ 
+						if(file_exists(FCPATH.'archivos/plantillas/retos/'.$pregunta['IMAGEN'])){
 							unlink(FCPATH.'archivos/plantillas/retos/'.$pregunta['IMAGEN']);
 						}
 					}
@@ -13806,7 +13828,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}else{
 				// eliminar reto o proyectos que son por carga de archivos
 				if(isset($reto_proyecto['ARCHIVO']) && $reto_proyecto['ARCHIVO']!=""){
-					if(file_exists(FCPATH.'archivos/plantillas/proyectos/'.$reto_proyecto['ARCHIVO']) ){ 
+					if(file_exists(FCPATH.'archivos/plantillas/proyectos/'.$reto_proyecto['ARCHIVO']) ){
 						unlink(FCPATH.'archivos/plantillas/proyectos/'.$reto_proyecto['ARCHIVO']);
 					}
 				}
@@ -13821,7 +13843,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo json_encode($respuesta);
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function gestionPlantillaProyectos($idPlantilla)
 	{
@@ -13889,7 +13911,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function procesarPlantillaGuia()
 	{
@@ -13925,7 +13947,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Acceso Denegado";
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function crearContenido($id_periodo,$id_plantilla=0)
 	{
@@ -14047,7 +14069,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						if(count($contenidos)>0){
 							$resultado.=' Contenido Existe<br>';
 						}else{
-							$resultado.=' Contenido Incompleto<br>';	
+							$resultado.=' Contenido Incompleto<br>';
 						}
 					}//fin de if(count($contenidos)<=0){
 				}
@@ -14079,7 +14101,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Acceso Denegado";
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function contenidoMaterias()
 	{
@@ -14087,12 +14109,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,101)){
 			$this->load->model('admin/usuarios_model');
 			$perfil = $this->usuarios_model->get_perfil_usuario($idusuario);
-			$id_periodo_academico=$this->academico_model->get_periodo_activado();			
+			$id_periodo_academico=$this->academico_model->get_periodo_activado();
 			if(!$this->input->is_ajax_request()){
 				$datos=array();
-				$datos['niveles'] = $this->academico_model->get_niveles(); 
-				$datos['carreras'] = $this->academico_model->get_carreras(); 
-				$datos['periodos'] = $this->academico_model->getPeriodos(); 
+				$datos['niveles'] = $this->academico_model->get_niveles();
+				$datos['carreras'] = $this->academico_model->get_carreras();
+				$datos['periodos'] = $this->academico_model->getPeriodos();
 				$datos['perfil'] = $perfil;
 				$grupos=array();
 				if($perfil==12){//filtrar grupos para coordinadores
@@ -14101,13 +14123,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$grupos[]=$g['GRUPO'];
 					}
 				}else{
-					$grupos=$this->academico_model->buscarGruposEst(null,$id_periodo_academico); 
+					$grupos=$this->academico_model->buscarGruposEst(null,$id_periodo_academico);
 					$grupos = explode("-", $grupos);
 					array_walk($grupos, create_function('&$val', '$val = trim($val);'));
 				}
 				sort($grupos);
 				$datos['grupos']=$grupos;
-				 
+
 				$datos1=$this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
 				$this->load->view('buscar_contenido_materias',$datos);
@@ -14125,10 +14147,10 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$data['ID_CARRERA'] = trim($this->input->post('id_carrera'));
 				$data['ID_NIVEL'] = trim($this->input->post('id_nivel'));
 				$data['GRUPO'] = trim($this->input->post('grupo'));
-				$datos['perfil'] = $perfil;				
+				$datos['perfil'] = $perfil;
 				if($perfil==4){//vista docentes
 					$data['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
-				}				
+				}
 				if($perfil==5){//vista estudiante
 					$id_persona_estudiante = $this->session->userdata('loggeado')['ID_PERSONA'];
 					//materias inscritas por el estudiante en el periodo actual
@@ -14150,7 +14172,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 								if($materia_estudiante['ID_LOG_GUIA']==NULL){
 									$contenido[0]['BLOQUEO']=1;
 								}
-								
+
 								$contenidos = array_merge($contenidos, $contenido);
 							}
 						}
@@ -14166,9 +14188,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}else{
 							$data['GRUPO']='0';
 						}
-						
-						
-						
+
+
+
 					}
 					$contenidos = $this->academico_model->listado_contenido($data);
 					foreach($contenidos as $key=>$contenido){
@@ -14176,7 +14198,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							//unset($contenidos[$key]);
 						}
 					}
-				}				
+				}
 				///agregar contenido y numero de tareas
 				foreach($contenidos as $key=>$contenido){
 					// $contenidos[$key]['num_tareas']=$this->academico_model->num_tareas_estudiantes($silabo_tarea['ID_DOCENTE_CARRERA_MATERIA'],$silabo_tarea['ID_GRUPO']);
@@ -14247,7 +14269,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		}
 	}
 
-	
+
 	////////////////////////////////////////////////////////////////////
 	public function registraGuia($idEstudianteCarreraMateria)
 	{
@@ -14264,7 +14286,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function gestionContenidoRetos($idPlanificacion)
 	{
@@ -14330,7 +14352,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function calificacionesReto()
 	{
@@ -14386,7 +14408,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$fecha=$f[0];
 							$estado='En Proceso';
 							if($respuesta['ESTADO']==1){
-								$calificacion=sprintf("%01.2f",$respuesta['CALIFICACION']);
+                                $fecha_limite = '';
+                                if(isset($rr['FECHA_APLAZADA']) and $rr['FECHA_APLAZADA']!=NULL){
+                                    $fecha_limite = $rr['FECHA_APLAZADA'];
+                                }elseif($contenido['FECHA_CIERRE']!=''){
+                                    $fecha_limite = $contenido['FECHA_CIERRE'];
+                                }
+                                $calificacion= sprintf("%01.2f",$respuesta['CALIFICACION']);
+//                                $calificacion= '<a href="Javascript:verRespuestasReto(\''.$idRetoContenido.'\',\'Calificación Estudiante\',\''.$fecha_limite.'\',\''.$estudiante['ID_PERSONA'].'\')" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver Calificación" >'.sprintf("%01.2f",$respuesta['CALIFICACION']).'</a>';
 								$estado='Realizado';
 							}
 						}
@@ -14407,7 +14436,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getRetoEstudiante($idPlanificacion=null)
 	{
@@ -14441,7 +14470,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$correcto=0;
 							$tabla.='<tr>';
 							$tabla.='<td>';
-								$tabla.='<label class="text-left" style="font-size:20px; width:110px;">pregunta '.($k+1).'</label> ';
+								$tabla.='<label class="text-left" style="font-size:20px; width:110px;">Pregunta '.($k+1).'</label> ';
 							$tabla.='</td>';
 							$pe=$p;
 							if(isset($respuestas[$k])){
@@ -14466,20 +14495,20 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='<td style="font-size:25px;">';
 								if (count($opcionesSeleccionadas)==0 || $opcionesSeleccionadas[0]=="0") {
 									//$tabla.= "No contest�";
-									$tabla.='<span class="glyphicon glyphicon-question-sign" style="color:blue;"></span>';
+									$tabla.='<i class="bi-question-circle-fill" style="color:blue;"></i><span class="glyphicon glyphicon-question-sign" style="color:blue;"></span>';
 								}elseif ($correcto==0) {
 									//$tabla.= "Incorrecto";
-									$tabla.='<span class="glyphicon glyphicon-remove-sign" style="color:red;"></span>';
+									$tabla.='<i class="bi-x-circle-fill" style="color:red;"></i><span class="glyphicon glyphicon-remove-sign" style="color:red;"></span>';
 								}else{
 									//$tabla.= "Correcto";
-									$tabla.='<span class="glyphicon glyphicon-ok-sign" style="color:green;"></span>';
+									$tabla.='<i class="bi-check-circle-fill" style="color:green;"></i><span class="glyphicon glyphicon-ok-sign" style="color:green;"></span>';
 								}
 							$tabla.='</td>';
 						$tabla.='</tr>';
 					}
 					$tabla.='</table>';
 					$tabla.='</td></tr></table>';
-					$tabla.='<div class="panel-footer" align="right"><input type="button" name="sal_reto" value="Salir" class="btn-default btn btn-sm" id="sal_reto" data-dismiss="modal" style="margin-right:10px"></div>';
+					$tabla.='<div class="panel-footer" align="right"><input type="button" name="sal_reto" value="Salir" class="btn-default btn btn-sm" id="sal_reto" data-dismiss="modal" data-bs-dismiss="modal" style="margin-right:10px"></div>';
 				}elseif($f_actual>$ff_reto){
 					$tabla.='<div class="alert alert-info">Ya finaliz&oacute; fecha limite <strong>'.$fechaFin.'</strong></div>';
 					$idp = trim($this->input->post('idp'));
@@ -14604,11 +14633,11 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							foreach($preguntas as $pregunta){
 								$idsp[]=$pregunta['ID_PREGUNTA_RETO_CONTENIDO'];
 							}
-							$tabla.='<table width="100%"><tr><td style="font-size:12px; color:blue">Pregunta '.(array_search($idp,$idsp)+1).' de '.count($preguntas).'</td>';
+							$tabla.='<div class="alert alert-info panel panel-info"><table width="100%"><tr><td style="font-size:13px;">Pregunta '.(array_search($idp,$idsp)+1).' de '.count($preguntas).'</td>';
 							if($fechaFin!=''){
-								$tabla.='<td><div align="right" style="font-size:12px; color:blue">Fecha Limite: '.$fechaFin.'</div></td>';
+								$tabla.='<td><div align="right" style="font-size:12px;">Fecha Limite: '.$fechaFin.'</div></td>';
 							}
-							$tabla.='</tr></table>';
+							$tabla.='</tr></table></div>';
 							foreach($preguntas as $k=>$p){
 								if($idp==$p['ID_PREGUNTA_RETO_CONTENIDO']){
 									$pe=$p;
@@ -14617,10 +14646,10 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 										$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/retos')."/".$pe['IMAGEN'].'"/></div>';
 									}
 									$tabla.='<div class="panel panel-default">
-											  <div class="panel-heading">
+											  <div class="panel-heading  card-header">
 												<h3 class="panel-title">'.($k+1).') '.$pe['PREGUNTA'].'</h3>'.$img.'
 											  </div>
-											  <div class="panel-body">
+											  <div class="panel-body card-body">
 												<table>';
 									//obtengo las opciones de respuesta
 									$opciones_respuesta=$this->academico_model->getOpcionesRespuestaRetosContenido(array('ID_PREGUNTA_RETO_CONTENIDO'=>$pe['ID_PREGUNTA_RETO_CONTENIDO']));
@@ -14645,7 +14674,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 											</div>';
 									$btnSig='';
 									if(isset($idsp[$k+1])){
-										$btnSig='<input type="button" name="sal_reto" value="Salir" class="btn-default btn btn-sm" id="sal_reto" data-dismiss="modal" style="margin-right:10px">';
+										$btnSig='<input type="button" name="sal_reto" value="Salir" class="btn-default btn btn-sm" id="sal_reto" data-dismiss="modal" data-bs-dismiss="modal" style="margin-right:10px">';
 										$btnSig.='<input type="button" name="btn_sig" id="btn_sig" value="Siguiente" class="btn btn-primary btn-sm" onclick="get_pregunta(\''.$idRetoContenido.'\',\''.$idsp[$k].'\',\''.$idsp[$k+1].'\',1)">';
 									}elseif(($k+1)==count($idsp)){
 										$btnSig='<input type="button" name="btn_sig" id="btn_sig" value="FInalizar" class="btn btn-success btn-sm" onclick="get_pregunta(\''.$idRetoContenido.'\',\''.$idsp[$k].'\',\'-1\',1)">';
@@ -14655,7 +14684,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 										$btnAnt='<input type="button" name="btn_ant" value="Anterior" class="btn btn-default btn-sm" onclick="get_pregunta(\''.$idRetoContenido.'\',\''.$idsp[$k].'\',\''.$idsp[$k-1].'\',1)">';
 									}
 									$tabla.='<div id="error-pregunta" style="color:red; text-align:right"></div>';
-									$tabla.='<div class="panel-footer"><table width="100%"><tr><td align="left">'.$btnAnt.'</td><td align="right">'.$btnSig.'</td></tr></table></div>';
+									$tabla.='<div class="panel-footer card-footer"><table width="100%"><tr><td align="left">'.$btnAnt.'</td><td align="right">'.$btnSig.'</td></tr></table></div>';
 									if(isset($preguntas[$k+1])){
 										$tabla.='<script>$("#sal_reto").on(\'click\', function(){guardarRespuesta(\''.$idsp[$k].'\',\''.$idsp[$k+1].'\');});</script>';
 									}
@@ -14671,7 +14700,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				//$respuesta=$tabla.$fecha_examen_inicio.' / '.$fecha_examen_fin.'<br>'.$ff_examen->format('H:i:s');
 				$respuesta=$tabla;
 			}elseif(count($retos_estudiante)>0){//vista de usuario diferente de estudiante
-				
+
 			}else{
 				$respuesta='No examen complexivo';
 			}
@@ -14680,7 +14709,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function verRetoContenido()
 	{
@@ -14740,7 +14769,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function calificacionesPromedioRetos()
 	{
@@ -14799,7 +14828,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function gestionContenidoProyectos($idPlanificacion)
 	{
@@ -14852,7 +14881,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 								}
 							}
 						}else{
-							
+
 							//estudiantes del grupo
 							$dat_e['ID_CARRERA_MATERIA']=$contenido['ID_CARRERA_MATERIA'];
 							$dat_e['ID_PERIODO_ACADEMICO']=$contenido['ID_PERIODO_ACADEMICO'];
@@ -14863,7 +14892,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$estudiantes=$this->academico_model->get_estudiantes($dat_e);
 							$ids_persona=array();
 							foreach($estudiantes as $estudiante){
-								
+
 								$idPersona = $estudiante['ID_PERSONA'];
 								$proyectos_asignados=$this->academico_model->proyectos_realizados_estudiante($idPersona,$dato_contenido['ID_CONTENIDO']);
 								//asignar proyecto al estudiante
@@ -14874,7 +14903,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$this->academico_model->crearRespuestaProyecto($dat_proyecto_asignado);
 									//$asignados.=$estudiante['ESTUDIANTE'].' -> '.$contenido['MATERIA'].'<br>';
 								}
-								
+
 								$ids_persona[]=$estudiante['ID_PERSONA'];
 							}
 							$vec_id_persona=implode(',',$ids_persona);
@@ -14905,7 +14934,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function calificacionesPromedioProyectos()
 	{
@@ -14962,7 +14991,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$tabla.='<td align="center">'.$num_proyectos_realizados.'</td>';
 					$tabla.='<td align="center" class="text-primary">'.$calificacion_promedio.'</td></tr>';
 				}
-				
+
 				$tabla.='</table>';
 				echo $tabla;
 			}
@@ -14970,7 +14999,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function calificacionesProyecto()
 	{
@@ -15069,7 +15098,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	public function calificarProyecto($idPlanificacion=null)
 	{
@@ -15098,7 +15127,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$datos['ID_PROYECTO_CONTENIDO']=$idProyectoContenido;
 						$datos['ID_PERSONA']=$idp;
 						$datos['FECHA']=date('Y-m-d H:i:s');
-						
+
 						//$this->academico_model->crearRespuestaProyecto($datos);
 						//$this->promedioRetoProyecto($idp,$idPlanificacion);
 					}
@@ -15111,7 +15140,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function aplazoProyecto()
 	{
@@ -15170,7 +15199,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	public function aplazarProyecto()
 	{
@@ -15187,7 +15216,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$datos['ID_PERSONA']=$idp;
 					$datos['FECHA_APLAZADA']=$fecha;
 					$this->academico_model->crearAplazoContenido($datos);
-				}				
+				}
 			}
 			$respuesta['respuesta']          = 1;
 			$respuesta['mensaje']            = 'Registros Guardados';
@@ -15196,7 +15225,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function respuestaProyecto()
 	{
@@ -15267,7 +15296,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function borrarArchivoProyecto()
 	{
@@ -15302,7 +15331,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function promedioRetoProyecto($idPersona,$idPlanificacion)
 	{
@@ -15355,9 +15384,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
-	
-	
+
+
+
 	///////////////////////////////////////////////////////////////
 	public function gestionTalleres($id_planificacion){
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
@@ -15388,9 +15417,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$mensaje='Registro Realizado';
 				if($archivo!=''){
 					// cargar_archivo($iname,$peso=0,$carpeta='')
-					
+
 					$dato_archivo=$this->cargar_archivo('archivo',0,'contenidos/talleres/');
-					
+
 					if($dato_archivo['error']==''){
 						$nombre_archivo=$dato_archivo['file_name'];
 						$data['TALLER'] = $nombre_archivo;
@@ -15414,14 +15443,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							}else{
 								$dataTE['FECHA_APLAZADA'] = null;
 							}
-							
+
 							$this->academico_model->crearTallerEstudiante($dataTE);
 						}
 					}else{
 						if(count($id_estudiantes)>0){
 							foreach($id_estudiantes as $idest){
 								$dataTE['ID_PERSONA']     = $idest;
-								
+
 								if ($this->input->post('fechaLimiteEstudiante_'.$idest)!="") {
 									$dataTE['FECHA_APLAZADA'] = $this->input->post('fechaLimiteEstudiante_'.$idest);
 								}else{
@@ -15444,7 +15473,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					if($seleccion_todos==1){
 						foreach($estudiantes as $est){
 							$dataTE['ID_PERSONA'] = $est['ID_PERSONA'];
-							
+
 							if ($this->input->post('fechaLimiteEstudiante_'.$est['ID_PERSONA'])!="") {
 								$dataTE['FECHA_APLAZADA'] = $this->input->post('fechaLimiteEstudiante_'.$est['ID_PERSONA']);
 							}else{
@@ -15456,7 +15485,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						if(count($id_estudiantes)>0){
 							foreach($id_estudiantes as $idest){
 								$dataTE['ID_PERSONA'] = $idest;
-								
+
 								if ($this->input->post('fechaLimiteEstudiante_'.$idest)!="") {
 									$dataTE['FECHA_APLAZADA'] = $this->input->post('fechaLimiteEstudiante_'.$idest);
 								}else{
@@ -15472,10 +15501,10 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				echo json_encode($respuesta);
 			}else{
 				$data['perfil']   = $perfil;
-				
+
 				// $talleres  = $this->academico_model->buscar_talleres(array('ID_PLANIFICACION'=>$id_planificacion));
 				$talleres  = $this->academico_model->buscar_talleres(array('ID_CARRERA_MATERIA'=>$cabecera_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$cabecera_taller['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$cabecera_taller['ID_GRUPO'],'ID_PLANTILLA'=>$cabecera_taller['ID_PLANTILLA']));
-				
+
 				$fecha_fin='';
 				$fechast=$cabecera_taller['FECHA_TUTORIA1'].'+'.$cabecera_taller['FECHA_TUTORIA2'].'+'.$cabecera_taller['FECHA_TUTORIA3'].'+'.$cabecera_taller['FECHA_TUTORIA4'].'+'.$cabecera_taller['FECHAS_TUTORIA'];
 				$vector_ft=explode('+',$fechast);
@@ -15489,7 +15518,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					foreach ($talleres as $kt => $taller) {
 						$data_respuesta['ID_TALLER']    = $taller['ID_TALLER'];
 						$data_respuesta['ID_PERSONA']   = $this->session->userdata('loggeado')['ID_PERSONA'];
-						
+
 						$respuestas=$this->academico_model->buscar_respuestas_taller($data_respuesta);
 						if($respuestas==NULL){
 							$talleres[$kt]['respuesta'] = NULL;
@@ -15531,11 +15560,11 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$data['id_estudiantes'] = $id_estudiantes;
 				$data['talleres']        = $talleres;
 				$data['cabecera_taller'] = $cabecera_taller;
-				
+
 				$idPeriodo=$this->academico_model->get_periodo_activado();
 				$periodo=$this->academico_model->getPeriodo($idPeriodo);
 				$data['fecha_max']=$periodo['FECHA_FIN'];//fecha fin de periodo
-				
+//                print_r($data);
 				$datos1                  = $this->perfil_model->cabecera($idusuario);
 				$this->load->view('templates/header',$datos1);
 				$this->load->view('gestionTalleres',$data);
@@ -15545,15 +15574,15 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
-	
+
+
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	public function buscarEstudiantesTaller($id_taller){
 		$id_taller = trim($this->input->post('id_taller'));
 		$id_estudiantes = $this->input->post('estudiante');
 		$data['estudiantes_taller']= $this->academico_model->get_estudiantes_taller($id_taller,2);
 		echo json_encode($data['estudiantes_taller']);
-		
+
 	}
 
 	/////////////////////////////////////////////////////////////////
@@ -15564,8 +15593,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$usuario=$this->session->userdata('loggeado');
 			$id_taller  = trim($this->input->post('id_taller'));
 			$listado   = trim($this->input->post('listado'));
-			
-			
+
+
 			$idPlanificacion = trim($this->input->post('idPlanificacion'));
 			if($id_taller!='' and $listado==''){
 				$data['ID_TALLER'] = $id_taller;
@@ -15591,7 +15620,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$res=1;
 				$ingreso_archivo='';
 				$mensaje='Registro Realizado';
-				
+
 				//verificar que no exista ya registrado una respuesta del estudiante
 				$data_respuesta['ID_TALLER']=$id_taller;
 				$data_respuesta['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
@@ -15603,14 +15632,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							if($archivo!=''){
 								if($tipo_archivo[$i-1]==1){
 									// $dato_archivo=$this->cargar_archivo('archivo'.$i,5000);
-									
+
 									$dato_archivo=$this->cargar_archivo('archivo'.$i,3072,'contenidos/talleres/');
-									
-								
+
+
 								}else{
-									
+
 									$dato_archivo=$this->cargar_archivo('archivo'.$i,0,'contenidos/talleres/');
-									
+
 								}
 								if($dato_archivo['error']==''){
 									$nombre_archivo.=$dato_archivo['file_name'].'+';
@@ -15631,7 +15660,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					// if ($fecha_fin!="") {
 					// 	$datetime1 = date_create($fecha_fin.' 23:59:59');
 					// }
-					
+
 					$datetime2 = date_create(date('Y-m-d H:i:s'));
 					$tallerEstudiante = $this->academico_model->buscar_taller_estudiante(array('ID'=>$id_taller,'ID_PERSONA'=>$data_respuesta['ID_PERSONA'],'TIPO'=>2));
 					if ($tallerEstudiante['FECHA_APLAZADA']!=null) {
@@ -15650,7 +15679,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 						$this->academico_model->actualizarRespuestaTaller(array('RESPUESTA'=>trim($nombre_archivo,'+'), 'FECHA'=>date('Y-m-d H:i:s')),$respuesta['ID_RESPUESTA_TALLER']);
 					}elseif (($respuesta['CALIFICACION']==NULL || $respuesta['CALIFICACION']==0) and $fechaAplazada!="") {
-						
+
 						if ($datetime2<=$fechaAplazada){
 							$respuesta_taller=explode('+',$respuesta['RESPUESTA']);
 							for($i=1; $i<=$num_respuesta; $i++){
@@ -15665,7 +15694,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$res=0;
 							$mensaje='Fallo: Ya no se puede cambiar el archivo';
 						}
-						
+
 					}else{
 						$res=0;
 						$mensaje='Fallo: Ya no se puede cambiar el archivo';
@@ -15676,14 +15705,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$archivo= $_FILES['archivo'.$i]['name'];
 							if($archivo!=''){
 								if($tipo_archivo[$i-1]==1){
-									
+
 									$dato_archivo=$this->cargar_archivo('archivo'.$i,3072,'contenidos/talleres/');
-									
-								
+
+
 								}else{
-									
+
 									$dato_archivo=$this->cargar_archivo('archivo'.$i,0,'contenidos/talleres/');
-									
+
 								}
 								if($dato_archivo['error']==''){
 									$nombre_archivo.=$dato_archivo['file_name'].'+';
@@ -15724,7 +15753,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 					$respuestas[$key]['ID_TALLER'] = $id_taller;
 				}
-				
+
 				///agregar numero de respuestas
 				$tabla='<form action="'.site_url().'/academico/academico/guardaCalificacionTaller/" method="post" name="formulario_calificacion" id="formulario_calificacion">';
 					$tabla.='<div id="respuesta_calificacion"></div>';
@@ -15740,7 +15769,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$id_respuestas='';
 						$contador = 1;
 						foreach($respuestas as $respuesta){
-							
+
 							$tabla.='<tr onMouseOver="this.style.backgroundColor=\'#EBFCE2\'" onMouseOut="this.style.backgroundColor=\'\'">';
 								$tabla.='<td>'.$contador.'</td>';
 								$contador++;
@@ -15748,7 +15777,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 								// $tabla.='<td>'.$respuesta['NOMBRE_ESTUDIANTE'].'</td>';
 								if ($respuesta['respuesta']!="") {
 									$id_respuestas.=$respuesta['respuesta']['ID_RESPUESTA_TALLER'].'+';
-								
+
 									$tabla.='<td align="center">';
 										$res=explode('+',$respuesta['respuesta']['RESPUESTA']);
 										if ($respuesta['respuesta']['RESPUESTA']!=NULL && $respuesta['respuesta']['RESPUESTA']!=""){
@@ -15791,7 +15820,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$tabla.= '</td>';
 								}else{
 									$id_respuestas.=''.'+';
-								
+
 									$tabla.='<td align="center">';
 										$tabla.='Sin Archivo';
 
@@ -15801,7 +15830,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$tabla.='<td align="center"><input style="width:80px" type="number" class="form-control" name="calificacion_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" id="calificacion_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" value="" onChange="calcula_calificacion_componente(this)" archivo="'.$tiene_archivo.'">';
 
 										$tabla.='<input type="hidden" name="id_respuesta_taller_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" id="id_respuesta_taller_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" value="0">';
-										
+
 									$tabla.='</td>';
 									$tabla.= '<td align="center">';
 										$tabla.= '<textarea class="form-control" name="comentario_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" id="comentario_'.$respuesta['ID_TALLER'].'_'.$respuesta['ID_PERSONA'].'" maxlength="50"></textarea>';
@@ -15833,7 +15862,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$taller=$talleres[0];
 			$datos_planificacion = $this->academico_model->get_docente_carrera_materia_grupo_planificacion(array('ID_PLANIFICACION'=>$taller['ID_PLANIFICACION']));
 			$tallerEstudiante = $this->academico_model->buscar_taller_estudiante(array('ID'=>$respuesta['ID_TALLER'],'ID_PERSONA'=>$respuesta['ID_PERSONA'],'TIPO'=>2));
-			
+
 			///obtener fecha limite
 			// $fecha_fin='';
 			// $fechast=$datos_planificacion['FECHA_TUTORIA1'].'+'.$datos_planificacion['FECHA_TUTORIA2'].'+'.$datos_planificacion['FECHA_TUTORIA3'].'+'.$datos_planificacion['FECHA_TUTORIA4'].'+'.$datos_planificacion['FECHAS_TUTORIA'];
@@ -15851,7 +15880,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}else{
 				$fechaAplazada = "";
 			}
-			
+
 			if(($respuesta['CALIFICACION']==NULL || $respuesta['CALIFICACION']==0) and $datetime2<$datetime1){
 				if($archivo!='' and file_exists(FCPATH.'archivos/contenidos/talleres/'.$archivo)){
 					unlink(FCPATH.'archivos/contenidos/talleres/'.$archivo);
@@ -15889,7 +15918,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$data['ID_TALLER']      = $id_taller;
 			$updateCalificacion    = array();
 			$taller                 = $this->academico_model->buscar_talleres(array('ID_TALLER'=>$id_taller));
-			
+
 			// $calificaciones        = $this->academico_model->buscar_matricula(array('ID_CURSO_PUBLICO_MODULO'=>$taller[0]['ID_CURSO_PUBLICO_MODULO']));
 
 			$datos_taller = $this->academico_model->get_docente_carrera_materia_grupo_planificacion(array('ID_PLANIFICACION'=>$taller[0]['ID_PLANIFICACION']));
@@ -15901,7 +15930,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$data['COMENTARIO']   = trim($this->input->post('comentario_'.$id_taller.'_'.$calificacion['ID_PERSONA']));
 				$existeCalificacionTaller = $this->academico_model->existeCalificacionTaller(array('ID_TALLER'=>$id_taller,'ID_PERSONA'=>$data['ID_PERSONA']));
 				if($data['CALIFICACION']!=''){
-					
+
 					if (isset($existeCalificacionTaller) && $existeCalificacionTaller != ""){
 						$this->academico_model->actualizarRespuestaTaller($data, $existeCalificacionTaller['ID_RESPUESTA_TALLER']);
 					}else{
@@ -15909,7 +15938,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						// $data['FECHA'] = date("Y-m-d H:i:s");
 						$this->academico_model->crearRespuestaTaller($data);
 					}
-					
+
 					///funcion para pasar datos a la planilla de calificaciones
 						// $updateCalificacion[$key] = $this->updateCalificacionTaller($taller[0]['ID_PLANIFICACION'] , $calificacion['ID_PERSONA']);
 						$updateCalificacion[$key] = $this->updateCalificacionTaller($datos_taller['ID_CARRERA_MATERIA'],$datos_taller['ID_PERIODO_ACADEMICO'],$datos_taller['ID_GRUPO'] , $calificacion['ID_PERSONA'],$taller[0]['ID_PLANTILLA']);
@@ -15922,7 +15951,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 			}
-			
+
 			$calificaciones['updateCalificacion'] = $updateCalificacion;
 			$calificaciones['respuesta']          = 1;
 			$calificaciones['mensaje']            = 'Calificaciones Guardadas';
@@ -15931,7 +15960,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function updateCalificacionTaller($idCarreraMateria,$idPeriodoAcademico,$idGrupo,$idPersona,$id_plantilla=0){
 		$talleres       = $this->academico_model->buscar_talleres(array('ID_CARRERA_MATERIA'=>$idCarreraMateria,'ID_PERIODO_ACADEMICO'=>$idPeriodoAcademico,'ID_GRUPO'=>$idGrupo));
@@ -15965,7 +15994,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$updateCalificacion       = $this->registraCalificacionComponente(1,$estudianteCarreraMateria['ID_ESTUDIANTE_CARRERA_MATERIA'],2 , $calificacion,$id_plantilla);
 		return $updateCalificacion;
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////
 	public function borrarTaller($idTaller){
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
@@ -15980,7 +16009,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							unlink(FCPATH."archivos/contenidos/talleres/". $respuesta['RESPUESTA']);
 						}
 					}
-					
+
 				}
 				if (count($respuestas)>0) {
 					$this->academico_model->borrarRespuestasTaller($taller['ID_TALLER']);
@@ -15992,12 +16021,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 				$this->academico_model->borrarTaller($taller['ID_TALLER']);
-				
+
 				echo json_encode(array("mensaje"=>'Registro Borrado',"respuesta"=>"1"));
 			}else{
 				echo json_encode(array("mensaje"=>'No hay taller',"respuesta"=>"0"));
 			}
-			
+
 		}else{
 			echo json_encode(array("mensaje"=>'Acceso Denegado',"respuesta"=>"0"));
 		}
@@ -16009,7 +16038,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,101)){
 			$usuario=$this->session->userdata('loggeado');
 			$id_planificacion = trim($this->input->post('id_planificacion'));
-			
+
 			$datos_taller = $this->academico_model->get_docente_carrera_materia_grupo_planificacion(array('ID_PLANIFICACION'=>$id_planificacion));
 			$dat_e['ID_CARRERA_MATERIA']=$datos_taller['ID_CARRERA_MATERIA'];
 			$dat_e['ID_PERIODO_ACADEMICO']=$datos_taller['ID_PERIODO_ACADEMICO'];
@@ -16018,8 +16047,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$dat_e['ID_USUARIO_ACADEMICO']=$usuario['ID_USUARIO'];
 			}
 			$estudiantes=$this->academico_model->get_estudiantes($dat_e);
-			
-			
+
+
 			$tabla='<table class="table table-condensed">';
 				$tabla.='<tr>';
 					$tabla.='<th>Nro.</th>';
@@ -16029,11 +16058,11 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$tabla.= '<th>Calificación Promedio</th>';
 				$tabla.='</tr>';
 				foreach($estudiantes as $k=>$estudiante){
-					
+
 					// $num_talleres=$this->academico_model->num_talleres_estudiantes($id_planificacion,$estudiante['ID_PERSONA']);
 					$num_talleres=$this->academico_model->num_talleres_estudiantes(array('ID_CARRERA_MATERIA'=>$datos_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$datos_taller['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$datos_taller['ID_GRUPO'],'ID_PLANTILLA'=>$datos_taller['ID_PLANTILLA']),$estudiante['ID_PERSONA']);
-					
-					
+
+
 					$tabla.='<tr><td>'.($k+1).'</td>';
 					$tabla.='<td>'.$estudiante['ESTUDIANTE'].'</td>';
 					$tabla.='<td align="center">'.$num_talleres.'</td>';
@@ -16048,7 +16077,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						if ($taller_calificada['RESPUESTA']!=null) {
 							$num_talleres_realizadas+=1;
 						}
-						
+
 						$calificacion+=$taller_calificada['CALIFICACION'];
 					}
 					if($num_talleres>0){
@@ -16086,7 +16115,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$data['CODIGO_UNICO'] = bin2hex(openssl_random_pseudo_bytes(10));
 					$existeCodAula        = $this->academico_model->existeCodAulaVirtual($data['CODIGO_UNICO']);
 				}*/
-				
+
 				$data['ID_USUARIO']       = $this->session->userdata('loggeado')['ID_USUARIO'];
 				$data['FECHA_CREACION']   = date('Y-m-d H:i:s');
 				$id_aulaVirtual           = $this->academico_model->crearAulaVirtual($data);
@@ -16120,7 +16149,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				if ($this->session->userdata('loggeado')['ID_PERFIL']==5){
 					$respuesta['consultarAulaVlc']   = $this->consultarAulaVirtualVlc($id_aulaVirtual,"Estudiante");
 					if (isset($respuesta['consultarAulaVlc']['url']) && $respuesta['consultarAulaVlc']['url']!=""){
-						$data['URL_AULA_ESTUDIANTE'] = $respuesta['consultarAulaVlc']['url'];	
+						$data['URL_AULA_ESTUDIANTE'] = $respuesta['consultarAulaVlc']['url'];
 						$url_redireccion             = $data['URL_AULA_ESTUDIANTE'];
 						$this->academico_model->actualizarAulaVirtual($data,$id_aulaVirtual);
 					}
@@ -16158,15 +16187,15 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$ch  = curl_init();
 				curl_setopt($ch, CURLOPT_URL, $url);
 				curl_setopt($ch, CURLOPT_POST,true);
-			//TIPO DE PETICION --  
+			//TIPO DE PETICION --
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST,"POST");
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
-				
+
 				$aula['room_code'] = $aulaVirtual['CODIGO_UNICO'];
 				$aula['date']      = date('Y-m-d');
-				
+
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('admin_academic_class_class_date'=>$aula)));
-				
+
 				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
 				$resultado = json_decode(curl_exec($ch),true);
@@ -16189,7 +16218,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$apellidoPersona = "";
 		if ($this->session->userdata('loggeado')['ID_PERSONA']!=0){
 			$persona = $this->usuarios_model->obtener_datos_persona($this->session->userdata('loggeado')['ID_PERSONA']);
-			
+
 			// if (count($persona)>0) {
 			if (isset($persona['ID_PERSONA']) && $persona['ID_PERSONA']!=""){
 				// $persona = $persona[0];
@@ -16212,19 +16241,19 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		}
 		if (isset($aulaVirtual) && $aulaVirtual!=NULL) {
 			//PETICION DE USUARIO PARA CREAR
-				
+
 				//user_type=Profesor || Estudiante
 				// $url = $this->url_aulaVirtual."/api/binary/rooms/".$aulaVirtual['CODIGO_UNICO']."?user_type=".$tipoUsuario."&firstName=".$nombrePersona."&lastName=".$apellidoPersona;
 				$url = $this->url_aulaVirtual."/show_room?room_code=".$aulaVirtual['CODIGO_UNICO']."&user_type=".$tipoUsuario."&firstName=".$nombrePersona."&lastName=".$apellidoPersona;
 				$ch  = curl_init();
 				curl_setopt($ch, CURLOPT_URL, $url);
 				// curl_setopt($ch, CURLOPT_POST,true);
-			//TIPO DE PETICION --  
+			//TIPO DE PETICION --
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST,"GET");
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
 				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-				
+
 				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);//maximo tiempo de espera para conectarse al servidor
 				curl_setopt($ch, CURLOPT_TIMEOUT, 10);//maximo tiempo de espera para ejecutar procesos cron una vez conectado al servidor
 				// curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
@@ -16233,29 +16262,29 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$err     = curl_error($ch);
 				curl_close($ch);
 
-				
+
 				$resultado['URL_ENVIO'] = $url;
 				return $resultado;
-				
+
 		}else{
 			return array("No Tiene Aula");
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function registraCalificacionComponente($etapa,$id_estudiante_carrera_materia,$idComponente,$calificacion,$id_plantilla=0)
 	{
 		if($this->session->userdata('loggeado')){
 			$periodo=$this->academico_model->get_periodo_activado();
-			
-			
+
+
 			//verificar si materia tiene mas de una plantilla
 			if($id_plantilla>0){
 				$this->verificarPlantilla($etapa,$id_estudiante_carrera_materia,$idComponente,$id_plantilla);
 			}else{
-				
+
 				$ecm  = $this->academico_model->get_estudiante_carrera_materia($id_estudiante_carrera_materia);
-			
+
 				$dataForm=array();
 				$dataForm['ID_PERIODO_ACADEMICO']          = $periodo;
 				$dataForm['ID_ESTUDIANTE_CARRERA_MATERIA'] = $id_estudiante_carrera_materia;
@@ -16285,7 +16314,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 				$promedio_final=-1;
-				
+
 				//$ecm  = $this->academico_model->get_estudiante_carrera_materia($id_estudiante_carrera_materia);
 				$etapas_periodo      = $this->academico_model->get_carrera_modalidad_configuradas();
 				$configurado         = array();
@@ -16303,7 +16332,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}else{
 						$componente[$v['ID_COMPONENTE']] = $v['VALOR_COMPONENTE'];
 					}
-					
+
 				}
 				//realizar promedio etapa
 				$op               = array();
@@ -16346,7 +16375,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$this->academico_model->actualizarCalificacion($op,$id_calificacion);
 						}
 					}
-					
+
 					//realizar promedio final promedio
 					$op=array();
 					$op['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
@@ -16381,7 +16410,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 					}
 				}
-				
+
 				//calcular nota final y estado
 				$asistencia = $this->academico_model->get_asistencia_materia($id_estudiante_carrera_materia);
 				if(($promedio_final>=0 or $etapa==0) and $asistencia>=0){
@@ -16406,7 +16435,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$nota_final        = $calificacion_promedio[0]['CALIFICACION'];
 						}
 					}
-					
+
 					//$v_notamin  = $this->academico_model->getparametro(utf8_encode('Nota mínima'));
 					// $v_notamin=$this->academico_model->getparametro('Nota m�nima');
 					//$notamin    = $v_notamin['VALOR'];
@@ -16474,13 +16503,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$this->academico_model->actualizarCalificacion($op,$id_calificacion);
 						}
 					}
-					
+
 					//codigo arancel supletorio
 					if($estado == '0'){
 						$this->load->module('facturacion/facturacion');
 						$this->facturacion->crearArancelSupletorioEstudiante($id_estudiante_carrera_materia);
 					}
-					
+
 					//codigo arancel remedial
 					if($estado == 2){
 						$this->load->module('facturacion/facturacion');
@@ -16491,7 +16520,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////////////////
 	public function verificarPlantilla($etapa,$id_estudiante_carrera_materia,$idComponente,$id_plantilla)
 	{
@@ -16577,9 +16606,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				}
 			}
 		}
-		
+
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function recalificacionComponentes()
 	{
@@ -16632,7 +16661,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		}
 		echo '<br>'.$num.' Recalificaciones Realizadas<br>'.$nombre;
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function examenesEstudiantes()
 	{
@@ -16654,7 +16683,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$grupos[]=$g['GRUPO'];
 					}
 				}else{
-					$grupos=$this->academico_model->buscarGruposEst($vector_us,$id_periodo_academico); 
+					$grupos=$this->academico_model->buscarGruposEst($vector_us,$id_periodo_academico);
 					$grupos = explode("-", $grupos);
 					sort($grupos);
 				}
@@ -16666,7 +16695,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$clases_examenes=array();
 				$dat=array();
 				//$dat['EXAMEN']=1;
-				if($usuario['ID_PERFIL']==5){					
+				if($usuario['ID_PERFIL']==5){
 					$dat['ID_PERSONA']=$usuario['ID_PERSONA'];
 					$dat['ESTADO_ESTUDIANTE']='0';
 				}else{
@@ -16713,9 +16742,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}elseif($ce['TIPO_EXAMEN']==1){
 						$clases_examenes[$k]['ESTADO']='Impreso';
 					}*/
-					
+
 					$clases_examenes[$k]['FECHA_HORA_EXAMEN']=NULL;
-					
+
 					if(isset($v_dato_contenido[$ce['ID_CARRERA_MATERIA']])){
 						$dato_contenido=$v_dato_contenido[$ce['ID_CARRERA_MATERIA']];
 					}else{
@@ -16726,7 +16755,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 						$v_dato_contenido[$ce['ID_CARRERA_MATERIA']]=$dato_contenido;
 					}
-					
+
 					if($dato_contenido!=NULL){
 						/*if($dato_contenido['DURACION_EXAMEN']<=0){
 							$plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
@@ -16765,8 +16794,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$clases_examenes[$k]['FECHA_APLAZADO'].=' a '.$ff_aplazo->format('H:i');
 						}
 					}*/
-					
-					
+
+
 					$clases_examenes[$k]['BLOQUEO_FECHA']=0;
 					if($usuario['ID_PERFIL']==5 and $ce['FECHA_EXAMEN']!=NULL and $ce['FECHA_EXAMEN']!=''){//vista estudiante
 						$fi_examen=date_create($ce['FECHA_EXAMEN'].' 00:00:00');
@@ -16806,7 +16835,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getExamenEstudiante()
 	{
@@ -16934,8 +16963,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						foreach($preguntas as $k=>$p){
 							$correcto=0;
 							$tabla.='<div class="row">';
-								$tabla.='<div class="col-md-6 text-right">';
-									$tabla.='<label class="text-left" style="font-size:20px; width:110px;">pregunta '.($k+1).'</label> ';
+								$tabla.='<div class="col-md-6 text-right" style="text-align: right">';
+									$tabla.='<label class="text-left" style="font-size:20px; ">Pregunta '.($k+1).'</label> ';
 								$tabla.='</div>';
 								$pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
 								$pe=$pregunta[0];
@@ -16991,7 +17020,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					if(count($comprobarPagoArancelExamenAtrasado)>0 and isset($comprobarPagoArancelExamenAtrasado[0]['NOMBRE_ARANCEL']) and $comprobarPagoArancelExamenAtrasado[0]['ESTADO'] == '0'){
 						$tabla.='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$comprobarPagoArancelExamenAtrasado[0]['NOMBRE_ARANCEL'].' </strong></div>';
 					}
-					
+
 					$idp = trim($this->input->post('idp'));
 					if(isset($idp) and $idp==-1 and count($examenes_estudiante)>0 and $examenes_estudiante[0]['ESTADO']==0){//finalizar Examen por tiempo limite
 						$examen=$examenes_estudiante[0];
@@ -17053,7 +17082,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
 						$opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 						$respuestas=explode('+',$examen['IDS_RESPUESTA']);
-						
+
 						if($idp==NULL and $examen['IDS_RESPUESTA']==''){
 							$idp=$preguntas[0];
 						}elseif($idp==NULL){
@@ -17233,11 +17262,11 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$examenes_estudiante_aplazados = $this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'ID_PLANTILLA'=>$id_plantilla));
 				if(count($examenes_estudiante_aplazados)>0 and $dato_contenido!=NULL){//si tiene fecha aplazado
 					$aplazo=$examenes_estudiante_aplazados[0];
-					
+
 					if($aplazo['HORA_APLAZADO']=='' or $aplazo['HORA_APLAZADO']==NULL){
 						$aplazo['HORA_APLAZADO']='00:00';
 					}
-					
+
 					$fecha_examen_inicio=$aplazo['FECHA_APLAZADO'].' '.$aplazo['HORA_APLAZADO'].':00';
 					$ff_examen = date_create($fecha_examen_inicio);
 					if($aplazo['DURACION_EXAMEN']!=NULL and $aplazo['DURACION_EXAMEN']>0){
@@ -17308,7 +17337,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$tabla.='<div class="panel-body">';
 									$tabla.='<table>';
 								$opciones_respuesta=explode('-',$opciones[$k]);
-								
+
 								foreach($opciones_respuesta as $or){
 									$opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));
 									$op=$opcion[0];
@@ -17329,7 +17358,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 										$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas')."/".$op['IMAGEN'].'"/></div>';
 									}
 									$tabla.='<tr '.$opcion_correcta.'><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.' disabled></td><td style="padding-left:10px">'.$op['OPCION_RESPUESTA'].' '.$img.'</td></tr>';
-									
+
 								}
 								$tabla.='</table>
 										</div>';
@@ -17398,13 +17427,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$f_aplazo=$aplazo['FECHA_APLAZADO'];
 							$h_aplazo=$aplazo['HORA_APLAZADO'];
 						}
-						
+
 						$idRubro=20;//examen atrasado
 						if($etapa==0){
 							$idRubro=21;//supletorio atrasado
 						}
 						$comprobarPagoArancelExamenAtrasado = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
-						
+
 						if($usuario['ID_PERFIL']!=12){
 							$bloqueo='';
 							$id_arancel='';
@@ -17418,7 +17447,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$bloqueo='disabled';
 								}
 							}
-							
+
 							$tabla.='<form name="f_examen" id="f_examen">'.$id_arancel.'<input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'_'.$id_plantilla.'"><input name="etapa" type="hidden" id="etapa" value="'.$etapa.'"><div class="well well-sm"><strong>Aplazar examen</strong><table><tr><td>Fecha</td><td>Hora<td><td></td></tr><tr><td><input name="fecha_examen" type="text" id="fecha_examen" value="'.$f_aplazo.'" class="form-control solo_valor" style="height:30px" required="required" readonly/></td><td><table width="100%"><tr><td><input type="time" style="height:30px;line-height: normal" id="hora_desde" name="hora_desde" class="form-control" required value="'.$h_aplazo.'"></td></tr></table><td><td width="100px" align="right" id="respuesta_aplazo"><input type="button" name="btn_ant" '.$bloqueo.' value="Guardar" class="btn btn-primary btn-xs" onclick="aplazar_examen()"></td></tr></table></div></form><script>$(\'#fecha_examen\').datepicker({format: "yyyy-mm-dd",language: \'es\',autoclose: true,forceParse: true,enableOnReadonly: true,startDate:\''.date('Y-m-d').'\'});</script>';
 						}
 					}
@@ -17433,7 +17462,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function generarBasePreguntasContenido($datos)
 	{
@@ -17480,7 +17509,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function generarExamenEstudiante($datos,$tipo,$etapa,$id_plantilla=0)
 	{
@@ -17519,7 +17548,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function aplazarExamen()
 	{
@@ -17540,7 +17569,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$duracion = trim($this->input->post('duracion'));
 			$numPreguntasContestadas = trim($this->input->post('numPreguntasContestadas'));
 			$id_arancel = trim($this->input->post('id_arancel'));
-			//$hora_hasta = trim($this->input->post('hora_hasta'));	
+			//$hora_hasta = trim($this->input->post('hora_hasta'));
 			//verifico si ya tiene examen aplazado el estudiante
 			$examenes_estudiante_aplazados=$this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'ID_PLANTILLA'=>$id_plantilla));
 			$dat['FECHA_APLAZADO']=$fecha;
@@ -17565,8 +17594,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$this->academico_model->crearExamenEstudianteAplazado($dat);
 				$respuesta= 'Registro guardado';
 			}
-			
-			
+
+
 			if(isset($id_arancel) and $id_arancel!=null and $id_arancel!= ''){
 				$dataCondonar['ID_USUARIO_ACTUALIZA'] = $usuario['ID_PERFIL'];
 				$dataCondonar['FECHA_ACTUALIZACION'] = date('Y-m-d H:i:s');
@@ -17574,7 +17603,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$dataCondonar['MOTIVO'] = 'Condonado por '.$usuario['USUARIO'];
 				$this->facturacion_model->actualizarArancel($dataCondonar,$id_arancel);
 			}
-			
+
 			//datos de respuesta
 			$ecm=$this->academico_model->get_estudiante_carrera_materia($id_estudiante_carrera_materia);
 			$dato_contenido=$this->academico_model->getContenidoMateria($ecm['ID_CARRERA_MATERIA'],$ecm['ID_PERIODO_ACADEMICO'],$id_plantilla);
@@ -17593,13 +17622,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$fecha_aplazo.=' a '.$ff_aplazo->format('H:i');
 				}
 			}
-			
+
 			echo json_encode(array('respuesta'=>$respuesta,'fechaAplazo'=>$fecha_aplazo));
 		}else{
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function supletoriosEstudiantes()
 	{
@@ -17621,7 +17650,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$grupos[]=$g['GRUPO'];
 					}
 				}else{
-					$grupos=$this->academico_model->buscarGruposEst($vector_us,$id_periodo_academico); 
+					$grupos=$this->academico_model->buscarGruposEst($vector_us,$id_periodo_academico);
 					$grupos = explode("-", $grupos);
 					sort($grupos);
 				}
@@ -17632,7 +17661,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}else{
 				$clases_examenes=array();
 				$dat=array();
-				if($usuario['ID_PERFIL']==5){					
+				if($usuario['ID_PERFIL']==5){
 					$dat['ID_PERSONA']=$usuario['ID_PERSONA'];
 					$dat['ESTADO_ESTUDIANTE']='0';
 				}else{
@@ -17725,7 +17754,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							}
 						}
 					}
-					
+
 				}
 				//echo json_encode($clases_examenes);
 				echo json_encode($listado);
@@ -17734,7 +17763,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getSupletorioEstudiante()
 	{
@@ -17750,14 +17779,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			if($id_estudiante_carrera_materia!=null and $id_estudiante_carrera_materia!='' and $id_estudiante_carrera_materia>0){
 				$clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
 			}
-			
+
 			$idRubro=21;//supletorio
 			$arancelExamenSupletorio = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
 			$texto_arancel='';
 			if(count($arancelExamenSupletorio)>0 and isset($arancelExamenSupletorio[0]['NOMBRE_ARANCEL']) and ($arancelExamenSupletorio[0]['ESTADO'] == '0' or $arancelExamenSupletorio[0]['ESTADO'] == 1)){
 				$texto_arancel='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$arancelExamenSupletorio[0]['NOMBRE_ARANCEL'].' </strong></div>';
 			}
-			
+
 			//$clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
 			if($usuario['ID_PERFIL']==5 and count($clases_examenes)>0){
 				$clase_examen=$clases_examenes[0];
@@ -17849,8 +17878,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					foreach($preguntas as $k=>$p){
 						$correcto=0;
 						$tabla.='<div class="row">';
-							$tabla.='<div class="col-md-6 text-right">';
-								$tabla.='<label class="text-left" style="font-size:20px; width:110px;">pregunta '.($k+1).'</label> ';
+							$tabla.='<div class="col-md-6 text-right" style="text-align: right">';
+								$tabla.='<label class="text-left" style="font-size:20px;">Pregunta '.($k+1).'</label> ';
 							$tabla.='</div>';
 							$pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
 							$pe=$pregunta[0];
@@ -17954,7 +17983,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
 						$opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 						$respuestas=explode('+',$examen['IDS_RESPUESTA']);
-						
+
 						if($idp==NULL and $examen['IDS_RESPUESTA']==''){
 							$idp=$preguntas[0];
 						}elseif($idp==NULL){
@@ -18190,7 +18219,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$fci=explode(' ',$examen['FECHA_INICIO_CONEXION']);
 					$fcf=explode(' ',$examen['FECHA_FIN_CONEXION']);
 					$tabla.='<table><tr><td><strong>Inicio Conexi&oacute;n:</strong> '.$fci[1].' <strong>Fin Conexi&oacute;n:</strong> '.$fcf[1].'</td><tr></table>';
-					
+
 					$preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
 					$opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 					$respuestas=explode('+',$examen['IDS_RESPUESTA']);
@@ -18211,7 +18240,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$tabla.='<div class="panel-body">';
 									$tabla.='<table>';
 								$opciones_respuesta=explode('-',$opciones[$k]);
-								
+
 								foreach($opciones_respuesta as $or){
 									$opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));
 									$op=$opcion[0];
@@ -18232,7 +18261,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 										$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas')."/".$op['IMAGEN'].'"/></div>';
 									}
 									$tabla.='<tr '.$opcion_correcta.'><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.' disabled></td><td style="padding-left:10px">'.$op['OPCION_RESPUESTA'].' '.$img.'</td></tr>';
-									
+
 								}
 								$tabla.='</table>
 										</div>';
@@ -18319,7 +18348,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function examenesPersonas()
 	{
@@ -18337,7 +18366,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}else{
 				$clases_examenes=array();
 				$dat=array();
-				if($usuario['ID_PERFIL']==5){					
+				if($usuario['ID_PERFIL']==5){
 					$dat['ID_PERSONA']=$usuario['ID_PERSONA'];
 					$dat['ESTADO_ESTUDIANTE']='0';
 				}else{
@@ -18381,9 +18410,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	public function personaNroDocumento($nroDocumento) 
+	public function personaNroDocumento($nroDocumento)
 	{
 		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado')){
@@ -18393,7 +18422,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Sesi�n Terminada';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function guardarExamenPersona()
 	{
@@ -18417,7 +18446,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$fecha_fin_examen = date_create($ep['FECHA'].' '.$ep['HORA'].':00');
 				$fecha_fin_examen->modify('+ '.$contenido[0]['DURACION_EXAMEN'].' minute');
 				$fecha_inicio_examen = date_create($ep['FECHA'].' '.$ep['HORA'].':00');
-				$fecha_actual = date_create(date('Y-m-d H:i:s'));	
+				$fecha_actual = date_create(date('Y-m-d H:i:s'));
 				if($ep['ESTADO']==1){
 					$respuesta= '<span style="color:red">Error: no puede actualizar examen finalizado</span>';
 				}elseif($ep['IDS_PREGUNTA_CONTENIDO']!=NULL and $fecha_actual>$fecha_inicio_examen and $fecha_actual<$fecha_fin_examen){
@@ -18471,7 +18500,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getExamenPersona()
 	{
@@ -18481,7 +18510,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$idExamenPersona = trim($this->input->post('idep'));
 			$info_examen=$this->academico_model->buscarExamenesPersonasTotal(array('ID_EXAMEN_PERSONA'=>$idExamenPersona));
 			if($usuario['ID_PERFIL']==5 and count($info_examen)>0){
-				
+
 			}elseif(count($info_examen)>0){//vista de usuario diferente de persona
 				$clase_examen=$info_examen[0];
 				$tabla='<table class="table table-condensed">';
@@ -18525,7 +18554,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$fci=explode(' ',$clase_examen['FECHA_INICIO_CONEXION']);
 					$fcf=explode(' ',$clase_examen['FECHA_FIN_CONEXION']);
 					$tabla.='<table><tr><td><strong>Inicio Conexi&oacute;n:</strong> '.$fci[1].' <strong>Fin Conexi&oacute;n:</strong> '.$fcf[1].'</td><tr></table>';
-					
+
 					$preguntas=explode('+',$clase_examen['IDS_PREGUNTA_CONTENIDO']);
 					$opciones=explode('+',$clase_examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 					$respuestas=explode('+',$clase_examen['IDS_RESPUESTA']);
@@ -18544,7 +18573,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='<div class="panel-body">';
 							$tabla.='<table>';
 						$opciones_respuesta=explode('-',$opciones[$k]);
-						
+
 						foreach($opciones_respuesta as $or){
 							$opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));
 							$op=$opcion[0];
@@ -18565,7 +18594,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 								$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas')."/".$op['IMAGEN'].'"/></div>';
 							}
 							$tabla.='<tr '.$opcion_correcta.'><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.' disabled></td><td style="padding-left:10px">'.$op['OPCION_RESPUESTA'].' '.$img.'</td></tr>';
-							
+
 						}
 						$tabla.='</table>
 								</div>';
@@ -18582,7 +18611,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getExamenPersonaExterno($id=null)
 	{
@@ -18762,7 +18791,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$preguntas=explode('+',$clase_examen['IDS_PREGUNTA_CONTENIDO']);
 							$opciones=explode('+',$clase_examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 							$respuestas=explode('+',$clase_examen['IDS_RESPUESTA']);
-							
+
 							if($idp==NULL and $clase_examen['IDS_RESPUESTA']==''){
 								$idp=$preguntas[0];
 							}elseif($idp==NULL){
@@ -18883,7 +18912,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 											$op=$opcion[0];
 											$seleccionado='';
 											if(isset($respuestas[$k])){
-	
+
 												$respuestasSeleccionadas = explode("-", $respuestas[$k]);
 												if (in_array($or, $respuestasSeleccionadas)) {
 													$seleccionado='checked';
@@ -18921,7 +18950,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 					$respuesta=$tabla;
 				}elseif(count($info_examen)>0){//vista de usuario diferente de persona
-					
+
 				}else{
 					$respuesta='No tiene examen';
 				}
@@ -18935,7 +18964,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////
 	public function contenidoReto($idPlantilla,$idContenido)
 	{
@@ -18994,7 +19023,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function generarExamenPersona($idExamenPersona,$tipo,$idContenido)
 	{
@@ -19028,7 +19057,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		//}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
 	public function aplazoReto()
 	{
@@ -19079,7 +19108,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	public function aplazarReto()
 	{
@@ -19096,7 +19125,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$datos['ID_PERSONA']=$idp;
 					$datos['FECHA_APLAZADA']=$fecha;
 					$this->academico_model->crearAplazoContenido($datos);
-				}				
+				}
 			}
 			$respuesta['respuesta']          = 1;
 			$respuesta['mensaje']            = 'Registros Guardados';
@@ -19105,7 +19134,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	public function finalizarExamenSupletorio($id_estudiante_carrera_materia,$etapa)
 	{
@@ -19160,7 +19189,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo json_encode(array('respuesta'=>$msj,'calificacion'=>number_format(floatval($calificacion),2)));
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getExamenEstudianteImpresion($id_estudiante_carrera_materia,$etapa)
 	{
@@ -19346,15 +19375,15 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	public function archivo_teams()
 	{
 		$id_usuario=$this->session->userdata('loggeado')['ID_USUARIO'];
 		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($id_usuario,18)){
 			$id_carrera = trim($this->input->post('s_carrera'));
-			$id_nivel = trim($this->input->post('s_nivel'));  
-			$id_periodo_academico = trim($this->input->post('s_period'));  
-			$grupo = trim($this->input->post('s_grupo'));   
+			$id_nivel = trim($this->input->post('s_nivel'));
+			$id_periodo_academico = trim($this->input->post('s_period'));
+			$grupo = trim($this->input->post('s_grupo'));
 			$datos = $this->academico_model->listaAlumnos($id_carrera, $id_nivel,$id_periodo_academico,$grupo);
 			if($this->session->userdata('loggeado')['ID_PERFIL']==12 and $grupo==''){//filtrar grupos para coordinadores
 				$datos_temp=array();
@@ -19380,22 +19409,22 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			//print_r($datos);
 			header('Content-Encoding: UTF-8');
-			header('Content-Description: File Transfer'); 
-			header('Content-Type: application/octet-stream'); 
-			header('Content-Disposition: attachment; filename=estudiantes_deming.csv'); 
-			header('Content-Transfer-Encoding: binary'); 
-			header('Expires: 0'); 
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0'); 
-			header('Pragma: public'); 
+			header('Content-Description: File Transfer');
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename=estudiantes_deming.csv');
+			header('Content-Transfer-Encoding: binary');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Pragma: public');
 			//echo "\xEF\xBB\xBF"; // utf-8 BOM
-			echo utf8_decode($archivo); 
+			echo utf8_decode($archivo);
 			exit();
-			
+
 		}else{
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	//////funcion obtener token de acceso de aplicacion a office 365//////////
 	public function getToken()
 	{
@@ -19455,7 +19484,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		}
 		//print_r($this->session->userdata('token'));  echo $seconds;
 	}
-	
+
 	//////funcion crear grupos office 365//////////
 	public function crearGrupoTeam($nombreGrupo=NULL)
 	{
@@ -19504,7 +19533,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////funcion crear propietario grupo office 365////////////////////
 	public function crearPropietarioGrupoTeam($idPersona=0,$idGrupoTeam)
 	{
@@ -19548,7 +19577,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////funcion crear usuario office 365////////////////////
 	public function crearUsuarioTeam($idPersona=0)
 	{
@@ -19582,7 +19611,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	//////funcion actualizar usuario office 365////////////////////
 	public function actualizarUsuarioTeam($idPersona=0,$datos=array())
 	{
@@ -19620,7 +19649,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 	}
-	
+
 	//////funcion crear miembros grupo office 365////////////////////
 	public function crearMiembroGrupoTeam($idPersona=0,$idGrupoTeam)
 	{
@@ -19664,7 +19693,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////funcion crear reunion online office 365////////////////////
 	public function crearReunionTeam($idPersona,$tema,$codigo)
 	{
@@ -19697,7 +19726,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$error     = curl_error($ch);
 				$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 				curl_close($ch);
-				
+
 				if($http_code==201){
 					return $resultado;
 					//print_r($resultado);
@@ -19717,7 +19746,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////funcion enviar correo online office 365////////////////////
 	public function enviarMailTeam($email,$tema,$cuerpo,$adjuntos=array(),$html=false)
 	{
@@ -19744,7 +19773,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		}
 		$body=json_encode($param);
-		
+
 		$ch  = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST,true);
@@ -19759,7 +19788,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$error     = curl_error($ch);
 		$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		curl_close($ch);
-		
+
 		if($http_code==202){
 			//return $resultado;
 			//print_r($resultado);
@@ -19775,7 +19804,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			//exit();
 		}
 	}
-	
+
 	//////funcion creacion masiva grupo office 365////////////////////
 	public function apiTeam($op=0,$p=0)
 	{
@@ -19793,7 +19822,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo $i.' Registros Procesados (usuarios)';
 		}
-		
+
 		if($op==2){//crear grupo
 			$data['ID_PERIODO_ACADEMICO']=$p;
 			$contenidos = $this->academico_model->listado_contenido($data);
@@ -19803,7 +19832,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo $i.' Registros Procesados (Grupos)';
 		}
-		
+
 		if($op==3){//asignar propietario grupo
 			$usuario_grupos=$this->usuarios_model->buscar_usuarios_grupos(array());
 			foreach($usuario_grupos as $ug){
@@ -19840,7 +19869,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo $j.' Grupos Procesados (Propietarios)';
 		}
-		
+
 		if($op==4){//asignar miembros grupo
 			$j=0;
 			$data['ID_PERIODO_ACADEMICO']=$p;
@@ -19860,7 +19889,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo $j.' Grupos Procesados (miembros)';
 		}
-		
+
 		if($op==5){//crear equipos de grupo
 			$data['ID_PERIODO_ACADEMICO']=$p;
 			$contenidos = $this->academico_model->listado_contenido($data);
@@ -19873,7 +19902,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo $i.' Registros Procesados (Equipos) ';
 		}
-		
+
 		if($op==6){//actualizar usuarios team
 			//$this->actualizarUsuarioTeam(2391,array('mobilePhone'=>'0990436142'));
 			$datos = $this->academico_model->listaAlumnos(null, null,$p,null);
@@ -19895,7 +19924,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			//echo $i.' Registros Procesados (usuarios)';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////
 	public function duplicarPlantillaContenido($idPlantilla)
 	{
@@ -19905,7 +19934,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$resultado='';
 			foreach($plantillas as $kp=>$plantilla){
 				$resultado.=($kp+1).') '.$plantilla['PLANTILLA'].' ';
-				
+
 				//crear plantilla
 				unset($plantilla['ID_PLANTILLA']);
 				$plantilla['ID_USUARIO']=$idusuario;
@@ -20003,7 +20032,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Acceso Denegado";
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////////////
 	public function gestionReunionTeam($idPlanificacion)
 	{
@@ -20013,7 +20042,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$aulaVirtual         = $this->academico_model->buscar_aulaVirtual(array('ID_CARRERA_MATERIA'=>$datos_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$datos_taller['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$datos_taller['ID_GRUPO'],'ID_PLANTILLA'=>$datos_taller['ID_PLANTILLA']));
 			$msg = "";
 			$url_redireccion = "";
-			
+
 			if($aulaVirtual==NULL and $this->session->userdata('loggeado')['ID_PERFIL']==4) {
 				$msg = "crea aula";
 				$data['ID_PLANIFICACION'] = $idPlanificacion;
@@ -20047,7 +20076,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo json_encode(array("err"=>'Acceso Denegado'));
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////
 	public function guardarHoraDictada()
 	{
@@ -20074,7 +20103,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////
 	public function borrarExamenEstudiante()
     {
@@ -20099,7 +20128,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
             redirect('admin/login', 'refresh');
         }
     }
-	
+
 	///////////////////////////////////////////////////
 	public function remedialEstudiantes()
 	{
@@ -20121,7 +20150,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$grupos[]=$g['GRUPO'];
 					}
 				}else{
-					$grupos=$this->academico_model->buscarGruposEst($vector_us); 
+					$grupos=$this->academico_model->buscarGruposEst($vector_us);
 					$grupos = explode("-", $grupos);
 				}
 				$datos['grupos'] = $grupos;
@@ -20131,7 +20160,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}else{
 				$clases_examenes=array();
 				$dat=array();
-				if($usuario['ID_PERFIL']==5){					
+				if($usuario['ID_PERFIL']==5){
 					$dat['ID_PERSONA']=$usuario['ID_PERSONA'];
 					$dat['ESTADO_ESTUDIANTE']='0';
 				}else{
@@ -20198,7 +20227,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getExamenRemedial()
 	{
@@ -20211,21 +20240,21 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			if($id_estudiante_carrera_materia!=NULL and $id_estudiante_carrera_materia!='' and $id_estudiante_carrera_materia>0){
 				$clases_examenes = $this->academico_model->buscar_alumno_remedial($dat);
 			}
-			
+
 			$idRubro=22;//Remedial
 			$arancelExamenRemedial = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
 			$texto_arancel='';
 			if(count($arancelExamenRemedial)>0 and isset($arancelExamenRemedial[count($arancelExamenRemedial)-1]['NOMBRE_ARANCEL']) and ($arancelExamenRemedial[count($arancelExamenRemedial)-1]['ESTADO'] == '0' or $arancelExamenRemedial[count($arancelExamenRemedial)-1]['ESTADO'] == 1)){
 				$texto_arancel='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$arancelExamenRemedial[count($arancelExamenRemedial)-1]['NOMBRE_ARANCEL'].' </strong></div>';
 			}
-			
+
 			if($usuario['ID_PERFIL']==5 and count($clases_examenes)>0){
 				$clase_examen=$clases_examenes[0];
 				$tabla='<table class="table table-condensed">';
 				$tabla.='<tr><td><strong>NOMBRE</strong></td><td>'.$clase_examen['NOMBRE_ESTUDIANTE'].'</td><td><strong>NRO. DOCUMENTO</strong></td><td>'.$clase_examen['NRO_DOCUMENTO'].'</td></tr>';
 				$tabla.='<tr><td><strong>MATERIA</strong></td><td>'.$clase_examen['MATERIA'].'</td><td><strong>GRUPO</strong></td><td>'.$clase_examen['GRUPO'].'</td></tr>';
 				$tabla.='</table>';
-				
+
 				$tabla.='<input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'">';
 				//verifico si ya tiene examen web personalizado el estudiante
 				$examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia));
@@ -20245,7 +20274,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
 						}
 					}
-					
+
 					$fi_examen = date_create($fecha_examen_inicio);
 					$f_actual = date_create(date('Y-m-d H:i:s'));
 					$interval = date_diff($f_actual, $ff_examen);
@@ -20265,7 +20294,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$seconds += $interval->format('%s');
 					$seg_interval=$seconds;
 				}
-				
+
 				if(count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['ESTADO']==1){
 					$tabla.='<div class="alert alert-success">Examen Realizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examenes_estudiante[$ultimo_indice]['CALIFICACION']),2).'</strong></div>';
 					///VISTA DE DETALLE DEL EXAMEN PARA EL ESTUDIANTES
@@ -20280,8 +20309,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					foreach($preguntas as $k=>$p){
 						$correcto=0;
 						$tabla.='<div class="row">';
-							$tabla.='<div class="col-md-6 text-right">';
-								$tabla.='<label class="text-left" style="font-size:20px; width:110px;">pregunta '.($k+1).'</label> ';
+							$tabla.='<div class="col-md-6 text-right" style="text-align: right">';
+								$tabla.='<label class="text-left" style="font-size:20px;">Pregunta '.($k+1).'</label> ';
 							$tabla.='</div>';
 							$pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
 							$pe=$pregunta[0];
@@ -20326,7 +20355,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$tabla.=$texto_arancel.'<div class="alert alert-info">Ya finaliz&oacute; examen <strong>'.$examenes_estudiante[$ultimo_indice]['FECHA'].' '.$ff_examen->format('H:i').'</strong></div>';
 					$idp = trim($this->input->post('idp'));
 					if(isset($idp) and $idp==-1 and count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['ESTADO']==0){//finalizar Examen por tiempo limite
-						$examen=$examenes_estudiante[$ultimo_indice];
+                        $examen=$examenes_estudiante[$ultimo_indice];
 						$preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
 						$opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
 						$respuestas=explode('+',$examen['IDS_RESPUESTA']);
@@ -20398,12 +20427,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						if($opcion_seleccionado!=NULL and $opcion_seleccionado!=''){
 							$v_opSeleccionadas = explode("+", trim($opcion_seleccionado,"+"));
 							$indicePregunta = "0";
-							
+
 							$opcionesRespuestasSeleccionadas = "";
 							foreach ($v_opSeleccionadas as $kops => $ops) {
 								//guardar respuesta
 								$op_select=explode('-',$ops);
-								
+
 								foreach($preguntas as $k=>$p){
 									if($p==$op_select[0]){
 										$opcionesRespuestasSeleccionadas .= "-".$op_select[1];
@@ -20416,7 +20445,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							if (isset($respuestas[$indicePregunta]) && $respuestas[$indicePregunta]=="") {
 								$respuestas[$indicePregunta] =0;
 							}
-							
+
 							$res_total=implode('+',$respuestas);
 							if($res_total!=$examen['IDS_RESPUESTA']){
 								$dat_actualiza=array();
@@ -20515,7 +20544,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 											$op=$opcion[0];
 											$seleccionado='';
 											if(isset($respuestas[$k])){
-	
+
 												$respuestasSeleccionadas = explode("-", $respuestas[$k]);
 												if (in_array($or, $respuestasSeleccionadas)) {
 													$seleccionado='checked';
@@ -20559,7 +20588,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$tabla.='<tr><td><strong>NOMBRE</strong></td><td>'.$clase_examen['NOMBRE_ESTUDIANTE'].'</td><td><strong>NRO. DOCUMENTO</strong></td><td>'.$clase_examen['NRO_DOCUMENTO'].'</td></tr>';
 				$tabla.='<tr><td><strong>MATERIA</strong></td><td>'.$clase_examen['MATERIA'].'</td><td><strong>GRUPO</strong></td><td>'.$clase_examen['GRUPO'].'</td></tr>';
 				$tabla.='</table>';
-				
+
 				//verifico si ya tiene examen personalizado el estudiante
 				$examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia));
 				$ultimo_indice=0;
@@ -20582,7 +20611,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 					if($examen['ESTADO']==1){
 						$tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examen['CALIFICACION']),2).'</strong></div>';
-						
+
 						$tabla.='<table><tr><td><strong>Fecha:</strong> '.$examen['FECHA'].' <strong>Hora:</strong> '.$examen['HORA'].' a '.$ff_examen->format('H:i').'</td><tr>';
 						$fci=explode(' ',$examen['FECHA_INICIO_CONEXION']);
 						$fcf=explode(' ',$examen['FECHA_FIN_CONEXION']);
@@ -20646,7 +20675,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$cabecera.='<tr><td><strong>NOMBRE</strong></td><td>'.$clase_examen['NOMBRE_ESTUDIANTE'].'</td><td><strong>NRO. DOCUMENTO</strong></td><td>'.$clase_examen['NRO_DOCUMENTO'].'</td></tr>';
 				$cabecera.='<tr><td><strong>MATERIA</strong></td><td>'.$clase_examen['MATERIA'].'</td><td><strong>GRUPO</strong></td><td>'.$clase_examen['GRUPO'].'</td></tr>';
 				$cabecera.='</table>';
-				
+
 				//verifico si ya tiene examen personalizado el estudiante
 				$examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia));
 				$tabla='';
@@ -20663,7 +20692,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							if($ultimo_indice==$k){
 								$d_examen=' style="display:block"';
 								$calificaciones=$this->academico_model->get_calificaciones(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ID_TIPO_CALIFICACION'=>6));
-								
+
 								if(count($calificaciones)>0 and $calificaciones[0]['ESTADO_CALIFICACION']==2 and $examen['ESTADO']==1){
 									$btn_nuevo='<br><input type="button" name="btn_ant" value="Nueva Fecha" class="btn btn-primary btn-xs" onclick="nuevo_examen('.count($examenes_estudiante).')"><br><br>';
 								}
@@ -20687,7 +20716,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='<div id="d_examen'.$k.'" '.$d_examen.'>'.$btn_nuevo;
 								if($examen['ESTADO']==1){
 									$tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examen['CALIFICACION']),2).'</strong></div>';
-									
+
 									$tabla.='<table><tr><td><strong>Fecha:</strong> '.$examen['FECHA'].' <strong>Hora:</strong> '.$examen['HORA'].' a '.$ff_examen->format('H:i').'</td><tr>';
 									$fci=explode(' ',$examen['FECHA_INICIO_CONEXION']);
 									$fcf=explode(' ',$examen['FECHA_FIN_CONEXION']);
@@ -20746,7 +20775,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='</div>';
 						}
 					}
-					
+
 				}
 				$fecha='';
 				$hora='';
@@ -20762,7 +20791,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				if(isset($examenes_estudiante[$ultimo_indice]) and $examenes_estudiante[$ultimo_indice]['IDS_PREGUNTA_CONTENIDO']!=NULL){
 					$ultimo_indice++;
 				}
-				
+
 				$tabla.='<div id="d_examen'.$ultimo_indice.'" '.$d_examen.'>';
 				$tabla.='<form name="f_examen" id="f_examen"><input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'"><div class="well well-sm"><strong>Fecha Remedial</strong><table><tr><td>Fecha</td><td>Hora</td><td></td></tr><tr><td><input name="fecha_remedial" type="text" id="fecha_remedial" value="'.$fecha.'" class="form-control" style="height:30px" required="required" autocomplete="off" /></td><td><input type="time" style="height:30px;line-height: normal" id="hora_remedial" name="hora_remedial" class="form-control" required value="'.$hora.'"></td><td width="100px" align="right" id="respuesta_fecha"><input type="button" name="btn_ant" value="Guardar" class="btn btn-primary btn-xs" onclick="guardar_fecha_examen()"></td></tr></table></div></form><script>$(\'#fecha_remedial\').datepicker({format: "yyyy-mm-dd",language: \'es\',autoclose: true,forceParse: true,enableOnReadonly: true,clearBtn: true,startDate:\''.date('Y-m-d').'\'});</script>';
 				$tabla.='</div>';
@@ -20782,7 +20811,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function guardarFechaRemedial()
 	{
@@ -20829,7 +20858,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function generarExamenRemedial($idExamenRemedial,$tipo,$idContenido)
 	{
@@ -20863,7 +20892,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 		//}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	public function finalizarExamenRemedial($id_estudiante_carrera_materia)
 	{
@@ -20908,7 +20937,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo $msj;
 		}
 	}
-	
+
 	//////////////////////////////////////////////////////////////////////
 	public function buscaIES()
 	{
@@ -20930,8 +20959,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		}else{
 			echo 'Acceso Denegado';
 		}
-	}	
-	
+	}
+
 	/////////////////////////////////////////////////
 	public function bloqueoContenidoMora()
 	{
@@ -20941,7 +20970,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$grupo=null;
 		//$grupo = trim($this->input->post('grupo'));
 		$id_persona=null;
-		
+
 		$bidimensional= $this->academico_model->listaAlumnosCuotas($id_carrera, $id_nivel, $id_periodo,$grupo,$id_persona);
 		$alumno=$bidimensional[0];
         $cuotas=$bidimensional[1];
@@ -20952,7 +20981,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$descuentos=$bidimensional[6];
 		$recibido=$bidimensional[7];
 		$grupo=$bidimensional[8];
-		
+
 		$bloqueados='';
 		$i=0;
 		$g_cien=array('668V','669V','670V','671V');
@@ -20983,17 +21012,17 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				}
 			}
 		}
-		
+
 		echo $bloqueados;
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////////////////
 	/////creacion, Persona, inscripcion y matricula de estudiantes Validaci�n Ligen/////////
-	public function migracionEstudiantesValidacion() 
+	public function migracionEstudiantesValidacion()
 	{
 		$ip=$_SERVER['REMOTE_ADDR'];
 		$this->session->set_userdata('loggeado', array('ID_USUARIO'=>0));
-		
+
 		$JSONData = file_get_contents("php://input");
 		$datos = json_decode($JSONData,true);
 		$estudiantes = $datos['ESTUDIANTES'];
@@ -21024,10 +21053,10 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			$materias_carrera  = $this->academico_model->getMateriasPorCarreraNivel($id_carrera, null);
 		}
 		$valor=$datos['VALOR'];
-		
-		
-						
-		
+
+
+
+
 		//print_r($estudiante);
 		//return 0;
 		$respuesta=array();
@@ -21054,7 +21083,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$id_cliente=$persona['ID_CLIENTE'];
 					//$error='Error: estudiante ya existe';
 				}else{
-					
+
 					$data=array();
 					$data['PRIMER_NOMBRE']= $estudiante['PRIMER_NOMBRE'];
 					$data['SEGUNDO_NOMBRE']= $estudiante['SEGUNDO_NOMBRE'];
@@ -21074,7 +21103,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$data['ID_PROVINCIA_NACIMIENTO']= $estudiante['ID_PROVINCIA_NACIMIENTO'];
 					$data['ID_CANTON_NACIMIENTO']= $estudiante['ID_CANTON_NACIMIENTO'];
 					$data['ID_ESTADO_CIVIL']= $estudiante['ID_ESTADO_CIVIL'];
-					$data['TIPO_SANGRE']= $estudiante['TIPO_SANGRE']; 
+					$data['TIPO_SANGRE']= $estudiante['TIPO_SANGRE'];
 					$data['GENERO']= $estudiante['GENERO'];
 					$data['ID_GRUPO_CULTURAL']= $estudiante['ID_GRUPO_CULTURAL'];
 					$data['NRO_DOCUMENTO_MILITAR']= '';
@@ -21102,7 +21131,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$data['TIPO_DISCAPACIDAD']= $estudiante['TIPO_DISCAPACIDAD'];
 					$data['PORCENTAJE_DICAPACIDAD']= $estudiante['PORCENTAJE_DICAPACIDAD'];
 					$data['DESCRIPCION_DISCAPACIDAD']= $estudiante['DESCRIPCION_DISCAPACIDAD'];
-					
+
 					$data['CONTACTO_DOMICILIO']['ID_OPERADOR_TELEFONICO']='';
 					if($estudiante['ID_OPERADOR_TELEFONICO']>0){
 						$data['CONTACTO_DOMICILIO']['ID_OPERADOR_TELEFONICO']= $estudiante['ID_OPERADOR_TELEFONICO'];
@@ -21122,7 +21151,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$data['CONTACTO_DOMICILIO']['DIRECCION_CALLE_SECUNDARIA2']= $estudiante['DIRECCION_CALLE_SECUNDARIA2'];
 					$data['CONTACTO_DOMICILIO']['DIRECCION_REFERENCIA']= $estudiante['DIRECCION_REFERENCIA'];
 					$data['CONTACTO_DOMICILIO']['DESCRIPCION']= $estudiante['DESCRIPCION_DOMICILIO'];
-					
+
 					$data['ID_CONTACTO_LABORAL']['ID_OPERADOR_TELEFONICO']='';
 					$data['ID_CONTACTO_LABORAL']['CELULAR']= '';
 					$data['ID_CONTACTO_LABORAL']['TELEFONO']= '';
@@ -21145,7 +21174,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$data['ID_CONTACTO_LABORAL']['ID_OPERADOR_TELEFONICO']='';
 						}
 					}
-				
+
 					$data['Referencia_Familiar']=NULL;
 					$data['Referencia_Laboral']=NULL;
 					$data['Padre']=NULL;
@@ -21154,7 +21183,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					if(isset($estudiante['FAMILIA']) and count($estudiante['FAMILIA'])>0){
 						foreach($estudiante['FAMILIA'] as $familia){
 							if($familia['TIPO']!='Referencia_Emergencia'){
-								$data[$familia['TIPO']]['ID_PERSONA_FAMILIAR']= ''; 
+								$data[$familia['TIPO']]['ID_PERSONA_FAMILIAR']= '';
 								$data[$familia['TIPO']]['NOMBRES']= $familia['NOMBRES'];
 								$data[$familia['TIPO']]['EMPRESA']= $familia['EMPRESA'];
 								$data[$familia['TIPO']]['CARGO_OCUPACION']= $familia['CARGO_OCUPACION'];
@@ -21162,14 +21191,14 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							}
 						}
 					}
-					
+
 					$data['FINANCIERO']=NULL;
 					if(isset($estudiante['FINANCIERO']) and $estudiante['FINANCIERO']!=NULL and count($estudiante['FINANCIERO'])>0){
 						$data['FINANCIERO']=$estudiante['FINANCIERO'];
 						$data['FINANCIERO']['ID_PERSONA_FINANCIERO']= '';
 						$data['FINANCIERO']['INDUSTRIA']= '';
 					}
-				
+
 					/* TRABAJO CON LOS CHECKS */
 					if (!isset($data['ES_BECADO'])) {
 						$data['ES_BECADO'] = 0;
@@ -21194,12 +21223,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$cliente['NRO_DOCUMENTO']=$data['NRO_DOCUMENTO'];
 					$cliente['ID_TIPO_CONTRIBUYENTE']=$data['ID_TIPO_CONTRIBUYENTE'];
 					$cliente['ES_CONTRIBUYENTE_ESPECIAL']=$data['ES_CONTRIBUYENTE_ESPECIAL'];
-				   
+
 					unset($data['TIPO_DOCUMENTO']);
 					unset($data['NRO_DOCUMENTO']);
 					unset($data['ID_TIPO_CONTRIBUYENTE']);
 					unset($data['ES_CONTRIBUYENTE_ESPECIAL']);
-				   
+
 					/*--------------------- TRABAJO CON LOS datos familiares adicionales ---------------------*/
 					$referenciaFamiliar = $data['Referencia_Familiar'];
 					unset($data['Referencia_Familiar']);
@@ -21211,12 +21240,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					unset($data['Madre']);
 					$conyuge = $data['Conyuge'];
 					unset($data['Conyuge']);
-					
+
 					/*--------------------- TRABAJO CON LOS datos financieros adicionales ---------------------*/
 					$financiero = $data['FINANCIERO'];
 					unset($data['FINANCIERO']);
 					/*-------------------------------------------------------------------------------------------------*/
-				   
+
 					/* SE CONVIERTE A NULL TODOS LOS CAMPOS QUE VENGAN DEL FORMULARIO CON CADENA VACIA DE VALOR */
 					foreach ($contactoLaboral as $key => $value) {
 						if ($value === '' or $value === 0) {
@@ -21247,7 +21276,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					$persona=NULL;
 					////////////////////////////////////////////////////////////////////////////////////////
 					$this->clientes_model->crearActualizarClienteNaturalTransaccional($persona,$data,$cliente,$contactoLaboral,$contactoDomiciliar,$referenciaFamiliar,$referenciaLaboral,$padre,$madre,$conyuge,$financiero);
-					
+
 					//verificar si existe usuario
 					$persona=$this->clientes_model->buscar_persona_x_cedula(array('CEDULA'=>$estudiante['NRO_DOCUMENTO']));
 					$usuario = $this->usuarios_model->buscar_usuarios(array('ID_PERSONA'=>$persona['ID_PERSONA']));
@@ -21285,8 +21314,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$this->academico_model->crearUsuarioTeam(array('ID_USUARIO_OFFICE'=>$estudiante['ID_USUARIO_OFFICE'],'ID_PERSONA'=>$id_persona));
 					}
 				}
-				
-				
+
+
 				////Proceso matricula/////////////////////////////////
 				$materias_validadas=$dat_estudiante['MATERIAS'];
 				if(count($materias_validadas)>0 and $id_persona>0 and $id_cliente>0 and $id_carrera>0){
@@ -21324,9 +21353,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 						$data['valor']=$valor;
 						$respuesta = $this->academico_model->crearActualizarMatricula($data);
-						
+
 						$id_matricula=0;
-						
+
 						//generar Tabla amortizaci�n
 						$plan=$this->academico_model->seleccionado_plan_de_pago($data['ID_CLIENTE'],$data['ID_CARRERA'],$data['ID_PERIODO_ACADEMICO']);
 						//sin tiene plan de p�go genero el plan personalizado de Deming
@@ -21376,7 +21405,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 									$pos_rubro = strpos($rubros_aplica, '+'.$rubro['ID_RUBRO'].'+');
 									if($pos_rubro!==false){//si a este rubro se aplica el descuento beca
 										$descuento_beca=round($valor_cuota_regular*$beca['PORCENTAJE']/100,2);
-									}   
+									}
 								}*/
 								//datos matrcula
 								$mat=$this->academico_model->buscar_matricula(array('ID_CLIENTE'=>$data['ID_CLIENTE'],'ID_CARRERA'=>$data['ID_CARRERA'],'ID_PERIODO_ACADEMICO'=>$data['ID_PERIODO_ACADEMICO']));
@@ -21386,7 +21415,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 								$this->automatica_model->generar_nuevas_cuotas($id_cliente_rubro, $plan_pago,$valor_primera_cuota,$valor_cuota_regular, $valor_recargo_generacion,$id_cliente,$descuento_pronta_matricula,$descuento_beca,$id_matricula,$data['ID_PERIODO_ACADEMICO']);
 							}//fin foreach($rubros_matricula as $rubro){
 						}//fin de if($plan==0)
-							
+
 						//Realizar validaci�n materias
 						if($id_matricula>0){
 							$data=array();
@@ -21409,7 +21438,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$data['ID_CLIENTE'] = $id_cliente;
 							$respuesta = $this->academico_model->homologarConvalidar($data);
 						}
-						
+
 						////Proceso Practicas/////////////////////////////////
 						$dat_practica=$dat_estudiante['PRACTICA'];
 						//if($dat_practica!=NULL and $id_matricula>0){
@@ -21442,12 +21471,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							//crear arancel de practicas
 							$this->vinculacion->crearArancelVinculacion($id_matricula,1);
 						}
-						
+
 						$num_procesado++;
 					}
 				}
 			}
-			
+
 			//log vlc
 			$dat['CEDULA']=count($estudiantes);
 			//$dat['ID_CARRERA']=$id_carrera;
@@ -21461,7 +21490,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		//print_r($datos);
 		echo json_encode($dat);
 	}
-	
+
 	/////retornar carreras a Ligen/////////////////////////////////////
     public function carrerasDeming(){
         $carreras = $this->academico_model->buscarCarrera(NULL, NULL);
@@ -21496,7 +21525,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
         $nombres_grupo = $this ->academico_model->getNombresGrupoDeming($id_periodo_activado ,$id_carrera);
         echo json_encode($nombres_grupo);
     }
-	
+
 	///////////////////////////////////////////////////////////////
 	//asignar proyecto a estudiantes que no ingresaron a la patalla de proyectos
 	public function asignacionProyectosAutomatico()
@@ -21531,7 +21560,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 					}
 				}
 			}
-			
+
 			if($asignados==''){
 				echo 'No existe proyectos '.$fecha_cierre;
 			}else{
@@ -21541,12 +21570,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'No existe proyectos '.$fecha_cierre;
 		}
 	}
-	
+
 	//corregir tabla de amortizacion colocando el rubro matricula
 	public function correccionTabla()
 	{
 		$this->load->model('facturacion/servicios_model');
-		$id_nivel = 2;  
+		$id_nivel = 2;
 		$id_periodo_academico = 16;
 		$matriculas = $this->academico_model->listaAlumnos(null, $id_nivel,$id_periodo_academico,null);
 		$num=0;
@@ -21560,8 +21589,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				}
 			}
 			if($pago_pendiente>0 and $tieneRubro==0){
-				$resultado = $this->academico_model->obtener_rubros_semestre_del_nivel($m['id_nivel']); //RUBROS de semestre, o sea de la colegiatura. 
-				
+				$resultado = $this->academico_model->obtener_rubros_semestre_del_nivel($m['id_nivel']); //RUBROS de semestre, o sea de la colegiatura.
+
 				foreach($resultado as $res){
 					if($res['ID_RUBRO']==19){//solo rubro matricula
 						$this->servicios_model->asociarRubrosAClientes(array(
@@ -21577,12 +21606,12 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						));
 						$num++;
 						echo $num.') '.$m['CEDULA'].' '.$m['NOMBRE_COMPLETO'].'<br>';
-					}		   
+					}
 				}
 			}
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function recalificarReto($idPlanificacion,$idRetoContenido=0)
 	{
@@ -21594,7 +21623,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$dato_contenido=$this->academico_model->getContenidoMateria($contenido['ID_CARRERA_MATERIA'],$contenido['ID_PERIODO_ACADEMICO']);
 				$estudiantes=$this->academico_model->get_estudiantes(array('ID_CARRERA_MATERIA'=>$contenido['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$contenido['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$contenido['ID_GRUPO']));
 				$preguntas=$this->academico_model->getPreguntasRetosContenido(array('ID_RETO_CONTENIDO'=>$idRetoContenido));
-				
+
 				$tabla='<table class="table table-condensed"><tr>';
 				$tabla.='<th>Nro.</th>';
 				$tabla.='<th>Estudiante</th>';
@@ -21647,7 +21676,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo "Sesion Terminada";
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function preguntasImpresion($idPlantilla=0,$idReto=0)
 	{
@@ -21680,7 +21709,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='</td>';
 						$tabla.='</tr>';
 					$tabla.='</table>';
-					
+
 					foreach($preguntas as $k=>$pe){
 						//$preguntas_respuestas[$k]['ID_OPCION_RESPUESTA_RETO'] = trim($pr['ID_OPCION_RESPUESTA_RETO'],"+");
 						//$preguntas_respuestas[$k]['opciones_respuesta']=$this->academico_model->getOpcionesRespuestaRetos(array('ID_PREGUNTA_RETO'=>$pr['ID_PREGUNTA_RETO']));
@@ -21714,7 +21743,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						$tabla.='</tr>';
 						$tabla.='</table>';
 					}
-				}else{					
+				}else{
 					$preguntas=$this->academico_model->getPreguntas(array('ID_PLANTILLA'=>$idPlantilla));
 					$tabla.='<title>ExamenPlantilla</title>';
 					$tabla.='<style type="text/css"> .tdc{ padding:3px; vertical-align:top; font-size:12px; border-bottom:solid 1px #5A5A5A }</style>';
@@ -21731,7 +21760,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$tabla.='</td>';
 						$tabla.='</tr>';
 					$tabla.='</table>';
-					
+
 					foreach($preguntas as $k=>$pe){
 						//$preguntas_respuestas[$k]['ID_OPCION_RESPUESTA'] = trim($pr['ID_OPCION_RESPUESTA'],"+");
 						//$preguntas_respuestas[$k]['opciones_respuesta']=$this->academico_model->getOpcionesRespuesta(array('ID_PREGUNTA'=>$pr['ID_PREGUNTA']));
@@ -21773,7 +21802,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////Verificar si ha perdido una materia mas de 3 veces/////////
 	public function consultaMateriaPerdida()
 	{
@@ -21812,7 +21841,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			redirect('admin/login', 'refresh');
 		}
 	}
-	
+
 	////////////////////////////////////////////////////////////////////////////
 	public function recalificarExamen($idContenido=0)
 	{
@@ -21828,9 +21857,9 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			//$dat['GRUPO']=trim($this->input->post('grupo'));
 			//$dat['FECHA_INICIO']=trim($this->input->post('fechai'));
 			//$dat['FECHA_FIN']=trim($this->input->post('fechaf'));
-			
+
 			$fecha_actual=date_create(date('Y-m-d H:i:s'));
-			
+
 			$tabla='Ninguno';
 			$clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
 			if(count($clases_examenes)>0){
@@ -21846,8 +21875,8 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						if($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==1){//Examen Realizado
 							$clases_examenes[$k]['ESTADO']='Realizado';
 							$clases_examenes[$k]['CALIFICACION']=number_format(floatval($ee['CALIFICACION']),2);
-							
-							
+
+
 							$preguntas=explode('+',$ee['IDS_PREGUNTA_CONTENIDO']);
 							$opciones=explode('+',$ee['IDS_OPCION_RESPUESTA_CONTENIDO']);
 							$respuestas=explode('+',$ee['IDS_RESPUESTA']);
@@ -21890,13 +21919,13 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				}
 				$tabla.='</table>';
 			}
-			
+
 			echo $tabla;
 		}else{
 			redirect('index', 'refresh');
 		}
 	}
-	
+
 	/////////////////////////////////////////////////
 	public function avisoMasivoMora($op=0)
 	{
@@ -21907,7 +21936,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$grupo=null;
 		//$grupo = trim($this->input->post('grupo'));
 		$id_persona=null;
-		
+
 		$bidimensional= $this->academico_model->listaAlumnosCuotas($id_carrera, $id_nivel, $id_periodo,$grupo,$id_persona);
 		$alumno=$bidimensional[0];
         $cuotas=$bidimensional[1];
@@ -21919,7 +21948,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$recibido=$bidimensional[7];
 		$grupo=$bidimensional[8];
 		$id_carrera=$bidimensional[9];
-		
+
 		$avisos='<table border="1"><tr><th>Nro.</th><th>Nro Documento</th><th>Estudiante</th><th></th><th></th></tr>';
 		$i=0;
 		foreach($bidimensional[1] as $k=>$cuotas){
@@ -21931,7 +21960,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 				$total+=$c['TOTAL'];
 			}
 			$porpagar= $total-$pagado;
-			
+
 			//if($estado_matricula[$k]==-1){//en mora
 				$idPersona=$this->academico_model->get_id_persona($id[$k]);
 				$validaciones=$this->academico_model->get_estudianteCarreraMateria(array('ID_PERSONA'=>$idPersona,'ID_CARRERA'=>$id_carrera[$k],'FUE_CONVALIDADA'=>1));
@@ -22021,7 +22050,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 						}
 						$avisos.='<tr><td>'.$i.'</td><td>'.$persona['CEDULA'].'</td><td>'.$alumno[$k]. '</td><td>'.$persona['CELULAR'].' / '.$celular.'</td><td>'.$res['msg'].'</td></tr>';
 					}else{
-				
+
 						$i=$i+1;
 						//Enviar Aviso
 						$msg = "🚨 *ESTUDIANTES INSTITUTO SUPERIOR TECNOLÓGICO CORPORATIVO EDWARDS DEMING- PENSIONES*\n\n";
@@ -22075,7 +22104,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 		$this->enviarMailTeam('gmales@binary.ec','aviso descuento',$avisos,array(),true);
 		echo $avisos;
 	}
-	
+
 	/////////////////////////////////////////////////
 	public function reagendarSupletoriosRemediales($op=0)
 	{
@@ -22137,7 +22166,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 							$clases_examenes[$k]['FECHA_APLAZADO'].=' a '.$ff_aplazo->format('H:i');
 						}
 					}
-					
+
 					//verificar que este en supletorio
 					$dats['ID_ESTUDIANTE_CARRERA_MATERIA']=$ce['ID_ESTUDIANTE_CARRERA_MATERIA'];
 					$dats['ID_TIPO_CALIFICACION']=6;
@@ -22173,7 +22202,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			}
 			echo 'Supletorios Reasignados: '.$num;
 		}
-		
+
 		if($op==1){//remedial
 			$clases_examenes=array();
 			$dat=array();
@@ -22183,7 +22212,7 @@ and ID_ESTUDIANTE_CARRERA_MATERIA in (SELECT ID_ESTUDIANTE_CARRERA_MATERIA from 
 			foreach($clases_examenes as $k=>$ce){
 				$validaciones=$this->academico_model->get_estudianteCarreraMateria(array('ID_PERSONA'=>$ce['ID_PERSONA'],'ID_CARRERA'=>$ce['ID_CARRERA'],'FUE_CONVALIDADA'=>1));
 				if($validaciones==NULL){//si no es validacion
-				
+
 					//verifico si ya tiene supletorio personalizado el estudiante
 					$clases_examenes[$k]['ESTADO']='';
 					$clases_examenes[$k]['CALIFICACION']='';
@@ -22250,7 +22279,7 @@ $dat['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
 			echo 'Remediales Reasignados: '.$num;
 		}
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	public function getRetoEstudianteImpresion($idRetoContenido,$idPersonaEstudiante)
 	{
@@ -22423,7 +22452,7 @@ $dat['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
 			echo 'Acceso Denegado';
 		}
 	}
-	
+
 	//////////////////////CRON///////////////////////////////////////
 	public function generacionAutomaticaBasePreguntas()
 	{
@@ -22458,7 +22487,7 @@ $dat['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
 			//print_r($rw);
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////
 	public function getMencionCarrera()
 	{
@@ -22475,5 +22504,2376 @@ $dat['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
 			echo json_encode(array('res'=>'<script language="javascript">alert(\'Sesión ha caducado. Inicie Nuevamente\'); window.location.href="'.site_url().'/admin/login"</script>'));
 		}
 	}
-   
+
+    //////////////////////////////
+    /////////// EVA //////////////
+    //////////////////////////////
+
+    public function dashboardEva(){
+        $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+        $perfil=$this->perfil_model->get_perfil($idusuario);
+        if($this->session->userdata('loggeado') and ($perfil == 5 or $perfil == 4)){
+            $datos1=$this->cabeceraEva();
+//            print_r($datos1);
+            $this->load->view('templates/headerEva',$datos1);
+            $this->load->view('academico/dashboard_eva',$datos1);
+            $this->load->view('templates/footerEva');
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    public function cabeceraEva(){
+        $id_persona=$this->session->userdata('loggeado')['ID_PERSONA'];
+        $id_perfil=$this->session->userdata('loggeado')['ID_PERFIL'];
+        $id_periodo_activado = $this->academico_model->get_periodo_matricula();
+        $id_cliente=$this->academico_model->get_id_cliente($id_persona);
+        $data['materias'] = array();
+        $data['matricula'] = array();
+        if ($id_perfil == 5){
+            $matriculas = $this->academico_model->buscar_matricula(array('ID_PERSONA'=>$id_persona,'ID_PERIODO_ACADEMICO'=>$id_periodo_activado));
+            if(count($matriculas)>0){
+                foreach($matriculas as $km=>$m){
+                    $matricula=$m;
+                    //  $materias=$this->academico_model->get_materias_estudiante($id_persona,$id_periodo_activado,null,null,$matricula['ID_CARRERA']);//todas las materias del alumno en el periodo vigente en la carrera
+                    $materias = $this -> academico_model->get_materias_estudiante_all($id_persona,$matricula['ID_CARRERA'],$id_periodo_activado);
+                    // print_r($materias);
+                    foreach($materias as $k=>$materia){
+                        // $materias[$k]=$this->academico_model->get_materias_estudianteAll($materia['ID_ESTUDIANTE_CARRERA_MATERIA']);
+                        $materias[$k]['ID_ESTUDIANTE_CARRERA_MATERIA'] = $materia['ID_ESTUDIANTE_CARRERA_MATERIA'];
+                        $plantilla = $this->academico_model->get_plantilla_materia(array('ID_PLANTILLA'=>$materia['ID_PLANTILLA']));
+                       	// print_r($plantilla);
+                        if (count($plantilla)>0){
+                            $materias[$k]['IMAGEN'] = $plantilla[0]['IMAGEN'];
+                            $materias[$k]['PLANTILLA'] = $plantilla[0]['PLANTILLA'];
+                        }
+                        $estado = '0';//PENDIENTE
+                        if(isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') < $materia['FECHA_TUTORIA1']){
+                            $estado = '0';//PENDIENTE
+                        }elseif (isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') >= $materia['FECHA_TUTORIA1'] and date('Y-m-d') <= $materia['FECHA_CIERRE']){
+                            $estado = '1';//ACTIVO
+                        }elseif (isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') > $materia['FECHA_CIERRE']){
+                            $estado = '2';//FINALIZADO
+                        }
+                        $materias[$k]['ESTADO_CIERRE_MATERIA'] = $estado;
+                    }
+                    $data['matricula']= $this->academico_model->obtener_datos_matricula($id_cliente,$matricula['ID_MATRICULA'],$id_periodo_activado);
+                    $data['materias']=$materias;
+					
+                }
+            }
+        }elseif($id_perfil == 4){
+            $materias = $this->academico_model->buscar_grupos_calificar(NULL, NULL, NULL,$id_persona);
+            //print_r($materias);
+            foreach($materias as $key=>$materia){
+                if($this->academico_model->verificar_si_tiene_estudiantes($materia)==0){
+                    unset($materias[$key]);
+                }else{
+                    $fechaCierre = $this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$materia['ID_GRUPO'],'ID_MATERIA'=>$materia['ID_MATERIA'],'ID_PERIODO_ACADEMICO'=>$id_periodo_activado));
+                    $materias[$key]['ESTADO_CIERRE_CALIFICACION'] = '0';
+                    if (isset($fechaCierre['FECHA_CIERRE']) and $fechaCierre['FECHA_CIERRE']!='' and $id_perfil != 5){
+                        if($fechaCierre['FECHA_APLAZADO']!='0000-00-00'){
+                            $datetime1 = $fechaCierre['FECHA_APLAZADO'].' 23:59:59';
+                            $materias[$key]['FECHA_CIERRE_CALIFICACION'] = $fechaCierre['FECHA_APLAZADO'];
+                        }else{
+                            $datetime1 = $fechaCierre['FECHA_CIERRE'].' 23:59:59';
+                            $materias[$key]['FECHA_CIERRE_CALIFICACION'] = $fechaCierre['FECHA_CIERRE'];
+                        }
+                        $datetimeActual = date('Y-m-d H:i:s');
+                        $dateRestada = date("Y-m-d H:i:s",strtotime($datetime1."- 3 days"));
+
+                        $estado = '0';//PENDIENTE
+                        if($datetimeActual >= $dateRestada and $datetimeActual <= $datetime1){
+                            $materias[$key]['ESTADO_CIERRE_CALIFICACION'] = '3';
+                        }elseif(isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') < $materia['FECHA_TUTORIA1']){
+                            $estado = '0';//PENDIENTE
+                        }elseif (isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') >= $materia['FECHA_TUTORIA1'] and date('Y-m-d') <= $materias[$key]['FECHA_CIERRE_CALIFICACION']){
+                            $estado = '1';//ACTIVO
+                        }elseif (isset($materia['FECHA_TUTORIA1']) and date('Y-m-d') > $materias[$key]['FECHA_CIERRE_CALIFICACION']){
+                            $estado = '2';//FINALIZADO
+                        }
+                        $materias[$key]['ESTADO_CIERRE_CALIFICACION'] = $estado;
+                    }
+                    $plantilla = $this->academico_model->get_plantilla_materia(array('ID_PLANTILLA'=>$materia['ID_PLANTILLA']));
+                    if (count($plantilla)>0){
+                        $materias[$key]['IMAGEN'] = $plantilla[0]['IMAGEN'];
+                        $materias[$key]['PLANTILLA'] = $plantilla[0]['PLANTILLA'];
+                    }
+                }
+            }
+
+            // $materias[2]['ESTADO_CIERRE_CALIFICACION'] = '3';
+
+            $data['materias']=$materias;
+            $data['matricula']=$this->academico_model->get_docente($id_persona);
+        }
+        $data['perfil'] = $id_perfil;
+        return $data;
+    }
+
+    public function detalleMateriaEstudiante($id_estudiante_carrera_materia, $id_planificacion){
+        if($this->session->userdata('loggeado')){
+            $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+            $perfil=$this->perfil_model->get_perfil($idusuario);
+            $id_persona_estudiante = $this->session->userdata('loggeado')['ID_PERSONA'];
+            $data['materia']=$this->academico_model->get_materias_estudianteAll($id_estudiante_carrera_materia, $id_planificacion);
+            $data['materia']['PERIODO']=$data['materia']['FECHA_TUTORIA1'];
+            $fechast=$data['materia']['FECHA_TUTORIA2'].'+'.$data['materia']['FECHA_TUTORIA3'].'+'.$data['materia']['FECHA_TUTORIA4'].'+'.$data['materia']['FECHAS_TUTORIA'];
+            $vector_ft=explode('+',$fechast);
+            foreach($vector_ft as $ft){
+                if($ft!='' and $ft!=NULL and $ft!='0000-00-00'){
+                    $fecha_fin=$ft;
+                }
+            }
+            if($fecha_fin!=''){
+                $data['materia']['PERIODO'].=' / '.$fecha_fin;
+            }
+
+            $data['ID_ESTUDIANTE_CARRERA_MATERIA'] = $id_estudiante_carrera_materia;
+            $id_periodo_academico = $this->academico_model->get_periodo_activado();
+            // $data['planificacion'] = $this->academico_model->getPlanificacion($data['materia']['ID_GRUPO'],$data['materia']['ID_CARRERA_MATERIA'],$id_periodo_academico);
+            $data['perfil']=$perfil;
+
+            $dat['ID_PERIODO_ACADEMICO'] = $id_periodo_academico;
+            $dat['ID_CARRERA'] = $data['materia']['ID_CARRERA'];
+            $dat['ID_NIVEL'] = $data['materia']['ID_NIVEL'];
+            $dat['ID_CARRERA_MATERIA'] = $data['materia']['ID_CARRERA_MATERIA'];
+            $dat['ID_GRUPO'] = $data['materia']['ID_GRUPO'];
+            $dat['ID_PLANIFICACION'] = $id_planificacion;
+            $contenidos = $this->academico_model->listado_contenido($dat);
+            $matricula = $this->academico_model->obtener_matricula(array('ID_PERSONA'=>$id_persona_estudiante,'ID_PERIODO_ACADEMICO'=>$id_periodo_academico,'ID_CARRERA'=>$data['materia']['ID_CARRERA']));
+            if (count($contenidos)>0){
+                foreach($contenidos as $key=>$contenido){
+                    // $contenidos[$key]['num_tareas']=$this->academico_model->num_tareas_estudiantes($silabo_tarea['ID_DOCENTE_CARRERA_MATERIA'],$silabo_tarea['ID_GRUPO']);
+                    $dato_contenido=$this->academico_model->getContenidoMateria($contenido['ID_CARRERA_MATERIA'],$contenido['ID_PERIODO_ACADEMICO'],$contenido['ID_PLANTILLA']);
+                    $num_retos=0;
+                    $num_proyectos=0;
+                    $num_talleres = 0;
+                    $resp_retos = 0;
+                    $resp_proyectos = 0;
+                    $resp_talleres = 0;
+                    if($dato_contenido!=NULL){
+                        $contenidos[$key]=array_merge($contenidos[$key], $dato_contenido);
+                        $dat['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                        $dat['TIPO']='0';
+                        $retos_estudiante = $this->academico_model->getRetosProyectosContenido($dat);
+                        $num_retos=count($retos_estudiante);
+                        $dat['TIPO']='1';
+                        $proyectos_estudiante =$this->academico_model->getRetosProyectosContenido($dat);
+                        $num_proyectos=count($proyectos_estudiante);
+                        // $num_talleres = count($this->academico_model->buscar_talleres(array('ID_PLANIFICACION'=>$contenido['ID_PLANIFICACION'])));
+                        $talleres_estudiante = $this->academico_model->buscar_talleres(array('ID_CARRERA_MATERIA'=>$contenido['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$contenido['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$contenido['ID_GRUPO'],'ID_PLANTILLA'=>$contenido['ID_PLANTILLA']));
+                        $num_talleres = count($talleres_estudiante);
+                        if($num_proyectos>1 and $perfil==5){
+                            $num_proyectos=1;
+                        }
+                        //NRO RESPUESTAS ESTUDIANTE
+                        foreach ($retos_estudiante as $reto){
+                            $data_r['ID_RETO_CONTENIDO']=$reto['ID_RETO_PROYECTO_CONTENIDO'];
+                            $data_r['ID_PERSONA'] = $id_persona_estudiante;
+                            $respuestas=$this->academico_model->buscar_retos_estudiantes($data_r);
+                            if (count($respuestas)>0){
+                                $resp_retos++;
+                            }
+                        }
+
+                        foreach ($proyectos_estudiante as $k => $proyecto){
+                            $respuestas=$this->academico_model->proyectos_realizados_estudiante($id_persona_estudiante,null,$proyecto['ID_RETO_PROYECTO_CONTENIDO']);
+                            if(count($respuestas)>0){
+                                $resp_proyectos = $this->academico_model->num_respuestasProyectos_estudiantes($proyecto['ID_RETO_PROYECTO_CONTENIDO'],$id_persona_estudiante);
+                            }else{
+                                unset($proyectos_estudiante[$k]);
+                            }
+                        //    $resp_proyectos = $this->academico_model->num_respuestasProyectos_estudiantes($proyecto['ID_RETO_PROYECTO_CONTENIDO'],$id_persona_estudiante);
+                        }
+
+                        foreach ($talleres_estudiante as $taller){
+                            $data_t['ID_TALLER']    = $taller['ID_TALLER'];
+                            $data_t['ID_PERSONA']   = $id_persona_estudiante;
+                            $respuestas=$this->academico_model->buscar_respuestas_taller($data_t);
+                            if (count($respuestas)>0){
+                                $resp_talleres++;
+                            }
+                        }
+
+                    }
+                    $contenidos[$key]['num_retos']     = $num_retos;
+                    $contenidos[$key]['num_proyectos'] = $num_proyectos;
+                    $contenidos[$key]['num_talleres']  = $num_talleres;
+                    $contenidos[$key]['num_resp_retos']     = $resp_retos;
+                    $contenidos[$key]['num_resp_proyectos'] = $resp_proyectos;
+                    $contenidos[$key]['num_resp_talleres']  = $resp_talleres;
+                    $contenidos[$key]['aulaVirtual']   = $this->academico_model->buscar_aulaVirtual(array('ID_CARRERA_MATERIA'=>$contenido['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$contenido['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$contenido['ID_GRUPO'], 'ID_PLANTILLA'=>$contenido['ID_PLANTILLA']));
+                    $contenidos[$key]['PERIODO']=$contenido['FECHA_TUTORIA1'];
+
+                    $fecha_fin='';
+                    $fechast=$contenido['FECHA_TUTORIA2'].'+'.$contenido['FECHA_TUTORIA3'].'+'.$contenido['FECHA_TUTORIA4'].'+'.$contenido['FECHAS_TUTORIA'];
+                    $vector_ft=explode('+',$fechast);
+                    $contenidos[$key]['HOY']=0;
+                    if($contenido['FECHA_TUTORIA1']==date('Y-m-d')){
+                        $contenidos[$key]['HOY']=1;
+                    }
+                    foreach($vector_ft as $ft){
+                        if($ft!='' and $ft!=NULL and $ft!='0000-00-00'){
+                            $fecha_fin=$ft;
+                        }
+                        if($ft==date('Y-m-d')){
+                            $contenidos[$key]['HOY']=1;
+                        }
+                    }
+                    if($fecha_fin!=''){
+                        $contenidos[$key]['PERIODO'].='<br>'.$fecha_fin;
+                    }
+                    $contenidos[$key]['BLOQUEO_FECHA']=0;
+                    if($perfil==5 or $perfil==12){//vista estudiante y coordinador
+                        $fecha_inicio=date_create($contenido['FECHA_TUTORIA1'].' 00:00:00');
+                        $fecha_actual=date_create(date('Y-m-d H:i:s'));
+                        if($fecha_inicio>$fecha_actual){
+                            $contenidos[$key]['BLOQUEO_FECHA']=1;
+                        }
+                    }
+                    $log_guia = $this->academico_model->getLogGuia($id_estudiante_carrera_materia);
+                    if(count($contenidos)>0 and $matricula!=NULL and $matricula['ESTADO']==0){
+                        $contenidos[$key]['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+                        $contenidos[$key]['BLOQUEO']=0;
+                        if($log_guia['ID_LOG_GUIA']==NULL){
+                            $contenidos[$key]['BLOQUEO']=1;
+                        }
+                    }
+
+					if($contenido['ID_PLANTILLA']>0){
+                        $pla=$this->academico_model->get_plantilla($contenido['ID_PLANTILLA']);
+                        if($pla!=NULL){
+                            $data['materia']['MATERIA']=$contenido['MATERIA'].'<p class="text-success">'.$pla['PLANTILLA'].'</p>';
+                        }
+                    }
+
+					//EXAMENES MATERIA
+					$data['examenes'] = $this->getExamenesMateriaEstudiante($id_persona_estudiante, $id_estudiante_carrera_materia, $contenido['ID_PLANTILLA']);
+					$data['supletorios'] = $this->getSupletoriosMateriaEstudiante($id_persona_estudiante, $id_estudiante_carrera_materia, $contenido['ID_PLANTILLA']);
+					$data['remediales'] = $this->getRemedialesMateriasEstudiante($id_persona_estudiante, $id_estudiante_carrera_materia);
+                }
+
+                $data['contenido'] = $contenidos[0];
+                $data['material_apoyo'] = $this->academico_model->get_material_apoyo(array('ID_PLANIFICACION'=>$id_planificacion));
+            }else{
+                $data['contenido'] = array();
+                $data['material_apoyo'] = array();
+            }
+
+            //JUSTIFICACION MATERIAS
+            $d['ID_PERSONA']=$id_persona_estudiante;
+            $d['id_periodo_academico'] = $id_periodo_academico;
+            $d['id_carrera'] = $data['materia']['ID_CARRERA'];
+            $d['grupo'] = $data['materia']['GRUPO'];
+            $d['ID_ESTUDIANTE_CARRERA_MATERIA'] = $id_estudiante_carrera_materia;
+            $d['justificando'] = 1;
+            $data['justificaciones'] = $this->academico_model->buscar_alumno_materia($d);
+            $datos1=$this->cabeceraEva();
+            $this->load->view('templates/headerEva',$datos1);
+            $this->load->view('academico/detalleMateriaEstudiante',$data);
+            $this->load->view('templates/footerEva');
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    public function detalleMateriaDocente($idPlanificacion){
+        if($this->session->userdata('loggeado')){
+            $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+            $perfil=$this->perfil_model->get_perfil($idusuario);
+            $id_persona = $this->session->userdata('loggeado')['ID_PERSONA'];
+            $id_periodo_academico = $this->academico_model->get_periodo_activado();
+            $materia = $this->academico_model->buscar_materia_calificar($idPlanificacion);
+            $data['contenido'] = array();
+            $data['docente'] = array();
+            $data['materia'] = array();
+            $data['material_apoyo'] = array();
+            if (count($materia)>0){
+                $materia = $materia[0];
+
+                $docente_materia = $this->academico_model->getDocenteMateria($materia['ID_CARRERA_MATERIA'], $materia['ID_PERSONA']);
+                $data['docente'] = $docente_materia[0];
+                $data_c['ID_PERIODO_ACADEMICO'] = $id_periodo_academico;
+                $data_c['ID_CARRERA'] = trim($this->input->post('id_carrera'));
+                $data_c['ID_NIVEL'] = trim($this->input->post('id_nivel'));
+                $data_c['GRUPO'] = trim($this->input->post('grupo'));
+                $data_c['ID_PERSONA'] = $id_persona;
+                $data_c['ID_PLANIFICACION'] = $idPlanificacion;
+                $contenidos = $this->academico_model->listado_contenido($data_c);
+
+                foreach($contenidos as $key=>$contenido){
+                    // $contenidos[$key]['num_tareas']=$this->academico_model->num_tareas_estudiantes($silabo_tarea['ID_DOCENTE_CARRERA_MATERIA'],$silabo_tarea['ID_GRUPO']);
+                    $dato_contenido=$this->academico_model->getContenidoMateria($contenido['ID_CARRERA_MATERIA'],$contenido['ID_PERIODO_ACADEMICO'],$contenido['ID_PLANTILLA']);
+                    $num_retos=0;
+                    $num_proyectos=0;
+                    $num_talleres = 0;
+                    if($dato_contenido!=NULL){
+                        $contenidos[$key]=array_merge($contenidos[$key], $dato_contenido);
+                        $dat['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                        $dat['TIPO']='0';
+                        $num_retos=count($this->academico_model->getRetosProyectosContenido($dat));
+                        $dat['TIPO']=1;
+                        $num_proyectos=count($this->academico_model->getRetosProyectosContenido($dat));
+                        // $num_talleres = count($this->academico_model->buscar_talleres(array('ID_PLANIFICACION'=>$contenido['ID_PLANIFICACION'])));
+                        $num_talleres = count($this->academico_model->buscar_talleres(array('ID_CARRERA_MATERIA'=>$contenido['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$contenido['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$contenido['ID_GRUPO'],'ID_PLANTILLA'=>$contenido['ID_PLANTILLA'])));
+                    }
+
+
+                    $contenidos[$key]['num_retos']     = $num_retos;
+                    $contenidos[$key]['num_proyectos'] = $num_proyectos;
+                    $contenidos[$key]['num_talleres']  = $num_talleres;
+                    // $contenidos[$key]['aulaVirtual']   = $this->academico_model->buscar_aulaVirtual(array('ID_PLANIFICACION'=>$contenido['ID_PLANIFICACION']));
+                    $contenidos[$key]['aulaVirtual']   = $this->academico_model->buscar_aulaVirtual(array('ID_CARRERA_MATERIA'=>$contenido['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$contenido['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$contenido['ID_GRUPO'],'ID_PLANTILLA'=>$contenido['ID_PLANTILLA']));
+                    $contenidos[$key]['PERIODO']=$contenido['FECHA_TUTORIA1'];
+
+                    $fecha_fin='';
+                    $fechast=$contenido['FECHA_TUTORIA2'].'+'.$contenido['FECHA_TUTORIA3'].'+'.$contenido['FECHA_TUTORIA4'].'+'.$contenido['FECHAS_TUTORIA'];
+                    $vector_ft=explode('+',$fechast);
+                    $contenidos[$key]['HOY']=0;
+                    if($contenido['FECHA_TUTORIA1']==date('Y-m-d')){
+                        $contenidos[$key]['HOY']=1;
+                    }
+                    foreach($vector_ft as $ft){
+                        if($ft!='' and $ft!=NULL and $ft!='0000-00-00'){
+                            $fecha_fin=$ft;
+                        }
+                        if($ft==date('Y-m-d')){
+                            $contenidos[$key]['HOY']=1;
+                        }
+                    }
+                    if($fecha_fin!=''){
+                        $contenidos[$key]['PERIODO'].='<br>'.$fecha_fin;
+                    }
+
+                    if($contenido['ID_PLANTILLA']>0){
+                        $pla=$this->academico_model->get_plantilla($contenido['ID_PLANTILLA']);
+                        if($pla!=NULL){
+                            $contenidos[$key]['MATERIA']=$contenido['MATERIA'].'<br>'.$pla['PLANTILLA'];
+							$materia['MATERIA'] = $materia['MATERIA'].'<p class="text-success">'.$pla['PLANTILLA'].'</p>';
+                        }
+                    }
+                    $contenidos[$key]['BLOQUEO_FECHA']=0;
+                }
+                $data['contenido'] = $contenidos[0];
+                $data['material_apoyo'] = $this->academico_model->get_material_apoyo(array('ID_PLANIFICACION'=>$idPlanificacion));
+				$data['estadistica'] = $this->estadisticasDocente($idPlanificacion);
+				// print_r($data['estadistica']);
+            }
+            $data['perfil'] = $perfil;
+            $data['materia'] = $materia;    
+            $datos1=$this->cabeceraEva();
+            $this->load->view('templates/headerEva',$datos1);
+            $this->load->view('academico/detalleMateriaDocente',$data);
+            $this->load->view('templates/footerEva');
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getExamenesMateriaEstudiante($id_persona, $id_estudiante_carrera_materia, $id_plantilla){
+        $clases_examenes=array();
+        $dat=array();
+        $usuario=$this->session->userdata('loggeado');
+        if($usuario['ID_PERFIL']==5){
+            $dat['ID_PERSONA']=$id_persona;
+            $dat['ESTADO_ESTUDIANTE']='0';
+			$dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+			if($id_plantilla>0){
+				$dat['ID_PLANTILLA']=$id_plantilla;
+			}
+        }
+        $estadosExamen=array(-1=>'Pendiente',0=>'En Proceso',1=>'Realizado');
+        $fecha_actual=date_create(date('Y-m-d H:i:s'));
+        $listado=array();
+        $clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+        foreach($clases_examenes as $k=>$ce){
+            $clases_examenes[$k]['ETAPA']=1;
+            $clases_examenes[$k]['TIPO']='';
+            //verifico si ya tiene examen personalizado el estudiante
+            $clases_examenes[$k]['ESTADO']='Pendiente';
+            $clases_examenes[$k]['CALIFICACION']='';
+            $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$ce['ID_ESTUDIANTE_CARRERA_MATERIA'],'ETAPA'=>1,'ID_PLANTILLA'=>$ce['ID_PLANTILLA']));
+            if(count($examenes_estudiante)>0){
+                $ee=$examenes_estudiante[0];
+                if($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==1){
+                    $clases_examenes[$k]['ESTADO']='Realizado';
+                    $clases_examenes[$k]['CALIFICACION']=number_format(floatval($ee['CALIFICACION']),2);
+                }elseif($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==0){
+                    $clases_examenes[$k]['ESTADO']='En Proceso';
+                }elseif($ee['TIPO_EXAMEN']==1){
+                    $clases_examenes[$k]['ESTADO']='Impreso';
+                }
+            }
+
+            $clases_examenes[$k]['FECHA_HORA_EXAMEN']=NULL;
+
+            if(isset($v_dato_contenido[$ce['ID_CARRERA_MATERIA']])){
+                $dato_contenido=$v_dato_contenido[$ce['ID_CARRERA_MATERIA']];
+            }else{
+                $dato_contenido=$this->academico_model->getContenidoMateria($ce['ID_CARRERA_MATERIA'],$ce['ID_PERIODO_ACADEMICO'],$ce['ID_PLANTILLA']);
+                if(isset($dato_contenido['DURACION_EXAMEN']) and $dato_contenido['DURACION_EXAMEN']<=0){
+                    $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                    $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                }
+                $v_dato_contenido[$ce['ID_CARRERA_MATERIA']]=$dato_contenido;
+            }
+
+            if($dato_contenido!=NULL){
+                /*if($dato_contenido['DURACION_EXAMEN']<=0){
+                    $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                    $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                }*/
+                if($dato_contenido['DURACION_EXAMEN']>0 and $ce['FECHA_EXAMEN']!=NULL and $ce['FECHA_EXAMEN']!='0000-00-00' and $ce['HORA_EXAMEN']!='' and $ce['HORA_EXAMEN']!=NULL){
+                    $fi_examen = date_create($ce['FECHA_EXAMEN'].' '.$ce['HORA_EXAMEN'].':00');
+                    $fi_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    $clases_examenes[$k]['FECHA_HORA_EXAMEN']=$ce['FECHA_EXAMEN'].' '.$ce['HORA_EXAMEN'].' a '.$fi_examen->format('H:i');
+                }
+            }
+            $clases_examenes[$k]['FECHA_APLAZADO']='';
+            $examenes_estudiante_aplazados=$this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$ce['ID_ESTUDIANTE_CARRERA_MATERIA'],'ETAPA'=>1,'ID_PLANTILLA'=>$ce['ID_PLANTILLA']));
+            if(count($examenes_estudiante_aplazados)>0){//si tiene fecha aplazado
+                $aplazo=$examenes_estudiante_aplazados[0];
+                $clases_examenes[$k]['FECHA_APLAZADO']=$aplazo['FECHA_APLAZADO'].'<br>'.$aplazo['HORA_APLAZADO'];
+                if(isset($dato_contenido['DURACION_EXAMEN']) and $dato_contenido['DURACION_EXAMEN']>0 and $aplazo['FECHA_APLAZADO']!=NULL and $aplazo['FECHA_APLAZADO']!='0000-00-00' and $aplazo['HORA_APLAZADO']!='' and $aplazo['HORA_APLAZADO']!=NULL){
+                    $ff_aplazo = date_create($aplazo['FECHA_APLAZADO'].' '.$aplazo['HORA_APLAZADO'].':00');
+                    if($aplazo['DURACION_EXAMEN']!=NULL and $aplazo['DURACION_EXAMEN']>0){
+                        $ff_aplazo->modify('+ '.$aplazo['DURACION_EXAMEN'].' minute');
+                    }else{
+                        $ff_aplazo->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                    $clases_examenes[$k]['FECHA_APLAZADO'].=' a '.$ff_aplazo->format('H:i');
+                }
+            }
+            $clases_examenes[$k]['BLOQUEO_FECHA']=0;
+            if($usuario['ID_PERFIL']==5 and $ce['FECHA_EXAMEN']!=NULL and $ce['FECHA_EXAMEN']!=''){//vista estudiante
+                $fi_examen=date_create($ce['FECHA_EXAMEN'].' 00:00:00');
+                if($fi_examen>$fecha_actual){
+                    $clases_examenes[$k]['BLOQUEO_FECHA']=1;
+                }
+            }
+            $clases_examenes[$k]['EXAMEN_HOY']=0;
+            if($clases_examenes[$k]['FECHA_EXAMEN']==date('Y-m-d') or (count($examenes_estudiante_aplazados)>0 and $aplazo['FECHA_APLAZADO']==date('Y-m-d'))){
+                //if($clases_examenes[$k]['FECHA_EXAMEN']==date('Y-m-d') or $ce['FECHA_APLAZADO']==date('Y-m-d')){
+                $clases_examenes[$k]['EXAMEN_HOY']=1;
+            }
+        }
+        return $clases_examenes;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getSupletoriosMateriaEstudiante($id_persona, $id_estudiante_carrera_materia, $id_plantilla){
+        $clases_examenes=array();
+        $dat=array();
+        $usuario=$this->session->userdata('loggeado');
+        if($usuario['ID_PERFIL']==5){
+            $dat['ID_PERSONA']=$id_persona;
+            $dat['ESTADO_ESTUDIANTE']='0';
+            $dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+			if($id_plantilla>0){
+				$dat['ID_PLANTILLA']=$id_plantilla;
+			}
+        }
+        $estadosExamen=array(-1=>'Pendiente',0=>'En Proceso',1=>'Realizado');
+        $fecha_actual=date_create(date('Y-m-d H:i:s'));
+        $listado=array();
+        $clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+        foreach($clases_examenes as $k=>$ce){
+            $clases_examenes[$k]['ETAPA']=0;
+            $clases_examenes[$k]['TIPO']='';
+            //verifico si ya tiene supletorio personalizado el estudiante
+            $clases_examenes[$k]['ESTADO']='Pendiente';
+            $clases_examenes[$k]['CALIFICACION']='';
+            $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$ce['ID_ESTUDIANTE_CARRERA_MATERIA'],'ETAPA'=>'0'));
+            if(count($examenes_estudiante)>0){
+                $ee=$examenes_estudiante[0];
+                if($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==1){
+                    $clases_examenes[$k]['ESTADO']='Realizado';
+                    $clases_examenes[$k]['CALIFICACION']=number_format(floatval($ee['CALIFICACION']),2);
+                }elseif($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==0){
+                    $clases_examenes[$k]['ESTADO']='En Proceso';
+                }elseif($ee['TIPO_EXAMEN']==1){
+                    $clases_examenes[$k]['ESTADO']='Impreso';
+                }
+            }
+            $clases_examenes[$k]['FECHA_HORA_SUPLETORIO']=NULL;
+            $dato_contenido=$this->academico_model->getContenidoMateria($ce['ID_CARRERA_MATERIA'],$ce['ID_PERIODO_ACADEMICO']);
+            if($dato_contenido!=NULL){
+                if($dato_contenido['DURACION_EXAMEN']<=0){
+                    $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                    $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                }
+                if($dato_contenido['DURACION_EXAMEN']>0 and $ce['FECHA_SUPLETORIO']!=NULL and $ce['FECHA_SUPLETORIO']!='0000-00-00' and $ce['HORA_SUPLETORIO']!='' and $ce['HORA_SUPLETORIO']!=NULL){
+                    $fi_examen = date_create($ce['FECHA_SUPLETORIO'].' '.$ce['HORA_SUPLETORIO'].':00');
+                    $fi_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    $clases_examenes[$k]['FECHA_HORA_SUPLETORIO']=$ce['FECHA_SUPLETORIO'].'<br>'.$ce['HORA_SUPLETORIO'].' a '.$fi_examen->format('H:i');
+                }
+            }
+            $clases_examenes[$k]['FECHA_APLAZADO']='';
+            $examenes_estudiante_aplazados=$this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$ce['ID_ESTUDIANTE_CARRERA_MATERIA'],'ETAPA'=>'0'));
+            if(count($examenes_estudiante_aplazados)>0){//si tiene fecha aplazado
+                $aplazo=$examenes_estudiante_aplazados[0];
+                $clases_examenes[$k]['FECHA_APLAZADO']=$aplazo['FECHA_APLAZADO'].'<br>'.$aplazo['HORA_APLAZADO'];
+                if(isset($dato_contenido['DURACION_EXAMEN']) and $dato_contenido['DURACION_EXAMEN']>0 and $aplazo['FECHA_APLAZADO']!=NULL and $aplazo['FECHA_APLAZADO']!='0000-00-00' and $aplazo['HORA_APLAZADO']!='' and $aplazo['HORA_APLAZADO']!=NULL){
+                    $ff_aplazo = date_create($aplazo['FECHA_APLAZADO'].' '.$aplazo['HORA_APLAZADO'].':00');
+                    if($aplazo['DURACION_EXAMEN']!=NULL and $aplazo['DURACION_EXAMEN']>0){
+                        $ff_aplazo->modify('+ '.$aplazo['DURACION_EXAMEN'].' minute');
+                    }else{
+                        $ff_aplazo->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                    $clases_examenes[$k]['FECHA_APLAZADO'].=' a '.$ff_aplazo->format('H:i');
+                }
+            }
+            $clases_examenes[$k]['BLOQUEO_FECHA']=0;
+            if($usuario['ID_PERFIL']==5 and $ce['FECHA_SUPLETORIO']!=NULL and $ce['FECHA_SUPLETORIO']!=''){//vista estudiante
+                $fi_examen=date_create($ce['FECHA_SUPLETORIO'].' 00:00:00');
+                if($fi_examen>$fecha_actual){
+                    $clases_examenes[$k]['BLOQUEO_FECHA']=1;
+                }
+            }
+            $clases_examenes[$k]['EXAMEN_HOY']=0;
+            if($clases_examenes[$k]['FECHA_SUPLETORIO']==date('Y-m-d') or (count($examenes_estudiante_aplazados)>0 and $aplazo['FECHA_APLAZADO']==date('Y-m-d'))){
+                $clases_examenes[$k]['EXAMEN_HOY']=1;
+            }
+
+            //verificar que este en supletorio
+            $dats['ID_ESTUDIANTE_CARRERA_MATERIA']=$ce['ID_ESTUDIANTE_CARRERA_MATERIA'];
+            $dats['ID_TIPO_CALIFICACION']=6;
+            $supletorio=$this->academico_model->buscar_calificacion($dats);
+//            print_r($examenes_estudiante);
+            if(count($supletorio)>0){
+                if($supletorio[0]['ESTADO_CALIFICACION']==0 or count($examenes_estudiante)>0){
+                    //$listado[]=$clases_examenes[$k];
+                    if(isset($estado_examen) and $estado_examen!=''){
+                        if($clases_examenes[$k]['ESTADO']==$estadosExamen[$estado_examen]){
+                            $listado[]=$clases_examenes[$k];
+                        }
+                    }else{
+                        $listado[]=$clases_examenes[$k];
+                    }
+                }
+            }
+
+        }
+//        print_r($listado);
+        return $listado;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getRemedialesMateriasEstudiante($id_persona, $id_estudiante_carrera_materia){
+        $clases_examenes=array();
+        $dat=array();
+        $usuario=$this->session->userdata('loggeado');
+        if($usuario['ID_PERFIL']==5){
+            $dat['ID_PERSONA']=$id_persona;
+            $dat['ESTADO_ESTUDIANTE']='0';
+            $dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+        }
+        $fecha_actual=date_create(date('Y-m-d H:i:s'));
+        $clases_examenes = $this->academico_model->buscar_alumno_remedial($dat);
+        $listado=array();
+        foreach($clases_examenes as $k=>$ce){
+            //verifico si ya tiene supletorio personalizado el estudiante
+            $clases_examenes[$k]['ESTADO']='';
+            $clases_examenes[$k]['CALIFICACION']='';
+            $fecha='';
+            $hora='';
+            $examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$ce['ID_ESTUDIANTE_CARRERA_MATERIA']));
+            if($ce['ESTADO_CALIFICACION']==2 or count($examenes_estudiante)>0){
+                //tiene remedial
+                if(count($examenes_estudiante)>0){
+                    $ee=$examenes_estudiante[count($examenes_estudiante)-1];//utlimo remedial
+                    if($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==1){
+                        $clases_examenes[$k]['ESTADO']='Realizado';
+                        $clases_examenes[$k]['CALIFICACION']=number_format(floatval($ee['CALIFICACION']),2);
+                    }elseif($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==0 and $ee['IDS_PREGUNTA_CONTENIDO']!=NULL){
+                        $clases_examenes[$k]['ESTADO']='En Proceso';
+                    }elseif($ee['TIPO_EXAMEN']==0 and $ee['ESTADO']==0){
+                        $clases_examenes[$k]['ESTADO']='Pendiente';
+                    }elseif($ee['TIPO_EXAMEN']==1){
+                        $clases_examenes[$k]['ESTADO']='Impreso';
+                    }
+                    $fecha=$ee['FECHA'];
+                    $hora=$ee['HORA'];
+                }
+                $clases_examenes[$k]['FECHA_HORA_REMEDIAL']=NULL;
+                $dato_contenido=$this->academico_model->getContenidoMateria($ce['ID_CARRERA_MATERIA'],$ce['ID_PERIODO_ACADEMICO']);
+                if($dato_contenido!=NULL and $fecha!='' and $hora!=''){
+                    if($dato_contenido['DURACION_EXAMEN']<=0){
+                        $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                        $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                    }
+                    if($dato_contenido['DURACION_EXAMEN']>0 and $fecha!=NULL and $fecha!='0000-00-00' and $hora!='' and $hora!=NULL){
+                        $fi_examen = date_create($fecha.' '.$hora.':00');
+                        $fi_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                        $clases_examenes[$k]['FECHA_HORA_REMEDIAL']=$fecha.' '.$hora.' a '.$fi_examen->format('H:i');
+                    }
+                }
+                $clases_examenes[$k]['EXAMEN_HOY']=0;
+                if($fecha==date('Y-m-d')){
+                    $clases_examenes[$k]['EXAMEN_HOY']=1;
+                }
+                $listado[]=$clases_examenes[$k];
+            }
+        }
+        //echo json_encode($clases_examenes);
+        return $listado;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function gestionContenidoMateria($idPlanificacion)
+    {
+        $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+        if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,101)){
+            $usuario=$this->session->userdata('loggeado');
+            $perfil=$this->session->userdata('loggeado')['ID_PERFIL'];
+            if(!$this->input->is_ajax_request()) {
+                $contenidos = $this->academico_model->listado_contenido(array('ID_PLANIFICACION'=>$idPlanificacion));
+                if(count($contenidos)>0){
+                    $contenido=$contenidos[0];
+                    $fecha_fin='';
+                    $fechast=$contenido['FECHA_TUTORIA2'].'+'.$contenido['FECHA_TUTORIA3'].'+'.$contenido['FECHA_TUTORIA4'].'+'.$contenido['FECHAS_TUTORIA'];
+                    $vector_ft=explode('+',$fechast);
+                    foreach($vector_ft as $ft){
+                        if($ft!='' and $ft!=NULL and $ft!='0000-00-00'){
+                            $fecha_fin=$ft;
+                        }
+                    }
+                    $contenido['FECHA_FIN']=$fecha_fin;
+                    $dato_contenido=$this->academico_model->getContenidoMateria($contenido['ID_CARRERA_MATERIA'],$contenido['ID_PERIODO_ACADEMICO'],$contenido['ID_PLANTILLA']);
+                    $retos=array();
+                    $proyectos = array();
+					$talleres = array();
+                    if($dato_contenido!=NULL){
+                        //RETOS
+                        $dat['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                        $dat['TIPO']='0';
+                        $retos=$this->academico_model->getRetosProyectosContenido($dat);
+                        if($perfil==5){
+                            ///agregar datos de respuesta
+                            foreach($retos as $key=>$reto){
+                                $data_respuesta['ID_RETO_CONTENIDO']=$reto['ID_RETO_PROYECTO_CONTENIDO'];
+                                $data_respuesta['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
+                                $respuestas=$this->academico_model->buscar_retos_estudiantes($data_respuesta);
+                                if($respuestas==NULL){
+                                    $retos[$key]['respuesta']=NULL;
+                                }else{
+                                    $retos[$key]['respuesta']=$respuestas[0];
+                                }
+                                $aplazos=$this->academico_model->getAplazoContenido($this->session->userdata('loggeado')['ID_PERSONA'],'0',$reto['ID_RETO_PROYECTO_CONTENIDO']);
+                                if(count($aplazos)>0){
+                                    $retos[$key]['FECHA_APLAZADA']=$aplazos[0]['FECHA_APLAZADA'];
+                                }
+                            }
+                        }
+
+                        //FIN RETOS
+
+                        //PROYECTOS
+                        $num_proyectos_asignar=1;
+                        $dat['TIPO']='1';
+                        $proyectos=$this->academico_model->getRetosProyectosContenido($dat);
+                        if($perfil==5){
+                            $idPersona = $this->session->userdata('loggeado')['ID_PERSONA'];
+                            $proyectos_asignados=$this->academico_model->proyectos_realizados_estudiante($idPersona,$dato_contenido['ID_CONTENIDO']);
+                            //asignar proyecto al estudiante
+                            if(count($proyectos_asignados)<$num_proyectos_asignar and count($proyectos)>0){
+                                $indice=rand(0,(count($proyectos)-1));
+                                $dat_proyecto_asignado['ID_PROYECTO_CONTENIDO']=$proyectos[$indice]['ID_RETO_PROYECTO_CONTENIDO'];
+                                $dat_proyecto_asignado['ID_PERSONA']=$idPersona;
+                                $this->academico_model->crearRespuestaProyecto($dat_proyecto_asignado);
+                            }
+                            ///agregar datos de respuesta
+                            foreach($proyectos as $k=>$proyecto){
+                                $idProyectoContenido=$proyecto['ID_RETO_PROYECTO_CONTENIDO'];
+                                $aplazos=$this->academico_model->getAplazoContenido($idPersona,1,$idProyectoContenido);
+                                if(count($aplazos)>0){
+                                    $proyectos[$k]['FECHA_APLAZADA']=$aplazos[0]['FECHA_APLAZADA'];
+                                }
+                                $respuestas=$this->academico_model->proyectos_realizados_estudiante($idPersona,null,$idProyectoContenido);
+                                if(count($respuestas)>0){
+                                    $proyectos[$k]['respuesta']=$respuestas[0];
+                                }else{
+                                    unset($proyectos[$k]);
+                                }
+                            }
+                        }else{
+                            //estudiantes del grupo
+                            $dat_e['ID_CARRERA_MATERIA']=$contenido['ID_CARRERA_MATERIA'];
+                            $dat_e['ID_PERIODO_ACADEMICO']=$contenido['ID_PERIODO_ACADEMICO'];
+                            $dat_e['ID_GRUPO']=$contenido['ID_GRUPO'];
+                            if($usuario['ID_PERFIL']==12){
+                                $dat_e['ID_USUARIO_ACADEMICO']=$usuario['ID_USUARIO'];
+                            }
+                            $estudiantes=$this->academico_model->get_estudiantes($dat_e);
+                            $ids_persona=array();
+                            foreach($estudiantes as $estudiante){
+
+                                $idPersona = $estudiante['ID_PERSONA'];
+                                $proyectos_asignados=$this->academico_model->proyectos_realizados_estudiante($idPersona,$dato_contenido['ID_CONTENIDO']);
+                                //asignar proyecto al estudiante
+                                if(count($proyectos_asignados)<$num_proyectos_asignar and count($proyectos)>0){
+                                    $indice=rand(0,(count($proyectos)-1));
+                                    $dat_proyecto_asignado['ID_PROYECTO_CONTENIDO']=$proyectos[$indice]['ID_RETO_PROYECTO_CONTENIDO'];
+                                    $dat_proyecto_asignado['ID_PERSONA']=$idPersona;
+                                    $this->academico_model->crearRespuestaProyecto($dat_proyecto_asignado);
+                                    //$asignados.=$estudiante['ESTUDIANTE'].' -> '.$contenido['MATERIA'].'<br>';
+                                }
+
+                                $ids_persona[]=$estudiante['ID_PERSONA'];
+                            }
+                            $vec_id_persona=implode(',',$ids_persona);
+                            foreach($proyectos as $k=>$proyecto){
+                                if(count($ids_persona)>0){
+                                    $proyectos[$k]['num_respuestas'] = $this->academico_model->num_respuestasProyectos_estudiantes($proyecto['ID_RETO_PROYECTO_CONTENIDO'],$vec_id_persona);
+                                }else{
+                                    $proyectos[$k]['num_respuestas'] = 0;
+                                }
+                            }
+                        }
+                        //FIN PROYECTOS
+                    }
+
+                    ///agregar numero de retos
+                    foreach($retos as $k=>$reto){
+                        $retos[$k]['NumPreguntas']=$this->academico_model->numRetosPreguntasContenido($reto['ID_RETO_PROYECTO_CONTENIDO']);
+                    }
+
+                    //TALLERES
+                    $cabecera_taller = $this->academico_model->get_docente_carrera_materia_grupo_planificacion(array('ID_PLANIFICACION'=>$idPlanificacion));
+                    $talleres  = $this->academico_model->buscar_talleres(array('ID_CARRERA_MATERIA'=>$cabecera_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$cabecera_taller['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$cabecera_taller['ID_GRUPO'],'ID_PLANTILLA'=>$cabecera_taller['ID_PLANTILLA']));
+                    if($perfil==5){
+                        foreach ($talleres as $kt => $taller) {
+                            $data_respuesta['ID_TALLER']    = $taller['ID_TALLER'];
+                            $data_respuesta['ID_PERSONA']   = $this->session->userdata('loggeado')['ID_PERSONA'];
+
+                            $respuestas=$this->academico_model->buscar_respuestas_taller($data_respuesta);
+                            if($respuestas==NULL){
+                                $talleres[$kt]['respuesta'] = NULL;
+                            }else{
+                                $talleres[$kt]['respuesta'] = $respuestas[0];
+                            }
+                            $data_respuesta['ID']   = $taller['ID_TALLER'];
+                            $data_respuesta['TIPO'] = 2;
+                            $fechaAplazada = $this->academico_model->buscar_fechaAplazada_taller_por_estudiante($data_respuesta);
+                            $talleres[$kt]['FECHA_APLAZADA'] = $fechaAplazada['FECHA_APLAZADA'];
+                            // $talleres[$kt]['FECHA_LIMITE']   = $fecha_fin;
+                        }
+                    }else{
+                        $id_usuario_academico=null;
+                        if($perfil==12){
+                            $id_usuario_academico=$idusuario;
+                        }
+                        foreach($talleres as $kt => $taller){
+                            $talleres[$kt]['num_respuestas'] = $this->academico_model->num_respuestasTalleres_estudiantes($taller['ID_TALLER'],$id_usuario_academico);
+                        }
+                    }
+                    $cabecera_taller['FECHA_LIMITE_TUTORIA'] = $fecha_fin;
+
+                    $fechaCierre=$this->academico_model->get_fecha_cierre(array('ID_GRUPO'=>$cabecera_taller['ID_GRUPO'],'ID_MATERIA'=>$cabecera_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$cabecera_taller['ID_PERIODO_ACADEMICO'],'ID_PLANTILLA'=>$cabecera_taller['ID_PLANTILLA']));
+                    $calificacion_cerrada=0;
+                    if(count($fechaCierre)>0){
+                        if($fechaCierre['FECHA_APLAZADO']!='0000-00-00'){
+                            $datetime1 = date_create($fechaCierre['FECHA_APLAZADO'].' 23:59:59');
+                        }else{
+                            $datetime1 = date_create($fechaCierre['FECHA_CIERRE'].' 23:59:59');
+                        }
+                        $datetime2 = date_create(date('Y-m-d H:i:s'));
+                        if($datetime1<$datetime2){
+                            $calificacion_cerrada=1;
+                        }
+                    }
+                    $datos['calificacion_cerrada_talleres'] = $calificacion_cerrada;
+                    $datos['talleres']        = $talleres;
+                    $datos['cabecera_taller'] = $cabecera_taller;
+                    $datos['estudiantes_taller']     = $this->academico_model->get_estudiantes(array('ID_CARRERA_MATERIA'=>$cabecera_taller['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$cabecera_taller['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$cabecera_taller['ID_GRUPO']));
+
+                    //FIN TALLERES
+
+                    $idPeriodo=$this->academico_model->get_periodo_activado();
+                    $periodo=$this->academico_model->getPeriodo($idPeriodo);
+                    $datos['fecha_max']=$periodo['FECHA_FIN'];//fecha fin de periodo
+                    $datos['contenido']  = $contenido;
+                    $datos['proyectos']  = $proyectos;
+                    $datos['retos']  = $retos;
+                    $datos['perfil']  = $perfil;
+                    $d['ID_CARRERA_MATERIA'] = $contenido['ID_CARRERA_MATERIA'];
+                    $d['ID_PERIODO_ACADEMICO'] = $contenido['ID_PERIODO_ACADEMICO'];
+                    $d['ID_GRUPO'] = $contenido['ID_GRUPO'];
+                    if ($perfil == 5){//estudiante
+                        $d['ID_PERSONA'] = $this->session->userdata('loggeado')['ID_PERSONA'];
+                    }elseif($perfil == 4){//docente
+                        $d['ID_PERSONA_DOCENTE'] = $contenido['ID_PERSONA'];
+                    }
+                    $datos['materia'] = $this->academico_model->get_estudianteCarreraMateria($d);
+                    $datos['materia']['ID_PLANIFICACION'] = $idPlanificacion;
+                    
+					$plantilla = $this->academico_model->get_plantilla_materia(array('ID_PLANTILLA'=>$contenido['ID_PLANTILLA']));
+                    if (count($plantilla)>0){
+                        $datos['contenido']['MATERIA']= $contenido['MATERIA'].'<p class="text-success">'.$plantilla[0]['PLANTILLA'].'</p>';
+                    }
+                    $datos1=$this->cabeceraEva();
+                    $this->load->view('templates/headerEva',$datos1);
+                    $this->load->view('gestionContenidoMateria',$datos);
+                    $this->load->view('templates/footerEva');
+                }else{
+                    echo 'Acceso Denegado';
+                }
+            }
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getExamenRemedialEstudiante(){
+        $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+        if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,99)){
+            $usuario=$this->session->userdata('loggeado');
+            $id_estudiante_carrera_materia = trim($this->input->post('id_estudiante_carrera_materia'));
+            $dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+            $clases_examenes=array();
+            if($id_estudiante_carrera_materia!=NULL and $id_estudiante_carrera_materia!='' and $id_estudiante_carrera_materia>0){
+                $clases_examenes = $this->academico_model->buscar_alumno_remedial($dat);
+            }
+
+            $idRubro=22;//Remedial
+            $arancelExamenRemedial = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
+            $texto_arancel='';
+            if(count($arancelExamenRemedial)>0 and isset($arancelExamenRemedial[count($arancelExamenRemedial)-1]['NOMBRE_ARANCEL']) and ($arancelExamenRemedial[count($arancelExamenRemedial)-1]['ESTADO'] == '0' or $arancelExamenRemedial[count($arancelExamenRemedial)-1]['ESTADO'] == 1)){
+                $texto_arancel='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$arancelExamenRemedial[count($arancelExamenRemedial)-1]['NOMBRE_ARANCEL'].' </strong></div>';
+            }
+            $tamanio_modal = 0;
+            if($usuario['ID_PERFIL']==5 and count($clases_examenes)>0){
+                $clase_examen=$clases_examenes[0];
+
+                $tabla='<input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'">';
+                //verifico si ya tiene examen web personalizado el estudiante
+                $examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia));
+                $ultimo_indice=count($examenes_estudiante)-1;
+                if(count($examenes_estudiante)>0){
+                    $examen_estudiante=$examenes_estudiante[$ultimo_indice];
+                    $fecha_examen_inicio = $examen_estudiante['FECHA'].' '.$examen_estudiante['HORA'].':00';
+                    $ff_examen = date_create(date('Y-m-d H:i:s'));//fecha final por defecto
+                    $dato_contenido=$this->academico_model->getContenidoMateria($clase_examen['ID_CARRERA_MATERIA'],$clase_examen['ID_PERIODO_ACADEMICO']);
+                    if($dato_contenido!=NULL){
+                        if($dato_contenido['DURACION_EXAMEN']<=0){
+                            $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                            $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                        }
+                        if($dato_contenido['DURACION_EXAMEN']>0 and $examen_estudiante['FECHA']!=NULL and $examen_estudiante['FECHA']!='0000-00-00' and $examen_estudiante['HORA']!='' and $examen_estudiante['HORA']!=NULL){
+                            $ff_examen = date_create($fecha_examen_inicio);
+                            $ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                        }
+                    }
+
+                    $fi_examen = date_create($fecha_examen_inicio);
+                    $f_actual = date_create(date('Y-m-d H:i:s'));
+                    $interval = date_diff($f_actual, $ff_examen);
+                    $days = $interval->format('%a');
+                    $seconds = 0;
+                    if($days){
+                        $seconds += 24 * 60 * 60 * $days;
+                    }
+                    $hours = $interval->format('%H');
+                    if($hours){
+                        $seconds += 60 * 60 * $hours;
+                    }
+                    $minutes = $interval->format('%i');
+                    if($minutes){
+                        $seconds += 60 * $minutes;
+                    }
+                    $seconds += $interval->format('%s');
+                    $seg_interval=$seconds;
+                }
+
+                if(count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['ESTADO']==1){
+                    $tabla.='<div class="alert alert-success">Examen Realizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examenes_estudiante[$ultimo_indice]['CALIFICACION']),2).'</strong></div>';
+                    ///VISTA DE DETALLE DEL EXAMEN PARA EL ESTUDIANTES
+                    //CUANTAS HA APROBADO
+                    //CUANTAS HA SIDO INCORRECTAS
+                    //CUANTAS NO HAN CONTESTADO
+                    $examen=$examenes_estudiante[$ultimo_indice];
+                    $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                    $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                    $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                    $correcto=0;
+                    $tabla.='<div class="card"><div class="card-body">';
+                    foreach($preguntas as $k=>$p){
+                        $correcto=0;
+                        $tabla.='<div class="row">';
+                        $tabla.='<div class="col text-right" style="text-align: right">';
+                        $tabla.='<label class="text-left" style="font-size:20px;">Pregunta '.($k+1).'</label> ';
+                        $tabla.='</div>';
+                        $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                        $pe=$pregunta[0];
+                        if(isset($respuestas[$k])){
+                            $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                        }else{
+                            $opcionesSeleccionadas = array();
+                        }
+                        $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                        $correctoPregunta = 0;
+                        if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                            foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                foreach ($opcionesCorrectas as $ocorrecta){
+                                    if ($ocorrecta == $oSeleccionada){
+                                        $correctoPregunta++;
+                                    }
+                                }
+                            }
+                        }
+                        if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                            $correcto++;
+                        }
+                        $tabla.='<div class="col"  style="font-size:25px;">';
+                        if (count($opcionesSeleccionadas)==0 || $opcionesSeleccionadas[0]=="0") {
+                            //$tabla.= "No contest�";
+                            $tabla.='<i class="bi-question-circle-fill" style="color:blue;"></i>';
+                        }elseif ($correcto==0) {
+                            //$tabla.= "Incorrecto";
+                            $tabla.='<i class="bi-x-circle-fill" style="color:red;"></i>';
+                        }else{
+                            //$tabla.= "Correcto";
+                            $tabla.='<i class="bi-check-circle-fill" style="color:green;"></i>';
+                        }
+                        $tabla.='</div>';
+                        $tabla.='</div><br>';
+                    }
+                    $tabla.='</div></div>';
+                }elseif(count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['FECHA']==NULL){
+                    $tabla.=$texto_arancel.'<div class="alert alert-info">Fecha no asignada</strong></div>';
+                }elseif(count($examenes_estudiante)>0 and $f_actual<$fi_examen){
+                    $tabla.=$texto_arancel.'<div class="alert alert-info">Aun no inicia examen <strong>'.$examenes_estudiante[$ultimo_indice]['FECHA'].' '.$fi_examen->format('H:i').'</strong></div>';
+                }elseif(count($examenes_estudiante)>0 and $f_actual>$ff_examen){
+                    $tabla.=$texto_arancel.'<div class="alert alert-info">Ya finaliz&oacute; examen <strong>'.$examenes_estudiante[$ultimo_indice]['FECHA'].' '.$ff_examen->format('H:i').'</strong></div>';
+                    $idp = trim($this->input->post('idp'));
+                    if(isset($idp) and $idp==-1 and count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['ESTADO']==0){//finalizar Examen por tiempo limite
+                        $examen=$examenes_estudiante[$ultimo_indice];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                        $correcto=0;
+                        foreach($preguntas as $k=>$p){
+                            $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                            $pe=$pregunta[0];
+                            $opcionesSeleccionadas = array();
+                            if(isset($respuestas[$k])){
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                            }
+                            $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                            $correctoPregunta = 0;
+                            if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                    foreach ($opcionesCorrectas as $ocorrecta){
+                                        if ($ocorrecta == $oSeleccionada){
+                                            $correctoPregunta++;
+                                        }
+                                    }
+                                }
+                            }
+                            if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                $correcto++;
+                            }
+                        }
+                        $calificacion=round($correcto*10/count($preguntas),2);
+                        $dat_actualiza=array();
+                        $dat_actualiza['ESTADO']=1;
+                        $dat_actualiza['CALIFICACION']=$calificacion;
+                        $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                        $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                        $this->academico_model->actualizarExamenRemedial($dat_actualiza,$examen['ID_EXAMEN_REMEDIAL']);
+                        $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.$calificacion.'</strong></div>';
+                        //transpasar nota remedial
+                        $this->registraCalificacionComponente(0,$id_estudiante_carrera_materia,0,$calificacion);
+                    }
+                }else if($texto_arancel!=''){//tiene arancel remedial y no esta pagado
+                    $tabla.=$texto_arancel;
+                }else{
+                    $dato_contenido=$this->academico_model->getContenidoMateria($clase_examen['ID_CARRERA_MATERIA'],$clase_examen['ID_PERIODO_ACADEMICO']);
+                    if(count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['IDS_PREGUNTA_CONTENIDO']==NULL and $seg_interval>0){
+                        if($dato_contenido!=NULL){
+                            //verificar si existe base de preguntas para este examen
+                            $preguntas_clase=$this->academico_model->getPreguntasContenido(array('ID_CONTENIDO'=>$dato_contenido['ID_CONTENIDO'],'TIPO'=>'0'));
+                            if(count($preguntas_clase)<=0){
+                                //generar base de preguntas examen
+                                $this->generarBasePreguntasContenido(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA'],'ID_CONTENIDO'=>$dato_contenido['ID_CONTENIDO']));
+                            }
+                            //generar examen web del estudiante
+                            $this->generarExamenRemedial($examenes_estudiante[$ultimo_indice]['ID_EXAMEN_REMEDIAL'],'0',$dato_contenido['ID_CONTENIDO']);
+                            $examenes_estudiante=$this->academico_model->buscarExamenesRemediales(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia));
+                            $ultimo_indice=count($examenes_estudiante)-1;
+                        }
+                    }
+                    if(count($examenes_estudiante)>0 and $examenes_estudiante[$ultimo_indice]['IDS_PREGUNTA_CONTENIDO']!=NULL and $examenes_estudiante[$ultimo_indice]['IDS_PREGUNTA_CONTENIDO']!='' and $seg_interval>0){
+                        $tamanio_modal = 1;
+                        $idp = trim($this->input->post('idp'));
+                        $opcion_seleccionado = trim($this->input->post('op'));//respuesta
+                        $examen=$examenes_estudiante[$ultimo_indice];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+
+                        if($idp==NULL and $examen['IDS_RESPUESTA']==''){
+                            $idp=$preguntas[0];
+                        }elseif($idp==NULL){
+                            $idp=$preguntas[count($respuestas)-1];
+                        }
+                        if($opcion_seleccionado!=NULL and $opcion_seleccionado!=''){
+                            $v_opSeleccionadas = explode("+", trim($opcion_seleccionado,"+"));
+                            $indicePregunta = "0";
+
+                            $opcionesRespuestasSeleccionadas = "";
+                            foreach ($v_opSeleccionadas as $kops => $ops) {
+                                //guardar respuesta
+                                $op_select=explode('-',$ops);
+
+                                foreach($preguntas as $k=>$p){
+                                    if($p==$op_select[0]){
+                                        $opcionesRespuestasSeleccionadas .= "-".$op_select[1];
+                                        $indicePregunta = $k;
+                                        break;
+                                    }
+                                }
+                                $respuestas[$k]= trim($opcionesRespuestasSeleccionadas,"-");
+                            }
+                            if (isset($respuestas[$indicePregunta]) && $respuestas[$indicePregunta]=="") {
+                                $respuestas[$indicePregunta] =0;
+                            }
+
+                            $res_total=implode('+',$respuestas);
+                            if($res_total!=$examen['IDS_RESPUESTA']){
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_RESPUESTA']=$res_total;
+                                $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                                $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                                $this->academico_model->actualizarExamenRemedial($dat_actualiza,$examen['ID_EXAMEN_REMEDIAL']);
+                            }
+                            //cambiar de pregunta si no selecciona respuesta
+                            if($respuestas[$indicePregunta]==0){
+                                $dat_b['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                                $dat_b['ALEATORIO']=1;
+                                $dat_b['NUM_REGISTROS']=1;
+                                $dat_b['TIPO']='0';
+                                $dat_b['EXCLUIR']=$preguntas;
+                                $preguntas_estudiante=$this->academico_model->getPreguntasContenido($dat_b);
+                                if(count($preguntas_estudiante)>0){
+                                    $preguntas[$indicePregunta]=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    if(!in_array($idp,$preguntas)){
+                                        $idp=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    }
+                                    $opciones_respuesta_estudiante=$this->academico_model->getOpcionesRespuestaContenido(array('ID_PREGUNTA_CONTENIDO'=>$preguntas[$indicePregunta]));
+                                    if(count($opciones_respuesta_estudiante)>0){
+                                        shuffle($opciones_respuesta_estudiante);//desordenar las opciones de respuesta
+                                        foreach($opciones_respuesta_estudiante as $ore){
+                                            $ids_opcion_respuesta[]=$ore['ID_OPCION_RESPUESTA_CONTENIDO'];
+                                        }
+                                    }else{
+                                        $ids_opcion_respuesta[]='0';
+                                    }
+                                    $opciones[$indicePregunta]=implode('-',$ids_opcion_respuesta);
+                                }
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_PREGUNTA_CONTENIDO']=implode('+',$preguntas);
+                                $dat_actualiza['IDS_OPCION_RESPUESTA_CONTENIDO']=implode('+',$opciones);
+                                $this->academico_model->actualizarExamenRemedial($dat_actualiza,$examen['ID_EXAMEN_REMEDIAL']);
+                            }
+                        }
+                        if($idp==-1){//finalizar Examen
+                            $correcto=0;
+                            foreach($preguntas as $k=>$p){
+                                $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                $pe=$pregunta[0];
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                                $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                                $correctoPregunta = 0;
+                                if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                    foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                        foreach ($opcionesCorrectas as $ocorrecta){
+                                            if ($ocorrecta == $oSeleccionada){
+                                                $correctoPregunta++;
+                                            }
+                                        }
+                                    }
+                                }
+                                if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                    $correcto++;
+                                }
+
+                            }
+                            $calificacion=round($correcto*10/count($preguntas),2);
+                            $dat_actualiza=array();
+                            $dat_actualiza['ESTADO']=1;
+                            $dat_actualiza['CALIFICACION']=$calificacion;
+                            $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                            $this->academico_model->actualizarExamenRemedial($dat_actualiza,$examen['ID_EXAMEN_REMEDIAL']);
+                            $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($calificacion),2).'</strong></div>';
+                            //transpasar nota remedial
+                            $this->registraCalificacionComponente(0,$id_estudiante_carrera_materia,0,$calificacion);
+                        }else{//mostrar pregunta
+                            $tabla.='<div class="alert alert-info" role="alert"><table width="100%"><tr><td style="font-size:18px; color:blue">Pregunta '.(array_search($idp,$preguntas)+1).' de '.count($preguntas).'</td>';
+                            if($seg_interval>0){
+                                $tabla.='<td><div align="right" style="font-size:18px; color:blue" id="countdown"></div><script>contador('.$seg_interval.');</script></td>';
+                            }
+                            $tabla.='</tr></table></div>';
+                            foreach($preguntas as $k=>$p){
+                                if($idp==$p){
+                                    $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                    $pe=$pregunta[0];
+                                    $img='';
+                                    if($pe['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$pe['IMAGEN'])){
+                                        $img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$pe['IMAGEN'].'"/></div>';
+                                    }
+
+                                    $tabla.='<div class="card">
+                                                  <div class="card-header">
+                                                      <h4 class="card-title">
+                                                          <div class="d-flex flex-row align-content-center align-items-center">
+                                                              <div class="sw-5 me-4">
+                                                                  <div class="border border-1 border-primary rounded-xl sw-5 sh-5 text-primary d-flex justify-content-center align-items-center">'.($k+1).'</div>
+                                                              </div>
+                                                              <div class="heading mb-0">
+                                                                  '.$pe['PREGUNTA'].'
+                                                              </div>
+                                                          </div>
+                                                      </h4>'.$img.'
+                                            
+                                                  </div>
+                                                  <div class="card-body">
+                                                    <table>';
+
+                                    //obtengo las opciones de respuesta
+                                    $opciones_respuesta=explode('-',$opciones[$k]);
+                                    //recorrer las opciones de respuesta
+                                    foreach($opciones_respuesta as $or){
+                                        $opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));//obtengo el texto de la opci�n de respuesta
+                                        if(count($opcion)>0){
+                                            $op=$opcion[0];
+                                            $seleccionado='';
+                                            if(isset($respuestas[$k])){
+
+                                                $respuestasSeleccionadas = explode("-", $respuestas[$k]);
+                                                if (in_array($or, $respuestasSeleccionadas)) {
+                                                    $seleccionado='checked';
+                                                }
+                                            }
+                                            $img='';
+                                            if($op['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$op['IMAGEN'])){
+                                                $img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$op['IMAGEN'].'"/></div>';
+                                            }
+                                            $tabla.='<tr><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.'></td><td style="padding-left:10px"><label for="opcion_respuesta'.$or.'" style="cursor: pointer">'.$op['OPCION_RESPUESTA'].' '.$img.'</label></td></tr>';
+                                        }
+                                    }
+                                    $tabla.='</table>
+											</div>';
+                                    $btnSig='';
+                                    if(isset($preguntas[$k+1])){
+                                        $btnSig='<button type="button" name="btn_sig" id="btn_sig" value="Siguiente" class="btn btn-primary" onclick="get_pregunta_remedial(\''.$id_estudiante_carrera_materia.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k+1].'\',1)">Siguiente <i class="bi bi-arrow-bar-right"></i></button>';
+                                    }elseif(($k+1)==count($preguntas)){
+                                        $btnSig='<button type="button" name="btn_sig" id="btn_sig" value="Finalizar" class="btn btn-success" onclick="get_pregunta_remedial(\''.$id_estudiante_carrera_materia.'\',\''.$preguntas[$k].'\',\'-1\',1)">Finalizar</button>';
+                                    }
+                                    $btnAnt='';
+                                    if(isset($preguntas[$k-1])){
+                                        $btnAnt='<button type="button" name="btn_ant" value="Anterior" class="btn btn-default" onclick="get_pregunta_remedial(\''.$id_estudiante_carrera_materia.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k-1].'\',1)"><i class="bi bi-arrow-bar-left"></i> Anterior</button>';
+                                    }
+                                    $tabla.='<div id="error-pregunta" style="color:red; text-align:right"></div>';
+                                    $tabla.='<div class="card-footer"><table width="100%"><tr><td align="left">'.$btnAnt.'</td><td align="right">'.$btnSig.'</td></tr></table></div>';
+                                    $tabla.='<script>window.onblur = function() { cambiaPreguntaRemedial(\''.$id_estudiante_carrera_materia.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k].'\',1);console.log(\'salio de la ventana\'); }</script>';
+                                    $tabla.='</div>';
+                                    break;
+                                }
+                            }
+                        }
+                    }else{
+                        $tabla.='<div class="alert alert-danger">No existe examen configurado</div>';
+                    }
+                }
+                $respuesta['preguntas'] = $tabla;
+                $respuesta['tamanio_modal'] = $tamanio_modal;
+            }
+
+            echo json_encode($respuesta);
+        }else{
+            echo 'Acceso Denegado';
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getSupletorioEstudianteMateria(){
+        $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+        if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,106)){
+            $usuario=$this->session->userdata('loggeado');
+            $id_estudiante_carrera_materia = trim($this->input->post('id_estudiante_carrera_materia'));
+            $etapa = trim($this->input->post('etapa'));
+            $dat['ETAPA']=$etapa;
+            $dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+            $dat['ESTADO_ESTUDIANTE']='0';
+            $clases_examenes=array();
+            if($id_estudiante_carrera_materia!=null and $id_estudiante_carrera_materia!='' and $id_estudiante_carrera_materia>0){
+                $clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+            }
+
+            $idRubro=21;//supletorio
+            $arancelExamenSupletorio = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
+            $texto_arancel='';
+            if(count($arancelExamenSupletorio)>0 and isset($arancelExamenSupletorio[0]['NOMBRE_ARANCEL']) and ($arancelExamenSupletorio[0]['ESTADO'] == '0' or $arancelExamenSupletorio[0]['ESTADO'] == 1)){
+                $texto_arancel='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$arancelExamenSupletorio[0]['NOMBRE_ARANCEL'].' </strong></div>';
+            }
+            $tamanio_modal = 0;
+            //$clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+            if($usuario['ID_PERFIL']==5 and count($clases_examenes)>0){
+                $clase_examen=$clases_examenes[0];
+                $tabla='<input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'"><input name="etapa" type="hidden" id="etapa" value="'.$etapa.'">';
+                $fecha_examen_inicio = $clase_examen['FECHA_SUPLETORIO'].' '.$clase_examen['HORA_SUPLETORIO'].':00';
+                $ff_examen = date_create(date('Y-m-d H:i:s'));//fecha final por defecto
+                $dato_contenido=$this->academico_model->getContenidoMateria($clase_examen['ID_CARRERA_MATERIA'],$clase_examen['ID_PERIODO_ACADEMICO']);
+                if($dato_contenido!=NULL){
+                    if($dato_contenido['DURACION_EXAMEN']<=0){
+                        $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                        $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                    }
+                    if($dato_contenido['DURACION_EXAMEN']>0 and $clase_examen['FECHA_SUPLETORIO']!=NULL and $clase_examen['FECHA_SUPLETORIO']!='0000-00-00' and $clase_examen['HORA_SUPLETORIO']!='' and $clase_examen['HORA_SUPLETORIO']!=NULL){
+                        $ff_examen = date_create($fecha_examen_inicio);
+                        $ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                }
+                $examenes_estudiante_aplazados = $this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>'0'));
+                $numPreguntasContestadas=0;
+                if(count($examenes_estudiante_aplazados)>0 and $dato_contenido!=NULL){//si tiene fecha aplazado
+                    $aplazo=$examenes_estudiante_aplazados[0];
+                    $fecha_examen_inicio=$aplazo['FECHA_APLAZADO'].' '.$aplazo['HORA_APLAZADO'].':00';
+                    $ff_examen = date_create($fecha_examen_inicio);
+                    if($aplazo['DURACION_EXAMEN']!=NULL and $aplazo['DURACION_EXAMEN']>0){
+                        $ff_examen->modify('+ '.$aplazo['DURACION_EXAMEN'].' minute');
+                    }else{
+                        $ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                    if($aplazo['NUM_PREGUNTA_CONTESTADA']!=NULL){
+                        $numPreguntasContestadas=$aplazo['NUM_PREGUNTA_CONTESTADA'];
+                    }
+                }
+                $fi_examen = date_create($fecha_examen_inicio);
+                //$ff_examen = date_create($fecha_examen_fin);
+                $f_actual = date_create(date('Y-m-d H:i:s'));
+                $interval = date_diff($f_actual, $ff_examen);
+                $days = $interval->format('%a');
+                $seconds = 0;
+                if($days){
+                    $seconds += 24 * 60 * 60 * $days;
+                }
+                $hours = $interval->format('%H');
+                if($hours){
+                    $seconds += 60 * 60 * $hours;
+                }
+                $minutes = $interval->format('%i');
+                if($minutes){
+                    $seconds += 60 * $minutes;
+                }
+                $seconds += $interval->format('%s');
+                $seg_interval=$seconds;
+                //verifico si ya tiene examen web personalizado el estudiante
+                $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'TIPO_EXAMEN'=>'0'));
+                //verifico si ya tiene examen fisico personalizado el estudiante
+                $examenes_estudiante_fisico=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'TIPO_EXAMEN'=>1));
+                if(count($examenes_estudiante)>0 and $examenes_estudiante[0]['ESTADO']==1){
+                    $tabla.='<div class="alert alert-success">Examen Realizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examenes_estudiante[0]['CALIFICACION']),2).'</strong></div>';
+                    ///VISTA DE DETALLE DEL EXAMEN PARA EL ESTUDIANTES
+                    //CUANTAS HA APROBADO
+                    //CUANTAS HA SIDO INCORRECTAS
+                    //CUANTAS NO HAN CONTESTADO
+                    $examen=$examenes_estudiante[0];
+                    $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                    $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                    $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                    $correcto=0;
+                    $tabla.='<div class="card"><div class="card-body">';
+                    foreach($preguntas as $k=>$p){
+                        $correcto=0;
+                        $tabla.='<div class="row">';
+                        $tabla.='<div class="col text-right" style="text-align: right">';
+                        $tabla.='<label class="text-left" style="font-size:20px;">Pregunta '.($k+1).'</label> ';
+                        $tabla.='</div>';
+                        $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                        $pe=$pregunta[0];
+                        if(isset($respuestas[$k])){
+                            $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                        }else{
+                            $opcionesSeleccionadas = array();
+                        }
+                        $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                        $correctoPregunta = 0;
+                        if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                            foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                foreach ($opcionesCorrectas as $ocorrecta){
+                                    if ($ocorrecta == $oSeleccionada){
+                                        $correctoPregunta++;
+                                    }
+                                }
+                            }
+                        }
+                        if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                            $correcto++;
+                        }
+                        $tabla.='<div class="col"  style="font-size:25px;">';
+                        if (count($opcionesSeleccionadas)==0 || $opcionesSeleccionadas[0]=="0") {
+                            //$tabla.= "No contest�";
+                            $tabla.='<i class="bi-question-circle-fill" style="color:blue;"></i>';
+                        }elseif ($correcto==0) {
+                            //$tabla.= "Incorrecto";
+                            $tabla.='<i class="bi-x-circle-fill" style="color:red;"></i>';
+                        }else{
+                            //$tabla.= "Correcto";
+                            $tabla.='<i class="bi-check-circle-fill" style="color:green;"></i>';
+                        }
+                        $tabla.='</div>';
+                        $tabla.='</div><br>';
+                    }
+                    $tabla.='</div></div>';
+                }elseif(count($examenes_estudiante_fisico)>0){
+                    $tabla.='<div class="alert alert-info">Examen Impreso</strong></div>';
+                }elseif($f_actual<$fi_examen){
+                    $tabla.=$texto_arancel.'<div class="alert alert-info">Aun no inicia examen <strong>'.$fi_examen->format('Y-m-d H:i').'</strong> Cierre e ingrese a la hora planificada</div>';
+                }elseif($f_actual>$ff_examen){
+                    $tabla.=$texto_arancel.'<div class="alert alert-info">Ya finaliz&oacute; examen <strong>'.$ff_examen->format('Y-m-d H:i').'</strong></div>';
+                    $idp = trim($this->input->post('idp'));
+                    if(isset($idp) and $idp==-1 and count($examenes_estudiante)>0 and $examenes_estudiante[0]['ESTADO']==0){//finalizar Examen por tiempo limite
+                        $examen=$examenes_estudiante[0];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                        $correcto=0;
+                        foreach($preguntas as $k=>$p){
+                            $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                            $pe=$pregunta[0];
+                            $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                            $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                            $correctoPregunta = 0;
+                            if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                    foreach ($opcionesCorrectas as $ocorrecta){
+                                        if ($ocorrecta == $oSeleccionada){
+                                            $correctoPregunta++;
+                                        }
+                                    }
+                                }
+                            }
+                            if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                $correcto++;
+                            }
+                        }
+                        $calificacion=round($correcto*10/count($preguntas),2);
+                        $dat_actualiza=array();
+                        $dat_actualiza['ESTADO']=1;
+                        $dat_actualiza['CALIFICACION']=$calificacion;
+                        $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                        $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                        $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                        $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($calificacion),2).'</strong></div>';
+                        //transpasar nota supletorio
+                        $this->registraCalificacionComponente(0,$id_estudiante_carrera_materia,0,$calificacion);
+                    }
+                }else if($texto_arancel!=''){//tiene arancel supletorio y no esta pagado
+                    $tabla.=$texto_arancel;
+                }else{
+                    if(count($examenes_estudiante)<=0 and $seg_interval>0){
+                        //verificar si existe base de preguntas para este examen
+                        if(isset($dato_contenido['ID_CONTENIDO'])){
+                            $preguntas_clase=$this->academico_model->getPreguntasContenido($dato_contenido);
+                            if(count($preguntas_clase)<=0){
+                                //generar base de preguntas examen
+                                $this->generarBasePreguntasContenido($dato_contenido);
+                            }
+                        }
+                        //generar examen web del estudiante
+                        $dato_contenido['ID_ESTUDIANTE_CARRERA_MATERIA']=$clase_examen['ID_ESTUDIANTE_CARRERA_MATERIA'];
+                        $this->generarExamenEstudiante($dato_contenido,'0','0');
+                        $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>'0','TIPO_EXAMEN'=>'0'));
+                    }
+                    if(count($examenes_estudiante)>0 and $seg_interval>0){
+                        $tamanio_modal = 1;
+                        $idp = trim($this->input->post('idp'));
+                        $opcion_seleccionado = trim($this->input->post('op'));//respuesta
+                        $examen=$examenes_estudiante[0];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+
+                        if($idp==NULL and $examen['IDS_RESPUESTA']==''){
+                            $idp=$preguntas[0];
+                        }elseif($idp==NULL){
+                            $idp=$preguntas[count($respuestas)-1];
+                        }
+                        if($opcion_seleccionado!=NULL and $opcion_seleccionado!=''){
+                            $v_opSeleccionadas = explode("+", trim($opcion_seleccionado,"+"));
+                            $indicePregunta = "0";
+                            $opcionesRespuestasSeleccionadas = "";
+                            foreach ($v_opSeleccionadas as $kops => $ops) {
+                                //guardar respuesta
+                                $op_select=explode('-',$ops);
+                                foreach($preguntas as $k=>$p){
+                                    if($p==$op_select[0]){
+                                        $opcionesRespuestasSeleccionadas .= "-".$op_select[1];
+                                        $indicePregunta = $k;
+                                        break;
+                                    }
+                                }
+                                $respuestas[$k]= trim($opcionesRespuestasSeleccionadas,"-");
+                            }
+                            if (isset($respuestas[$indicePregunta]) && $respuestas[$indicePregunta]=="") {
+                                $respuestas[$indicePregunta] =0;
+                            }
+                            // return 0;
+                            $res_total=implode('+',$respuestas);
+                            if($res_total!=$examen['IDS_RESPUESTA']){
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_RESPUESTA']=$res_total;
+                                $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                                $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                                $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            }
+                            //cambiar de pregunta si no selecciona respuesta
+                            if($respuestas[$indicePregunta]==0){
+                                $dat_b['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                                $dat_b['ALEATORIO']=1;
+                                $dat_b['NUM_REGISTROS']=1;
+                                $dat_b['EXCLUIR']=$preguntas;
+                                $preguntas_estudiante=$this->academico_model->getPreguntasContenido($dat_b);
+                                if(count($preguntas_estudiante)>0){
+                                    $preguntas[$indicePregunta]=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    if(!in_array($idp,$preguntas)){
+                                        $idp=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    }
+                                    $opciones_respuesta_estudiante=$this->academico_model->getOpcionesRespuestaContenido(array('ID_PREGUNTA_CONTENIDO'=>$preguntas[$indicePregunta]));
+                                    if(count($opciones_respuesta_estudiante)>0){
+                                        shuffle($opciones_respuesta_estudiante);//desordenar las opciones de respuesta
+                                        foreach($opciones_respuesta_estudiante as $ore){
+                                            $ids_opcion_respuesta[]=$ore['ID_OPCION_RESPUESTA_CONTENIDO'];
+                                        }
+                                    }else{
+                                        $ids_opcion_respuesta[]='0';
+                                    }
+                                    $opciones[$indicePregunta]=implode('-',$ids_opcion_respuesta);
+                                }
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_PREGUNTA_CONTENIDO']=implode('+',$preguntas);
+                                $dat_actualiza['IDS_OPCION_RESPUESTA_CONTENIDO']=implode('+',$opciones);
+                                $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            }
+                        }
+                        if($idp==-1){//finalizar Examen
+                            $correcto=0;
+                            foreach($preguntas as $k=>$p){
+                                $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                $pe=$pregunta[0];
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                                $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                                $correctoPregunta = 0;
+                                if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                    foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                        foreach ($opcionesCorrectas as $ocorrecta){
+                                            if ($ocorrecta == $oSeleccionada){
+                                                $correctoPregunta++;
+                                            }
+                                        }
+                                    }
+                                }
+                                if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                    $correcto++;
+                                }
+                            }
+                            $calificacion=round($correcto*10/count($preguntas),2);
+                            $dat_actualiza=array();
+                            $dat_actualiza['ESTADO']=1;
+                            $dat_actualiza['CALIFICACION']=$calificacion;
+                            $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                            $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                            $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($calificacion),2).'</strong></div>';
+                            //transpasar nota supletorio
+                            $this->registraCalificacionComponente(0,$id_estudiante_carrera_materia,0,$calificacion);
+                        }else{//mostrar pregunta
+                            $tabla.='<div class="alert alert-info" role="alert"><table width="100%"><tr><td style="font-size:18px; color:blue">Pregunta '.(array_search($idp,$preguntas)+1).' de '.count($preguntas).'</td>';
+                            if($seg_interval>0){
+                                $tabla.='<td><div align="right" style="font-size:18px; color:blue" id="countdown"></div><script>contador('.$seg_interval.');</script></td>';
+                            }
+                            $tabla.='</tr></table></div>';
+                            foreach($preguntas as $k=>$p){
+                                if($idp==$p){
+                                    $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                    $pe=$pregunta[0];
+                                    $img='';
+                                    if($pe['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$pe['IMAGEN'])){
+                                        $img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$pe['IMAGEN'].'"/></div>';
+                                    }
+
+                                    $tabla.='<div class="card">
+                                                  <div class="card-header">
+                                                      <h4 class="card-title">
+                                                          <div class="d-flex flex-row align-content-center align-items-center">
+                                                              <div class="sw-5 me-4">
+                                                                  <div class="border border-1 border-primary rounded-xl sw-5 sh-5 text-primary d-flex justify-content-center align-items-center">'.($k+1).'</div>
+                                                              </div>
+                                                              <div class="heading mb-0">
+                                                                  '.$pe['PREGUNTA'].'
+                                                              </div>
+                                                          </div>
+                                                      </h4>'.$img.'
+                                            
+                                                  </div>
+                                                  <div class="card-body">
+                                                    <table>';
+
+                                    //obtengo las opciones de respuesta
+                                    $opciones_respuesta=explode('-',$opciones[$k]);
+                                    //recorrer las opciones de respuesta
+                                    foreach($opciones_respuesta as $or){
+                                        $opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));//obtengo el texto de la opci�n de respuesta
+                                        $op=$opcion[0];
+                                        $seleccionado='';
+                                        if(isset($respuestas[$k])){
+
+                                            $respuestasSeleccionadas = explode("-", $respuestas[$k]);
+                                            if (in_array($or, $respuestasSeleccionadas)) {
+                                                $seleccionado='checked';
+                                            }
+                                        }
+                                        $img='';
+                                        if($op['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$op['IMAGEN'])){
+                                            $img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$op['IMAGEN'].'"/></div>';
+                                        }
+                                        $tabla.='<tr><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.'></td><td style="padding-left:10px"><label for="opcion_respuesta'.$or.'" style="cursor: pointer">'.$op['OPCION_RESPUESTA'].' '.$img.'</label></td></tr>';
+                                    }
+                                    $tabla.='</table>
+                                                </div>';
+                                    $btnSig='';
+                                    if(isset($preguntas[$k+1])){
+                                        $btnSig='<button type="button" name="btn_sig" id="btn_sig" value="Siguiente" class="btn btn-primary" onclick="get_pregunta_supletorio(\''.$id_estudiante_carrera_materia.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k+1].'\',1)">Siguiente <i class="bi bi-arrow-bar-right"></i></button>';
+                                    }elseif(($k+1)==count($preguntas)){
+                                        $btnSig='<button type="button" name="btn_sig" id="btn_sig" value="FInalizar" class="btn btn-success" onclick="get_pregunta_supletorio(\''.$id_estudiante_carrera_materia.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\'-1\',1)">Finalizar</button>';
+                                    }
+                                    $btnAnt='';
+                                    if(isset($preguntas[$k-1]) and $k>=$numPreguntasContestadas){
+                                        $btnAnt='<button type="button" name="btn_ant" value="Anterior" class="btn btn-default" onclick="get_pregunta_supletorio(\''.$id_estudiante_carrera_materia.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k-1].'\',1)"><i class="bi bi-arrow-bar-left"></i> Anterior</button>';
+                                    }
+                                    $tabla.='<div id="error-pregunta" style="color:red; text-align:right"></div>';
+                                    $tabla.='<div class="card-footer"><table width="100%"><tr><td align="left">'.$btnAnt.'</td><td align="right">'.$btnSig.'</td></tr></table></div>';
+                                    $tabla.='<script>window.onblur = function() { cambiaPreguntaSupletorio(\''.$id_estudiante_carrera_materia.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k].'\',1);console.log(\'salio de la ventana\'); }</script>';
+                                    $tabla.='</div>';
+                                    break;
+                                }
+                            }
+                        }
+                    }else{
+                        $tabla.='<div class="alert alert-danger">No existe examen configurado</div>';
+                    }
+                }
+                //            $respuesta=$tabla;
+                $respuesta['preguntas'] = $tabla;
+                $respuesta['tamanio_modal'] = $tamanio_modal;
+            }
+            echo json_encode($respuesta);
+        }else{
+            echo 'Acceso Denegado';
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function getExamenEstudianteMateria(){
+        $idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+        if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,105)){
+            $usuario=$this->session->userdata('loggeado');
+            //$id_estudiante_carrera_materia = trim($this->input->post('id_estudiante_carrera_materia'));
+            $ids=trim($this->input->post('id_estudiante_carrera_materia'));
+            $ids=explode('_',$ids);
+            $id_estudiante_carrera_materia = $ids[0];
+            $id_plantilla = 0;
+            if(isset($ids[1])){
+                $id_plantilla = $ids[1];
+            }
+            $etapa = trim($this->input->post('etapa'));
+            $dat['ETAPA']=$etapa;
+            $dat['ID_ESTUDIANTE_CARRERA_MATERIA']=$id_estudiante_carrera_materia;
+            $dat['ESTADO_ESTUDIANTE']='0';
+            $dat['ID_PLANTILLA']=$id_plantilla;
+            $clases_examenes=array();
+            $tamanio_modal = 0;
+            if($id_estudiante_carrera_materia!=NULL and $id_estudiante_carrera_materia!='' and $id_estudiante_carrera_materia>0){
+                $clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+            }
+            //$clases_examenes=$this->academico_model->buscarGruposExamenesEstudiantes($dat);
+            if($usuario['ID_PERFIL']==5 and count($clases_examenes)>0){
+                $clase_examen=$clases_examenes[0];
+                $tabla='';
+                $tabla.='<input name="idecm" type="hidden" id="idecm" value="'.$id_estudiante_carrera_materia.'_'.$id_plantilla.'"><input name="etapa" type="hidden" id="etapa" value="'.$etapa.'">';
+                $fecha_examen_inicio = $clase_examen['FECHA_EXAMEN'].' '.$clase_examen['HORA_EXAMEN'].':00';
+                $ff_examen = date_create(date('Y-m-d H:i:s'));//fecha final por defecto
+                $dato_contenido=$this->academico_model->getContenidoMateria($clase_examen['ID_CARRERA_MATERIA'],$clase_examen['ID_PERIODO_ACADEMICO'],$id_plantilla);
+                if($dato_contenido!=NULL){
+                    if($dato_contenido['DURACION_EXAMEN']<=0){
+                        $plantilla=$this->academico_model->buscar_plantillas(array('ID_PLANTILLA'=>$dato_contenido['ID_PLANTILLA']));
+                        $dato_contenido['DURACION_EXAMEN']=$plantilla[0]['DURACION_EXAMEN'];
+                    }
+                    if($dato_contenido['DURACION_EXAMEN']>0 and $clase_examen['FECHA_EXAMEN']!=NULL and $clase_examen['FECHA_EXAMEN']!='0000-00-00' and $clase_examen['HORA_EXAMEN']!='' and $clase_examen['HORA_EXAMEN']!=NULL){
+                        $ff_examen = date_create($fecha_examen_inicio);
+                        $ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                }
+                $examenes_estudiante_aplazados = $this->academico_model->buscarExamenesEstudiantesAplazados(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'ID_PLANTILLA'=>$id_plantilla));
+                $numPreguntasContestadas=0;
+                if(count($examenes_estudiante_aplazados)>0 and $dato_contenido!=NULL){//si tiene fecha aplazado
+                    $aplazo=$examenes_estudiante_aplazados[0];
+                    if($aplazo['HORA_APLAZADO']=='' or $aplazo['HORA_APLAZADO']==NULL){
+                        $aplazo['HORA_APLAZADO']='00:00';
+                        if(date_create($aplazo['FECHA_APLAZADO'])>=date_create(date('Y-m-d'))){
+                            $aplazo['FECHA_APLAZADO']=date('Y-m-d');
+                            $aplazo['HORA_APLAZADO']=date('H:i');
+                            $actualiza_aplazo['FECHA_APLAZADO']=date('Y-m-d');
+                            $actualiza_aplazo['HORA_APLAZADO']=date('H:i');
+                            $actualiza_aplazo['ID_USUARIO_ACTUALIZA']=$usuario['ID_USUARIO'];
+                            $actualiza_aplazo['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                            $this->academico_model->actualizarExamenEstudianteAplazado($actualiza_aplazo,$aplazo['ID_EXAMEN_ESTUDIANTE_APLAZADO']);
+                        }
+                    }
+                    $fecha_examen_inicio=$aplazo['FECHA_APLAZADO'].' '.$aplazo['HORA_APLAZADO'].':00';
+                    $ff_examen = date_create($fecha_examen_inicio);
+                    if($aplazo['DURACION_EXAMEN']!=NULL and $aplazo['DURACION_EXAMEN']>0){
+                        $ff_examen->modify('+ '.$aplazo['DURACION_EXAMEN'].' minute');
+                    }else{
+                        $ff_examen->modify('+ '.$dato_contenido['DURACION_EXAMEN'].' minute');
+                    }
+                    if($aplazo['NUM_PREGUNTA_CONTESTADA']!=NULL){
+                        $numPreguntasContestadas=$aplazo['NUM_PREGUNTA_CONTESTADA'];
+                    }
+                }
+                $fi_examen = date_create($fecha_examen_inicio);
+                //$ff_examen = date_create($fecha_examen_fin);
+                $f_actual = date_create(date('Y-m-d H:i:s'));
+                $interval = date_diff($f_actual, $ff_examen);
+                $days = $interval->format('%a');
+                $seconds = 0;
+                if($days){
+                    $seconds += 24 * 60 * 60 * $days;
+                }
+                $hours = $interval->format('%H');
+                if($hours){
+                    $seconds += 60 * 60 * $hours;
+                }
+                $minutes = $interval->format('%i');
+                if($minutes){
+                    $seconds += 60 * $minutes;
+                }
+                $seconds += $interval->format('%s');
+                $seg_interval=$seconds;
+                //verifico si ya tiene examen web personalizado el estudiante
+                $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'TIPO_EXAMEN'=>'0','ID_PLANTILLA'=>$id_plantilla));
+                //verifico si ya tiene examen fisico personalizado el estudiante
+                $examenes_estudiante_fisico=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'TIPO_EXAMEN'=>1,'ID_PLANTILLA'=>$id_plantilla));
+                if(count($examenes_estudiante)>0 and $examenes_estudiante[0]['ESTADO']==1){
+                    $tabla.='<div class="alert alert-success">Examen Realizado. Calificaci&oacute;n: <strong>'.number_format(floatval($examenes_estudiante[0]['CALIFICACION']),2).'</strong></div>';
+                    ///VISTA DE DETALLE DEL EXAMEN PARA EL ESTUDIANTES
+                    //CUANTAS HA APROBADO
+                    //CUANTAS HA SIDO INCORRECTAS
+                    //CUANTAS NO HAN CONTESTADO
+                    $examen=$examenes_estudiante[0];
+                    $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                    $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                    $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                    $correcto=0;
+                    if($examen['IDS_PREGUNTA_CONTENIDO']!='' and $examen['IDS_PREGUNTA_CONTENIDO']!=NULL){
+                        $tabla.='<div class="card"><div class="card-body">';
+                        foreach($preguntas as $k=>$p){
+                            $correcto=0;
+                            $tabla.='<div class="row">';
+                            $tabla.='<div class="col text-right" style="text-align: right">';
+                            $tabla.='<label class="text-left" style="font-size:20px; ">Pregunta '.($k+1).'</label> ';
+                            $tabla.='</div>';
+                            $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                            $pe=$pregunta[0];
+                            if(isset($respuestas[$k])){
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                            }else{
+                                $opcionesSeleccionadas = array();
+                            }
+                            $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                            $correctoPregunta = 0;
+                            if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                    foreach ($opcionesCorrectas as $ocorrecta){
+                                        if ($ocorrecta == $oSeleccionada){
+                                            $correctoPregunta++;
+                                        }
+                                    }
+                                }
+                            }
+                            if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                $correcto++;
+                            }
+                            $tabla.='<div class="col"  style="font-size:25px;">';
+                            if (count($opcionesSeleccionadas)==0 || $opcionesSeleccionadas[0]=="0") {
+                                //$tabla.= "No contest�";
+                                $tabla.='<i class="bi-question-circle-fill" style="color:blue;"></i>';
+                            }elseif ($correcto==0) {
+                                //$tabla.= "Incorrecto";
+                                $tabla.='<i class="bi-x-circle-fill" style="color:red;"></i>';
+                            }else{
+                                //$tabla.= "Correcto";
+                                $tabla.='<i class="bi-check-circle-fill" style="color:green;"></i>';
+                            }
+                            $tabla.='</div>';
+                            $tabla.='</div><br>';
+                        }
+                        $tabla.='</div></div>';
+                    }
+                }elseif(count($examenes_estudiante_fisico)>0){
+                    $tabla.='<div class="alert alert-info">Examen Impreso</strong></div>';
+                }elseif($f_actual<$fi_examen){
+                    if($fi_examen->format('H:i')=='00:00'){
+                        $tabla.='<div class="alert alert-info">Aun no inicia examen <strong>'.$fi_examen->format('Y-m-d').'</strong> Cierre e ingrese a la fecha planificada</div>';
+                    }else{
+                        $tabla.='<div class="alert alert-info">Aun no inicia examen <strong>'.$fi_examen->format('Y-m-d H:i').'</strong> Cierre e ingrese a la hora planificada</div>';
+                    }
+                }elseif($f_actual>$ff_examen){
+                    $tabla.='<div class="alert alert-info">Ya finaliz&oacute; examen <strong>'.$ff_examen->format('Y-m-d H:i').'</strong></div>';
+                    $idRubro=20;//examen atrasado
+                    if($etapa==0){
+                        $idRubro=21;//supletorio atrasado
+                    }
+                    $comprobarPagoArancelExamenAtrasado = $this->facturacion_model->buscarArancel(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia, 'ID_RUBRO'=>$idRubro));
+                    if(count($comprobarPagoArancelExamenAtrasado)>0 and isset($comprobarPagoArancelExamenAtrasado[0]['NOMBRE_ARANCEL']) and $comprobarPagoArancelExamenAtrasado[0]['ESTADO'] == '0'){
+                        $tabla.='<div class="alert alert-warning"><strong>Debe pagar el rubro: '.$comprobarPagoArancelExamenAtrasado[0]['NOMBRE_ARANCEL'].' </strong></div>';
+                    }
+
+                    $idp = trim($this->input->post('idp'));
+                    if(isset($idp) and $idp==-1 and count($examenes_estudiante)>0 and $examenes_estudiante[0]['ESTADO']==0){//finalizar Examen por tiempo limite
+                        $examen=$examenes_estudiante[0];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                        $correcto=0;
+                        foreach($preguntas as $k=>$p){
+                            $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                            $pe=$pregunta[0];
+                            if(isset($respuestas[$k])){
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                                $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                                $correctoPregunta = 0;
+                                if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                    foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                        foreach ($opcionesCorrectas as $ocorrecta){
+                                            if ($ocorrecta == $oSeleccionada){
+                                                $correctoPregunta++;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                $correcto++;
+                            }
+                        }
+                        $calificacion=round($correcto*10/count($preguntas),2);
+                        $dat_actualiza=array();
+                        $dat_actualiza['ESTADO']=1;
+                        $dat_actualiza['CALIFICACION']=$calificacion;
+                        $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                        $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                        $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                        $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($calificacion),2).'</strong></div>';
+                        //transpasar nota examen
+                        $this->registraCalificacionComponente(1,$id_estudiante_carrera_materia,3,$calificacion,$id_plantilla);
+                    }
+                }else{
+                    $tamanio_modal = 1;
+                    if(count($examenes_estudiante)<=0 and $seg_interval>0){
+                        //verificar si existe base de preguntas para este examen
+                        if(isset($dato_contenido['ID_CONTENIDO'])){
+                            $preguntas_clase=$this->academico_model->getPreguntasContenido($dato_contenido);
+                            if(count($preguntas_clase)<=0){
+                                //generar base de preguntas examen
+                                $this->generarBasePreguntasContenido($dato_contenido);
+                            }
+                        }
+                        //generar examen web del estudiante
+                        $dato_contenido['ID_ESTUDIANTE_CARRERA_MATERIA']=$clase_examen['ID_ESTUDIANTE_CARRERA_MATERIA'];
+                        $this->generarExamenEstudiante($dato_contenido,'0',1,$id_plantilla);
+                        $examenes_estudiante=$this->academico_model->buscarExamenesEstudiantes(array('ID_ESTUDIANTE_CARRERA_MATERIA'=>$id_estudiante_carrera_materia,'ETAPA'=>$etapa,'TIPO_EXAMEN'=>'0','ID_PLANTILLA'=>$id_plantilla));
+                    }
+                    if(count($examenes_estudiante)>0 and $seg_interval>0){
+                        $idp = trim($this->input->post('idp'));
+                        $opcion_seleccionado = trim($this->input->post('op'));//respuesta
+                        $examen=$examenes_estudiante[0];
+                        $preguntas=explode('+',$examen['IDS_PREGUNTA_CONTENIDO']);
+                        $opciones=explode('+',$examen['IDS_OPCION_RESPUESTA_CONTENIDO']);
+                        $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+
+                        if($idp==NULL and $examen['IDS_RESPUESTA']==''){
+                            $idp=$preguntas[0];
+                        }elseif($idp==NULL){
+                            $idp=$preguntas[count($respuestas)-1];
+                        }
+                        if($opcion_seleccionado!=NULL and $opcion_seleccionado!=''){
+                            $v_opSeleccionadas = explode("+", trim($opcion_seleccionado,"+"));
+                            $indicePregunta = "0";
+                            $opcionesRespuestasSeleccionadas = "";
+                            foreach ($v_opSeleccionadas as $kops => $ops) {
+                                //guardar respuesta
+                                $op_select=explode('-',$ops);
+                                foreach($preguntas as $k=>$p){
+                                    if($p==$op_select[0]){
+                                        $opcionesRespuestasSeleccionadas .= "-".$op_select[1];
+                                        $indicePregunta = $k;
+                                        break;
+                                    }
+                                }
+                                $respuestas[$k]= trim($opcionesRespuestasSeleccionadas,"-");
+                            }
+                            if (isset($respuestas[$indicePregunta]) && $respuestas[$indicePregunta]=="") {
+                                $respuestas[$indicePregunta] =0;
+                            }
+                            // return 0;
+                            $res_total=implode('+',$respuestas);
+                            if($res_total!=$examen['IDS_RESPUESTA']){
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_RESPUESTA']=$res_total;
+                                $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                                $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                                $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            }
+                            //cambiar de pregunta si no selecciona respuesta
+                            /*if($respuestas[$indicePregunta]==0){
+                                $dat_b['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+                                $dat_b['ALEATORIO']=1;
+                                $dat_b['NUM_REGISTROS']=1;
+                                $dat_b['EXCLUIR']=$preguntas;
+                                $preguntas_estudiante=$this->academico_model->getPreguntasContenido($dat_b);
+                                if(count($preguntas_estudiante)>0){
+                                    $preguntas[$indicePregunta]=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    if(!in_array($idp,$preguntas)){
+                                        $idp=$preguntas_estudiante[0]['ID_PREGUNTA_CONTENIDO'];
+                                    }
+                                    $opciones_respuesta_estudiante=$this->academico_model->getOpcionesRespuestaContenido(array('ID_PREGUNTA_CONTENIDO'=>$preguntas[$indicePregunta]));
+                                    if(count($opciones_respuesta_estudiante)>0){
+                                        shuffle($opciones_respuesta_estudiante);//desordenar las opciones de respuesta
+                                        foreach($opciones_respuesta_estudiante as $ore){
+                                            $ids_opcion_respuesta[]=$ore['ID_OPCION_RESPUESTA_CONTENIDO'];
+                                        }
+                                    }else{
+                                        $ids_opcion_respuesta[]='0';
+                                    }
+                                    $opciones[$indicePregunta]=implode('-',$ids_opcion_respuesta);
+                                }
+                                $dat_actualiza=array();
+                                $dat_actualiza['IDS_PREGUNTA_CONTENIDO']=implode('+',$preguntas);
+                                $dat_actualiza['IDS_OPCION_RESPUESTA_CONTENIDO']=implode('+',$opciones);
+                                $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            }*/
+                        }
+                        if($idp==-1){//finalizar Examen
+                            $correcto=0;
+                            foreach($preguntas as $k=>$p){
+                                $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                $pe=$pregunta[0];
+                                $opcionesSeleccionadas = explode("-", $respuestas[$k]);
+                                $opcionesCorrectas     = explode("+", trim($pe['ID_OPCION_RESPUESTA_CONTENIDO'],"+"));
+                                $correctoPregunta = 0;
+                                if (count($opcionesSeleccionadas) == count($opcionesCorrectas)){
+                                    foreach ($opcionesSeleccionadas as $oSeleccionada){
+                                        foreach ($opcionesCorrectas as $ocorrecta){
+                                            if ($ocorrecta == $oSeleccionada){
+                                                $correctoPregunta++;
+                                            }
+                                        }
+                                    }
+                                }
+                                if(isset($respuestas[$k]) and count($opcionesCorrectas) == $correctoPregunta){
+                                    $correcto++;
+                                }
+                            }
+                            $calificacion=round($correcto*10/count($preguntas),2);
+                            $dat_actualiza=array();
+                            $dat_actualiza['ESTADO']=1;
+                            $dat_actualiza['CALIFICACION']=$calificacion;
+                            $dat_actualiza['FECHA_ACTUALIZACION']=date('Y-m-d H:i:s');
+                            $dat_actualiza['FECHA_FIN_CONEXION']=date('Y-m-d H:i:s');
+                            $this->academico_model->actualizarExamenEstudiante($dat_actualiza,$examen['ID_EXAMEN_ESTUDIANTE']);
+                            $tabla.='<div class="alert alert-success">Examen finalizado. Calificaci&oacute;n: <strong>'.number_format(floatval($calificacion),2).'</strong></div>';
+                            //transpasar nota examen
+                            $this->registraCalificacionComponente(1,$id_estudiante_carrera_materia,3,$calificacion,$id_plantilla);
+                        }else{//mostrar pregunta
+                            $tabla.='<div class="alert alert-info" role="alert"> <table width="100%" ><tr><td style="font-size:18px;">Pregunta '.(array_search($idp,$preguntas)+1).' de '.count($preguntas).'</td>';
+                            if($seg_interval>0){
+                                $tabla.='<td><div align="right" style="font-size:18px;" id="countdown"></div><script>contador('.$seg_interval.');</script></td>';
+                            }
+                            $tabla.='</tr></table></div>';
+                            foreach($preguntas as $k=>$p){
+                                if($idp==$p){
+                                    $pregunta=$this->academico_model->getPreguntasContenido(array('ID_PREGUNTA_CONTENIDO'=>$p));
+                                    $pe=$pregunta[0];
+                                    $img='';
+                                    if($pe['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$pe['IMAGEN'])){
+                                        $img='<div class="thumbnail text-center"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$pe['IMAGEN'].'"/></div>';
+                                    }
+                                    $tabla.='<div class="card">
+											  <div class="card-header">
+											      <h4 class="card-title">
+                                                      <div class="d-flex flex-row align-content-center align-items-center">
+                                                          <div class="sw-5 me-4">
+                                                              <div class="border border-1 border-primary rounded-xl sw-5 sh-5 text-primary d-flex justify-content-center align-items-center">'.($k+1).'</div>
+                                                          </div>
+                                                          <div class="heading mb-0">
+                                                              '.$pe['PREGUNTA'].'
+                                                          </div>
+                                                      </div>
+                                                  </h4>'.$img.'
+										
+											  </div>
+											  <div class="card-body">
+												<table>';
+                                    //obtengo las opciones de respuesta
+                                    $opciones_respuesta=explode('-',$opciones[$k]);
+                                    //recorrer las opciones de respuesta
+                                    foreach($opciones_respuesta as $or){
+                                        $opcion=$this->academico_model->getOpcionesRespuestaContenido(array('ID_OPCION_RESPUESTA_CONTENIDO'=>$or));//obtengo el texto de la opci�n de respuesta
+                                        $op=$opcion[0];
+                                        $seleccionado='';
+                                        if(isset($respuestas[$k])){
+
+                                            $respuestasSeleccionadas = explode("-", $respuestas[$k]);
+                                            if (in_array($or, $respuestasSeleccionadas)) {
+                                                $seleccionado='checked';
+                                            }
+                                        }
+                                        $img='';
+                                        if($op['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/preguntas/'.$op['IMAGEN'])){
+                                            $img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/preguntas/')."/".$op['IMAGEN'].'"/></div>';
+                                        }
+                                        $tabla.='<tr><td valign="top"><input required="" name="opcion_seleccionada['.$p.'][]" type="checkbox" value="'.$p.'-'.$or.'" id="opcion_respuesta'.$or.'" style="transform: scale(1.5)" class="claseopcion" '.$seleccionado.'></td><td style="padding-left:10px"><label for="opcion_respuesta'.$or.'" style="cursor: pointer">'.$op['OPCION_RESPUESTA'].' '.$img.'</label></td></tr>';
+                                    }
+                                    $tabla.='</table>
+											</div>';
+                                    $btnSig='';
+                                    if(isset($preguntas[$k+1])){
+                                        $btnSig='<button type="button" name="btn_sig" id="btn_sig" value="Siguiente" class="btn btn-primary" onclick="get_pregunta_examen(\''.$id_estudiante_carrera_materia.'_'.$id_plantilla.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k+1].'\',1)">Siguiente <i class="bi bi-arrow-bar-right"></i></button> ';
+                                    }elseif(($k+1)==count($preguntas)){
+                                        $btnSig='<input type="button" name="btn_sig" id="btn_sig" value="FInalizar" class="btn btn-success" onclick="get_pregunta(\''.$id_estudiante_carrera_materia.'_'.$id_plantilla.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\'-1\',1)">';
+                                    }
+                                    $btnAnt='';
+                                    if(isset($preguntas[$k-1]) and $k>=$numPreguntasContestadas){
+                                        $btnAnt='<button type="button" name="btn_ant" value="Anterior" class="btn btn-default" onclick="get_pregunta_examen(\''.$id_estudiante_carrera_materia.'_'.$id_plantilla.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k-1].'\',1)"><i class="bi bi-arrow-bar-left"></i> Anterior</button>';
+                                    }
+                                    $tabla.='<div id="error-pregunta" style="color:red; text-align:right"></div>';
+                                    $tabla.='<div class="card-footer"><table width="100%"><tr><td align="left">'.$btnAnt.'</td><td align="right">'.$btnSig.'</td></tr></table></div>';
+                                    /*$tabla.='<script>window.onblur = function() { cambiaPreguntaExamen(\''.$id_estudiante_carrera_materia.'\',\''.$etapa.'\',\''.$preguntas[$k].'\',\''.$preguntas[$k].'\',1);console.log(\'salio de la ventana\'); }</script>';*/
+                                    $tabla.='</div>';
+                                    break;
+                                }
+                            }
+                        }
+                    }else{
+                        $tabla.='<div class="alert alert-danger">No existe examen configurado '.count($examenes_estudiante).'-'.$seg_interval.'</div>';
+                    }
+                }
+                $respuesta['preguntas'] = $tabla;
+                $respuesta['tamanio_modal'] = $tamanio_modal;
+            }
+            echo json_encode($respuesta);
+        }else{
+            echo 'Acceso Denegado';
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function perfil(){
+        $id_persona = $this->session->userdata('loggeado')['ID_PERSONA'];
+        $id_cliente = $this->academico_model->get_id_cliente($id_persona);
+        if ($id_cliente){
+            $this->load->model('clientes/clientes_model');
+            if (!$this->input->is_ajax_request()){
+                $id_cliente = $this->academico_model->get_id_cliente($id_persona);
+
+                $this->load->model('clientes/operadoras_telefonicas_model');
+                $this->load->model('clientes/paises_model');
+                $this->load->model('clientes/provincias_model');
+                $this->load->model('clientes/cantones_model');
+                $this->load->model('clientes/parroquias_model');
+
+                $persona = $this->clientes_model->obtener_datos_cliente_natural($id_cliente);
+                $id_perfil=$this->session->userdata('loggeado')['ID_PERFIL'];
+                $data['operadoras'] = $this->operadoras_telefonicas_model->get_operadoras_telefonicas_activas();
+                $data['paises'] = $this->paises_model->get_paises();
+                $data['provinciasDomicilio'] = $this->provincias_model->obtener_provincias_x_id_pais($persona['ID_PAIS_DOMICILIO']);
+                $data['cantonesDomicilio'] = $this->cantones_model->obtener_cantones_x_id_provincia($persona['ID_PROVINCIA_DOMICILIO']);
+                $data['parroquiasDomicilio'] = $this->parroquias_model->obtener_parroquias_x_id_canton($persona['ID_CANTON_DOMICILIO']);
+
+                $data['persona'] = $persona;
+                $data['perfil'] = $id_perfil;
+                $datos1 = $this->cabeceraEva();
+                $this->load->view('templates/headerEva',$datos1);
+                $this->load->view('perfil', $data);
+                $this->load->view('templates/footerEva');
+            }else{//GUARDAR PERFIL
+                $data_persona = $this->input->post('persona');
+                $data_contacto = $this->input->post('contacto');
+                $resp = '1';
+                $msg = 'Información Actualizada';
+                $name_img = '';
+                if ($data_persona!=null and $data_persona!=''){//Actualizar persona
+					$foto= $_FILES['foto']['name'];
+					$ingreso_foto='';
+					if($foto!=''){
+						$dato_foto=$this->cargar_archivo_foto('foto',$foto);
+						if($dato_foto['error']==''){
+							$name_img = $dato_foto['file_name'];
+							$this->clientes_model->actualizarPersona(array('FOTOGRAFIA'=>$dato_foto['file_name']),$id_persona);
+							if(isset($persona['FOTOGRAFIA']) && file_exists(FCPATH.'assets/uploads/fotografias/'.$persona['FOTOGRAFIA'])){
+								!unlink(FCPATH.'assets/uploads/fotografias/'.$persona['FOTOGRAFIA']);
+							}
+						}else{
+							$resp = '0';
+							$msg = $dato_foto['error'];
+						}
+					}
+                }
+
+                if ($data_contacto!=null and $data_contacto!=''){//Actualizar contacto
+                    $contacto['ID_CLIENTE'] = $id_cliente;
+                    $contacto['ID_TIPO_CONTACTO'] = 2;
+                    $contacto['ESTADO'] = 1;
+
+                    $contactoExiste = $this->clientes_model->buscarContacto($contacto);
+                    if($contactoExiste){
+                        $this->clientes_model->actualizarContacto($data_contacto,$contactoExiste['ID_CONTACTO']);
+                    }
+                }
+                $data['resp'] = $resp;
+                $data['msg'] = $msg;
+                $data['name_img'] = $name_img;
+
+                echo json_encode($data);
+            }
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function cargar_archivo_foto($iname,$name)
+    {
+        //$name=time();
+        // $config['upload_path']   = 'archivos/';
+        $config['upload_path']   = 'assets/uploads/fotografias/';
+        // $config['allowed_types'] = '*';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size']      = 5000;
+        //$config['max_width']            = 1024;
+        //$config['max_height']           = 768;
+        $config['file_name']     = time()."_".$name;
+        $dato_foto['nombre']    = time()."_".$name;
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($iname))
+        {
+            $error = $this->upload->display_errors();
+            $dato_foto['error']=$error;
+        }
+        else
+        {
+            $dato_foto = $this->upload->data();
+            $dato_foto['error']='';
+        }
+        return $dato_foto;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function guardarMaterialApoyo (){
+        if($this->session->userdata('loggeado')){
+            $material = $this->input->post('material');
+            $material['FECHA_CREACION'] = date('Y-m-d H:i:s');
+            $material['ID_USUARIO'] = $this->session->userdata('loggeado')['ID_USUARIO'];
+
+            if($_FILES){//solo recibe un archivo por cada registro
+                $files= $_FILES['file']['name'];
+                if (count($files)>0){
+                    foreach ($files as $key=> $file){
+                        $name = time()."_".$file;
+                        copy($_FILES['file']['tmp_name'][$key], FCPATH."/archivos/contenidos/material/". $name);
+                        $material['MATERIAL'] = $name;
+                    }
+                }
+            }
+
+            $id_material_apoyo = $this->academico_model->crear_material_apoyo($material);
+            if ($id_material_apoyo>0){
+                $resp['resp'] = 1;
+                $resp['msg'] = 'Material de apoyo ingresado';
+            }else{
+                $resp['resp'] = 0;
+                $resp['msg'] = 'Material de apoyo ingresado';
+            }
+
+            echo json_encode($resp);
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////
+    public function eliminarMaterialApoyo ($id_material_apoyo){
+        if($this->session->userdata('loggeado')){
+            $material = $this->academico_model->get_material_apoyo(array('ID_MATERIAL_APOYO'=>$id_material_apoyo));
+            if (count($material)>0){
+                $material = $material[0];
+                if ($material['TIPO_MATERIAL_APOYO'] == 1){
+                    //Eliminar archivo
+                    unlink(FCPATH.'/archivos/contenidos/material/'.$material['MATERIAL']);
+                }
+                $this->academico_model->eliminar_material_apoyo($id_material_apoyo);
+                $resp['resp'] = 1;
+                $resp['msg'] = 'Material de apoyo Eliminado';
+            }else{
+                $resp['resp'] = 0;
+                $resp['msg'] = 'No existe el material de apoyo';
+            }
+            echo json_encode($resp);
+        }else{
+            redirect('admin/login', 'refresh');
+        }
+    }
+
+	//////////////////////////////////////////////////////////////////
+	public function verRespuestasRetoEstudiante(){
+		$idusuario=$this->session->userdata('loggeado')['ID_USUARIO'];
+		if($this->session->userdata('loggeado') and $this->academico_model->verificar_usuario_funcionalidad($idusuario,101)){
+			$perfil= $this->session->userdata('loggeado')['ID_PERFIL'];
+			$idRetoContenido  = trim($this->input->post('idReto'));
+			$fechaFin  = trim($this->input->post('fechafin'));
+            $idPersona = trim($this->input->post('idPersona'));
+            $persona = $this->academico_model->get_datos_persona($idPersona);
+            $preguntas=$this->academico_model->getPreguntasRetosContenido(array('ID_RETO_CONTENIDO'=>$idRetoContenido));
+			if(count($preguntas)>0){
+                $retos_estudiante=$this->academico_model->retos_realizados_estudiante($idPersona,null,$idRetoContenido);
+                $examen=$retos_estudiante[0];
+                $tabla='';
+
+                if($perfil!=5){
+                    $tabla.='<table class="table" ><tr><td><strong>Estudiante:</strong></td><td>'.trim($persona['APELLIDO_PATERNO'].' '.$persona['APELLIDO_MATERNO'].' '.$persona['PRIMER_NOMBRE'].' '.$persona['SEGUNDO_NOMBRE']).'</td>
+                    <td><strong>Nro Documento:</strong></td><td>'.$persona['CEDULA'].'</td></tr> </table><hr>';
+                }
+
+				$tabla.='<div class="alert alert-info"><div class="row"><div class="col"><strong>Calificación: </strong> '.$examen['CALIFICACION'].' </div><div class="col"><strong>Fecha Limite: </strong> '.$fechaFin.'</div> </div></div>';
+                $respuestas=explode('+',$examen['IDS_RESPUESTA']);
+                $correcto=0;
+                foreach($preguntas as $k=>$p){
+                    $correcto=0;
+					$pe=$p;
+					$img='';
+					if($pe['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/retos/'.$pe['IMAGEN'])){
+						$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/retos')."/".$pe['IMAGEN'].'"/></div>';
+					}
+					$tabla.='<div class="card mb-2 shadow-lg border-light ">';
+						$tabla.='<div class="card-header p-3" >';
+							$tabla.='<h4 class="card-title">'.($k+1).') '.$pe['PREGUNTA'].'</h4>'.$img;
+						$tabla.='</div>';
+						$tabla.='<div class="card-body">';
+						$tabla.='<table>';
+					$opciones_respuesta=$this->academico_model->getOpcionesRespuestaRetosContenido(array('ID_PREGUNTA_RETO_CONTENIDO'=>$pe['ID_PREGUNTA_RETO_CONTENIDO']));
+					$idOpcionesRespuestas = explode("+", $pe['ID_OPCION_RESPUESTA_RETO_CONTENIDO']);
+					foreach($opciones_respuesta as $or){
+						$op=$or;
+						$opcion_correcta='';
+                        //Opciones seleccionadas por el estudiante
+                        $seleccionado='';
+                        if(isset($respuestas[$k])){
+                            $respuestasSeleccionadas = explode("-", $respuestas[$k]);
+                            if (in_array($or['ID_OPCION_RESPUESTA_RETO_CONTENIDO'], $respuestasSeleccionadas)) {
+                                $seleccionado='checked';
+                            }
+                        }
+
+						if(in_array($or['ID_OPCION_RESPUESTA_RETO_CONTENIDO'], $idOpcionesRespuestas)){
+							$opcion_correcta=' class="bg-gradient bg-success"';
+						}
+						$img='';
+						if($op['IMAGEN']!='' and file_exists(FCPATH.'archivos/contenidos/retos/'.$op['IMAGEN'])){
+							$img='<div class="thumbnail"><img src="'.base_url('archivos/contenidos/retos')."/".$op['IMAGEN'].'"/></div>';
+						}
+						$tabla.='<tr '.$opcion_correcta.'>';
+							$tabla.='<td valign="top">';
+									$tabla.='<input type="checkbox" id="opcion_respuesta'.$or['ID_OPCION_RESPUESTA_RETO_CONTENIDO'].'" class="claseopcion" '.$seleccionado.' style="transform: scale(1.5)" disabled>';
+							$tabla.='</td>';
+							$tabla.='<td style="padding-left:10px">';
+									$tabla.='<label for="opcion_respuesta'.$or['ID_OPCION_RESPUESTA_RETO_CONTENIDO'].'">'.$op['OPCION_RESPUESTA'];
+								$tabla.=$img.'</label>';
+							$tabla.='</td>';
+						$tabla.='</tr>';
+					}
+					$tabla.='</table>
+							</div>';
+					$tabla.='</div>';
+				}
+				$respuesta=$tabla;
+			}else{
+				$respuesta='No tiene preguntas';
+			}
+			echo $respuesta;
+		}else{
+			echo 'Acceso Denegado';
+		}
+	}
+
+    //////////////////////////////////////////////////////////////////
+    public function eliminarMaterialesApoyo($id_periodo = 0, $id_carrera_materia = 0){
+        $material = array();
+        $nro = 0;
+        if ($id_periodo > 0){
+            $material = $this->academico_model->get_material_apoyo(array('ID_PERIODO_ACADEMICO'=>$id_periodo));
+        }elseif($id_carrera_materia > 0){
+            $material = $this->academico_model->get_material_apoyo(array('ID_CARRERA_MATERIA'=>$id_carrera_materia));
+        }
+        if(count($material)>0){
+            foreach ($material as $m){
+                if ($m['TIPO_MATERIAL_APOYO'] == 1){
+                    //Eliminar archivo
+                    unlink(FCPATH.'/archivos/contenidos/material/'.$m['MATERIAL']);
+                }
+                $this->academico_model->eliminar_material_apoyo($m['ID_MATERIAL_APOYO']);
+                $nro ++;
+            }
+        }
+        echo "Registros eliminados: ".$nro;
+    }
+
+	//////////////////////////////////////////////////////////////////
+	public function estadisticasDocente($idPlanificacion){
+		$materias  =$this->academico_model->listado_contenido(array('ID_PLANIFICACION'=>$idPlanificacion));
+		$materia=NULL;
+
+		$asistenciaPendiente=0;
+		$informePendiente=0;
+		$materia_normativa = 0;
+		$total_talleres_calificados = 0;
+		$total_proyectos_pendientes = 0;
+		$total_proyectos_calificados = 0;
+		$total_asistencia_calificada = 0;
+
+		$num_proyectos = 0;
+
+		if(count($materias)>0){
+			$materia=$materias[0];
+			//verificar proceso academico del docente
+			$dato_contenido=$this->academico_model->getContenidoMateria($materia['ID_CARRERA_MATERIA'],$materia['ID_PERIODO_ACADEMICO'],$materia['ID_PLANTILLA']);
+			$estudiantes=$this->academico_model->get_estudiantes(array('ID_CARRERA_MATERIA'=>$materia['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$materia['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$materia['ID_GRUPO']));
+			$total_estudiantes = 0;
+			if(count($estudiantes)>0){
+				$total_estudiantes = count($estudiantes);
+			}
+			if($dato_contenido['ID_CONTENIDO']!=null and $dato_contenido['ID_CONTENIDO'] != ''){
+				$dat['ID_CONTENIDO']=$dato_contenido['ID_CONTENIDO'];
+				$dat['TIPO']=1;
+				$num_proyectos=count($this->academico_model->getRetosProyectosContenido($dat));
+			}
+			
+			$num_talleres= (int) $this->academico_model->num_talleres_estudiantes(array('ID_CARRERA_MATERIA'=>$materia['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$materia['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$materia['ID_GRUPO'],'ID_PLANTILLA'=>$materia['ID_PLANTILLA']));
+			// print_r($num_talleres);
+			foreach($estudiantes as $estudiante){
+				//TALLERES
+				if($estudiante['ASISTENCIA_JUSTIFICADA']==0){
+					$num_talleres_calificadas = 0;
+					$talleres_calificadas    = $this->academico_model->talleres_calificadas_estudiante($estudiante['ID_PERSONA'],array('ID_CARRERA_MATERIA'=>$materia['ID_CARRERA_MATERIA'],'ID_PERIODO_ACADEMICO'=>$materia['ID_PERIODO_ACADEMICO'],'ID_GRUPO'=>$materia['ID_GRUPO'],'ID_PLANTILLA'=>$materia['ID_PLANTILLA']));
+					foreach($talleres_calificadas as $taller_calificada){
+						if($taller_calificada['CALIFICACION']!=NULL and $taller_calificada['CALIFICACION']!=''){
+							$num_talleres_calificadas+=1;
+							$total_talleres_calificados++;
+						}
+					}
+				}
+				//PROYECTOS
+				
+				// print_r($proyectos_realizados);
+				if($dato_contenido['ID_CONTENIDO']!=null and $dato_contenido['ID_CONTENIDO']!=''){
+					$proyectos_realizados=$this->academico_model->proyectos_realizados_estudiante($estudiante['ID_PERSONA'],$dato_contenido['ID_CONTENIDO']);
+				}else{
+					$proyectos_realizados = array();
+				}
+				foreach($proyectos_realizados as $proyecto_realizado){
+					if($proyecto_realizado['CALIFICACION']==NULL or $proyecto_realizado['CALIFICACION']==''){
+						// $proyectoPendiente++;
+						$total_proyectos_pendientes++;
+					}else{
+						$total_proyectos_calificados++;
+					}
+				}
+				//ASISTENCIA
+				$opc=array();
+				$opc['ID_ESTUDIANTE_CARRERA_MATERIA']=$estudiante['ID_ESTUDIANTE_CARRERA_MATERIA'];
+				$opc['ID_COMPONENTE']=0;
+				$opc['ID_TIPO_CALIFICACION']=4;//asistencia
+				$nota_asistencia = $this->academico_model->get_calificaciones($opc);
+				if(count($nota_asistencia)>0){
+					if($nota_asistencia[0]['CALIFICACION']==NULL or $nota_asistencia[0]['CALIFICACION']==''){
+						$asistenciaPendiente++;
+					}else{
+						$total_asistencia_calificada++;
+					}
+				}else{
+					$asistenciaPendiente++;
+				}
+			}
+			
+			//INFORME
+			$dati['ID_PERIODO_ACADEMICO']=$materia['ID_PERIODO_ACADEMICO'];
+			$dati['ID_MATERIA']=$materia['ID_CARRERA_MATERIA'];
+			$dati['ID_GRUPO']=$materia['ID_GRUPO'];
+			$dati['TIPO']=1;
+			$dati['ID_PLANTILLA']=$materia['ID_PLANTILLA'];
+			$informe=$this->academico_model->get_informe($dati);
+			if(count($informe)<=0){
+				$informePendiente=1;
+			}
+			
+			//filtrar materia normativa que no tiene taller ni proyecto
+			if($materia['MATERIA']=="NORMATIVA INSTITUCIONAL Y DESARROLLO DEL PLAN DE GRADUACIÓN"){
+				$materia_normativa = 1;
+				$estadistica['TALLERES']['total_talleres_calificados']= 1;
+                $estadistica['TALLERES']['total_talleres_pendientes']= 0;
+
+				$estadistica['PROYECTOS']['total_proyectos_calificados']= 1;
+                $estadistica['PROYECTOS']['total_proyectos_pendientes']= 0;
+
+			}else{
+				if($num_talleres == 0){
+					$estadistica['TALLERES']['total_talleres_calificados'] = 0;
+					$estadistica['TALLERES']['total_talleres_pendientes']= 1;
+				}else{
+					$estadistica['TALLERES']['total_talleres_estudiantes']=$total_estudiantes*$num_talleres;
+					$estadistica['TALLERES']['total_talleres_calificados']=$total_talleres_calificados;
+					$estadistica['TALLERES']['total_talleres_pendientes']=$estadistica['TALLERES']['total_talleres_estudiantes']-$total_talleres_calificados;
+				}
+
+				if($num_proyectos == 0){
+					$estadistica['PROYECTOS']['total_proyectos_calificados']= 0;
+                	$estadistica['PROYECTOS']['total_proyectos_pendientes']= 1;
+				}else{
+					$estadistica['PROYECTOS']['total_proyectos_calificados']=$total_proyectos_calificados;
+					$estadistica['PROYECTOS']['total_proyectos_pendientes']=$total_proyectos_pendientes;
+				}
+			}
+			
+			$estadistica['TALLERES']['num_talleres']=$num_talleres;
+			$estadistica['TALLERES']['materia_normativa']=$materia_normativa;
+			
+			$estadistica['PROYECTOS']['num_proyectos']=$num_proyectos;
+			$estadistica['PROYECTOS']['materia_normativa']=$materia_normativa;
+
+			// print_r($estadistica['TALLERES']);
+
+			$estadistica['ASISTENCIAS']['materia_normativa']=$materia_normativa;
+			$estadistica['ASISTENCIAS']['total_asistencia_calificada']=$total_asistencia_calificada;
+			$estadistica['ASISTENCIAS']['total_asistencia_pendiente']=$asistenciaPendiente;
+			$estadistica['INFORME']['informe_pendiente']=$informePendiente;
+		}
+		return ($estadistica);
+	}
+
 }
